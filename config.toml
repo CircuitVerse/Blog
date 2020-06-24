@@ -1,0 +1,7 @@
+baseURL = "https://blog.circuitverse.org"
+languageCode = "en-us"
+title = "CircuitVerse Blog"
+theme = "ananke"
+[params]
+  show_reading_time = true
+  site_logo = "img/logo.svg"
