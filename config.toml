@@ -4,4 +4,4 @@ title = "CircuitVerse Blog"
 theme = "ananke"
 [params]
   show_reading_time = true
-  site_logo = "img/logo.svg"
+  site_logo = "/img/logo.svg"
