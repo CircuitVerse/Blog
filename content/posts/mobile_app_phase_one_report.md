@@ -7,7 +7,7 @@ draft: false
 The first evaluations happened from June 29th to July 3rd and Yay.. I Passed!!! This blog post comes as a summary to the amazing work done in the first phase of Google Summer of Code.
 
 <p align="center">
-	<img src="/img/first_eval_dashboard.png">
+	<img src="/img/first_eval_dashboard.png" alt = "First Evaluations Passed">
 </p>
 
 The mobile_app project was primarily focussed on two sub projects as follows:
@@ -60,7 +60,7 @@ Related PR : [#1482](https://github.com/CircuitVerse/CircuitVerse/pull/1482)(Mer
 A total of 164 specs/examples were added in view of the CircuitVerse API. The codeclimate coverage marked an increase of about 5%. Yay!
 
 <p align="center">
-	<img src="/img/api_test_suite.png">
+	<img src="/img/api_test_suite.png" alt = "API Test suite">
 </p>
 
 ### API Documentation
@@ -128,7 +128,7 @@ Adding, Updating & deleting Assignments were also implemented during the first p
 By end of phase one, 10 in all [PRs](https://github.com/CircuitVerse/CircuitVerse/pulls/Nitish145), 7 have been merged, 3 are under constructive review. Contributed about 3500 lines of code in a total of 20 commits. Thanks CircuitVerse.
 
 <p align="center">
-	<img src="/img/contributions_phase_one_mobile_app.png" width="300px">
+	<img src="/img/contributions_phase_one_mobile_app.png" width="300px" alt = "Mobile App Contributions">
 </p>
 
 ## Next Steps
