@@ -4,7 +4,7 @@ date: 2020-07-09T08:51:49+05:30
 draft: true
 ---
 
-The first evaluations happened from June 29th to July 3rd and Yaaass.. I Passed!!! This blog post comes as a summary to the amazing work done in the first phase of Google Summer of Code.
+The first evaluations happened from June 29th to July 3rd and Yay.. I Passed!!! This blog post comes as a summary to the amazing work done in the first phase of Google Summer of Code.
 
 <p align="center">
 	<img src="/img/first_eval_dashboard.png">
@@ -19,7 +19,7 @@ The mobile_app project was primarily focussed on two sub projects as follows:
 
 Before the GSoC period CircuitVerse was primarily focussed for the Web. We have this very amazing [simulator](http://circuitverse.org/simulator), ability to create groups, beautiful circuits, assignments with grading obviously <3 and a lot more features. make sure to check them out on our [website](https://circuitverse.org/). Thanks to our amazing community, [@satu0king](https://github.com/satu0king), [@tachyons](http://github.com/tachyons/) & [@nitin10s](https://github.com/nitin10s).
 
-CircuitVerse now plans to expaaand.. GSoC 2020 basically aims at improving the Simulator and Web UI, structuring & refactoring the huge JS codebase, offline electron app, the mobile_app and implementing API.
+CircuitVerse now plans to expand.. GSoC 2020 basically aims at improving the Simulator and Web UI, structuring & refactoring the huge JS codebase, offline electron app, the mobile_app and implementing API.
 
 <br/>
 
@@ -65,7 +65,7 @@ A total of 164 specs/examples were added in view of the CircuitVerse API. The co
 
 ### API Documentation
 
-The complete API documentation has also been added using [slate](https://github.com/slatedocs/slate/). PR [#1512](https://github.com/CircuitVerse/CircuitVerse/pull/1512) is under review, the next step being adding continous deployment for the documentation.
+The complete API documentation has also been added using [slate](https://github.com/slatedocs/slate/). PR [#1512](https://github.com/CircuitVerse/CircuitVerse/pull/1512) is under review, the next step being adding continuous deployment for the documentation.
 
 > No rubocop recommendations were harmed during API development xD
 
@@ -133,7 +133,7 @@ By end of phase one, 10 in all [PRs](https://github.com/CircuitVerse/CircuitVers
 
 ## Next Steps
 
-In the second phase, primarily i plan to implement the remaining sections, view & viewmodel bindings with some impovements to the existing codebase, FCM notifs etc.. Also, I would be now actively putting up PRs for different feature requests in the [mobile_app](https://github.com/CircuitVerse/mobile-app). If everything works out well, the MVP for CV Mobile App shall be expected by the end of second phase.. <3
+In the second phase, primarily i plan to implement the remaining sections, view & viewmodel bindings with some improvements to the existing codebase, FCM notifications etc.. Also, I would be now actively putting up PRs for different feature requests in the [mobile_app](https://github.com/CircuitVerse/mobile-app). If everything works out well, the MVP for CV Mobile App shall be expected by the end of second phase.. <3
 
 ## Experience
 
