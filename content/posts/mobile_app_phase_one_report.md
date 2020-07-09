@@ -2,6 +2,7 @@
 title: "Mobile App: Phase One Report"
 date: 2020-07-09T08:51:49+05:30
 draft: false
+author: Nitish Aggarwal ([Nitish145](https://github.com/Nitish145))
 ---
 
 The first evaluations happened from June 29th to July 3rd and Yay.. I Passed!!! This blog post comes as a summary to the amazing work done in the first phase of Google Summer of Code.
