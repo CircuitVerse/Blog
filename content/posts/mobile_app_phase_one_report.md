@@ -26,7 +26,7 @@ CircuitVerse now plans to expand.. GSoC 2020 basically aims at improving the Sim
 
 ### Authentication & Users API
 
-For authenticating users, token auth is being used to `encode` user data and return the token for successful login/signup. The `private_key.pem` can also be fetched in `/private_key.pem` which could be used to `decode` the token to fetch user info on client side. Also added `/password/forgot` to send reset password instructions. Coming onto users, all users public info is made available at `/users` & logged in user at `/me`.
+For authenticating users, token auth is being used to `encode` user data and return the token for successful login/signup. The `public_key.pem` can also be fetched in `/public_key.pem` to validate the token signature. Also added `/password/forgot` to send reset password instructions. Coming onto users, all users public info is made available at `/users` & logged in user at `/me`.
 
 Related PRs: [#1431](https://github.com/CircuitVerse/CircuitVerse/pull/1431)(Merged), [#1510](https://github.com/CircuitVerse/CircuitVerse/pull/1510)(Under Review).
 
