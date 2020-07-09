@@ -6,9 +6,7 @@ draft: false
 
 The first evaluations happened from June 29th to July 3rd and Yay.. I Passed!!! This blog post comes as a summary to the amazing work done in the first phase of Google Summer of Code.
 
-<p align="center">
-	<img src="/img/first_eval_dashboard.png" alt = "First Evaluations Passed">
-</p>
+![First Evaluations Passed][/img/first_eval_dashboard.png]
 
 The mobile_app project was primarily focussed on two sub projects as follows:
 
@@ -59,9 +57,7 @@ Related PR : [#1482](https://github.com/CircuitVerse/CircuitVerse/pull/1482)(Mer
 
 A total of 164 specs/examples were added in view of the CircuitVerse API. The codeclimate coverage marked an increase of about 5%. Yay!
 
-<p align="center">
-	<img src="/img/api_test_suite.png" alt = "API Test suite">
-</p>
+![API Test Suite][/img/api_test_suite.png]
 
 ### API Documentation
 
@@ -85,51 +81,41 @@ Related PR : [#1](https://github.com/CircuitVerse/mobile-app/pull/1)
 
 The first step was adding the static views i.e which generally don't require viewmodel bindings. The `home_view`, `teachers_view`, `about_view`, `contribute_view` falls under this category.
 
-<p align="center" >
-    <img src="/img/home_view.gif" title="Home View" width="150px" >
-    <img src="/img/teachers_view.gif" title="Teachers View" width="150px" >
-    <img src="/img/about_view.gif" title="About View" width="150px" >
-    <img src="/img/contribute_view.gif" title="Contribute View" width="150px" >
-</p>
+![Home View][/img/home_view.gif =150x]
+![Teachers View][/img/teachers_view.gif =150x]
+![About View][/img/about_view.gif =150x]
+![Contribute View][/img/contribute_view.gif =150x]
 
 ### Authentication Views
 
 I have added `login_view` & `signup_view` with appropriate `viewmodel` bindings set up. Forgot password API has also been implemented..
 
-<p align="center" >
-    <img src="/img/signup_view.gif" title="Signup View" width="150px" >
-    <img src="/img/login_view.gif" title="Login View" width="150px" >
-</p>
+![Signup View][/img/signup_view.gif =150x]
+![Login View][/img/login_view.gif =150x]
 
 ### Group's Views
 
 The CV Mobile App can show you the groups you mentor or belongs to in `my_groups_view`, related members and assignments in `group_details_view`. Adding/Deleting groups members are also click of a button away :)
 
-<p align="center" >
-    <img src="/img/my_groups_view.gif" title="My Groups View" width="160px" >
-    <img src="/img/group_details_view.gif" title="Group Details View" width="160px" >
-    <img src="/img/group_update.gif" title="Update Group" width="160px" >
-    <img src="/img/add_group_member.gif" title="Add Group Member" width="160px" >
-    <img src="/img/delete_group_member.gif" title="Delete Group Member" width="160px" >
-</p>
+![My Groups View][/img/my_groups_view.gif =160x]
+![Group Details View][/img/group_details_view.gif =160x]
+![Update Group][/img/group_update.gif =160x]
+![Add Group Member][/img/add_group_member.gif =160x]
+![Delete Group Member][/img/delete_group_member.gif =160x]
 
 ### Assignment Views
 
 Adding, Updating & deleting Assignments were also implemented during the first phase..
 
-<p align="center" >
-    <img src="/img/add_assignment.gif" title="Add Assignment" width="150px" >
-    <img src="/img/update_assignment.gif" title="Update Assignment" width="150px" >
-    <img src="/img/delete_assignment.gif" title="Delete Assignment" width="150px" >
-</p>
+![Add Assignment][/img/add_assignment.gif =150x]
+![Update Assignment][/img/update_assignment.gif =150x]
+![Delete Assignment][/img/delete_assignment.gif =150x]
 
 ## Contributions
 
 By end of phase one, 10 in all [PRs](https://github.com/CircuitVerse/CircuitVerse/pulls/Nitish145), 7 have been merged, 3 are under constructive review. Contributed about 3500 lines of code in a total of 20 commits. Thanks CircuitVerse.
 
-<p align="center">
-	<img src="/img/contributions_phase_one_mobile_app.png" width="300px" alt = "Mobile App Contributions">
-</p>
+![Contributions][/img/contributions_phase_one_mobile_app.png =300x]
 
 ## Next Steps
 
