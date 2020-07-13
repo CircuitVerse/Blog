@@ -1,5 +1,5 @@
 ---
-title: CircuitVerse and Interactive Book Improvements: Phase 1 Report
+title: "CircuitVerse and Interactive Book Improvements: Phase 1 Report"
 date: 2020-07-13T13:52:00+05:30
 draft: false
 author: Aayush Gupta ([aayush-05](https://github.com/aayush-05))
