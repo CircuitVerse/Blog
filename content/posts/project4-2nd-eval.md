@@ -20,6 +20,7 @@ Status: ***passed***
 &nbsp;
 
 #### Overview:
+
 This Project aims to bring themes on the CircuitVerse' Simulator application. The main inspiration for this project is to let users have options for the look & feel of the interface that they works on, one main aspect of this project is to make the simulator usable, more accessible to the color blinded users.
 
 As the current theme of the simulator wasn't made on a color-blind color palette. The Project has completed bringing in about 5 different color themes & 1 specially curated theme for the color blinded. There is a plan to extend this feature to let users generate their custom-made theme for leveling up the user customization to a very high end.
