@@ -1,5 +1,5 @@
 ---
-title: "CircuitVerse and Interactive Book Improvements: Phase 1 Report"
+title: "CircuitVerse Platform Improvements: Phase 1 Report"
 date: 2020-07-13T13:52:00+05:30
 draft: false
 author: Aayush Gupta ([aayush-05](https://github.com/aayush-05))
@@ -9,7 +9,7 @@ Yay! I cleared my GSoC First Evaluations and look at the amazing feedback I got 
 
 ![First Evaluations](/img/Aayush_First_Evaluation.PNG)
 
-Let us discuss the work I have accomplished so far. 
+Let us discuss the work I have accomplished so far.
 The very first and probably the most humongous portion of my project is Revamping CircuitVerse web application and Getting the respective frontend codebase refactored with both Design and Code standards in place.
 
 ![UI Redesign](/img/HomeScreen_Changes.png)
@@ -26,6 +26,3 @@ Finally, I will be cleaning some code and formally documenting the Design and UI
 
 You can have a look at all the work I have done [here](https://github.com/CircuitVerse/CircuitVerse/pulls?q=is%3Apr+author%3Aaayush-05+).
 Going forward, I will be diving into backend portion implementing a few user-requested features and making the platform GDPR compliant to be launched up in EU regions.
-
-
-
