@@ -53,16 +53,16 @@ Activities:
 
 Activities:
 
-1. Breaking apart the current User Interace, transitioning to new User Interface on a separate [branch](https://github.com/CircuitVerse/CircuitVerse/tree/new_UI).
+1. Breaking apart the current User Interface, transitioning to new User Interface on a separate [branch](https://github.com/CircuitVerse/CircuitVerse/tree/new_UI).
 2. Generating the SMACSS architecture [schema](https://github.com/CircuitVerse/CircuitVerse/tree/new_UI/public/css) for breaking down the old stylesheet into new [main.stylesheet.css](https://github.com/CircuitVerse/CircuitVerse/blob/new_UI/public/css/main.stylesheet.css).
 3. Generating all [assets](https://github.com/CircuitVerse/CircuitVerse/tree/new_UI/public/css/assets) required for the UI.
-5. Addition of UI plugins in order to achive custom shadow elements.
+5. Addition of UI plugins in order to achieve custom shadow elements.
 6. Complete restructuring of [edit.html.erb](https://github.com/CircuitVerse/CircuitVerse/blob/new_UI/app/views/simulator/edit.html.erb).
-7. Blogs wrote during this phase (in-order): [blog 0](https://medium.com/@abstrekt/gsoc-coding-phase-week-1-9cd5c78c8a10), [Blog 1](https://medium.com/@abstrekt/gsoc-week-2-keydown-87776a3cdab2), [Blog 2](https://medium.com/@abstrekt/first-evaluation-1610c33e694f).
+7. Blogs wrote during this phase (in-order): [blog 0](https://medium.com/@abstrekt/gsoc-coding-phase-week-1-9cd5c78c8a10), [Blog 1](https://medium.com/@abstrekt/gsoc-week-2-keydown-87776a3cdab2), [Blog 2](https://medium.com/@abstrekt/first-evaluation-1610c33e694f), [Blog 3](https://blog.circuitverse.org/posts/project-4/).
 
 #### TODOs:
 
-- [ ] The SMACSS archtiecture were created but un-used due to webpacker setup unavailability, needs to break down [main.stylesheet.css](https://github.com/CircuitVerse/CircuitVerse/blob/new_UI/public/css/main.stylesheet.css) into their dedicated files/folder structure.
+- [ ] The SMACSS architecture were created but un-used due to webpacker setup unavailability, needs to break down [main.stylesheet.css](https://github.com/CircuitVerse/CircuitVerse/blob/new_UI/public/css/main.stylesheet.css) into their dedicated files/folder structure.
 - [x] Merging [Webpacker](https://github.com/CircuitVerse/CircuitVerse/tree/stories/webpack_setup) branch into [NewUI](https://github.com/CircuitVerse/CircuitVerse/tree/new_UI) branch.
 
 &nbsp;
@@ -78,16 +78,17 @@ Activities:
 5. Core logic generation for hotkeys & [actions](https://github.com/CircuitVerse/CircuitVerse/pull/1475/commits/b330aef1f65cf4a7c5ebc75c3bf95665c7d750a2#diff-f978a9831c3ff5fc6f243872ae6731cf) file.
 7. Added keyevent normalization [library](https://github.com/CircuitVerse/CircuitVerse/pull/1475/commits/abf1bf27842d46c1ed6b62c95421cd2c3a781f98).
 8. Merging [Webpacker](https://github.com/CircuitVerse/CircuitVerse/tree/stories/webpack_setup) branch into [NewUI](https://github.com/CircuitVerse/CircuitVerse/tree/new_UI) branch through [PR](https://github.com/CircuitVerse/CircuitVerse/pull/1519/commits).
-9. Addition of color variables, changing all hexcode into css vars & separting all theme related ruleset it into [```color_theme.scss```](https://github.com/CircuitVerse/CircuitVerse/pull/1520/files?file-filters%5B%5D=.css&file-filters%5B%5D=.scss#diff-b9b8812305a12ea85f0e281b3e90dfbb).
+9. Addition of color variables, changing all hexcode into css vars & separating all theme related ruleset it into [```color_theme.scss```](https://github.com/CircuitVerse/CircuitVerse/pull/1520/files?file-filters%5B%5D=.css&file-filters%5B%5D=.scss#diff-b9b8812305a12ea85f0e281b3e90dfbb).
 10. Core logic generation of color themer.
 11. Editing all ```module\js --> customDraw()``` from hardcoded color code to query from DOM.
 12. Research about colors, generating color palettes, building themes [mock-ups](https://xd.adobe.com/view/f791691e-cf90-4b7f-a180-b26582b5b515-a2c2/?fullscreen).
 13. Weekly e-meets about project related work.
-14. Blogs written during this phase [Blog](https://medium.com/@abstrekt/gsoc-2020-second-phase-evaluation-report-5cc86e31e5cf?source=your_stories_page---------------------------)
+14. Blogs written during this phase [Blog 0](https://medium.com/@abstrekt/gsoc-2020-second-phase-evaluation-report-5cc86e31e5cf?source=your_stories_page---------------------------), [Blog 1](https://blog.circuitverse.org/posts/project4-2nd-eval/).
 
 #### TODOs:
 
 - [x] Make use of webpacker for the hotkey feature, moving all files from ```/js``` to ```/src```, making use of modular javascript.
+- [ ] Make themer more efficient by grouping & reducing number of color variables.
 
 &nbsp;
 &nbsp;
@@ -103,7 +104,7 @@ Activities:
 5. Module property & Element panels [minimization](https://github.com/CircuitVerse/CircuitVerse/pull/1585/commits/003a013cd63dee1af84d6fe8aaad395a31297519) ability.
 6. Added circuit [preview](https://github.com/CircuitVerse/CircuitVerse/pull/1585/commits/0d23ac1d4ca524c2577ae0155acd2c22dba08a13) feature.
 7. Multi-add element on ```Ctrl``` hold ability.
-9. Modular hoktkey files, making use of webpacker.
+9. Modular hotkey files, making use of webpacker.
 10. Regular e-meets about project related work.
 11. Blogs written during this phase [blog 0](https://medium.com/@abstrekt/gsoc-2020-final-phase-report-1-f3ff405a5922), [blog 1](#)
 12. Various [UI-fixes](https://github.com/CircuitVerse/CircuitVerse/pull/1584/commits).
@@ -111,12 +112,31 @@ Activities:
 
 #### TODOs:
 
-- [ ] For complete touch screen support major UI changes required for a touch detected device, as well as changing core logic of ```simulationArea``` to accomodate support.
+- [ ] For complete touch screen support major UI changes required for a touch detected device, as well as changing core logic of ```simulationArea``` to accommodate support.
 - [ ] Elements overlapping inside the canvas should be avoided, currently there is no proper logic to detect element objects present/placed inside the canvas. Further research required on the canvas & logic.
 - [ ] ```"What's new"``` popup to be built, presenting the various changes/features done on the simulator.
 - [ ] Partialize SVG from [edit.html.erb](https://github.com/CircuitVerse/CircuitVerse/blob/new_UI/app/views/simulator/edit.html.erb) & reduce file line length.
 
 
+
+&nbsp; 
+&nbsp; 
+
+#### Future Development
+
+- Working on the simulator is a real challenge even enabling touch listeners, the same logic of the simulator are used for the touch listeners as for the others, a proper implementation would be have a new set of logic particularly for the touch screens, one can also look at library such as [Hammer.js](https://hammerjs.github.io/), possibly integrating it with the simulator could be highly benificial. Also, User Interface changes would be required for element that are non-operable without a pointing device.
+- Not letting elements overlap inside the canvas is another challenge, as HTML canvas element doesn't holds position of elements drawn, even though there is ```x, y``` coordinates are defined in the ```simulationArea``` object, we'd need more than just hold coordinates, as dimension of each elements differs & elements can be moved inside the canvas thus more research is needed on this.
+- Even though the color blind theme was made using a color blind color palette, it's still not tested or built by someone who's a professional in this field, it requires further improvement & feedback from actual target user.
+- The themer of simulator can further be extended to make it more customizable by letting user customize particular elements &/or even let them build a complete theme for the simulator through the client side itself.
+
+&nbsp; 
+&nbsp; 
+
+#### Experience:
+
+I never thought I would be spending the summer of 2020 as a GSoC student developer, being very excited & thrilled being selected I started working immediately after the announcement of the student projects. The summer was quite different having a pandemic going on & everybody held on their homes, but I had a very productive 4 months learning & growing with this program. 
+
+The most important skill I had learning during this period is to not stress out too much on something for a long period if things aren't coming out as expected, sometimes we need to hold back & take a break, one could spend hours or days trying to solve some bugs on some days, but might just take a few minutes on some other days. The key is to look at a problem with a fresh perspective & a clear mind.
 
 &nbsp; 
 &nbsp; 
