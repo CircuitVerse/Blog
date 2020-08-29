@@ -1,4 +1,4 @@
-baseURL = "https://cvblog.netlify.app"
+baseURL = "https://blog.circuitverse.org/"
 languageCode = "en-us"
 title = "CircuitVerse Blog"
 theme = "ananke"
