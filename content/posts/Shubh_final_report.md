@@ -13,7 +13,7 @@ My proposal has 3 parts Making a Separate Repository and Refactoring Simulator C
 
 ## Phase 1:
 
-In my proposal I planned to dive right into the toughest parts and start refactoring them but there were some open issues that needed to be merged before I could start refactoring. So in our first meeting we decided I should start from documentation first and then get into refactoring. This was a blessing because while documenting I learnt that there were some assumtions I was going to make while refactoring which were baseless. 
+In my proposal I planned to dive right into the toughest parts and start refactoring them but there were some open issues that needed to be merged before I could start refactoring. So in our first meeting we decided I should start from documentation first and then get into refactoring. This was a blessing because while documenting I learnt that there were some assumptions I was going to make while refactoring which were baseless. 
 For documenting each file, I used JSDoc. JSDoc can auto-generate HTML pages for Documentation based on comments in files which gives more meaning to comments and also leads to an easily readable and navigable Documentation.
 I started off with files that I had read about a hundred times during the research period and proceeded to ones I never felt the need to read before. It was a good learning opportunity because now that I have documented each and every function and I know (or at least I hope I do) what every function does in those 34 files with 30k+ lines. I have added at least 2400 lines of comments and fixed some linting issues. With a PR of line difference 13323, even the code climate bot has given up. 
 link to the [documentation](http://shubhankarsharma00.tech/out/index.html).
@@ -42,7 +42,7 @@ In the second phase of my project I worked on:
 
 + Completed testing, added tests for all elements and some more UI corner cases.
 
-In the seprate Repository I set up webpack (initially all work was on webpacker gem in Ruby on Rails) Then I made adjustments for an environment in which a developer will be able to make changes and implement feautures easily. There is a UI revamp project which ended just and I will be working on merging the UI changes to this repository and after setting all this I plan on adding this as a submodule to the rails app repository.
+In the separate Repository I set up webpack (initially all work was on webpacker gem in Ruby on Rails) Then I made adjustments for an environment in which a developer will be able to make changes and implement features easily. There is a UI revamp project which ended just and I will be working on merging the UI changes to this repository and after setting all this I plan on adding this as a submodule to the rails app repository.
 
 
 Also I set up testing for simulator these tests are written in JEST and I have automated github action to test the newest code pushed onto master or incase there is a new PR on it. Report on these test can be seen [here](https://github.com/shubhankarsharma00/Cv-frontend/actions)
@@ -54,9 +54,17 @@ Second Evaluation
 
 ## Phase 3:
 
-The third phase was the electron app. I used the same repo I seprated in phase 2 as a submodule and modified it to do some web specific stuff differently using isElectron module. The electron app has all the features that the online simulator has but the save offline feature actually saves stuff offline in your file manager instead of browser localStorage. You can open this code online and you can also save circuits online from save offline feature. 
+The third phase was the electron app. I used the same repo I separated in phase 2 as a submodule and modified it to do some web specific stuff differently using isElectron module. The electron app has all the features that the online simulator has but the save offline feature actually saves stuff offline in your file manager instead of browser localStorage. You can open this code online and you can also save circuits online from save offline feature. 
 
-The Seprate repository can be found [here](https://github.com/shubhankarsharma00/cv-electron)
+The separate repository can be found [here](https://github.com/shubhankarsharma00/cv-electron)
+
+![Outlook](/img/electron-app.jpg)
+With an offline save, online save, and basic editor menu options.
+![Outlook](/img/electron-app-save.jpg)
+
+## Further Work:
+After GSoC I will be working on integrating the new UI work (which has been done for the simulator) with the offline app and moving the current codebase to a separate repo officially. 
+I will also be helping in the work left on SubCircuits.
 
 ## Epilogue:
 
