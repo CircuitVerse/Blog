@@ -11,3 +11,6 @@ Blog for updates from circuitverse
 ```bash
 hugo new posts/my_new_post.md
 ```
+
+# Run Instructions
+Start Server: `hugo server -D` 
