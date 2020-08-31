@@ -2,7 +2,8 @@
 title: "Project 4: Second Evaluation"
 date: 2020-08-05T18:35:54+05:30
 draft: false
-author: Samiran Konwar [[Abstrekt](https://linkedin.com/in/Abstrekt)]
+author: Samiran Konwar
+type: post
 ---
 
 Status: ***passed***

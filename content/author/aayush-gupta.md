@@ -1,6 +1,7 @@
----
-title: "Aayush Gupta"
-date: 2020-08-31T10:59:29+05:30
-draft: true
----
++++
+title = "Aayush Gupta"
+image = "/img/authors/aayush-05.jpeg"
+description = "Front end developer"
++++
 
+Aayush - Enter Details here

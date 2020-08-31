@@ -4,7 +4,6 @@ date: 2020-08-28T16:16:00+05:30
 draft: false
 author: Aayush Gupta
 type: post
-draft: false
 ---
 
 This is the final Blog Report summarizing the work done during Google Summer of Code 2020.

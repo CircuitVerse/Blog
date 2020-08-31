@@ -4,11 +4,11 @@ title = "CircuitVerse Blog"
 theme = "northendlab-hugo"
 ############################ Default configuration #########################
 # post pagination
-paginate = "5"
+paginate = "50"
 # post excerpt
 summaryLength = "10"
 # disqus short name
-disqusShortname = "" # get your shortname form here : https://disqus.com
+disqusShortname = "blog-circuitverse-org" # get your shortname form here : https://disqus.com
 
 [outputs]
 home = ["HTML", "AMP", "RSS", "JSON"]
@@ -62,7 +62,7 @@ google_tag_manager = "" # your id
 # google analitycs ID
 google_analitycs_id = "" # your id
 # contact form action
-contact_form_action = "#" # contact form works with : https://formspree.io
+contact_form_action = "https://formspree.io/support@circuitverse.org" # contact form works with : https://formspree.io
 # copyright
 copyright = "&copy; 2020 [Circuitverse](https://circuitverse.org) All Rights Reserved"
 
@@ -78,33 +78,33 @@ enable = true
 
 ####################### banner #######################################
 [params.banner]
-bgImage = "images/banner/banner-bg.svg"
-title = "Circuitverse banner test"
-image = "images/banner/illustration.svg"
+bgImage = "/img/blog-assets/banner-bg.svg"
+title = "Dive into the world of Logic Circuits for free!"
+image = "/img/blog-assets/banner.png"
 
 
 ######################## call to action ###############################
 [params.cta]
 enable = true
-image = "images/hugo-muscot.svg"
+image = "/img/blog-assets/cv.png"
 title = "Create circuits"
-description = "circuitverse cta description"
+description = "From simple gates to complex sequential circuits, plot timing diagrams, automatic circuit generation, explore standard ICs, and much more"
 [params.cta.button]
 enable = true
-label = "Visit Here"
+label = "Check it out"
 link = "https://circuitverse.org"
 
 
 ############################## Social Site ##########################
 [[params.social]]
 icon = "ti-facebook" # themify icon pack https://themify.me/themify-icons
-link = "#"
+link = "https://www.facebook.com/CircuitVerse"
 [[params.social]]
 icon = "ti-twitter-alt" # themify icon pack https://themify.me/themify-icons
-link = "#"
+link = "https://twitter.com/CircuitVerse"
 [[params.social]]
 icon = "ti-github" # themify icon pack https://themify.me/themify-icons
 link = "https://github.com/Circuitverse/Circuitverse"
 [[params.social]]
 icon = "ti-linkedin" # themify icon pack https://themify.me/themify-icons
-link = "#"
+link = "https://www.linkedin.com/company/circuitverse"

@@ -3,6 +3,7 @@ title: "Final Report for GSoC 2020"
 date: 2020-08-26T17:14:55+05:30
 draft: false
 author: Samiran Konwar
+type: post
 ---
 
 This is the report produced as a part of the final evaluation of the GSoC 2020 project titled [Enhancing Simulator User Interface](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2720-Project-List#project-4---enhancing-simulator-user-interface) with the organization [CircuitVerse](https://github.com/CircuitVerse/CircuitVerse).
