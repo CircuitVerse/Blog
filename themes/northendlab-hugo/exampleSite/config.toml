@@ -1,14 +1,16 @@
-baseURL = "https://blog.circuitverse.org/"
-languageCode = "en-us"
-title = "CircuitVerse Blog"
-theme = "northendlab-hugo"
 ############################ Default configuration #########################
+baseURL = "https://examplesite.com/"
+languageCode = "en-us"
+# site title 
+title = "Northendlab | Blog Template"
+# theme
+theme = "northendlab-hugo"
 # post pagination
 paginate = "5"
 # post excerpt
 summaryLength = "10"
 # disqus short name
-disqusShortname = "blog-circuitverse-org" # get your shortname form here : https://disqus.com
+disqusShortname = "" # get your shortname form here : https://disqus.com
 
 [outputs]
 home = ["HTML", "AMP", "RSS", "JSON"]
@@ -42,29 +44,40 @@ URL = "contact"
 name = "Contact"
 weight = 1
 
+[[menu.main]]
+URL = "tools"
+name = "tools"
+weight = 2
+
 # footer menu
 [[menu.footer]]
 URL = "contact"
 name = "Contact"
 weight = 1
 
+[[menu.footer]]
+URL = "tools"
+name = "tools"
+weight = 2
+
+
 ######################### Default Parameters ###########################
 [params]
 # home
 home = "Home"
 # logo
-logo = "img/logo.svg"
+logo = "images/logo.svg"
 # meta data
-author = "Circuitverse"
+author = "Themefisher"
 description = "This is meta description"
 # google tag manager
 google_tag_manager = "" # your id
 # google analitycs ID
 google_analitycs_id = "" # your id
 # contact form action
-contact_form_action = "https://formspree.io/support@circuitverse.org" # contact form works with : https://formspree.io
+contact_form_action = "#" # contact form works with : https://formspree.io
 # copyright
-copyright = "&copy; 2020 [Circuitverse](https://circuitverse.org) All Rights Reserved"
+copyright = "&copy; 2020 [Gethugothemes](https://gethugothemes.com) All Rights Reserved"
 
 # preloader
 [params.preloader]
@@ -78,33 +91,33 @@ enable = true
 
 ####################### banner #######################################
 [params.banner]
-bgImage = "/img/blog-assets/banner-bg.svg"
-title = "Dive into the world of Logic Circuits for free!"
-image = "/img/blog-assets/banner.png"
+bgImage = "images/banner/banner-bg.svg"
+title = "Hi, I'm John Smith Doe. <br> I help people make the  worlds best software"
+image = "images/banner/illustration.svg"
 
 
 ######################## call to action ###############################
 [params.cta]
 enable = true
-image = "/img/blog-assets/cv.png"
-title = "Create circuits"
-description = "From simple gates to complex sequential circuits, plot timing diagrams, automatic circuit generation, explore standard ICs, and much more"
+image = "images/hugo-muscot.svg"
+title = "Get the best hugo templates"
+description = "Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus."
 [params.cta.button]
 enable = true
-label = "Check it out"
-link = "https://circuitverse.org"
+label = "Visit Here"
+link = "https://gethugothemes.com/shop/"
 
 
 ############################## Social Site ##########################
 [[params.social]]
 icon = "ti-facebook" # themify icon pack https://themify.me/themify-icons
-link = "https://www.facebook.com/CircuitVerse"
+link = "#"
 [[params.social]]
 icon = "ti-twitter-alt" # themify icon pack https://themify.me/themify-icons
-link = "https://twitter.com/CircuitVerse"
+link = "#"
 [[params.social]]
 icon = "ti-github" # themify icon pack https://themify.me/themify-icons
-link = "https://github.com/Circuitverse/Circuitverse"
+link = "#"
 [[params.social]]
 icon = "ti-linkedin" # themify icon pack https://themify.me/themify-icons
-link = "https://www.linkedin.com/company/circuitverse"
+link = "#"
