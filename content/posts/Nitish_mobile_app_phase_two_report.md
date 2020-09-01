@@ -9,7 +9,7 @@ url: "/posts/mobile_app_phase_two_report"
 
 The second evaluations happened from July 27th to July 31st, I Passed!!! This blog post comes as a summary to the work done in the second phase of Google Summer of Code.
 
-![Second Evaluations Passed](/img/second_eval_dashboard.png)
+![Second Evaluations Passed](/images/second_eval_dashboard.png)
 
 ## API Enhancements
 
@@ -33,7 +33,7 @@ Related commit: [faea536](https://github.com/CircuitVerse/CircuitVerse/commit/fa
 
 A total of 223 requests specs/examples were added in view of the CircuitVerse API. Specs for model's changes were also added.
 
-![API Test Suite](/img/api_test_phase_two.png)
+![API Test Suite](/images/api_test_phase_two.png)
 
 ### API Documentation
 
@@ -49,26 +49,26 @@ This phase marked the completion of MVP for the `mobile_app`. The following majo
 
 CircuitVerse Mobile supports google, facebook & github oauth. The Google OAuth was implemented using [google_sign_in](https://pub.dev/packages/google_sign_in) & the app was signed using Java KeyStore(`key.jks`). Facebook OAuth was implemented using [flutter_facebook_login](https://pub.dev/packages/flutter_facebook_login) with SDK setup for both Android & iOS. Github OAuth used [oauth2_client](https://pub.dev/packages/oauth2_client) to interact with Github's OAuth servers.
 
-![OAuth Options](/img/oauth_options.jpg)
+![OAuth Options](/images/oauth_options.jpg)
 
 ### Assignment Details
 
 Worked on Assignment details screen that also features creating/editing/deleting grade for all the submissions for a particular assignment before the deadline.
 
-![Assignment Details](/img/assignment_details.jpg)
+![Assignment Details](/images/assignment_details.jpg)
 
 ### Project Views
 
 Also Worked on User Projects & Favourites views & viewmodel bindings. Handling state in viewmodels is what i learned here, since all of the business logic is handled in the viewmodels passing variables back and forth just for project options like `star_count` & `view_count` should never be an option. Also, helps to establish a better testing suite & is independent of the views.
 
-![Project Details](/img/project_details.jpg)
-![Delete Collaborator](/img/delete_collaborator.jpg)
+![Project Details](/images/project_details.jpg)
+![Delete Collaborator](/images/delete_collaborator.jpg)
 
 ### Profile Views
 
 The Profile View now also features the projects you created & the ones you starred under `Circuits` & `Favourites` respectively.
 
-![Profile View](/img/profile_view.jpg)
+![Profile View](/images/profile_view.jpg)
 
 ### UI Changes
 

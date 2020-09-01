@@ -35,7 +35,7 @@ PR: https://github.com/CircuitVerse/CircuitVerse/pull/1468
 (please be patient the PR got very large and so the link crashes sometimes because response takes too long xD.)
 
 And then I got my first evaluation
-![My First Evaluation](/img/eval1.jpg)
+![My First Evaluation](/images/eval1.jpg)
 
 ## Phase 2:
 
@@ -52,7 +52,7 @@ I am hopeful all these test, refactoring, documenting and linting will make it r
 
 
 Second Evaluation
-![My Second Evaluation](/img/eval2.jpg)
+![My Second Evaluation](/images/eval2.jpg)
 
 ## Phase 3:
 
@@ -60,9 +60,9 @@ The third phase was the electron app. I used the same repo I separated in phase 
 
 The separate repository can be found [here](https://github.com/shubhankarsharma00/cv-electron)
 
-![Outlook](/img/electron-app.jpg)
+![Outlook](/images/electron-app.jpg)
 With an offline save, online save, and basic editor menu options.
-![Outlook](/img/electron-app-save.jpg)
+![Outlook](/images/electron-app-save.jpg)
 
 ## Further Work:
 After GSoC I will be working on integrating the new UI work (which has been done for the simulator) with the offline app and moving the current codebase to a separate repo officially. 

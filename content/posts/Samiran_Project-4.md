@@ -17,7 +17,7 @@ Status: ***passed***
 
 ### Project 1: Revamped User Interface (simulator)
 
-![Snapshhot](/img/p4/UI_snap.png)
+![Snapshhot](/images/p4/UI_snap.png)
 
 &nbsp;
 
@@ -58,7 +58,7 @@ PR Link: [Revamp UI of the Simulator [Task 1.1.1] #1438](https://github.com/Circ
 
 ### Project 2: Hotkey
 
-![Snapshhot](/img/p4/hotkey.gif)
+![Snapshhot](/images/p4/hotkey.gif)
 
 &nbsp;
 

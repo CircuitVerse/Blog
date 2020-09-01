@@ -7,8 +7,8 @@ type: post
 url: "/posts/gsoc_2020_mobile_app_report"
 ---
 
-![CircuitVerse](/img/cv_cover.png)
-![GSoC](/img/gsoc_cover.png)
+![CircuitVerse](/images/cv_cover.png)
+![GSoC](/images/gsoc_cover.png)
 
 GSoC 2020 is nearing its end. I’m glad to say that I’ve met all the goals as planned in the beginning. You can find out about it in my previous blog posts [here](https://nitish145.github.io/blog).
 

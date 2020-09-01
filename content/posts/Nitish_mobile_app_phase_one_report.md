@@ -9,7 +9,7 @@ url: "/posts/mobile_app_phase_one_report"
 
 The first evaluations happened from June 29th to July 3rd and Yay.. I Passed!!! This blog post comes as a summary to the amazing work done in the first phase of Google Summer of Code.
 
-![First Evaluations Passed](/img/first_eval_dashboard.png)
+![First Evaluations Passed](/images/first_eval_dashboard.png)
 
 The mobile_app project was primarily focussed on two sub projects as follows:
 
@@ -60,7 +60,7 @@ Related PR : [#1482](https://github.com/CircuitVerse/CircuitVerse/pull/1482)(Mer
 
 A total of 164 specs/examples were added in view of the CircuitVerse API. The codeclimate coverage marked an increase of about 5%. Yay!
 
-![API Test Suite](/img/api_test_suite.png)
+![API Test Suite](/images/api_test_suite.png)
 
 ### API Documentation
 
@@ -84,41 +84,41 @@ Related PR : [#1](https://github.com/CircuitVerse/mobile-app/pull/1)
 
 The first step was adding the static views i.e which generally don't require viewmodel bindings. The `home_view`, `teachers_view`, `about_view`, `contribute_view` falls under this category.
 
-![Home View](/img/home_view.gif)
-![Teachers View](/img/teachers_view.gif)
-![About View](/img/about_view.gif)
-![Contribute View](/img/contribute_view.gif)
+![Home View](/images/home_view.gif)
+![Teachers View](/images/teachers_view.gif)
+![About View](/images/about_view.gif)
+![Contribute View](/images/contribute_view.gif)
 
 ### Authentication Views
 
 I have added `login_view` & `signup_view` with appropriate `viewmodel` bindings set up. Forgot password API has also been implemented..
 
-![Signup View](/img/signup_view.gif)
-![Login View](/img/login_view.gif)
+![Signup View](/images/signup_view.gif)
+![Login View](/images/login_view.gif)
 
 ### Group's Views
 
 The CV Mobile App can show you the groups you mentor or belongs to in `my_groups_view`, related members and assignments in `group_details_view`. Adding/Deleting groups members are also click of a button away :)
 
-![My Groups View](/img/my_groups_view.gif)
-![Group Details View](/img/group_details_view.gif)
-![Update Group](/img/group_update.gif)
-![Add Group Member](/img/add_group_member.gif)
-![Delete Group Member](/img/delete_group_member.gif)
+![My Groups View](/images/my_groups_view.gif)
+![Group Details View](/images/group_details_view.gif)
+![Update Group](/images/group_update.gif)
+![Add Group Member](/images/add_group_member.gif)
+![Delete Group Member](/images/delete_group_member.gif)
 
 ### Assignment Views
 
 Adding, Updating & deleting Assignments were also implemented during the first phase..
 
-![Add Assignment](/img/add_assignment.gif)
-![Update Assignment](/img/update_assignment.gif)
-![Delete Assignment](/img/delete_assignment.gif)
+![Add Assignment](/images/add_assignment.gif)
+![Update Assignment](/images/update_assignment.gif)
+![Delete Assignment](/images/delete_assignment.gif)
 
 ## Contributions
 
 By end of phase one, 10 in all [PRs](https://github.com/CircuitVerse/CircuitVerse/pulls/Nitish145), 7 have been merged, 3 are under constructive review. Contributed about 3500 lines of code in a total of 20 commits. Thanks CircuitVerse.
 
-![Contributions](/img/contributions_phase_one_mobile_app.png)
+![Contributions](/images/contributions_phase_one_mobile_app.png)
 
 ## Next Steps
 

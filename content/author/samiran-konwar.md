@@ -1,6 +1,6 @@
 +++
 title = "Samiran Konwar"
-image = "/img/authors/abstrekt.jpeg"
+image = "/images/authors/abstrekt.jpeg"
 description = "Front end developer"
 +++
 
