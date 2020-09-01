@@ -1,8 +1,9 @@
 ---
-title: "CircuitVerse Platform Improvements: Phase 2 Report"
+title: "Platform Improvements: Phase 2 Report"
 date: 2020-08-05T13:30:00+05:30
 draft: false
-author: Aayush Gupta ([aayush-05](https://github.com/aayush-05))
+author: Aayush Gupta
+type: post
 ---
 
 Sailing on the same wave; I cleared my Second Evaluations for Google Summer of Code!

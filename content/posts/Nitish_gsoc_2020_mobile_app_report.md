@@ -1,8 +1,10 @@
 ---
-title: "GSoC 2020: Mobile App Report"
+title: "Mobile App: Final Report"
 date: 2020-08-25T08:51:49+05:30
 draft: false
-author: Nitish Aggarwal ([Nitish145](https://github.com/Nitish145))
+author: Nitish Aggarwal
+type: post
+url: "/posts/gsoc_2020_mobile_app_report"
 ---
 
 ![CircuitVerse](/img/cv_cover.png)

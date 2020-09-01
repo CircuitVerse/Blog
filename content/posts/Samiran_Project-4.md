@@ -1,8 +1,10 @@
 ---
-title: "Project 4: First Evaluation"
+title: "Simulator Improvements: Phase 1 Report"
 date: 2020-07-11T21:09:47+05:30
 draft: false
-author: Samiran Konwar [[Abstrekt](https://linkedin.com/in/Abstrekt)]
+author: Samiran Konwar
+type: post
+url: "/posts/project-4"
 ---
 
 Status: ***passed***

@@ -1,8 +1,10 @@
 ---
-title: "Mobile App: Phase Two Report"
+title: "Mobile App: Phase 2 Report"
 date: 2020-08-06T08:51:49+05:30
 draft: false
-author: Nitish Aggarwal ([Nitish145](https://github.com/Nitish145))
+author: Nitish Aggarwal
+type: post
+url: "/posts/mobile_app_phase_two_report"
 ---
 
 The second evaluations happened from July 27th to July 31st, I Passed!!! This blog post comes as a summary to the work done in the second phase of Google Summer of Code.

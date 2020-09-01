@@ -1,8 +1,9 @@
 ---
-title: "CircuitVerse Platform Improvements: Phase 1 Report"
+title: "Platform Improvements: Phase 1 Report"
 date: 2020-07-13T13:52:00+05:30
 draft: false
-author: Aayush Gupta ([aayush-05](https://github.com/aayush-05))
+author: Aayush Gupta
+type: post
 ---
 
 Yay! I cleared my GSoC First Evaluations and look at the amazing feedback I got from my mentor(s). Thanks to the amazing mentors Satvik, Aboobacker and Nitin I have learnt a ton during this journey.

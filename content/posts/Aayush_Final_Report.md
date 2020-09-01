@@ -1,8 +1,9 @@
 ---
-title: "CircuitVerse Platform Improvements: Final Report"
+title: "Platform Improvements: Final Report"
 date: 2020-08-28T16:16:00+05:30
 draft: false
-author: Aayush Gupta ([aayush-05](https://github.com/aayush-05))
+author: Aayush Gupta
+type: post
 ---
 
 This is the final Blog Report summarizing the work done during Google Summer of Code 2020.
