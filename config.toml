@@ -53,7 +53,7 @@ weight = 1
 # home
 home = "Home"
 # logo
-logo = "img/logo.svg"
+logo = "images/logo.svg"
 # meta data
 author = "Circuitverse"
 description = "CircuitVerse Blog"
@@ -78,15 +78,15 @@ enable = true
 
 ####################### banner #######################################
 [params.banner]
-bgImage = "/img/blog-assets/banner-bg.svg"
+bgImage = "/images/blog-assets/banner-bg.svg"
 title = "Dive into the world of Logic Circuits for free!"
-image = "/img/blog-assets/banner.png"
+image = "/images/blog-assets/banner.png"
 
 
 ######################## call to action ###############################
 [params.cta]
 enable = true
-image = "/img/blog-assets/cv.png"
+image = "/images/blog-assets/cv.png"
 title = "Create circuits"
 description = "From simple gates to complex sequential circuits, plot timing diagrams, automatic circuit generation, explore standard ICs, and much more"
 [params.cta.button]

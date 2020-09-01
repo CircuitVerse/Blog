@@ -1,6 +1,6 @@
 +++
 title = "Nitish Aggarwal"
-image = "/img/authors/nitish145.png"
+image = "/images/authors/nitish145.png"
 description = "Front end developer"
 +++
 

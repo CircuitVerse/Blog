@@ -17,7 +17,7 @@ Status: ***passed***
 
 ### Project 1: Color Themes
 
-![Snapshot](/img/p4/themes.png)
+![Snapshot](/images/p4/themes.png)
 
 &nbsp;
 
@@ -71,7 +71,7 @@ Mixing this with some JS I was sure to have a working modal.
 
 &nbsp;
 
-![Snapshhot](/img/p4/nightSky.png)
+![Snapshhot](/images/p4/nightSky.png)
 
 &nbsp;
 
@@ -83,7 +83,7 @@ Mixing this with some JS I was sure to have a working modal.
 
 ### Project  2: Built-In tutorial
 
-![Snapshhot](/img/p4/BIT.gif)
+![Snapshhot](/images/p4/BIT.gif)
 
 &nbsp;
 

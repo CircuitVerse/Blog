@@ -8,12 +8,12 @@ type: post
 
 Yay! I cleared my GSoC First Evaluations and look at the amazing feedback I got from my mentor(s). Thanks to the amazing mentors Satvik, Aboobacker and Nitin I have learnt a ton during this journey.
 
-![First Evaluations](/img/Aayush_First_Evaluation.PNG)
+![First Evaluations](/images/Aayush_First_Evaluation.PNG)
 
 Let us discuss the work I have accomplished so far.
 The very first and probably the most humongous portion of my project is Revamping CircuitVerse web application and Getting the respective frontend codebase refactored with both Design and Code standards in place.
 
-![UI Redesign](/img/HomeScreen_Changes.png)
+![UI Redesign](/images/HomeScreen_Changes.png)
 
 
 Starting off, I tried my hands at designing (something completely new to me). Fortunately with guidance by my mentor Nitin; I got a few screens designed by me passed on to the final prototype for the web application.
