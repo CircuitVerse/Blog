@@ -56,11 +56,11 @@ home = "Home"
 logo = "img/logo.svg"
 # meta data
 author = "Circuitverse"
-description = "This is meta description"
+description = "CircuitVerse Blog"
 # google tag manager
 google_tag_manager = "" # your id
 # google analitycs ID
-google_analitycs_id = "" # your id
+google_analitycs_id = "UA-112678513-4" # your id
 # contact form action
 contact_form_action = "https://formspree.io/support@circuitverse.org" # contact form works with : https://formspree.io
 # copyright
