@@ -1,9 +1,10 @@
 ---
-title: "Project 4: Second Evaluation"
+title: "Simulator Improvements: Phase 2 Report"
 date: 2020-08-05T18:35:54+05:30
 draft: false
 author: Samiran Konwar
 type: post
+url: "/posts/project4-2nd-eval"
 ---
 
 Status: ***passed***

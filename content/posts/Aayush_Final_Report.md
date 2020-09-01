@@ -1,5 +1,5 @@
 ---
-title: "CircuitVerse Platform Improvements: Final Report"
+title: "Platform Improvements: Final Report"
 date: 2020-08-28T16:16:00+05:30
 draft: false
 author: Aayush Gupta

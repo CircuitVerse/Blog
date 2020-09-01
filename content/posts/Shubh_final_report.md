@@ -1,9 +1,10 @@
 ---
-title: "GSoC 2020 Final Submission Refactoring and Electron App"
+title: "Simulator Code Refactor: Final Report"
 date: 2020-08-27T15:47:48+05:30
 draft: false
 author: Shubhankar Sharma
 type: post
+url: "/posts/shubh_final_report/"
 ---
 
 This is my final blogpost regarding GSoC 2020 and I will try to summarize everything I managed to accomplish while working on this amazing project. I think everyone will remember the summer of 2020 for their entire lives because of the stuff that happened this year but for me it will be extra memorable because of this great journey.

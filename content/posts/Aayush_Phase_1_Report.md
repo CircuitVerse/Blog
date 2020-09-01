@@ -1,5 +1,5 @@
 ---
-title: "CircuitVerse Platform Improvements: Phase 1 Report"
+title: "Platform Improvements: Phase 1 Report"
 date: 2020-07-13T13:52:00+05:30
 draft: false
 author: Aayush Gupta
