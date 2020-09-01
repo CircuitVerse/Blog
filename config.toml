@@ -4,7 +4,7 @@ title = "CircuitVerse Blog"
 theme = "northendlab-hugo"
 ############################ Default configuration #########################
 # post pagination
-paginate = "50"
+paginate = "5"
 # post excerpt
 summaryLength = "10"
 # disqus short name
