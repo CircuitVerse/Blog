@@ -1,10 +1,10 @@
 # Blog
-Blog for updates from circuitverse
+Blog for updates from [CircuitVerse](https://circuitverse.org/)
 
 
 # Prerequirements
 
-- Hugo (https://gohugo.io/)
+- [Hugo](https://gohugo.io/)
 
 ## Create a new post
 
