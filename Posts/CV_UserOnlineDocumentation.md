@@ -37,98 +37,22 @@ Project Deliverables
 
     1. **Link to video:** Introduction to CircuitVerse Platform: **[https://www.youtube.com/watch?v=3Df-2Cn_80A&feature=youtu.be](https://www.youtube.com/watch?v=3Df-2Cn_80A&feature=youtu.be) **
     2. **Status of deliverable: **Complete
-2. **Instructional Videos**: This task involved creating 7 different videos that demonstrated the foundational knowledge the users need to better understand  the platform. These videos can be reused by the educators (primary audience) during planning their classroom assignments. Table 1 displays the link to different videos that I have developed.
+2. **Instructional Videos**: This task involved creating 7 different videos that demonstrated the foundational knowledge the users need to better understand  the platform. These videos can be reused by the educators (primary audience) during planning their classroom assignments. 
 
     **Status of deliverable: **Complete
 
-
-    Table 1: Different videos created to explain the CV simulator
-
-
-<table>
-  <tr>
-   <td>
-Sr.No
-   </td>
-   <td>Name
-   </td>
-   <td>Description
-   </td>
-   <td>Link
-   </td>
-  </tr>
-  <tr>
-   <td>1
-   </td>
-   <td>Make Your First Circuit Simulation With CircuitVerse
-   </td>
-   <td>This video demonstrates how you can build your first live circuit using CircuitVerse simulator.
-   </td>
-   <td><a href="https://youtu.be/F-_uvYJK938">https://youtu.be/F-_uvYJK938</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>2
-   </td>
-   <td>Using Subcircuits For Complex Design Simulations
-   </td>
-   <td>This video demonstrates how  subcircuits can be reused for constructing a hierarchical design.
-   </td>
-   <td><a href="https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be">https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>3
-   </td>
-   <td>Editing Properties For Complex Design Simulations
-   </td>
-   <td>This video highlights different properties of different circuit elements that can be edited for building a complex design.
-   </td>
-   <td><a href="https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be">https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>4
-   </td>
-   <td>Insert CircuitVerse Live Circuits in Google Slides
-   </td>
-   <td>This video demonstrates how a CircuitVerse add-on can be used to embed live circuits in Google Slides.
-   </td>
-   <td><a href="https://youtu.be/eOf0XAxLz7Y">https://youtu.be/eOf0XAxLz7Y</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>5
-   </td>
-   <td>Customize Your Simulator Workspace 
-   </td>
-   <td>This video demonstrates how the CircuitVerse simulator screen can be easily customized while building circuit design.
-   </td>
-   <td><a href="https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be">https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>6
-   </td>
-   <td>Using Combinational Analysis Tool
-   </td>
-   <td>This video demonstrates how the Combinational Analysis tool can be used for building a seven segment decoder
-   </td>
-   <td><a href="https://youtu.be/kl9GC_VxAcU">https://youtu.be/kl9GC_VxAcU</a> 
-   </td>
-  </tr>
-  <tr>
-   <td>7
-   </td>
-   <td>Saving Projects Within The CircuitVerse Simulator
-   </td>
-   <td>This video demonstrates how the circuits can be saved using the CircuitVerse platform
-   </td>
-   <td><a href="https://youtu.be/b4SXde9huFQ">https://youtu.be/b4SXde9huFQ</a>
-   </td>
-  </tr>
-</table>
-
+   <ol>
+       <li>Make Your First Circuit Simulation With CircuitVerse:<a href="https://youtu.be/F-_uvYJK938">https://youtu.be/F-_uvYJK938</a><br>This video demonstrates how you can build your first live circuit using CircuitVerse simulator.<br></li>
+       <li>Using Subcircuits For Complex Design Simulations:<a href="https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be">https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be</a><br>This video demonstrates how  subcircuits can be reused for constructing a hierarchical design.<br></li>
+       <li>Editing Properties For Complex Design Simulations:
+       <a href="https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be">https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be</a><br> This video highlights different properties of different circuit elements that can be edited for building a complex design.<br></li>
+       <li>Editing Properties For Complex Design Simulations:<a href="https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be">https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be</a><br>This video highlights different properties of different circuit elements that can be edited for building a complex design.<br></li>
+       <li>Insert CircuitVerse Live Circuits in Google Slides:<a href="https://youtu.be/eOf0XAxLz7Y">https://youtu.be/eOf0XAxLz7Y</a><br>This video demonstrates how a CircuitVerse add-on can be used to embed live circuits in Google Slides.<br></li>
+       <li>Customize Your Simulator Workspace:<a href="https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be">https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be</a><br>This video demonstrates how the CircuitVerse simulator screen can be easily customized while building circuit design.<br></li>
+       <li>Using Combinational Analysis Tool:<a href="https://youtu.be/kl9GC_VxAcU">https://youtu.be/kl9GC_VxAcU</a><br>This video demonstrates how the Combinational Analysis tool can be used for building a seven segment decoder.<br></li>
+       <li>Saving Projects Within The CircuitVerse Simulator:<a href="https://youtu.be/b4SXde9huFQ">https://youtu.be/b4SXde9huFQ</a><br>This video demonstrates how the circuits can be saved using the CircuitVerse platform.<br>
+       </li>
+    </ol>
 
 
 
@@ -147,21 +71,21 @@ Sr.No
 *   Developed new figures and tables as visual aids
 *   Improved the content hierarchy and flow by adding chapters and subchapters for making the content more searchable
 
-    **Link to guide: **
+    **Link to guide: <a href="https://docs.google.com/document/d/1RX_jaWR9lm_vdr2yu8MsrBMzwGeVJZx_RG4kwdlgZeI/edit?ts=5fc91e4c#heading=h.88yx503a89fx"> CV User Online Documentation</a>**
 
 
     **Status of deliverable: **Incomplete. While most of the documentation is completed, some sections must be updated to reflect the new added features of the CV platform. This guide will be completed by the end of December. The CV mentors are aware of this. 
 
 4. **Support Resources: **A good user documentation must take the burden off the CV mentors. I studied the queries received across CV Slack channel and CV forums to understand user pain points. I created a FAQ document and included a section that described the best practices for using CircuitVerse.
 
-    **Link to guide: **
+    **Link to guide:<a href="https://docs.google.com/document/d/1RX_jaWR9lm_vdr2yu8MsrBMzwGeVJZx_RG4kwdlgZeI/edit?ts=5fc91e4c#heading=h.88yx503a89fx"> CV User Online Documentation</a>**
 
 
-    **Status of deliverable: **Incomplete. This content for this section of the user guide is completed but must be reviewed by the CV mentors. While most of the documentation is completed, some sections must be updated to reflect the new added features of the CV platform.
+    **Status of deliverable: **Complete.
 
 5. **Contributing Guidelines: **This task refers to the different content guidelines that new users must follow while submitting content for ensuring that the submitted content is consistent and adheres to the suggested style guide. This shall also help in maintaining the document as the platform scales up. The documentation has started and will be completed by the end of December.
 
-    **Link to guide: **
+    **Link to guide:<a href="https://docs.google.com/document/d/1-Esv8pW_rTC02I09TH_aTuI2WxQYrFU4LG04jDGhLK4/edit#heading=h.k2zz91suudcb"> CV Contributing Guidelines</a> **
 
 
     **Status of deliverable: **Incomplete. This guide will be completed by the end of December. The CV mentors are aware of this.
