@@ -1,5 +1,5 @@
 ---
-title: "Google Season of Docs(GSoD) 2020 CircuitVerse Online Documentation"
+title: "User Documentation: Final Report (GSoD 2020 - Pragati)"
 date: 2020-12-02T14:17:50Z
 draft: false
 author: "Pragati Chaplot Jain"
