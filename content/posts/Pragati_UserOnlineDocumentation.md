@@ -4,7 +4,7 @@ date: 2020-12-02T14:17:50Z
 draft: false
 author: "Pragati Chaplot Jain"
 type: post
-url: "/posts/Pragati_user-online-documentation/"
+url: "/posts/Pragati-user-online-documentation/"
 ---
 
 # Final Project Report
