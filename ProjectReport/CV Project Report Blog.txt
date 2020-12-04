@@ -1,18 +1,3 @@
-﻿My Google Season of Docs (GSoD) 2020 Journey with CircuitVerse 
-By PRAGATI CHAPLOT JAIN
-DECEMBER 2020
-Why did the Google Season of Docs interest me?
-Open source contributions have always intrigued me. When I stumbled upon Google Season of Docs (GSoD) 2020 while watching Amruta Ranades technical writing videos, I was thrilled to find an opportunity that serves as a bridge between technical writers and different open source organizations.
-When I visited the GSoD webpage and reviewed the past submissions, I realized this was not going to be easy.  I used the exploration phase effectively for doing a deep-dive analysis of different open source organizations and studying the past selected proposals. During this phase, I was intrigued by how there is an open source software or tool addressing different industry needs (eg: HR, video editing,  education, robotics, etc), and how the lack of good documentation moderates the user adoption. 
-Documentation Audit is Key
-While preparing the GSoD proposal for CircuitVerse(CV), I audited the available documentation for following factors: 
-* What documentation is available?
-* Who is the target audience?
-* Does it cover all the functionality?
-* Does it cover end-user needs?
-* Is the documentation any good?
-Based on my findings, I drafted a content proposal plan that included a mixed bag of videos, tutorials and existing content improvement and remapping. You can find my final project proposal here.*
-*A special shout out to Audrey Tavares (a past-participator of GSoD 2019, Oppia) for answering my queries and guiding me through the process. 
 GSoD CircuitVerse User Documentation 
 Final Project Report
 Overview
