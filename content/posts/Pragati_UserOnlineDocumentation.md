@@ -7,16 +7,16 @@ type: post
 url: "/posts/Pragati-user-online-documentation/"
 ---
 
-# Final Project Report
+## Final Project Report
 
 
-# Overview
+### Overview
 
 
 My project focused on creating videos and documentation for CircuitVerse (CV) User Documentation. This documentation encompased all aspects of the CircuitVerse simulator, aiding educators (the primary audience) in teaching digital logic design through computer simulations with ease. I was tasked with creating one explainer and multiple learning videos for different features and functionalities of the platform, aiding user technical literacy, and updating and creating new user documentation.
 
 
-# Deviations From Original Proposal
+### Deviations From Original Proposal
 
 
 My original proposal focused on CircuitVerse content workflows. I proposed to create videos, user instructions and tutorials that would demonstrate users (students, hobbyists, educators) could use the platform effectively for building simulations. 
@@ -25,19 +25,17 @@ My original proposal focused on CircuitVerse content workflows. I proposed to cr
 After the Community Bonding period, the team and I decided that I would focus on developing videos and text that drive adoption of the platform, especially for the primary audience (educators).  While the documentation addressed the entire CirucitVerse platform, the videos played a key part in improving the onboarding experience and in demonstrating the key workflows of the platform. Since it is important that current content is audited, validated and updated for driving user adoption, the team decided to prioritize this task above creating tutorials. Finally, information (old and new) was organized, structured, and labeled in an effective, coherent and sustainable way. Chapters and subchapters were created for making the content searchable.
 
 
-# Project Deliverables
+### Project Deliverables
 
-
-
-1. **Explainer Video: **This task involved creating a video that showcased the CircuitVerse platform to a new user. Besides sharing the key inspiration behind the CircuitVerse platform, it shares the key features and workflows that allows users to build and simulate circuits on the go. I had purchased the TechSmith Camtasia 2020 for creating and editing the  videos.
+1.**Explain Video:** This task involved creating a video that showcased the CircuitVerse platform to a new user. Besides sharing the key inspiration behind the CircuitVerse platform, it shares the key features and workflows that allows users to build and simulate circuits on the go. I had purchased the TechSmith Camtasia 2020 for creating and editing the  videos.
 
     Using the available assets in Camtasia, I created different artaffects for including in the videos. Once these artaffects were created, they were rescued across different videos for brand building. Each video tutorial 
 
-    1. **Link to video:** Introduction to CircuitVerse Platform: **[https://www.youtube.com/watch?v=3Df-2Cn_80A&feature=youtu.be](https://www.youtube.com/watch?v=3Df-2Cn_80A&feature=youtu.be) **
-    2. **Status of deliverable: **Complete
-2. **Instructional Videos**: This task involved creating 7 different videos that demonstrated the foundational knowledge the users need to better understand  the platform. These videos can be reused by the educators (primary audience) during planning their classroom assignments. 
+    1. **Link to video:** Introduction to CircuitVerse Platform: [https://www.youtube.com/watch?v=3Df-2Cn_80A&feature=youtu.be](https://www.youtube.com/watch?v=3Df-2Cn_80A&feature=youtu.be)
+    2.**Status of deliverable:** Complete
+2.**Instructional Videos**: This task involved creating 7 different videos that demonstrated the foundational knowledge the users need to better understand  the platform. These videos can be reused by the educators (primary audience) during planning their classroom assignments. 
 
-    **Status of deliverable: **Complete
+   **Status of deliverable:** Complete
 
 Table 1: Different videos created to explain the CV simulator
 
@@ -52,7 +50,7 @@ Table 1: Different videos created to explain the CV simulator
 | 7 | Saving Projects Within The CircuitVerse Simulator | This video demonstrates how the circuits can be saved using the CircuitVerse platform | [https://youtu.be/b4SXde9huFQ](https://youtu.be/b4SXde9huFQ) |
 
 
-3. **New UI Revamp Documentation: **While videos improve the onboarding experience, the user documentation offers detailed explanations of different features and functionalities for users to be more successful while building the simulation. 
+3.**New UI Revamp Documentation:** While videos improve the onboarding experience, the user documentation offers detailed explanations of different features and functionalities for users to be more successful while building the simulation. 
 
     While preparing for the GSOD proposal, I had extensively audited the existing documentation for documentation gaps and improved areas. For this task, I referenced existing documentation for exploring different specific technical details of different circuit elements. I used the existing referenced live circuits in my documentation also. This process also entailed several meetings and review sessions with subject matter experts (SMEs) to gather input and additional information. 
 
@@ -67,24 +65,24 @@ Table 1: Different videos created to explain the CV simulator
 *   Developed new figures and tables as visual aids
 *   Improved the content hierarchy and flow by adding chapters and subchapters for making the content more searchable
 
-    **Link to guide: <a href="https://docs.google.com/document/d/1RX_jaWR9lm_vdr2yu8MsrBMzwGeVJZx_RG4kwdlgZeI/edit?ts=5fc91e4c#heading=h.88yx503a89fx"> CV User Online Documentation</a>**
+   **Link to guide: <a href="https://docs.google.com/document/d/1RX_jaWR9lm_vdr2yu8MsrBMzwGeVJZx_RG4kwdlgZeI/edit?ts=5fc91e4c#heading=h.88yx503a89fx"> CV User Online Documentation</a>**
 
 
-    **Status of deliverable: **Incomplete. While most of the documentation is completed, some sections must be updated to reflect the new added features of the CV platform. This guide will be completed by the end of December. The CV mentors are aware of this. 
+   **Status of deliverable:** Incomplete. While most of the documentation is completed, some sections must be updated to reflect the new added features of the CV platform. This guide will be completed by the end of December. The CV mentors are aware of this. 
 
-4. **Support Resources: **A good user documentation must take the burden off the CV mentors. I studied the queries received across CV Slack channel and CV forums to understand user pain points. I created a FAQ document and included a section that described the best practices for using CircuitVerse.
+4.**Support Resources:** A good user documentation must take the burden off the CV mentors. I studied the queries received across CV Slack channel and CV forums to understand user pain points. I created a FAQ document and included a section that described the best practices for using CircuitVerse.
 
-    **Link to guide:<a href="https://docs.google.com/document/d/1RX_jaWR9lm_vdr2yu8MsrBMzwGeVJZx_RG4kwdlgZeI/edit?ts=5fc91e4c#heading=h.88yx503a89fx"> CV User Online Documentation</a>**
-
-
-    **Status of deliverable: **Complete.
-
-5. **Contributing Guidelines: **This task refers to the different content guidelines that new users must follow while submitting content for ensuring that the submitted content is consistent and adheres to the suggested style guide. This shall also help in maintaining the document as the platform scales up. The documentation has started and will be completed by the end of December.
-
-    **Link to guide:<a href="https://docs.google.com/document/d/1-Esv8pW_rTC02I09TH_aTuI2WxQYrFU4LG04jDGhLK4/edit#heading=h.k2zz91suudcb"> CV Contributing Guidelines</a> **
+   **Link to guide:<a href="https://docs.google.com/document/d/1RX_jaWR9lm_vdr2yu8MsrBMzwGeVJZx_RG4kwdlgZeI/edit?ts=5fc91e4c#heading=h.88yx503a89fx"> CV User Online Documentation</a>**
 
 
-    **Status of deliverable: **Incomplete. This guide will be completed by the end of December. The CV mentors are aware of this.
+   **Status of deliverable:** Complete.
+
+5.**Contributing Guidelines:** This task refers to the different content guidelines that new users must follow while submitting content for ensuring that the submitted content is consistent and adheres to the suggested style guide. This shall also help in maintaining the document as the platform scales up. The documentation has started and will be completed by the end of December.
+
+   **Link to guide:<a href="https://docs.google.com/document/d/1-Esv8pW_rTC02I09TH_aTuI2WxQYrFU4LG04jDGhLK4/edit#heading=h.k2zz91suudcb"> CV Contributing Guidelines</a>** 
+
+
+   **Status of deliverable:** Incomplete. This guide will be completed by the end of December. The CV mentors are aware of this.
 
 
 # Technologies Learned
@@ -92,7 +90,7 @@ Table 1: Different videos created to explain the CV simulator
 
 This project allowed me to gain experience using a variety of different technologies and tools. I became more proficient in the following programs:
 
-*   **Screen capture software and captioning software:** I purchased the license for using TechSmith Camtasia Software for screen recording and editing the video content. This was my first time using this software. I thus challenged myself to learn different tips and tricks  for making professional videos and master the application in a short amount of time. Some of my key learnings for making good quality videos include:
+*  **Screen capture software and captioning software:** I purchased the license for using TechSmith Camtasia Software for screen recording and editing the video content. This was my first time using this software. I thus challenged myself to learn different tips and tricks  for making professional videos and master the application in a short amount of time. Some of my key learnings for making good quality videos include:
     *   Add an eye-catching intro
     *   Use cursor effects to highlight cursor movements
     *   Add transitions for improve flow across different frames
@@ -101,20 +99,20 @@ This project allowed me to gain experience using a variety of different technolo
 
     After creating two videos, we shared those with the CV community on Slack for feedback. While the core content of the video was appreciated, I received critical feedback on the intro part and adding tone with a music score (along with the narration). 
 
-*   **GitHub:** For publishing my content, I must use GitHub to push my content. Since I have limited experience with the tool, I hope to grow more comfortable with these technologies and participate more actively online. I shall use the tool once the final word file has been reviewed.
+*  **GitHub:** For publishing my content, I must use GitHub to push my content. Since I have limited experience with the tool, I hope to grow more comfortable with these technologies and participate more actively online. I shall use the tool once the final word file has been reviewed.
 
 # Lessons Learned
 
-1. **Open source documentation:** One of the key pain points or blessings of working on open source documentation is that the platform is continuously upgraded with new features and functionalities. So how does one know how to strike a balance? 
+1.**Open source documentation:** One of the key pain points or blessings of working on open source documentation is that the platform is continuously upgraded with new features and functionalities. So how does one know how to strike a balance? 
 
     While the CV videos had some UI discrepancies, the user guide content (that is live) must be detailed enough to give users clear instructions on how to accomplish a task. I learnt that videos play a key role in demonstrating a workflow while the text documentation must be detailed and must be updated frequently. 
 
-2. **Audience analysis is key**: Again, I have learnt that audience analysis is key to the success of a documentation project. Do your research and ask enough questions to your SMEs to understand your audience and discover vital facts. 
+2.**Audience analysis is key**: Again, I have learnt that audience analysis is key to the success of a documentation project. Do your research and ask enough questions to your SMEs to understand your audience and discover vital facts. 
 
     Advocate for your user because this is also your chance of understanding, and reason with your team why your suggested documentation plan will not benefit your audience.
 
-3. **Documentation plan is important:**  When working on any team, organizational needs can change over time. I set up deadlines that allowed me and my mentors to assess my progress, identify hurdles and revise documentation scope. 
-4. **Communicating and time management skills for remote collaboration**: I had to work remotely with SMEs residing in other parts of the continent to understand and document organizational requirements. While the team was always available to answer my queries, I developed even stronger communication and organizational skills.  
+3.**Documentation plan is important:**  When working on any team, organizational needs can change over time. I set up deadlines that allowed me and my mentors to assess my progress, identify hurdles and revise documentation scope. 
+4.**Communicating and time management skills for remote collaboration**: I had to work remotely with SMEs residing in other parts of the continent to understand and document organizational requirements. While the team was always available to answer my queries, I developed even stronger communication and organizational skills.  
 
 
 # Final Thoughts
