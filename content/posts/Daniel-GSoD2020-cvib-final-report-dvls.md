@@ -1,5 +1,5 @@
 ---
-title: "GSoD 2020 CircuitVerse Interactive Book Final Report"
+title: "Interactive Book: Final Report (GSoD 2020 - Daniel)"
 date: 2020-12-02T14:17:50Z
 draft: false
 author: "Daniel Vicente Lühr Sierra"
