@@ -1,3 +1,11 @@
+---
+title: "Google Season of Docs(GSoD) 2020 CircuitVerse Online Documentation"
+date: 2020-12-02T14:17:50Z
+draft: false
+author: "Pragati Chaplot Jain"
+type: post
+url: "/posts/gsod2020-cvib-final-report-dvls/"
+---
 # Google Season of Docs(GSoD) 2020 CircuitVerse Online Documentation
 
 _By PRAGATI CHAPLOT JAIN_
