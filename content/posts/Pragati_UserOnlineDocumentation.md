@@ -4,28 +4,19 @@ date: 2020-12-02T14:17:50Z
 draft: false
 author: "Pragati Chaplot Jain"
 type: post
-url: "/posts/Pragati_UserOnlineDocumentation/"
+url: "/posts/Pragati_user-online-documentation/"
 ---
-# Google Season of Docs(GSoD) 2020 CircuitVerse Online Documentation
 
-_By PRAGATI CHAPLOT JAIN_
-
-DECEMBER 2020
+# Final Project Report
 
 
-# 
-Final Project Report
-
-
-# 
-Overview
+# Overview
 
 
 My project focused on creating videos and documentation for CircuitVerse (CV) User Documentation. This documentation encompased all aspects of the CircuitVerse simulator, aiding educators (the primary audience) in teaching digital logic design through computer simulations with ease. I was tasked with creating one explainer and multiple learning videos for different features and functionalities of the platform, aiding user technical literacy, and updating and creating new user documentation.
 
 
-# 
-Deviations From Original Proposal
+# Deviations From Original Proposal
 
 
 My original proposal focused on CircuitVerse content workflows. I proposed to create videos, user instructions and tutorials that would demonstrate users (students, hobbyists, educators) could use the platform effectively for building simulations. 
@@ -34,8 +25,7 @@ My original proposal focused on CircuitVerse content workflows. I proposed to cr
 After the Community Bonding period, the team and I decided that I would focus on developing videos and text that drive adoption of the platform, especially for the primary audience (educators).  While the documentation addressed the entire CirucitVerse platform, the videos played a key part in improving the onboarding experience and in demonstrating the key workflows of the platform. Since it is important that current content is audited, validated and updated for driving user adoption, the team decided to prioritize this task above creating tutorials. Finally, information (old and new) was organized, structured, and labeled in an effective, coherent and sustainable way. Chapters and subchapters were created for making the content searchable.
 
 
-# 
-Project Deliverables
+# Project Deliverables
 
 
 
@@ -60,8 +50,6 @@ Table 1: Different videos created to explain the CV simulator
 | 5 | Customize Your Simulator Workspace | This video demonstrates how the CircuitVerse simulator screen can be easily customized while building circuit design. | [https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be](https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be) |
 | 6 | Using Combinational Analysis Tool | This video demonstrates how the Combinational Analysis tool can be used for building a seven segment decoder | [https://youtu.be/kl9GC_VxAcU](https://youtu.be/kl9GC_VxAcU) |
 | 7 | Saving Projects Within The CircuitVerse Simulator | This video demonstrates how the circuits can be saved using the CircuitVerse platform | [https://youtu.be/b4SXde9huFQ](https://youtu.be/b4SXde9huFQ) |
-
-
 
 
 3. **New UI Revamp Documentation: **While videos improve the onboarding experience, the user documentation offers detailed explanations of different features and functionalities for users to be more successful while building the simulation. 
@@ -99,8 +87,7 @@ Table 1: Different videos created to explain the CV simulator
     **Status of deliverable: **Incomplete. This guide will be completed by the end of December. The CV mentors are aware of this.
 
 
-# 
-Technologies Learned
+# Technologies Learned
 
 
 This project allowed me to gain experience using a variety of different technologies and tools. I became more proficient in the following programs:
@@ -116,8 +103,7 @@ This project allowed me to gain experience using a variety of different technolo
 
 *   **GitHub:** For publishing my content, I must use GitHub to push my content. Since I have limited experience with the tool, I hope to grow more comfortable with these technologies and participate more actively online. I shall use the tool once the final word file has been reviewed.
 
-# 
-Lessons Learned
+# Lessons Learned
 
 1. **Open source documentation:** One of the key pain points or blessings of working on open source documentation is that the platform is continuously upgraded with new features and functionalities. So how does one know how to strike a balance? 
 
