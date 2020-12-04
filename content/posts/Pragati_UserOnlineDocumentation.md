@@ -4,7 +4,7 @@ date: 2020-12-02T14:17:50Z
 draft: false
 author: "Pragati Chaplot Jain"
 type: post
-url: "/posts/gsod2020-cvib-final-report-dvls/"
+url: "/posts/Pragati_UserOnlineDocumentation/"
 ---
 # Google Season of Docs(GSoD) 2020 CircuitVerse Online Documentation
 
@@ -49,18 +49,18 @@ Project Deliverables
 
     **Status of deliverable: **Complete
 
-   <ol>
-       <li>Make Your First Circuit Simulation With CircuitVerse:<a href="https://youtu.be/F-_uvYJK938">https://youtu.be/F-_uvYJK938</a><br>This video demonstrates how you can build your first live circuit using CircuitVerse simulator.<br></li>
-       <li>Using Subcircuits For Complex Design Simulations:<a href="https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be">https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be</a><br>This video demonstrates how  subcircuits can be reused for constructing a hierarchical design.<br></li>
-       <li>Editing Properties For Complex Design Simulations:
-       <a href="https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be">https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be</a><br> This video highlights different properties of different circuit elements that can be edited for building a complex design.<br></li>
-       <li>Editing Properties For Complex Design Simulations:<a href="https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be">https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be</a><br>This video highlights different properties of different circuit elements that can be edited for building a complex design.<br></li>
-       <li>Insert CircuitVerse Live Circuits in Google Slides:<a href="https://youtu.be/eOf0XAxLz7Y">https://youtu.be/eOf0XAxLz7Y</a><br>This video demonstrates how a CircuitVerse add-on can be used to embed live circuits in Google Slides.<br></li>
-       <li>Customize Your Simulator Workspace:<a href="https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be">https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be</a><br>This video demonstrates how the CircuitVerse simulator screen can be easily customized while building circuit design.<br></li>
-       <li>Using Combinational Analysis Tool:<a href="https://youtu.be/kl9GC_VxAcU">https://youtu.be/kl9GC_VxAcU</a><br>This video demonstrates how the Combinational Analysis tool can be used for building a seven segment decoder.<br></li>
-       <li>Saving Projects Within The CircuitVerse Simulator:<a href="https://youtu.be/b4SXde9huFQ">https://youtu.be/b4SXde9huFQ</a><br>This video demonstrates how the circuits can be saved using the CircuitVerse platform.<br>
-       </li>
-    </ol>
+Table 1: Different videos created to explain the CV simulator
+
+| Sr. No | Name | Description | Link |
+|--|--| -- | -- |
+| 1 | Make Your First Circuit Simulation With CircuitVerse | This video demonstrates how you can build your first live circuit using CircuitVerse simulator. | [https://youtu.be/F-_uvYJK938](https://youtu.be/F-_uvYJK938) |
+| 2 | Using Subcircuits For Complex Design Simulations | This video demonstrates how subcircuits can be reused for constructing a hierarchical design. | [https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be](https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be) |
+| 3 | Editing Properties For Complex Design Simulations | This video highlights different properties of different circuit elements that can be edited for building a complex design. | [https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be](https://www.youtube.com/watch?v=l_wxOQ50tBk&feature=youtu.be) |
+| 4 | Insert CircuitVerse Live Circuits in Google Slides | This video demonstrates how a CircuitVerse add-on can be used to embed live circuits in Google Slides. | [https://youtu.be/eOf0XAxLz7Y](https://youtu.be/eOf0XAxLz7Y) |
+| 5 | Customize Your Simulator Workspace | This video demonstrates how the CircuitVerse simulator screen can be easily customized while building circuit design. | [https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be](https://www.youtube.com/watch?v=I2TwIjMnsPQ&feature=youtu.be) |
+| 6 | Using Combinational Analysis Tool | This video demonstrates how the Combinational Analysis tool can be used for building a seven segment decoder | [https://youtu.be/kl9GC_VxAcU](https://youtu.be/kl9GC_VxAcU) |
+| 7 | Saving Projects Within The CircuitVerse Simulator | This video demonstrates how the circuits can be saved using the CircuitVerse platform | [https://youtu.be/b4SXde9huFQ](https://youtu.be/b4SXde9huFQ) |
+
 
 
 
