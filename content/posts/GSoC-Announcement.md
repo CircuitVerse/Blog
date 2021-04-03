@@ -4,7 +4,7 @@ date: 2021-04-03T18:30:35+05:30
 draft: false
 author: Shreya Prasad
 type: post
-url: "/posts/GSoC-Announcement/"
+url: "/posts/GSoC-Announcement-2021/"
 ---
 
 ![Google Summer of Code 2021 logo](/images/gsoc_cover.png)
@@ -25,5 +25,4 @@ If you have questions specific to CircuitVerse and GSoC, ask them on [Slack](htt
 
 
 We look forward to hearing from you! 😃 
-
 
