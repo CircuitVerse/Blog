@@ -16,7 +16,7 @@ This is a proud moment for us, especially since it has been only 5 years since w
 
 Are you interested?👀 
 
-Get started now by reading the list of [Project Ideas](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC'21-Project-List) to find a match for your skills and interests. Student aplications opened on **29th March** so you can discuss and adapt project ideas with prospective mentors now.
+Get started now by reading the list of [Project Ideas](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC'21-Project-List) to find a match for your skills and interests. Student applications opened on **29th March** so you can discuss and adapt project ideas with prospective mentors now.
 
 
 Use our [template](https://docs.google.com/document/d/1oeYPAuqWxeC79d-R5I9uFJywQJv4ooO4obF4pwifyTY/edit?usp=sharing) for writing your proposal ✍️ 
