@@ -9,10 +9,11 @@ url: "/posts/GSoC-Announcement-2021/"
 
 ![Google Summer of Code 2021 logo](/images/gsoc_cover.png)
 
-[Google Summer of Code (GSoC)](https://summerofcode.withgoogle.com/) is a global program focused on bringing student developers into open source software development. Students are sponsored by Google to work with a mentoring open source organization on a 3-month programming project during the summer. Over the past 16 years, 16,000+ students have participated in Google Summer of Code.
-
 This year we’re thrilled to announce that CircuitVerse is a mentoring organization in Google Summer of Code 2021 for the *third time* in a row!
 This is a proud moment for us, especially since it has been only 5 years since we started out, and we are witnessing an exponential growth - thanks to our ever-growing open source community. 🚀 
+
+[Google Summer of Code (GSoC)](https://summerofcode.withgoogle.com/) is a global program focused on bringing student developers into open source software development. Students are sponsored by Google to work with a mentoring open source organization on a 3-month programming project during the summer. Over the past 16 years, 16,000+ students have participated in Google Summer of Code.
+
 
 Are you interested?👀 
 
