@@ -23,7 +23,7 @@ Here a glimpse of our selected students:
 
 5. [Manjot Sindhu](https://github.com/manjotsidhu) will be working on [Interactive Book Integration for Mobile App](https://summerofcode.withgoogle.com/projects/#5929763765485568) and will be mentored under [Aboobacker MK](https://github.com/tachyons) and [Nitish Aggarwal](https://github.com/Nitish145).
  
-6. [Devansh Dixit]() will be working on [Project Recommendation System](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2721-Project-List#project-7---project-recommendation-system) and will be mentored under [Biswesh Mohapatra](https://github.com/biswesh456), [Satvik Ramaprasad](https://github.com/satu0king/), [Aboobacker MK](https://github.com/tachyons) and [Shivansh Shrivastava](https://github.com/Shivansh2407).
+6. [Devansh Dixit](https://github.com/DevanshD3) will be working on [Project Recommendation System](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2721-Project-List#project-7---project-recommendation-system) and will be mentored under [Biswesh Mohapatra](https://github.com/biswesh456), [Satvik Ramaprasad](https://github.com/satu0king/), [Aboobacker MK](https://github.com/tachyons) and [Shivansh Shrivastava](https://github.com/Shivansh2407).
 
 
 Once again, congratulations! We are impressed by your accomplishments so far, and hope you are just as pleased to be part of our community of so many wonderful people!🎉 
