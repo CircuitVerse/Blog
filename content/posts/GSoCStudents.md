@@ -1,7 +1,7 @@
 ---
 title: "Announcement of GSoC students"
 date: 2021-04-03T18:30:35+05:30
-draft: true
+draft: false
 author: Shreya Prasad
 type: post
 url: "/posts/GSoCStudents/"
