@@ -1,0 +1,46 @@
+@mixin mobile-xs{
+  @media(max-width:400px){
+    @content;
+  }
+}
+@mixin mobile{
+  @media(max-width:575px){
+    @content;
+  }
+}
+@mixin tablet{
+  @media(max-width:767px){
+    @content;
+  }
+}
+@mixin desktop{
+  @media(max-width:991px){
+    @content;
+  }
+}
+@mixin desktop-lg{
+  @media(max-width:1200px){
+    @content;
+  }
+}
+@mixin desktop-xl{
+  @media(min-width:1201px){ // Overriden here
+    @content;
+  }
+}
+
+@mixin size($size){
+  width: $size; height: $size;
+}
+
+/*
+  Custom Overrides
+*/
+.navbar-brand {
+  @media(max-width:767px){
+    .img-fluid {
+      max-width: 200px;
+      margin-top: 10px;
+    }
+  }
+}
