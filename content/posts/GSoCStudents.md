@@ -9,7 +9,7 @@ url: "/posts/GSoCStudents/"
 
 ![Google Summer of Code 2021 logo](/images/gsoc_cover.png)
 
-Congratulations to the 6 students selected to work with CircuitVerse during Google Summer of Code 2021! We’re thrilled to welcome them as a part of our community and we're looking forward to working together with our mentors and the greater CircuitVerse community 🎉 CircuitVerse's GSoC journey started from **2 students in 2019 to 4 in 2020 and finally 6 in 2021**! It has been nothing short of incredible 🚀
+Congratulations to the 6 students selected to work with CircuitVerse during Google Summer of Code 2021! We’re thrilled to welcome them as a part of our community and we're looking forward to working together with our mentors and the greater CircuitVerse community 🎉 CircuitVerse's GSoC journey started from **3 students in 2019 to 4 in 2020 and finally 6 in 2021**! It has been nothing short of incredible 🚀
 
 Here a glimpse of our selected students:
 
