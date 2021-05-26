@@ -1,7 +1,7 @@
 ---
 title: "Interactive Book's New Avatar!"
 date: 2021-05-26T11:12:38+05:30
-draft: true
+draft: false
 author: Shivansh Srivastava
 type: post
 url: "/posts/Interactive-Book-New-Avatar/"
