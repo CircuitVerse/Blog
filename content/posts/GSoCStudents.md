@@ -1,10 +1,10 @@
 ---
-title: "Announcement of GSoC students"
+title: "Announcement of 2021 GSoC students"
 date: 2021-04-03T18:30:35+05:30
 draft: false
 author: Shreya Prasad
 type: post
-url: "/posts/GSoCStudents/"
+url: "/posts/gsoc-students-2021/"
 ---
 
 ![Google Summer of Code 2021 logo](/images/gsoc_cover.png)
