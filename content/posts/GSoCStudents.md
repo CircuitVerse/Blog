@@ -9,9 +9,9 @@ url: "/posts/GSoCStudents/"
 
 ![Google Summer of Code 2021 logo](/images/gsoc_cover.png)
 
-Congratulations to the 6 students selected to work with CircuitVerse during Google Summer of Code 2021! We’re thrilled to welcome them as a part of our community and we're looking forward to working together with our mentors and the greater CircuitVerse community 🎉 CircuitVerse's GSoC journey started from **3 students in 2019 to 4 in 2020 and finally 6 in 2021**! It has been nothing short of incredible 🚀
+Congratulations to the 6 students selected to work with CircuitVerse during Google Summer of Code 2021! We’re thrilled to welcome them as a part of our community, and we're looking forward to working together with our mentors and the greater CircuitVerse community 🎉 CircuitVerse's GSoC journey started from **3 students in 2019 to 4 in 2020 and finally 6 in 2021**! It has been nothing short of incredible 🚀
 
-Here a glimpse of our selected students:
+Here is a glimpse of our selected students:
 
 1. [Ruturaj Mohite](https://github.com/gr455) will be working on [Refactoring Testbench and Automated Testing](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2721-Project-List#project-1---testbench-project) and will be mentored by [Satvik Ramaprasad](https://github.com/satu0king/) and [Samiran Konwar](http://github.com/abstrekt/).
 
@@ -26,5 +26,4 @@ Here a glimpse of our selected students:
 6. [Devansh Dixit](https://github.com/DevanshD3) will be working on [Project Recommendation System](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2721-Project-List#project-7---project-recommendation-system) and will be mentored under [Biswesh Mohapatra](https://github.com/biswesh456), [Satvik Ramaprasad](https://github.com/satu0king/), [Aboobacker MK](https://github.com/tachyons) and [Shivansh Srivastava](https://github.com/Shivansh2407).
 
 
-Once again, congratulations! We are impressed by your accomplishments so far, and hope you are just as pleased to be part of our community of so many wonderful people!🎉 
-
+Once again, congratulations to selected students! We hope they are just as pleased to be part of our community of so many wonderful people!🎉 
