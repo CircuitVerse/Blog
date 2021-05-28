@@ -1,6 +1,6 @@
 ---
 title: "Announcement of 2021 GSoC students"
-date: 2021-04-03T18:30:35+05:30
+date: 2021-05-23T18:30:35+05:30
 draft: false
 author: Shreya Prasad
 type: post
