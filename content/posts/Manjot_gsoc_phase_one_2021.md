@@ -2,7 +2,7 @@
 title: "GSoC 2021 | Interactive Book Integration | Phase 1 Report"
 date: 2021-07-08T22:45:30+05:30
 draft: false
-author: "Manjot Sidhu"
+author: "Manjot Singh Sidhu"
 type: post
 url: "/posts/2021/interactive-book-integration-phase-1/"
 ---
