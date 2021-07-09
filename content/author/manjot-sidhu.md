@@ -8,10 +8,10 @@ description = "Full Stack Developer"
 
 <p align="center">
   <code>
-    <a href="mailto:manjot.techie@gmail.com" title="Gmail"><img width="22" src="https://github.com/manjotsidhu/manjotsidhu/raw/master/icons/Gmail.png"> Gmail</a></code>
-    <code><a href="https://linkedin.com/in/manjotsinghsidhu" title="Gmail"><img width="22" src="https://github.com/manjotsidhu/manjotsidhu/raw/master/icons/LinkedIN.png"> LinkedIn</a></code>
-    <code><a href="https://t.me/manjotsidhu" title="Gmail"><img width="22" src="https://github.com/manjotsidhu/manjotsidhu/raw/master/icons/Telegram.png"> Telegram</a></code>
-    <code><a href="https://twitter.com/ManjotTechie" title="Gmail"><img width="22" src="https://github.com/manjotsidhu/manjotsidhu/raw/master/icons/Twitter.png"> Twitter</a></code>
+    <a href="mailto:manjot.techie@gmail.com" title="Gmail"><img width="22" alt="Gmail" src="https://github.com/manjotsidhu/manjotsidhu/raw/master/icons/Gmail.png"> Gmail</a></code>
+    <code><a href="https://linkedin.com/in/manjotsinghsidhu" title="Gmail"><img width="22" alt="LinkedIn"  src="https://github.com/manjotsidhu/manjotsidhu/raw/master/icons/LinkedIN.png"> LinkedIn</a></code>
+    <code><a href="https://t.me/manjotsidhu" title="Gmail"><img width="22" alt="Telegram" src="https://github.com/manjotsidhu/manjotsidhu/raw/master/icons/Telegram.png"> Telegram</a></code>
+    <code><a href="https://twitter.com/ManjotTechie" title="Gmail"><img width="22" alt="Twitter" src="https://github.com/manjotsidhu/manjotsidhu/raw/master/icons/Twitter.png"> Twitter</a></code>
 </p>
 <br />
 <p align="center">
