@@ -40,6 +40,10 @@ After clicking on the **Show LMS Credentials Button** the following modal will o
 
 All the work related to this project can be found in the branch ```lms-lti``` branch, checkout the code [here](https://github.com/CircuitVerse/CircuitVerse/tree/lms-lti)
 
+#### Slight changes from the Proposal
+
+In the proposal I have proposed **how to integrate CircuitVerse as an Moodle Plugin**, but later on we thought to integrate CircuitVerse as an LTI tool to the LMSs such that it can be delivered as an extension to a maximum number of LMSs, currently it is already tested in two of the popular LMS like Moodle and Canvas and hoping to test CircuitVerse in more number of LMSs in the upcoming coding phase.
+
 #### Future Goals
 
 For the upcoming coding period it is going to be a little bit hectic and as part of the project following are the major goals to accomplish in the next phase of coding
