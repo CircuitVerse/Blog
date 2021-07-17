@@ -112,7 +112,7 @@ All the commitments I have made for phase-1 of the coding period had been achiev
  
 ### Blog Posts
  
-I have also created my own blog covering my GSoC journey as well as my preparation during pre-GSoC, in order that future GSoC aspirants also receive an advantage from it .
+I have also created my own blog covering my GSoC journey as well as my preparation during pre-GSoC, so that future GSoC aspirants can receive an advantage from it .
  
 Kindly check! [Blog](https://pavanjoshi914.github.io/Blog/)
  
