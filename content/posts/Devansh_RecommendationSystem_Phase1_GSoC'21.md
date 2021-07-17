@@ -10,7 +10,7 @@ This blog describes my work done for [Recommendation System](https://summerofcod
 
 I have successfully completed Phase 1 of the Coding period @CircuitVerse and received amazing feedback from my mentor.
 
-![GSoC](images/DevanshD3-GSoC'21/Passed.png)
+![GSoC](images/DevanshD3-GSoC-21/Passed.png)
 
 #### Major Goals Accomplished in Phase 1
 
