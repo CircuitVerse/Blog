@@ -10,7 +10,7 @@ This blog describes my work done for [Recommendation System](https://summerofcod
 
 I have successfully completed Phase 1 of the Coding period @CircuitVerse and received amazing feedback from my mentor.
 
-![GSoC](images/DevanshD3-GSoC-21/Passed.png)
+![GSoC](/images/gsoc_cover.png)
 
 #### Major Goals Accomplished in Phase 1
 
@@ -39,7 +39,7 @@ It has been a wonderful experience working with the mentors and people at Circui
 
 #### Read my other GSoC blogs
 
-*   My phase 1 work (divided into weeks) is written [here](https://medium.com/gsoc21-coding-phase-1-circuitverse-2061993148f9).
-*   The Community Bonding [experience](https://medium.com/gsoc21-community-bonding-period-circuitverse-3ee093e3b1f1).
+*   My phase 1 work (divided into weeks) is written [here](https://medium.com/@devanshd3/gsoc21-coding-phase-1-circuitverse-2061993148f9).
+*   The Community Bonding [experience](https://medium.com/@devanshd3/gsoc21-community-bonding-period-circuitverse-3ee093e3b1f1).
 
 Thank you for reading XD.
