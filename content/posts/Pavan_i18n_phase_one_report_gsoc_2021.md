@@ -41,7 +41,7 @@ Following tasks were achieved during this week ⏬ :-
 * Update JSON Schema and validate RSpec tests to adapt new changes.
 * Generate array of locale codes following ISO 639-1 standards (130+ locales).
 * Advancement in Current I18n setup in Rails.
-* Localize Teachers and Simulator module (partially).
+* I18n tryout by localizing Teachers and Simulator module (partially).
  
 &nbsp;
 
@@ -85,11 +85,11 @@ Following tasks were achieved during this week ⏬ :-
  
 #### Week 5: Starting work on Simulator and Mobile App
  
-In my final week, I started working on simulator and mobile app. 
+In my final week, I started working on Simulator and Mobile App. 
 
 Following tasks were achieved during this week ⏬ :-
 
-* Localize ```CombinationalAnalysis.js```.
+* Localize familiar JS modules such as ```CombinationalAnalysis.js```.
 * Design Language Switcher and I18n test Suite for Rails.
 * Start of initial work in Mobile App.
 
@@ -106,13 +106,13 @@ Following tasks were achieved during this week ⏬ :-
  
 ### Additional Information
  
-All the commitments I have made for phase-1 of the coding period had been achieved. Instead of CircuitVerse Docs, I have started my work with Mobile App parallely and I18n for Docs will be done in the ending weeks as it becomes ready for I18n.
+All the commitments I have made for phase-1 of the coding period had been achieved. Instead of CircuitVerse Docs, I have started my work with Mobile App in parallel and I18n for Docs will be done in the ending weeks as it becomes ready for I18n.
  
 &nbsp;
  
 ### Blog Posts
  
-I have also created my own blog covering my GSoC journey as well as my preparation during pre-GSoC, in order that future GSoC aspirants also get benefitted from it .
+I have also created my own blog covering my GSoC journey as well as my preparation during pre-GSoC, in order that future GSoC aspirants also receive an advantage from it .
  
 Kindly check! [Blog](https://pavanjoshi914.github.io/Blog/)
  
