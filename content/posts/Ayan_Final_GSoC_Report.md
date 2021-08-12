@@ -10,17 +10,17 @@ type: post
 
 This is the final blog report summarizing the work done for 📚 [LMS Integration](https://summerofcode.withgoogle.com/projects/#6282924346834944) project during Google Summer of Code 2021 🖥.
 
-### [Get the Code](https://github.com/CircuitVerse/CircuitVerse/pull/2382)
+### [Get the Code 🎉](https://github.com/CircuitVerse/CircuitVerse/pull/2382)
 
 Here is the more detailed Phase 1 Report :
 
 [LMS Integration: Phase 1 Report (GSoC 2021- Ayan Biswas)](https://blog.circuitverse.org/posts/ayan_phase_1_report/)
 
-### About LMS Integration Project
+### About LMS Integration Project 📚
 
 Currently CircuitVerse have a basic LMS within CircuitVerse to manage assignments. But with the increasing demand for a full-fledged LMS features, it is required to be integrated with publicly available popular LMSs like Moodle/Canvas etc. However individual LMS integration per case to case basis is not possible, so CircuitVerse is looking for a way to integrate with multiple LMSs in a single flow. See the [CircuitVerse Wiki](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2721-Project-List#project-4---lms-integration) and [Project Board](https://github.com/orgs/CircuitVerse/projects/4) for more details.
 
-### Project Goals
+### Project Goals 🖥
 
 The major goals of the project are listed below :
 
@@ -32,7 +32,7 @@ In the video below, I have demonstrated the integration of CircuitVerse with the
 
 ![GSoC Final Video](/images/ayan-biswas-GSoC2021/Ayan_LMS_Final_LTI.gif)
 
-### Technical Specifications
+### Technical Specifications 👨‍💻
 
 Here is a diagrammatic representation of the LMS Integration Project:
 
@@ -87,7 +87,7 @@ So the grade passback service is implemented as per specifications of IMS-Global
 
 for more information about the grade passback service please refer [Learning Tools Interoperability (LTI) Implementation Guide](https://www.imsglobal.org/specs/ltiv1p1/implementation-guide)
 
-### New Features Added to CircuitVerse
+### New Features Added to CircuitVerse 🎉
 
 The goals are almost achieved. The following features are added to CircuitVerse:
 
@@ -100,7 +100,7 @@ The goals are almost achieved. The following features are added to CircuitVerse:
 
 ![Feature-Flag](/images/ayan-biswas-GSoC2021/Ayan_LMS_feature_flag.png)
 
-### Pull Requests made
+### Pull Requests made 🎯
 
 Here are the pull requests made to the [CircuitVerse](https://github.com/CircuitVerse) main repository:
 
@@ -113,7 +113,7 @@ Here are the pull requests made to the [CircuitVerseDocs](https://github.com/Cir
 
 * [LMS Integration Project documentation for teachers](https://github.com/CircuitVerse/CircuitVerseDocs/pull/304)
 
-### Testing and Documentation
+### Testing and Documentation 📒
 
 Rspec tests has been added to check the entire LTI integration flow. Please refer to the [spec/requests/lti_spec.rb](https://github.com/CircuitVerse/CircuitVerse/blob/9a0a1bd76cd39add7f256573af3e439114067863/spec/requests/lti_spec.rb)
 
@@ -127,7 +127,7 @@ Here is a glimpse of the documentation of the LMS integration project
 
 ![GSoC](/images/ayan-biswas-GSoC2021/Ayan_LMS_Final_docs.png)
 
-### Future Plans
+### Future Plans 📆
 
 The initial integration of CircuitVerse with the LMS is ready for production use of teachers and students. The next step is to add more features to the platform.Here are some of the future plans :
 
@@ -135,7 +135,7 @@ The initial integration of CircuitVerse with the LMS is ready for production use
 * Automatic cron job to sync grades with the LMSs (Checking of grade submission failures if necessary).
 * Integration with non-LTI LMSs (like Google Classroom).
 
-### Blog posts written
+### Blog posts written 📝
 
 I have described my entire journey through a series of blogs in my web profile.You can find the links below, plese click on the links to read the posts :
 
@@ -153,7 +153,7 @@ I have described my entire journey through a series of blogs in my web profile.Y
 
 7. [GSoC’21 Week 7+8 Experience @CircuitVerse](https://www.ayanbiswas.in/2021/08/07/gsoc21-week-78-experience-circuitverse/)
 
-### Experience
+### Experience 🏂
 
 Google Summer of Code has been a great experience for me. I have learned a lot from my project and I am very happy with the outcome.Engaging in the beautiful community like CircuitVerse is an excellent opportunity for me, I also want to thank my mentors [Aboobacker MK](https://github.com/tachyons), [Satvik Ramaprasad](https://github.com/satu0king/) and [Shivansh Srivastava](https://github.com/Shivansh2407) for their extreme support and continuous code reviewes.
 
