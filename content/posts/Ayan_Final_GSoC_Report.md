@@ -4,6 +4,7 @@ date: 2021-08-08T16:19:04+05:30
 draft: false
 author: Ayan Biswas
 type: post
+url: "/posts/ayan-biswas-gsoc-21-final-report-lms-integration"
 ---
 
 ![GSoC](/images/gsoc_cover.png)
