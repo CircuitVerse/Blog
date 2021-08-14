@@ -1,7 +1,7 @@
 ---
 title: 'Project Recommendation System: Final Report (GSoC 2021- Devansh Dixit)'
 date: 2021-08-13T21:32:37+05:30
-draft: true
+draft: false
 author: Devansh Dixit
 type: post
 ---
