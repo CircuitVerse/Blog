@@ -39,7 +39,7 @@ Here is a diagrammatic representation of the LMS Integration Project:
 
 ![GSoC](/images/ayan-biswas-GSoC2021/Ayan_LMS_Final_project_flow.png)
 
-The entire logic of incoming and outgoing requestes are handled by the [ims-lti](https://github.com/instructure/ims-lti) gem, which is a Ruby gem that implements the LTI protocol.
+The entire logic of incoming and outgoing requests are handled by the [ims-lti](https://github.com/instructure/ims-lti) gem, which is a Ruby gem that implements the LTI protocol.
 
 This project has two main segments:
 
@@ -69,9 +69,9 @@ If the request is valid, then corresponding assignment is fetched from the datab
 
 #### 2. Grade Syncing with the LMSs
 
-For the grade passback service the native LTI protocol is followed, because the [ims-lti](https://github.com/instructure/ims-lti) gem doesn't support the flow as per our requirements.
+For the grade pass back service the native LTI protocol is followed, because the [ims-lti](https://github.com/instructure/ims-lti) gem doesn't support the flow as per our requirements.
 
-So the grade passback service is implemented as per specifications of IMS-Global, see in [lti_score_submission.rb](https://github.com/CircuitVerse/CircuitVerse/blob/9a0a1bd76cd39add7f256573af3e439114067863/app/services/lti_score_submission.rb)
+So the grade pass back service is implemented as per specifications of IMS-Global, see in [lti_score_submission.rb](https://github.com/CircuitVerse/CircuitVerse/blob/9a0a1bd76cd39add7f256573af3e439114067863/app/services/lti_score_submission.rb)
 
 ```
   def call
@@ -86,7 +86,7 @@ So the grade passback service is implemented as per specifications of IMS-Global
   end
 ```
 
-for more information about the grade passback service please refer [Learning Tools Interoperability (LTI) Implementation Guide](https://www.imsglobal.org/specs/ltiv1p1/implementation-guide)
+for more information about the grade pass back service please refer [Learning Tools Interoperability (LTI) Implementation Guide](https://www.imsglobal.org/specs/ltiv1p1/implementation-guide)
 
 ### New Features Added to CircuitVerse 🎉
 
@@ -95,7 +95,7 @@ The goals are almost achieved. The following features are added to CircuitVerse:
 * [x] The CircuitVerse codebase made [LTI (Learning Tools Interoperability)](https://www.imsglobal.org/activity/learning-tools-interoperability) compatible.
 * [x] Necessary credentials can be generated for the LMSs to integrate with CircuitVerse.Updated the assignment creation UI to support the new credentials generation facility.
 * [x] The LMSs can now sync grades with the CircuitVerse platform.
-* [x] Some of the pages like (Groups/Assignemnts) are made iframable such that they can be accessed from LMS side using [LTI]((https://www.imsglobal.org/activity/learning-tools-interoperability)) protocol.
+* [x] Some of the pages like (Groups/Assignments) are made compatible for iframe embed such that they can be accessed from LMS side using [LTI]((https://www.imsglobal.org/activity/learning-tools-interoperability)) protocol.
 * [x] Added documentation for the teachers to connect the assignments with their LMS.
 * [x] Feature flagged the LMS integration feature.
 
@@ -138,7 +138,7 @@ The initial integration of CircuitVerse with the LMS is ready for production use
 
 ### Blog posts written 📝
 
-I have described my entire journey through a series of blogs in my web profile.You can find the links below, plese click on the links to read the posts :
+I have described my entire journey through a series of blogs in my web profile.You can find the links below, please click on the links to read the posts:
 
 1. [My Journey to Google Summer of Code 21 with CircuitVerse and insights on the Proposal for GSoC](https://www.ayanbiswas.in/2021/05/20/my-journey-to-google-summer-of-code-21-with-circuitverse-and-insights-on-the-proposal-for-gsoc)
 
@@ -156,7 +156,7 @@ I have described my entire journey through a series of blogs in my web profile.Y
 
 ### Experience 🏂
 
-Google Summer of Code has been a great experience for me. I have learned a lot from my project and I am very happy with the outcome.Engaging in the beautiful community like CircuitVerse is an excellent opportunity for me, I also want to thank my mentors [Aboobacker MK](https://github.com/tachyons), [Satvik Ramaprasad](https://github.com/satu0king/) and [Shivansh Srivastava](https://github.com/Shivansh2407) for their extreme support and continuous code reviewes.
+Google Summer of Code has been a great experience for me. I have learned a lot from my project and I am very happy with the outcome.Engaging in the beautiful community like CircuitVerse is an excellent opportunity for me, I also want to thank my mentors [Aboobacker MK](https://github.com/tachyons), [Satvik Ramaprasad](https://github.com/satu0king/) and [Shivansh Srivastava](https://github.com/Shivansh2407) for their extreme support and continuous code reviews.
 
 Looking forward to contribute even more to CircuitVerse and the whole Open-source community !
 
