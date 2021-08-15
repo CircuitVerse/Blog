@@ -8,16 +8,18 @@ type: post
 
 # Recommendation System
 
-The recommendation system is the first ML project for [CircuitVerse](https://github.com/CircuitVerse/CircuitVerse). The basic idea is to recommend similar circuits (which are also popular) to the users to increase user engagement and reach of good projects. In this report, I have explained every decision or technology in simple words to give a better understanding and to give an idea of why we did, what we did.
+The project aims to add the functionality of a recommendation system to the [CircuitVerse](https://github.com/CircuitVerse/CircuitVerse) website. In this report, I have explained every decision or technology in simple words to give a better understanding and to give an idea of why we did, what we did.
 
 ### All my code files 💻🎉 [here](https://github.com/DevanshD3/CircuitVerse/tree/recommendation-system/recommendation%20system).
 
 ## Why use an unsupervised learning-based model?
 
-The data that was available for us (check out the [database schema](https://github.com/CircuitVerse/CircuitVerse/blob/master/db/schema.rb#L275)) to use didn't have a response variable (typically a X and a Y to train and test the model and improve the accuracy). Therefore, we had to rely on the usage of unsupervised learning-based algorithms to find the intrinsic pattern and hidden structures in the data and present it to the user.
+The data that was available for us (check out the [database schema](https://github.com/CircuitVerse/CircuitVerse/blob/master/db/schema.rb#L275)) to use didn't have a target variable (typically a X and a Y to train and test the model and improve the accuracy). Therefore, we had to rely on the usage of unsupervised learning-based algorithms to find the intrinsic pattern and hidden structures in the data and present it to the user.
 
 ## Model Structure
 
+Our model is a 2 layered model with the first layer consisting of CountVectorizer + LDA and in the next layer we find top 50 closest projects using K-D Trees, while using stars and views for re-ranking. 
+The diagram below shows the model structure in detail :
 ![Recommendation System Structure](https://i.imgur.com/q5o3GGY.jpg)
 
 ## Data Cleaning Module
@@ -44,7 +46,8 @@ Our recommendation system uses [CountVectorizer](https://scikit-learn.org/stable
 - LDA assumes that every chunk of text we feed into it will contain words that are somehow related. Therefore choosing the right corpus of data is crucial.
 - It also assumes documents are produced from a mixture of topics. Those topics then generate words based on their probability distribution.
 
-Simply put, LDA creates a distribution of words and packs them together as a topic (the number of topics is chosen by the user). When a new sentence is fed into the model, based on the words present in the new sentence, we get a distribution of the sentence over all the topics. The new dimension of each vector becomes the total number of topics hence drastically reducing the dimensions with better filtering.
+Simply put, LDA creates a distribution of words and packs them together as a topic (the number of topics is chosen by the user). When a new sentence is fed into the model, it is converted to a vector based on the word count (by CountVectorizer), which then, and based on the word count, we get a distribution of the sentence over all the topics and that becomes the new dimension of the project, thus reducing the dimension of every project to 10, thus reducing the time taken to build the K-D Tree and also helps in finding better neighbors.
+
 In our recommendation system, the log-likelihood was the least for 10 topics for the given dataset.
 
 ![Topics 5 to 50](/images/DevanshD3-GSoC'21/MT.png)
