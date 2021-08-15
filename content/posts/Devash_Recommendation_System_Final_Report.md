@@ -46,7 +46,7 @@ Our recommendation system uses [CountVectorizer](https://scikit-learn.org/stable
 - LDA assumes that every chunk of text we feed into it will contain words that are somehow related. Therefore choosing the right corpus of data is crucial.
 - It also assumes documents are produced from a mixture of topics. Those topics then generate words based on their probability distribution.
 
-Simply put, LDA creates a distribution of words and packs them together as a topic (the number of topics is chosen by the user). When a new sentence is fed into the model, it is converted to a vector based on the word count (by CountVectorizer), and based on the word count, we get a distribution of the sentence over all the topics and that becomes the new dimension of the project, thus reducing the dimension of every project to 10, thus reducing the time taken to build the K-D Tree and also helps in finding better neighbors.
+Simply put, LDA creates a distribution of words and packs them together as a topic (the number of topics is chosen by the user). When a new sentence is fed into the model, it is converted to a vector based on the word count (by CountVectorizer). LDA then runs on this project vector and hence we get a distribution of the sentence over all the topics. This becomes the new dimension of the project, thus reducing the dimension of every project to the number of topics (in our case 10). It also reduces the time taken to build the K-D Tree and helps in finding better neighbors.
 
 In our recommendation system, the log-likelihood was the least for 10 topics for the given dataset.
 
