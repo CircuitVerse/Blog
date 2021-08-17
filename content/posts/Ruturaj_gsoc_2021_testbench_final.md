@@ -75,6 +75,16 @@ There were a lot of things I did for the first time, and a lot of things that di
 
 * This was also my first time working with Webpack and asset pipelines. I had to serve the new UI through webpack, and so I had to configure webpack to do so. 
 
+## What's Next
+
+There are some extra features to be added to the project, that will be implemented post GSoC. For example the automated testing of assignment submissions. We decided that this feature might require extensive testing as professors might rely on the results of the automated testing for grading.
+
+All these features are to be added iteratively.
+
+The testbench engine also serves as a great interface to run automated simulator tests as well. We could think of a simulator testing framework that can use the engine functions to run simulator tests. Currently CircuitVerse does not run any automated tests for the simulator.
+
+Above everything, I plan to stick around with CircuitVerse and contribute. For this project, I have learnt a great deal about the simulator engine and I can use my knowledge to fix many deep rooted bugs in the engine. We have already planned a series of refactors for the simulator core to make it more robust, which I will be working on.
+
 ## Acknowledgments
 
 Thanks to the core team at CircuitVerse, [Satvik Ramaprasad](https://github.com/satu0king), [Aboobacker MK](https://github.com/tachyons), [Shivansh Srivastava](https://github.com/Shivansh2407), [Samiran Konwar](https://github.com/abstrekt), [Nitin Singhal](https://github.com/nitin10s) and [Shreya Prasad](https://www.linkedin.com/in/-shreya-prasad/) for providing feedback on my progress and conducting weekly catch-up sessions that kept me involved in the community.
