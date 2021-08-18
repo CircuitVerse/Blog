@@ -11,7 +11,7 @@ type: post
 
 ## Recommendation System
 
-The project aims to add the functionality of a recommendation system to the [CircuitVerse](https://github.com/CircuitVerse/CircuitVerse) website. In this report, I have explained every decision or technology in simple words to give a better understanding and to give an idea of why we did, what we did. All my code files 💻🎉 [here](https://github.com/DevanshD3/CircuitVerse/tree/recommendation-system/recommendation%20system).
+The project aims to add the functionality of a recommendation system to the [CircuitVerse](https://github.com/CircuitVerse/CircuitVerse) website. In this report, I have explained every decision or technology in simple words to give a better understanding and to give an idea of why we did, what we did. All my code files 💻🎉 [here](https://github.com/CircuitVerse/recommender).
 
 &nbsp;
 
@@ -145,9 +145,9 @@ Some of the things are listed below:
 &nbsp;
 
 
-## Pull Requests:
+## Contributions
 
-- _[[#2367]](https://github.com/CircuitVerse/CircuitVerse/pull/2367)_ Consists of all my code, modules, and pre-computed recommendations.
+- _[[#2367]](https://github.com/CircuitVerse/recommender)_ Consists of all my code, modules, and pre-computed recommendations.
 - _[[#83]](https://github.com/CircuitVerse/Blog/pull/83)_ Phase - 1 blog post
 
 &nbsp;
