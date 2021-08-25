@@ -44,3 +44,49 @@
     }
   }
 }
+
+// Blogs theme
+.block a {
+  color: #40ba84;
+}
+.block a:hover {
+  color: #40ba84;
+}
+.block .btn-transparent{
+  border-bottom: 1px solid #40ba84;
+}
+
+// Pagination theme
+.pagination .page-item.active .page-link {
+  background: #40ba84 !important;
+}
+.pagination .page-item .page-link:hover {
+  background: #40ba84 !important;
+}
+
+// Button Theme
+.btn-primary {
+  background: #40ba84 !important;
+  border-color: #40ba84 !important;
+}
+.btn-primary:active, .btn-primary:hover, .btn-primary.focus, .btn-primary.active {
+  background: #40ba84 !important;
+  border-color: #40ba84 !important;
+}
+
+// Footer navlinks Theme
+.social-icon a{
+  color: #40ba84 !important;
+  border-color: #40ba84 !important;
+}
+.social-icon a:hover {
+  background: #40ba84 !important;
+  color: #fff !important;
+}
+.text-center {
+  span{
+    a{
+      color: #40ba84 !important;
+    }
+  }
+}
