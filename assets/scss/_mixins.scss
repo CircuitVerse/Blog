@@ -44,6 +44,36 @@
     }
   }
 }
+// Circuitverse Logo
+.navigation{
+  .img-fluid{
+    max-width: 70% !important;
+  }
+}
+
+// Navigation Bar Links
+.navbar-expand-lg .navbar-nav .nav-link {
+  font-weight: bold;
+  padding: 10px 20px !important;
+  font-size: 1rem;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #40ba84 !important;
+  border-radius: 5px;
+}
+.search-btn{
+  font-weight: bold;
+  margin-left: 1rem;
+}
+.search-btn:hover{
+  color: #40ba84;
+}
+.navbar-brand{
+  padding-bottom: 0;
+}
+.navbar-expand-lg .navbar-nav .nav-item:nth-child(1){
+  display: none;
+}
 
 // Blogs theme
 .block a {
