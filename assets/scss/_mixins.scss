@@ -87,36 +87,36 @@
 }
 
 // Pagination theme
-.pagination .page-item.active .page-link {
-  background: #40ba84 !important;
+.mt-5 .pagination .page-item.active .page-link {
+  background: #40ba84 ;
 }
-.pagination .page-item .page-link:hover {
-  background: #40ba84 !important;
+.mt-5 .pagination .page-item .page-link:hover {
+  background: #40ba84 ;
 }
 
 // Button Theme
-.btn-primary {
-  background: #40ba84 !important;
-  border-color: #40ba84 !important;
+.container .btn-primary {
+  background: #40ba84 ;
+  border-color: #40ba84 ;
 }
-.btn-primary:active, .btn-primary:hover, .btn-primary.focus, .btn-primary.active {
-  background: #40ba84 !important;
-  border-color: #40ba84 !important;
+.container .btn-primary:active,.container .btn-primary:hover, .container .btn-primary.focus, .container .btn-primary.active {
+  background: #40ba84 ;
+  border-color: #40ba84 ;
 }
 
 // Footer navlinks Theme
-.social-icon a{
-  color: #40ba84 !important;
-  border-color: #40ba84 !important;
+.container .social-icon a{
+  color: #40ba84 ;
+  border-color: #40ba84 ;
 }
-.social-icon a:hover {
-  background: #40ba84 !important;
-  color: #fff !important;
+.container .social-icon a:hover {
+  background: #40ba84 ;
+  color: #fff ;
 }
 .text-center {
   span{
     a{
-      color: #40ba84 !important;
+      color: #40ba84 ;
     }
   }
 }
