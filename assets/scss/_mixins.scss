@@ -74,3 +74,49 @@
 .navbar-expand-lg .navbar-nav .nav-item:nth-child(1){
   display: none;
 }
+
+// Blogs theme
+.block a {
+  color: #40ba84;
+}
+.block a:hover {
+  color: #40ba84;
+}
+.block .btn-transparent{
+  border-bottom: 1px solid #40ba84;
+}
+
+// Pagination theme
+.mt-5 .pagination .page-item.active .page-link {
+  background: #40ba84 ;
+}
+.mt-5 .pagination .page-item .page-link:hover {
+  background: #40ba84 ;
+}
+
+// Button Theme
+.container .btn-primary {
+  background: #40ba84 ;
+  border-color: #40ba84 ;
+}
+.container .btn-primary:active,.container .btn-primary:hover, .container .btn-primary.focus, .container .btn-primary.active {
+  background: #40ba84 ;
+  border-color: #40ba84 ;
+}
+
+// Footer navlinks Theme
+.container .social-icon a{
+  color: #40ba84 ;
+  border-color: #40ba84 ;
+}
+.container .social-icon a:hover {
+  background: #40ba84 ;
+  color: #fff ;
+}
+.text-center {
+  span{
+    a{
+      color: #40ba84 ;
+    }
+  }
+}
