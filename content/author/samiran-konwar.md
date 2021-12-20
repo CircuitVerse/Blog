@@ -1,7 +1,7 @@
 +++
 title = "Samiran Konwar"
-image = "/images/authors/abstrekt.jpeg"
-description = "Front end developer"
+image = "https://avatars.githubusercontent.com/u/42478217?v=4"
+description = "Frontend Engineer"
 +++
 
-Samiran - Enter Details here
+Hi there! ⚡︎ 

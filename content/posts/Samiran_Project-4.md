@@ -11,7 +11,7 @@ Status: ***passed***
 
 &nbsp;
 
-*This blog summarizes the work done as for the second phase evaluation of **Google Summer of Code** program under the organization CircuitVerse as a part of the "Enhancing Simulator User Interface" project.*
+*This blog summarizes the work done for the second phase evaluation of **Google Summer of Code** program under the organization CircuitVerse as a part of the "Enhancing Simulator User Interface" project.*
 
 &nbsp;
 

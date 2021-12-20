@@ -11,7 +11,7 @@ Status: ***passed***
 
 &nbsp;
 
-*This blog summarizes the work done for the second phase evaluation of **Google Summer of Code** program under the organization CircuitVerse as a part of the "Enhancing Simulator User Interface" project.*
+*This blog summarizes the work done for the second phase evaluation of the **Google Summer of Code** program under the organization CircuitVerse as a part of the "Enhancing Simulator User Interface" project.*
 
 &nbsp;
 
@@ -61,7 +61,7 @@ Mixing this with some JS I was sure to have a working modal.
 
 - I start by separating the stylesheet rules that deal with colors, I extracted all those rules & created a new stylesheet with them so that the theme has to only deal with one sass file.
 
-- Secondly, change all the hard coded hex codes into variables, having variables defined somewhere, at load these variables are defined to the root node of the DOM, then the page just extracts & sets these. Now, this was very important to change the theme in real-time, it's possible to change the values of color variables present in the root with the help of JS w/o needing to reload.
+- Secondly, change all the hardcoded hex codes into variables, having variables defined somewhere, at load these variables are defined to the root node of the DOM, then the page just extracts & sets these. Now, this was very important to change the theme in real-time, it's possible to change the values of color variables present in the root with the help of JS w/o needing to reload.
 
 - Then, it was now time for some JS, defining the object with the theme name property and of course, their colors.
 
