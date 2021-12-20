@@ -1,0 +1,122 @@
+@mixin mobile-xs{
+  @media(max-width:400px){
+    @content;
+  }
+}
+@mixin mobile{
+  @media(max-width:575px){
+    @content;
+  }
+}
+@mixin tablet{
+  @media(max-width:767px){
+    @content;
+  }
+}
+@mixin desktop{
+  @media(max-width:991px){
+    @content;
+  }
+}
+@mixin desktop-lg{
+  @media(max-width:1200px){
+    @content;
+  }
+}
+@mixin desktop-xl{
+  @media(min-width:1201px){ // Overriden here
+    @content;
+  }
+}
+
+@mixin size($size){
+  width: $size; height: $size;
+}
+
+/*
+  Custom Overrides
+*/
+.navbar-brand {
+  @media(max-width:767px){
+    .img-fluid {
+      max-width: 200px;
+      margin-top: 10px;
+    }
+  }
+}
+// Circuitverse Logo
+.navigation{
+  .img-fluid{
+    max-width: 70% !important;
+  }
+}
+
+// Navigation Bar Links
+.navbar-expand-lg .navbar-nav .nav-link {
+  font-weight: bold;
+  padding: 10px 20px !important;
+  font-size: 1rem;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #40ba84 !important;
+  border-radius: 5px;
+}
+.search-btn{
+  font-weight: bold;
+  margin-left: 1rem;
+}
+.search-btn:hover{
+  color: #40ba84;
+}
+.navbar-brand{
+  padding-bottom: 0;
+}
+.navbar-expand-lg .navbar-nav .nav-item:nth-child(1){
+  display: none;
+}
+
+// Blogs theme
+.block a {
+  color: #40ba84;
+}
+.block a:hover {
+  color: #40ba84;
+}
+.block .btn-transparent{
+  border-bottom: 1px solid #40ba84;
+}
+
+// Pagination theme
+.mt-5 .pagination .page-item.active .page-link {
+  background: #40ba84 ;
+}
+.mt-5 .pagination .page-item .page-link:hover {
+  background: #40ba84 ;
+}
+
+// Button Theme
+.container .btn-primary {
+  background: #40ba84 ;
+  border-color: #40ba84 ;
+}
+.container .btn-primary:active,.container .btn-primary:hover, .container .btn-primary.focus, .container .btn-primary.active {
+  background: #40ba84 ;
+  border-color: #40ba84 ;
+}
+
+// Footer navlinks Theme
+.container .social-icon a{
+  color: #40ba84 ;
+  border-color: #40ba84 ;
+}
+.container .social-icon a:hover {
+  background: #40ba84 ;
+  color: #fff ;
+}
+.text-center {
+  span{
+    a{
+      color: #40ba84 ;
+    }
+  }
+}

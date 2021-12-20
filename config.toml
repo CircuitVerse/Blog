@@ -1,7 +1,110 @@
-baseURL = "https://cvblog.netlify.app"
+baseURL = "https://blog.circuitverse.org/"
 languageCode = "en-us"
 title = "CircuitVerse Blog"
-theme = "ananke"
+theme = "northendlab-hugo"
+############################ Default configuration #########################
+# post pagination
+paginate = "5"
+# post excerpt
+summaryLength = "10"
+# disqus short name
+disqusShortname = "blog-circuitverse-org" # get your shortname form here : https://disqus.com
+
+[outputs]
+home = ["HTML", "AMP", "RSS", "JSON"]
+
+########################## Plugings ######################################
+
+# css plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/themify-icons/themify-icons.css"
+
+# js plugins
+[[params.plugins.js]]
+link = "plugins/jQuery/jquery.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/search/fuse.min.js"
+[[params.plugins.js]]
+link = "plugins/search/mark.js"
+[[params.plugins.js]]
+link = "plugins/search/search.js"
+
+
+########################### Navigation ###################################
+
+# main menu
+[[menu.main]]
+URL = "contact"
+name = "Contact"
+weight = 1
+
+# footer menu
+[[menu.footer]]
+URL = "contact"
+name = "Contact"
+weight = 1
+
+######################### Default Parameters ###########################
 [params]
-  show_reading_time = true
-  site_logo = "/img/logo.svg"
+# home
+home = "Home"
+# logo
+logo = "images/logo.svg"
+# meta data
+author = "Circuitverse"
+description = "CircuitVerse Blog"
+# google tag manager
+google_tag_manager = "" # your id
+# google analitycs ID
+google_analitycs_id = "UA-112678513-4" # your id
+# contact form action
+contact_form_action = "https://formspree.io/support@circuitverse.org" # contact form works with : https://formspree.io
+# copyright
+copyright = "&copy; 2021 [Circuitverse](https://circuitverse.org) All Rights Reserved"
+
+# preloader
+[params.preloader]
+enable = true
+preloader = "" # use png, jpg, svg or gif format
+
+# search
+[params.search]
+enable = true
+
+
+####################### banner #######################################
+[params.banner]
+bgImage = "/images/blog-assets/banner-bg.svg"
+title = "Dive into the world of Logic Circuits for free!"
+image = "/images/blog-assets/banner.png"
+
+
+######################## call to action ###############################
+[params.cta]
+enable = true
+image = "/images/blog-assets/cv.png"
+title = "Create circuits"
+description = "From simple gates to complex sequential circuits, plot timing diagrams, automatic circuit generation, explore standard ICs, and much more"
+[params.cta.button]
+enable = true
+label = "Check it out"
+link = "https://circuitverse.org"
+
+
+############################## Social Site ##########################
+[[params.social]]
+icon = "ti-facebook" # themify icon pack https://themify.me/themify-icons
+link = "https://www.facebook.com/CircuitVerse"
+[[params.social]]
+icon = "ti-twitter-alt" # themify icon pack https://themify.me/themify-icons
+link = "https://twitter.com/CircuitVerse"
+[[params.social]]
+icon = "ti-github" # themify icon pack https://themify.me/themify-icons
+link = "https://github.com/Circuitverse/Circuitverse"
+[[params.social]]
+icon = "ti-linkedin" # themify icon pack https://themify.me/themify-icons
+link = "https://www.linkedin.com/company/circuitverse"
