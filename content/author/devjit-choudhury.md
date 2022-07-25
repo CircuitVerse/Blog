@@ -4,10 +4,17 @@ image = "/images/authors/devartstar.jpg"
 description = "Think More Code Less"
 +++
 
+### Hi there, I'm Devjit - aka [devartstar](https://www.devjitchoudhury.com/) 👋
+
 Google Summer of Code 2022 @ CircuitVerse || Mathematics And Computing Undergraduate at [Indian Institute of Technology Kharagpur](http://www.iitkgp.ac.in/) || Class of 2024
 
-[![Linkedin Badge](https://img.shields.io/badge/-Devjit%20Choudhury-blue?style=social&logo=Linkedin&logoColor=blue&link=https://www.linkedin.com/in/ayanbiswas0412/)](https://www.linkedin.com/in/devjit-choudhury-717915151/)
+[![Website](https://img.shields.io/website?label=devartstar.com&style=for-the-badge&url=https%3A%2F%2Fdevartstar.com)](https://www.devjitchoudhury.com/)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/atr_si_luv/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/devjit-choudhury-717915151/)
 
-[![GitHub followers](https://img.shields.io/github/followers/devartstar?style=social)](https://github.com/devartstar)
+## I'm a Developer, Competetive Coder, Curious and Fast Learner
 
-[![Gmail Badge](https://img.shields.io/badge/-devjitc1-c14438?style=social&logo=Gmail&logoColor=red&link=mailto:ayanbiswas184@gmail.com)](mailto:devjitc1@gmail.com)
+- 🌱 I’m currently learning everything 🤣
+- 👯 I’m looking to collaborate with other developers
+- 🥅 2022 Goals: Contribute more to Open Source projects
+- ⚡ Fun fact: I love to draw and swim
