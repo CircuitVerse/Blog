@@ -1,0 +1,101 @@
+---
+title: "Simulator Improvement: GSoC'22 Phase 1 Report "
+date: 2022-07-25T13:39:01+05:30
+draft: true
+author: Pulkit Gupta
+type: post
+---
+
+![coverImage](/images/pulkitGupta_phase_1_blog/coverImage.png)
+
+This blog is about my work with [CircuitVerse](https://github.com/circuitverse) during the first phase of Google Summer of Code 2022.
+
+### About my Project
+
+[My Project](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2722-Project-List#project-4---circuitverse-simulator-improvements) aims to improve the CircuitVerse simulator and finish some pending work in the CircuitVerse desktop app. One of the primary goals of this project is to create tests for the simulator which can be run to ensure that any change does not break the simulator’s behaviour.
+
+### Community Bonding Period @Circuitverse
+
+The CircuitVerse community has been super welcoming since the first day I started contributing.
+I was thrilled after being accepted as GSoC student. We had our first meet with organization's core-team members and mentors. Also interacted with other fellow contributors. It was a great pleasure to meet all of them. We had a fantastic meeting, and our mentors informed us about the GSoC flow and shared their GSoC experience with us. Also, me and my mentor schedule a small meet, to discuss the project flow.
+
+As I was aware of organization codebase, So I started working on my project during the bonding period and planned to have minimum one meet every week to discuss the progress and future plan of the project.
+
+### Coding Period || Phase 1
+
+For me, the initial coding phase went smoothly. Major tasks for the project are:
+
+- Gained a better understanding of the [JEST-testing library](https://jestjs.io/).
+- While creating the test suite, I learned more about circuits, fundamentals, and simulator functioning.
+- I gained a good knowledge of UI and UX.
+- Acquired knowledge of best practices to follow while writing code.
+
+### Work Done
+
+First we decided to start with Simulator Testing project, followed by importing and exporting of circuitfiles.
+
+#### Simulator Testing
+
+The major task of the project is to create a test suite for the circuitVerse simulator which ensures that new changes do not break the current functioning of the simulator. We have to build a test suite using the testbench engine, which provides an abstraction layer to the code.
+
+For creating the testsuite, we used [JEST testing library](https://jestjs.io/).
+For testing any circuit using testbench, we can pass testdata and circuitdata to the testbench function (runAll), which runs tests(not involves web-browser) and returns test summary.
+
+**Work Flow**
+
+![Work Flow](/images/pulkitGupta_phase_1_blog/workflow-testing.png)
+
+**Work Sample**
+
+![Simulator Tests Working Gif](/images/pulkitGupta_phase_1_blog/simtesting.gif)
+
+**Pull Requests**
+
+- [Tests for Simulator Gates](https://github.com/CircuitVerse/CircuitVerse/pull/3162)
+- [Tests for most frequently used functions while simulating](https://github.com/CircuitVerse/CircuitVerse/pull/3172)
+- [Tests for Simulator decoders and plexers](https://github.com/CircuitVerse/CircuitVerse/pull/3186)
+- [Tests for Simulator misc-elements](https://github.com/CircuitVerse/CircuitVerse/pull/3191)
+- [Tests for Simulator sequential elements](https://github.com/CircuitVerse/CircuitVerse/pull/3193)
+- [Tests for Simulator Combinational Analysis](https://github.com/CircuitVerse/CircuitVerse/pull/3204)
+- [Tests for Simulator bitConvertor](https://github.com/CircuitVerse/CircuitVerse/pull/3207)
+- [Tests for Simulator subCircuits](https://github.com/CircuitVerse/CircuitVerse/pull/3212)
+- [Tests for Simulator force-gate](https://github.com/CircuitVerse/CircuitVerse/pull/3221)
+- [Tests for complex circuits](https://github.com/CircuitVerse/CircuitVerse/pull/3244)
+
+#### Import & export of circuitfiles
+
+Task: a `.cv` extension file that contains the circuit data that can be exported and imported from system to the simulator.
+
+Pull Request
+
+- [PR-3222 (feature): import and export of circuit files](https://github.com/CircuitVerse/CircuitVerse/pull/3222)
+
+#### Mobile Touch Compatibility
+
+Last GSoC, [Abhisek Zade](https://blog.circuitverse.org/author/abhishek-zade/)  made a lot of progress with the touch compatibility on the simulator for small devices but has many UI bugs, which need to be fixed.
+
+Some bugs that have been fixed:
+
+- updated branch code
+- added redo option
+- fix navbar menu UI
+- fix properties dialog UI
+  and some small UI bugs
+
+![Touch Compatibility Working Gif](/images/pulkitGupta_phase_1_blog/TouchWorking.gif)
+
+Pull Request
+
+- [Pr-3236: (support): Mobile Touch compatibility](https://github.com/CircuitVerse/CircuitVerse/pull/3236)
+
+
+### Learning
+
+- I gained a better understanding of JEST-testing library.
+- While creating the test suite, I learned more about circuits, fundamentals, and simulator functioning.
+- I gained more knowledge in UI and UX.
+- Acquired knowledge for best-practices to follow when writing code.
+
+### Conclusion
+
+Phase 1 was majorly about simulator testing. Things are very flexible and my mentor has helped me in every way, I could have imagined. The community were a great support in the process.
