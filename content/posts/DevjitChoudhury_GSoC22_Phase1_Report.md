@@ -73,7 +73,13 @@ There are 3 types of Panel Body -
 
 The panel body to be displayed is decided upon the last selected element.
 
-### V. Refactoring Navbar Component
+### V. Dragging of Panels
+
+Removing jQueryUI dragging functionality and coded the logic myself. But decided it would be benificial to use a library like[useDraggable | VueUse](https://vueuse.org/core/usedraggable/).
+
+![Panel Dragging](/images/devjit_choudhury_GSoC'22/panelDraging.gif)
+
+### VI. Refactoring Navbar Component
 
 Dividing the Navbar into 3 components
 
