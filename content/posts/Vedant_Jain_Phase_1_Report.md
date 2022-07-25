@@ -27,7 +27,7 @@ In the first phase we have covered:
 
 ### Gitlab Integration
 
-This feature enables user to authenticate using thier gitlab account in CircuitVerse. For achieving this, I used `omniauth-gitlab` gem. Initially, I faced issues because of the old version of omniauth gem in CircuitVerse, so I first update the gem along with it's dependencies and configurations. After omniauth updation gitlab authentication works smoothly. I also updated the documentation to integration application for config.
+This feature enables user to authenticate using thier gitlab account in CircuitVerse. For achieving this, I used `omniauth-gitlab` gem. Initially, I faced issues because of the old version of omniauth gem in CircuitVerse, so I first update the gem along with it's dependencies and configurations. After omniauth update, gitlab authentication works smoothly. I also updated the documentation to integration application for config.
 
 **PR**
 - [build(deps): bump omniauth from 1.9.1 to 2.1.0](https://github.com/CircuitVerse/CircuitVerse/pull/3071)
@@ -35,14 +35,14 @@ This feature enables user to authenticate using thier gitlab account in CircuitV
 
 ### SSO Integration
 
-SSO stands for Single-Sign On. I have used `devise_saml_authenticatable` gem. For the testing I used Okta IDP. I faced issues during integration but as always mentor guided me the way and I was able to solve it.
+SSO stands for Single-Sign On. I have used `devise_saml_authenticatable` gem. For the testing I used Okta IDP. I faced issues during integration but as always mentor guided me the way, and I was able to solve it.
 
 **PR**
 - [feat: sso integration](https://github.com/CircuitVerse/CircuitVerse/pull/3167)
 
 ### Support Multiple Mentors Support in Group
 
-This feature enables group to have multiple mentor. There will be 1 primary mentor(owner), and primary mentor can add mentors, make member a mentor and vise-versa. Mentors can grade, CRUD, and reopen assignments. Ruturaj has already raised a PR for it and had implemented mot of the stuffs but there is still need to rafactor, cleanup and stimulus js migration.
+This feature enables group to have multiple mentor. There will be 1 primary mentor(owner), and primary mentor can add mentors, make member a mentor and vise-versa. Mentors can grade, CRUD, and reopen assignments. Ruturaj has already raised a PR for it and had implemented mot of the stuffs, but there is still need to rafactor, cleanup and stimulus JS migration.
 
 - [Documentation](https://docs.circuitverse.org/#/chapter2/2cvforeducators?id=add-group-mentors)
 
@@ -58,7 +58,7 @@ This feature enables group to have multiple mentor. There will be 1 primary ment
 - [[documenation] : Support Multiple Mentors](https://github.com/CircuitVerse/CircuitVerseDocs/pull/334)
 
 ### Improve embed feature
-Initially the embed feature was basic. This feature advance it by providing the customization options. When a user click on embed button, a popup will displayed with the options to customize your embed.
+Initially the embed feature was basic. This feature advance it by providing the customization options. When a user click on embed button, a popup will be displayed with the options to customize your embed.
 The customization options:
 - Iframe width and height.
 - Border width and color.
@@ -75,7 +75,7 @@ Kartikay already have made a PR with the integration for Iframe width & height, 
 
 ### Assignment restriction
 We already have element restrictions for the assignment i.e., to restrict the group members with the use of elements for the Project. 
-But we have got quite a few complaints from professors that CircuitVerse allows cheating easily. For example, users can easily copy/paste any public circuit. They can give collaborators access to their own circuit and copy-paste etc. So it has been requested by professors to disable this feature. This PR enable that feature into CircuitVerse.
+But we have got quite a few complaints from professors that CircuitVerse allows cheating easily. For example, users can easily copy/paste any public circuit. They can give collaborators access to their own circuit and copy-paste etc. So it has been requested by professors to disable this feature. This PR enables that feature into CircuitVerse.
 
 ![assignment](/images/vedant_gsoc22/assignment_restriction_img1.png)
 
@@ -83,7 +83,7 @@ But we have got quite a few complaints from professors that CircuitVerse allows 
 - [feat: assignment restriction](https://github.com/CircuitVerse/CircuitVerse/pull/3091)
 
 ### Improve notifications page
-Currently, CircuitVerse uses activity_notification gem for the Notifications but the gem is not maintained any more and the notification page is very lagging. So we decided to replace the gem and we found noticed gem by chris oliver of Gorails.
+Currently, CircuitVerse uses activity_notification gem for the Notifications, but the gem is not maintained any more and the notification page is very lagging. So we decided to replace the gem, and we found noticed gem by chris oliver of Gorails.
 
 - Navbar Notifications
 ![navbar_notification](/images/vedant_gsoc22/notification_img1.png)
