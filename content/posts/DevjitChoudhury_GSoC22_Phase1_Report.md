@@ -1,7 +1,7 @@
 ---
 title: "VueJS CircuitVerse Simulator | GSoC@2022 | Phase-1 Report"
 date: 2022-07-25T23:23:48+05:30
-draft: true
+draft: false
 author: Devjit Choudhury
 type: post
 ---
