@@ -11,7 +11,7 @@ type: post
 This blog post is to summarize the work done in the First Phase of **Google Summer of Code @ 2022**.
 
 > **[_New FrontEnd Framework for Simulator -_](https://summerofcode.withgoogle.com/myprojects/details/1IZGKjn2)  
-> My project aims at decoupling the CircuitVerse Simulator from the backend, remove use of jQueryUI, replacing DOM mutations using strings and its Internationalization.**
+> My project aims at decoupling the CircuitVerse Simulator from the backend, remove the use of jQueryUI, replacing DOM mutations using strings and its Internationalization.**
 
 During the **_Community Bonding Period_** we decided to work on a new [Front-End repository](https://github.com/CircuitVerse/cv-frontend-vue) with [VueJS](https://vuejs.org/) as the FrontEnd Framework and [Vuetify](https://next.vuetifyjs.com/en/) as a replacement for jQueryUI.
 
@@ -108,6 +108,7 @@ Navbar
 ### VI. TabsBar Component
 
 I created the tabs-bar component. Replaced DOM rendering using strings with Vue Logic. I defined a `cicuit_list state` in `Pinia Store` and updating it on creating or delting a circuit or tab.
+Replaced jQueryUI sortable with [VueSortableJS library](https://github.com/SortableJS/vue.draggable.next).
 
 ```
 circuit_list - Array of Object
@@ -128,7 +129,7 @@ Pinia has [documentation](https://pinia.vuejs.org/core-concepts/outside-componen
 - `Week 5` [refactor: navbar component](https://github.com/CircuitVerse/cv-frontend-vue/pull/11)
 - `Week 6` [feat(wip): tabsbar component](https://github.com/CircuitVerse/cv-frontend-vue/pull/14)
 
-## Future Work
+## Future Works
 
 ---
 
@@ -140,8 +141,8 @@ Pinia has [documentation](https://pinia.vuejs.org/core-concepts/outside-componen
 
 ---
 
-- I learned and researched a lot of new technologies like Vite and MicroFrontends.
-- Learning more and more features of VueJS like vue-slots, composable and more logic with every contributions.
+- I researched and learned a lot of new technologies like Vite and MicroFrontends, various Frameworks.
+- Learning more and more features of VueJS like vue-slots, composable and more logic implementation with every contributions.
 - Gaining knowlege of writing proper commit messages and all the good practices of Open Source.
 - Setting up a project from scratch and moving the codebase from one technology to another gave me a great confidence.
 
@@ -149,6 +150,6 @@ Pinia has [documentation](https://pinia.vuejs.org/core-concepts/outside-componen
 
 ---
 
-I am having an amazing time contributing to CircuitVerse Organizing with a great community and very helpful and supportive mentors I can see my skillset grow each and every week.
+I am having an amazing time contributing to CircuitVerse Organizing with a great community and very helpful and supportive mentors I can see my skillset growing each and every week.
 
 I would like to specially thank [Aboobacker MK](https://github.com/tachyons), [Samiran Konwar](https://github.com/abstrekt) and [Ayan Biswas](https://github.com/ayan-biswas0412) for always being available to help me whenever I get stuck.
