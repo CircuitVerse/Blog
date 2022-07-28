@@ -11,9 +11,9 @@ type: post
 This blog post is to summarize the work done in the First Phase of **Google Summer of Code @ 2022**.
 
 > **[_New FrontEnd Framework for Simulator -_](https://summerofcode.withgoogle.com/myprojects/details/1IZGKjn2)  
-> My project aims at decoupling the CircuitVerse Simulator from the backend, remove the use of jQueryUI, replacing DOM mutations using strings and its Internationalization.**
+> My project aims to decouple the CircuitVerse Simulator from the backend, remove the use of jQueryUI, and replace DOM mutations using strings and its Internationalization.**
 
-During the **_Community Bonding Period_** we decided to work on a new [Front-End repository](https://github.com/CircuitVerse/cv-frontend-vue) with [VueJS](https://vuejs.org/) as the FrontEnd Framework and [Vuetify](https://next.vuetifyjs.com/en/) as a replacement for jQueryUI.
+During the **_Community Bonding Period_**, we decided to work on a new [Front-End repository](https://github.com/CircuitVerse/cv-frontend-vue) with [VueJS](https://vuejs.org/) as the FrontEnd Framework and [Vuetify](https://next.vuetifyjs.com/en/) as a replacement for jQueryUI.
 
 ## Phase 1 - Milestones Achieved
 
@@ -21,21 +21,21 @@ During the **_Community Bonding Period_** we decided to work on a new [Front-End
 
 ### I. Setting up the project
 
-I started with setting up the Vue project using Vite and installing all the dependencies and setting up the basic folder structure for the project.
+I started with setting up the Vue project using Vite, installing all the dependencies, and setting up the basic folder structure for the project.
 I added ES Lint and Prettier for linting and formatting and added scripts to format the entire codebase on running it.
 Also added husky and commitlint for checking my commit messages before pushing my code.
 Added aliases for src and components folder.
-Having the basic project set up I pushed the initial code to the repository.
+Having the basic project set up, I pushed the initial code to the repository.
 
 ### II. Decoupling Simulator from Backend
 
-Next, I focused on integrating the simulator code from [CircuitVerse repository](https://github.com/CircuitVerse/CircuitVerse) where I faced some challenges of resolving the bugs to make the core functionalities of the simulator work.
+Next, I focused on integrating the simulator code from the [CircuitVerse repository](https://github.com/CircuitVerse/CircuitVerse), where I faced some challenges in resolving the bugs to make the core functionalities of the simulator work.
 
-I learned to move a directory from one repository to another preserving its commit history.
+I learned to move a directory from one repository to another, preserving its commit history.
 [Link to a very helpful article to implement this.](https://medium.com/@ayushya/move-directory-from-one-repository-to-another-preserving-git-history-d210fa049d4b)
 
-Following it I removed the unrequired dependencies from the project.
-Finally, the Simulator was functional and I could proceed with breaking it into components.
+Following it, I removed the unrequired dependencies from the project.
+Finally, the Simulator was functional, and I could proceed with breaking it into components.
 
 ### III. Internationalization
 
@@ -48,8 +48,8 @@ src/locales
     |____ i18n.ts (for configurations)
 ```
 
-I imported the en.json and hi.json localization files from the previous year GSoC project of Internationalization.
-I did the Localization of the Navbar, Elements Panel and Properties Panel.
+I imported the en.json and hi.json localization files from the previous year's GSoC project of Internationalization.
+I did the Localization of the Navbar, Elements Panel, and Properties Panel.
 
 |                                Localization of Elements Panel                                 |                              Localization of Navbar                              |
 | :-------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
@@ -59,7 +59,7 @@ I did the Localization of the Navbar, Elements Panel and Properties Panel.
 
 Replaced the previous Implementation using jQuery accordion with Vuetify Expansion Panel.
 
-Initially, the properties panel was displayed by appending HTML as a string to the DOM which I replaces with Vue logic. The Panel contains PanelHeader and PanelBody.
+Initially, the properties panel was displayed by appending HTML as a string to the DOM, which I replaced with Vue logic. The Panel contains PanelHeader and PanelBody.
 
 There are 3 types of Panel Body -
 
@@ -75,7 +75,7 @@ The panel body to be displayed is decided upon the last selected element.
 
 ### V. Dragging of Panels
 
-Removing jQueryUI dragging functionality and coded the logic myself. But decided it would be benificial to use a library like[useDraggable | VueUse](https://vueuse.org/core/usedraggable/).
+Removing jQueryUI dragging functionality and coded the logic myself. But decided it would be beneficial to use a library like [useDraggable | VueUse](https://vueuse.org/core/usedraggable/).
 
 ![Panel Dragging](/images/devjit_choudhury_GSoC'22/panelDraging.gif)
 
@@ -115,7 +115,7 @@ circuit_list - Array of Object
 circuit_list[i] - { name : circuitName, id : circuitId }
 ```
 
-Learned to use Pinia store states in an external javascript files.
+Learned to use Pinia store states in external javascript files.
 Pinia has [documentation](https://pinia.vuejs.org/core-concepts/outside-component-usage.html) of using states outside component.
 
 ## Link to Pull Requests
@@ -141,15 +141,15 @@ Pinia has [documentation](https://pinia.vuejs.org/core-concepts/outside-componen
 
 ---
 
-- I researched and learned a lot of new technologies like Vite and MicroFrontends, various Frameworks.
-- Learning more and more features of VueJS like vue-slots, composable and more logic implementation with every contributions.
-- Gaining knowlege of writing proper commit messages and all the good practices of Open Source.
-- Setting up a project from scratch and moving the codebase from one technology to another gave me a great confidence.
+- I researched and learned a lot of new technologies like Vite, MicroFrontends, and various Frameworks.
+- Learning more and more features of VueJS like vue-slots, composable, and more logic implementation with every contribution.
+- Gaining knowledge of writing proper commit messages and all the good practices of Open Source.
+- Setting up a project from scratch and moving the codebase from one technology to another gave me great confidence.
 
 ## Conclusion
 
 ---
 
-I am having an amazing time contributing to CircuitVerse Organizing with a great community and very helpful and supportive mentors I can see my skillset growing each and every week.
+Last few weeks, I had a fantastic time contributing to CircuitVerse Organizing with a great community and very helpful and supportive mentors. I can see my skillset growing each and every week. The best part of working with CircuitVerse is the freedom to plan my tasks and their implementation, and when it is done and merged, it greatly boosts my confidence.
 
 I would like to specially thank [Aboobacker MK](https://github.com/tachyons), [Samiran Konwar](https://github.com/abstrekt) and [Ayan Biswas](https://github.com/ayan-biswas0412) for always being available to help me whenever I get stuck.
