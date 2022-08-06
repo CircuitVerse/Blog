@@ -1,25 +1,25 @@
 ---
 title: "Simulator Improvement: GSoC'22 Phase 1 Report"
 date: 2022-07-25T13:39:01+05:30
-draft: true
+draft: false
 author: Pulkit Gupta
 type: post
 ---
 
 ![coverImage](/images/pulkitGupta_phase_1_blog/coverImage.png)
 
-This blog is about my work with [CircuitVerse](https://github.com/circuitverse) during the first phase of Google Summer of Code 2022.
+This blog is about my work in the first phase of Google Summer of Code 2022 with [CircuitVerse](https://github.com/circuitverse).
 
 ### About my Project
 
-[My Project](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2722-Project-List#project-4---circuitverse-simulator-improvements) aims to improve the CircuitVerse simulator and finish some of the pending work in the CircuitVerse desktop app. One of the primary goals of the project is to create tests(unit tests) for the simulator which can run to ensure that no new change breaks the simulator’s behavior.
+[My Project](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2722-Project-List#project-4---circuitverse-simulator-improvements) aims to improve the CircuitVerse simulator and finish some of the pending work in the CircuitVerse desktop app. One of the primary goals of the project is to create tests(unit tests) for the simulator which can be run to ensure that no new change breaks the simulator’s behavior.
 
 ### Community Bonding Period @Circuitverse
 
 The CircuitVerse community has been super welcoming since the first day I started contributing.
 I was thrilled after being accepted as a GSoC student. We had our first meeting with the organization's core team members and mentors, and also interacted with other fellow contributors. It was a great pleasure to meet all of them. We had a very productive meeting, and our mentors informed us about the GSoC flow and shared their GSoC experiences. Also, I and my mentor scheduled a meeting, to discuss the project flow.
 
-As I was aware of the organization codebase, I started working on my project during the bonding period and planned to have at least one meeting every week to discuss the progress and future plan of the project with my mentor.
+As I was aware with the organization codebase, so I started working on my project during the bonding period and planned to have at least one meeting every week to discuss the progress and future plan of the project with my mentor.
 
 ### Coding Period || Phase 1
 
@@ -62,7 +62,7 @@ For testing any circuit using testbench, we can pass test data and circuit data 
 
 #### Import & Export of circuitfiles
 
-Task: a `.cv` extension file that contains the circuit data that can be exported and imported from the system to the simulator.
+Task: A `.cv` extension file that contains the circuit data that can be exported and imported from the system to the simulator.
 
 Pull Request
 
@@ -70,7 +70,7 @@ Pull Request
 
 #### Mobile Touch Compatibility
 
-Last GSoC, [Abhisek Zade](https://blog.circuitverse.org/author/abhishek-zade/)  made a lot of progress with the touch compatibility on the simulator for small devices but it has some UI bugs, which need to be fixed.
+Last GSoC, [Abhisek Zade](https://blog.circuitverse.org/author/abhishek-zade/) made a lot of progress with the touch compatibility on the simulator for small devices but it has some UI bugs, which need to be fixed.
 
 Some bugs that have been fixed:
 
@@ -85,7 +85,6 @@ Some bugs that have been fixed:
 Pull Request
 
 - [Pr-3236: (support): Mobile Touch compatibility](https://github.com/CircuitVerse/CircuitVerse/pull/3236)
-
 
 ### Learning
 
