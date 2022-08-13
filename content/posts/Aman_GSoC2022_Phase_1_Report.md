@@ -1,7 +1,6 @@
 ---
 title: "Mobile App Improvement | GSoC@2022 | Phase-1 Report"
 date: 2022-07-25T23:23:48+05:30
-draft: true
 author: Aman
 type: post
 ---
@@ -27,6 +26,8 @@ Here are the related **PRs**:
 - [Search Circuit Frontend](https://github.com/CircuitVerse/mobile-app/pull/225)
 - [Search Circuit API](https://github.com/CircuitVerse/CircuitVerse/pull/3201)
 
+![Search Circuit Preview](/images/aman-GSoC2022/search_circuit.webp)
+
 ### II. Profile Picture Integration
 Update profile picture feature was not available on the mobile app. I modified the existing Profile API to support the addition/removal of the profile picture. I also worked on the user interface of this feature.
 
@@ -34,13 +35,16 @@ Here are the related **PRs**:
 - [feat(profile): implement update profile picture](https://github.com/CircuitVerse/mobile-app/pull/226)
 - [feat(api): expose profile picture parameter](https://github.com/CircuitVerse/CircuitVerse/pull/3190)
 
-### III. Search in Interactive Book
-I discussed with the mentor how should search feature in the interactive book could be implemented optimally. So, we concluded that we would be doing computation related to search, i.e., fetching the page content if not cached and searching for the query in its content on different Isolate. The benefit of implementing this is that the code’s execution on both Isolate will run in parallel, which will prevent any jerkiness in the user interface. Then after the discussion, I began to work on this. I worked on a custom markdown builder and custom inline syntax, i.e., IbHighlightBuilder and IbHighlightSyntax, which will highlight the text.
+![Profile Picture Preview](/images/aman-GSoC2022/profile_picture.webp)
 
-Full blog available [here](https://medium.com/@aman_s07/gsoc22-circuitverse-week-3-report-d92375f53c10)
+### III. Search in Interactive Book
+The search is an essential feature in the Interactive Book because this will enable the user to search for the specific content faster, instead of searching for them manually on each page.
+Please read the [blog](https://medium.com/@aman_s07/gsoc22-circuitverse-week-3-report-d92375f53c10) if you are interested in learning more about search in markdown.
 
 Here are the related **PR**:
 - [feat: search on the interactive book page](https://github.com/CircuitVerse/mobile-app/pull/229)
+
+![Interactive Book Search Preview](/images/aman-GSoC2022/search_interactive_book.webp)
 
 ### IV. Multiple Mentor Support
 Earlier, the one who created the group used to be the mentor and owner of that group. Now, the owner can also invite other mentors to his group or promote any member to be a mentor in that group.
@@ -48,6 +52,8 @@ I implemented the multiple mentor feature in the mobile app.
 
 Here are the related **PR**:
 - [feat: implement multiple mentor support in groups](https://github.com/CircuitVerse/mobile-app/pull/232)
+
+![Mutiple Mentor Preview](/images/aman-GSoC2022/multiple_mentor.webp)
 
 
 ### V. Simulator Embedding
