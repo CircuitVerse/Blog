@@ -90,7 +90,12 @@ All bugs have been fixed and all related PRs have been merged into the codebase.
 | [feat: updated logic to toggle mobile view](https://github.com/CircuitVerse/CircuitVerse/pull/3268)       |
 | [hotfix: simulator mobile-UI for smaller devices](https://github.com/CircuitVerse/CircuitVerse/pull/3272) |
 
-### Future Goals
+#### What’s left to do
+
+**Custom prompt dialog box**
+
+It will be little bit difficult to implement the prompt dialog box feature for now with [new frontend project](https://github.com/CircuitVerse/cv-frontend-vue), because it is under development, also it will be difficult to figure out where to do the required changes, In simulator/dir or directly to components.
+Also, what I proposed, is suitable for the primary codebase, but we need to change our approach to implement the same in [new frontend project](https://github.com/CircuitVerse/cv-frontend-vue).
 
 ### Learnings
 
