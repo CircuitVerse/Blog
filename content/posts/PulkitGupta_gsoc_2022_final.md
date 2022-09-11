@@ -68,7 +68,7 @@ Feature to allow the user to export and import the circuit(as a circuitFiles wit
 
 ##### Mobile Touch Compatibility
 
-Last GSoC(2021), [Abhisek Zade](https://blog.circuitverse.org/author/abhishek-zade/) made a lot of progress with the touch compatibility on the simulator for small devices but it has some UI bugs, which needed to be fixed.
+Last GSoC(2021), [Abhisek Zade](https://blog.circuitverse.org/author/abhishek-zade/) made a lot of progress with the touch compatibility on the simulator for small devices, but it has some UI bugs, which needed to be fixed.
 
 Some bugs that have been fixed:
 
@@ -78,9 +78,7 @@ Some bugs that have been fixed:
 - Updated branch code.
 - Updated to toggle new Simulator-Ui for devices smaller than `1000px` width.
 
-All bugs have been fixed and all related PRs have been merged into the codebase. Finally, the Simulator is compatible with smaller devices and now we can simulate circuits from our mobile or tablet 🥳.
-
-All bugs have been fixed and all related PR's has been merged in the codebase. Finally, Simulator is compatible with smaller devices and now we can simulate circuits from our mobile or tablet 🥳.
+All bugs have been fixed and all related PRs have been merged into the codebase. Finally, the Simulator is compatible with smaller devices, and now we can simulate circuits from our mobile or tablet 🥳.
 
 **Demo**
 
@@ -91,6 +89,8 @@ All bugs have been fixed and all related PR's has been merged in the codebase. F
 | [Mobile Touch Compatibility](https://github.com/CircuitVerse/CircuitVerse/pull/3236)                      |
 | [feat: updated logic to toggle mobile view](https://github.com/CircuitVerse/CircuitVerse/pull/3268)       |
 | [hotfix: simulator mobile-UI for smaller devices](https://github.com/CircuitVerse/CircuitVerse/pull/3272) |
+
+### Future Goals
 
 ### Learnings
 
