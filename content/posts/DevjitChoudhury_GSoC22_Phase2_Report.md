@@ -23,6 +23,8 @@ This is the final blog post is to summarize the work done for **VueJS CircuitVer
 5. DialogBoxes Component
 6. Canvas - Pinia Store
 
+> **[_VueJS CircuitVerse Simulator | GSoC@2022 | Phase-1 Report -_](https://blog.circuitverse.org/posts/devjitchoudhury_gsoc22_phase1_report/)  
+> I had completed the first 4 Project Goals during First Phase of the program.**
 
 ### Dialog Boxes Component
 ---
@@ -88,7 +90,7 @@ Since most of the usage of the canvases is outside the Vue components, I learned
 - [feat: move canvas objects to pinia store](https://github.com/CircuitVerse/cv-frontend-vue/pull/25)
 
 
-> **[_GSoC22 Simulator UI Project_](https://github.com/orgs/CircuitVerse/projects/12)
+> **[_GSoC22 Simulator UI Project -_](https://github.com/orgs/CircuitVerse/projects/12)
 > With this I have completed all the proposed task for VueJS Simulator Project. Some essential tasks that were added during the coding period will be done next.**
 
 ### Future Works -
@@ -109,7 +111,7 @@ Though I checked for bugs and solved them while working on the project but still
 - `Week 2` [Week 2 Report | GSoC'22@CircuitVerse](https://www.devjitchoudhury.com/post/week-2-report-gsoc-22-circuitverse)
 - `Week 3 & 4` [Week 3 & 4 Report | GSoC'22@CircuitVerse](https://www.devjitchoudhury.com/post/week-3-4-report-gsoc-22-circuitverse)
 - `Week 5 & 6` [Week 5 & 6 Report | GSoC'22@CircuitVerse](https://www.devjitchoudhury.com/post/week-5-6-report-gsoc-22-circuitverse)
-- `Week 7 & 8` [fWeek 7 & 8 Report | GSoC'22@CircuitVerse](https://www.devjitchoudhury.com/post/week-7-8-report-gsoc-22-circuitverse)
+- `Week 7 & 8` [Week 7 & 8 Report | GSoC'22@CircuitVerse](https://www.devjitchoudhury.com/post/week-7-8-report-gsoc-22-circuitverse)
 - `Week 9 & 10` [Week 9 & 10 Report | GSoC'22@CircuitVerse](https://www.devjitchoudhury.com/post/week-9-10-report-gsoc-22-circuitverse)
 - `Week 11 & 12` [Week 11 & 12 Report | GSoC'22@CircuitVerse](https://www.devjitchoudhury.com/post/week-11-12-report-gsoc-22-circuitverse)
 
