@@ -94,8 +94,14 @@ All bugs have been fixed and all related PRs have been merged into the codebase.
 
 **Custom prompt dialog box**
 
-It will be little bit difficult to implement the prompt dialog box feature for now with [new frontend project](https://github.com/CircuitVerse/cv-frontend-vue), because it is under development, also it will be difficult to figure out where to do the required changes, In simulator/dir or directly to components.
-Also, what I proposed, is suitable for the primary codebase, but we need to change our approach to implement the same in [new frontend project](https://github.com/CircuitVerse/cv-frontend-vue).
+It will be a little bit difficult to implement the prompt dialog box feature for now with the [new frontend project](https://github.com/CircuitVerse/cv-frontend-vue) because it is under development, also it will be difficult to figure out where to do the required changes, In simulator/dir or directly to components.
+Also, what I proposed, is suitable for the primary codebase, but we need to change our approach to implement the same in a [new frontend project](https://github.com/CircuitVerse/cv-frontend-vue).
+
+#### Future Work
+
+1 . The simulator is now compatible with smaller devices, but it is only available in `landscape` mode. In the future, we can make it compatible with portrait mode and remove the `portrait` lock.
+
+2 . Right now, it will be little bit difficult to implement Custom alert and prompt dialog with [new frontend project](https://github.com/CircuitVerse/cv-frontend-vue) but once it completed then we can implement them.
 
 ### Learnings
 
