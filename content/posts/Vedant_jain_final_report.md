@@ -85,13 +85,13 @@ But we have got quite a few complaints from professors that CircuitVerse allows 
 
 ### Feature: Improve Notification Page
 
-Notifications are very important aspect, we were using `activity_notification` gem before, but it makes the page lacky and the gem is not maintained any more, so we decided to shift to new gem and we found `noticed` gem for it.
+Notifications are very important aspect, we were using `activity_notification` gem before, but it makes the page lacky and the gem is not maintained any more, so we decided to shift to new gem, and we found `noticed` gem for it.
 
 Noticed gem is really very easy to use and had really cool and amazing features. You can learn about the noticed gem [here](https://github.com/excid3/noticed).
 
 We have covered 2 events for notification:
-- Notify the author when someone fork the project.
-- Notify the author when someone star the project.
+- Notify the author when someone forks the project.
+- Notify the author when someone stars the project.
 
 We have implemented a section in the navbar to get quick access to your notification.
 
@@ -99,12 +99,12 @@ We have implemented a section in the navbar to get quick access to your notifica
 
 #### Notification Page
 
-Notification page for a respective user shows all the notification for the user logged in. You can mark a notification as read by clicking to it or you can click **mark_all_as_read** to mark all notifications as read.
+Notification page for a respective user shows all the notification for the user logged in. You can mark a notification as read by clicking to it, or you can click **mark_all_as_read** to mark all notifications as read.
 
 ![notification_2](/images/vedant_gsoc22/final_phase/notification_1.png)
 
 #### Challenges
-The noticed implementation was comparatively easy but the major challenge was to migrate the old data under the `activity_notifications` as both gem have different implementation, different schemas and methods. So we finally made a data migration file in which we made a script to migrate the data from `notification` table to `noticed_notification` table.
+The noticed implementation was comparatively easy, but the major challenge was to migrate the old data under the `activity_notifications` as both gem have different implementation, different schemas and methods. So we finally made a data migration file in which we made a script to migrate the data from `notification` table to `noticed_notification` table.
 
 **PR**
 - [feat: noticed integration (Notification Page)](https://github.com/CircuitVerse/CircuitVerse/pull/3243)
