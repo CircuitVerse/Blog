@@ -5,6 +5,7 @@ author: Aman
 type: post
 ---
 
+![Final Evaluation Cover](/images/aman-GSoC2022/final_cover.png)
 
 GSoC 2022 is nearing its end. I’m glad to say that I’ve met all the goals as planned in the beginning.
 This post will be a brief report of all the feature requests implemented, goals accomplished, some stuff left to do, and future plans.
@@ -61,12 +62,15 @@ Simulator embedding was the most requested feature for the mobile app. I discuss
 Here are the related **PR**:
 - [feat: embed simulator in the app](https://github.com/CircuitVerse/mobile-app/pull/235)
 
+![Simulator Preview](/images/aman-GSoC2022/simulator.webp)
 
 ### VI. Notification integration
 Notifying users about the different events is important for user engagement. So, this year we have introduced the notification for star and fork of the project. The app will notify users who have recently starred or forked their projects. This feature will also support push notifications in the near future.
 
 Here are the related **PR**:
 - [feat(notification): implement notification in the mobile app](https://github.com/CircuitVerse/mobile-app/pull/238)
+
+![Notifications Preview](/images/aman-GSoC2022/notifications.webp)
 
 ## Future Developments
 
@@ -76,7 +80,7 @@ Here are the related **PR**:
 
 - Implementing those features available on the web app but not the mobile app.
 
-- I am planning to introduce new `State management` (like Bloc, Riverpod, etc..) to the mobile app. Currently, it is `MVVM + Provider`, but still, at some places, setState is used.
+- Introducing new `State management` (like Bloc, Riverpod, etc..) to the mobile app. Currently, it is `MVVM + Provider`, but still, at some places, setState is used.
 
 
 
@@ -84,7 +88,7 @@ Here are the related **PR**:
 
 ---
 
-Honestly, my experience has been great working with CircuitVerse. I got to learn a new language, `ruby`, building modern APIs in `rails` & best software practices. I've had a great & productive summers, thanks to my mentors [@manjotsidhu](https://github.com/manjotsidhu), [@tachyons](https://github.com/tachyons)& the amazing CircuitVerse community.
+Honestly, my experience has been great working with CircuitVerse. I got to learn a new language, `ruby`, building modern APIs in `rails` & best software practices. I've had a great & productive summers, thanks to my mentors [@manjotsidhu](https://github.com/manjotsidhu), [@tachyons](https://github.com/tachyons) & the amazing CircuitVerse community.
 
 I would definitely keep working on my project post GSoC & getting people contributing to the project. Hope to see this project the next summers & help other people get started.
 
