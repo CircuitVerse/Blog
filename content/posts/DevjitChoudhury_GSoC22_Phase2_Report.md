@@ -97,11 +97,26 @@ Since most of the usage of the canvases is outside the Vue components, I learned
 ---
 This project provides a base for the VueJS Simulator. 
 Though I checked for bugs and solved them while working on the project but still there might be many that I might have missed.
-- The most important task now is to integrate this Vue Project into the Main Repository and have an option to switch between the Simulators.
-- After the integration - check if the saving online and loading from the server is working.
-- Embed Feature - Planning a way to integrate the embed feature into the Vue Simulator.
-- Progressive work on Internationalization of Simulator and Refactoring of Styles.
-- Few components - Verilog Module, Timing-Diagram, Quick-Button panel, and Testbench are yet to be converted to Vue.
+
+- The most important task now is to integrate this Vue Project into the Main Repository or finding a way for the simulators in two different repositories to work in sync. 
+Have an option to switch between the Simulators in the Navbar fot the users to test it.
+
+- After the completion of the integration - The main focus will be API Integration.
+According to me if we import the code from Vue to Main Repository, the calls should work fine, since no changes has been made to those functions. Tesing if the saving online and loading from the server is working needs to be done.
+If we plan to mantain seperate Vue repository, finding a way to make those API calls.
+
+- Embed Feature - It is one of the most unique feature of CircuitVerse. 
+More research is needed to find a way to implement this.
+In the Main repository embed has its own [embed.html.erb]("https://github.com/CircuitVerse/CircuitVerse/blob/master/app/views/simulator/embed.html.erb") file but the implementation are mixed up with the simulator logic, seperated using a global boolean variable `embed`. For now I have set it to false in [globalVariables.ts]("https://github.com/CircuitVerse/cv-frontend-vue/blob/main/src/globalVariables.ts").
+
+- Internationalization of Simulator - I have configured Internationalization using [Vue-i18n]("https://kazupon.github.io/vue-i18n/") but progressive work needs to be done on it. The [locales]("https://github.com/CircuitVerse/cv-frontend-vue/tree/main/src/locales") contains all the translations (en & hi for now, more needs to be added).
+Check out Navbar and Circuit Elements Panel Component to get an idea of how its implemented.
+
+- Refactoring of Styles.
+For now there is only one [global stylesheet]("https://github.com/CircuitVerse/cv-frontend-vue/blob/main/src/styles/css/main.stylesheet.css") for the entire simulator, wich needs to be refactored to local stylesheets for individual components using scoped styles. There is also a scope of removing SASS using modern CSS features. 
+
+- Few components - Verilog Module, Quick-Button, Testbench(using jQuryUI dialog box), and Timing-Diagram are yet to be converted to Vue.
+With the removal of jQuery-UI, there is also a scope of removing the use of jQuery from the project. 
 
 
 ### My GSoC Blogs -
