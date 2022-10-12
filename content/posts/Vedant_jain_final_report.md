@@ -222,6 +222,10 @@ This feature intends to increase user engagements in CircuitVerse. Contest are f
 - Automate the contest creation process.
 - Slack and twitter updates for new contest.
 
+### CircuitVerse Main Platform Future Scope
+
+Issue is created for this [here](https://github.com/CircuitVerse/CircuitVerse/issues/3316) and is open for suggetion. Feel free to suggest more features to add up in CircuitVerse Main Platform. Thanks in advance!!!
+
 ### Blog posts written
 ---
 - [Community Bonding Period at CircuitVerse — Google Summer of Code 2022](https://dev.to/vedantjain03/community-bonding-period-at-circuitverse-google-summer-of-code-2022-43cd)
