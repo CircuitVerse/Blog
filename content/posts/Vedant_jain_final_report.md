@@ -139,7 +139,7 @@ To mark all notifications as read.
 
 ### Feature: Suggest tags for Project
 ---
-This feature intend to improve tagging feature in projects. This feature helps to suggest tags for the project to the user in the project edit page. The tags are extracted from circuit elements used, project name, description.
+This feature intends to improve tagging feature in projects. This feature helps to suggest tags for the project to the user in the project edit page. The tags are extracted from circuit elements used, project name, description.
 
 ##### Progress
 
@@ -147,7 +147,7 @@ This feature intend to improve tagging feature in projects. This feature helps t
 
 - We were able to accomplish this feature to suggest tags from circuit elements and project name. Extracting valid tags from description needs more complex logic as description includes some data which are irrelevant to be suggested as tags for the project.
 
-- We use `slim-select` which is `select2` alternative without jquery dependencies. [Slim-select](https://slimselectjs.com/) is a advanced select dropdown library.
+- We use `slim-select` which is `select2` alternative without jquery dependencies. [Slim-select](https://slimselectjs.com/) is an advanced select dropdown library.
 
 > The PR is still under review and work is under progress.
 
@@ -160,7 +160,7 @@ This feature needs more solified logic to increase the accuracy of valid suggest
 
 ### Feature: CircuitVerse Contest
 ---
-This feature intend to increase user engagements in CircuitVerse. Contest are for all users to showcase there awesome creation using CircuitVerse simulator and get chance to feature there creation in CircuitVerse **Featured Circuits**. Winner of the contest will automatically get featured(after deadline).The winning circuit is shortlisted by the maximum votes gained.
+This feature intends to increase user engagements in CircuitVerse. Contest are for all users to showcase there awesome creation using CircuitVerse simulator and get chance to feature there creation in CircuitVerse **Featured Circuits**. Winner of the contest will automatically get featured(after deadline).The winning circuit is shortlisted by the maximum votes gained.
 
 ##### More
 
@@ -172,7 +172,7 @@ This feature intend to increase user engagements in CircuitVerse. Contest are fo
 - Duplicate circuits not allowed.
 - User can vote the submission one and the action is not reversible.
 - **Users can:**
-  - Submit there circuit.
+  - Submit their circuit.
   - Withdraw there submission from contest(action is not reversible).
   - Vote other submission(maximum 3 per contest).
 - **Admin can:**
