@@ -38,7 +38,7 @@ This integration enhances the debugging experience for developers by providing a
 
 ### Integrate Solargraph LSP
 
-Solargraph is an Language Server Protocol (LSP) server that enhances autocompletion for Ruby codebases by providing YARD documentation. To further enhance support for Rails codebases, the solargraph-rails gem has been installed and configured. YARD documentation has been generated for the entire codebase to ensure seamless autocompletion.
+Solargraph is a Language Server Protocol (LSP) server that enhances autocompletion for Ruby codebases by providing YARD documentation. To further enhance support for Rails codebases, the solargraph-rails gem has been installed and configured. YARD documentation has been generated for the entire codebase to ensure seamless autocompletion.
 
 This integration also supports Docker-based environments, allowing the application to be run in a Docker container while connecting the IDE/Editor's solargraph extension to the Solargraph server via a TCP socket. Initially, there was a significant challenge in this setup. The extension used to send the current directory to the LSP server, but the LSP server had a different path inside the Docker container. However, this issue was successfully resolved by creating a symlink inside the container. 
 
@@ -46,7 +46,7 @@ This integration also supports Docker-based environments, allowing the applicati
 
 For more detailed information, please refer to the blog post available at [https://tanmoy.online/week-1-2-circuitversegsoc23](https://tanmoy.online/week-1-2-circuitversegsoc23)
 
-Currently documentation and support has been added for 
+Currently, documentation and support has been added for 
 
 * VS Code
 * Sublime Editor
@@ -59,9 +59,9 @@ Currently documentation and support has been added for
 
 ### Integrate Vite Rails
 
-Previously in the project all the javascript compiled in single one via esbuild and served by sprocket asset pipeline in development and production [mostly same]. As a result, during development on each changes, esbuild need to build multiple js files againg which increase friction during development. 
+Previously in the project all the javascript compiled in single one via esbuild and served by sprocket asset pipeline in development and production [mostly same]. As a result, during development on each change, esbuild need to build multiple JS files againg which increase friction during development. 
 
-That’s why vite rails integrated and simulator assets moved to vite. After this integration, if there is any changes in the javascript, only the spciefic portion will be updated i website and hot reload will be performed if possible, else complete page will reload. Also, instead of packing and serving javascript files, it will load all dependency of javascript files asynchronously in browser. 
+That’s why vite rails integrated and simulator assets moved to vite. After this integration, if there are many changes in the javascript, only the spciefic portion will be updated i website and hot reload will be performed if possible, else complete page will reload. Also, instead of packing and serving javascript files, it will load all dependency of javascript files asynchronously in browser. 
 
 In production, vite can pack all the javascript files together and serve static javascript files to make it faster.
 
@@ -99,7 +99,7 @@ To facilitate this process, we have incorporated the undercover_easy gem along w
 
 ### Improve Unit testcase coverage
 
-The codebase currently has an code coverage of approximately 86%. However, some recently added functions were lacking unit test coverage. As part of this task, I have addressed this gap by writing unit tests specifically for those functions.
+The codebase currently has a code coverage of approximately 86%. However, some recently added functions were lacking unit test coverage. As part of this task, I have addressed this gap by writing unit tests specifically for those functions.
 
 ##### References [PR]
 - [Unit test for models](https://github.com/CircuitVerse/CircuitVerse/pull/3835)
