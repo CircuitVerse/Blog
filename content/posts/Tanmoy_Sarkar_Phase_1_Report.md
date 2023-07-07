@@ -12,7 +12,7 @@ This blog is dedicated to my progress in the first phase of Google Summer of Cod
 
 ## About My Project
 
-My project focuses on making the process of working with CircuitVerse easier and more efficient. The main goal is to simplify setting up the development environment and working with the code. Additionally, I aim to enhance the test cases and improve the continuous integration (CI) workflow, which will ultimately reduce the time required for code review by maintainers.
+My project focuses on making the process of working with CircuitVerse easier and more efficient. The main goal is to simplify setting up the development environment and working with the code. Additionally, Our aim to enhance the test cases and improve the continuous integration (CI) workflow, which will ultimately reduce the time required for code review by maintainers.
 
 In the first phase, we have covered
 
@@ -99,7 +99,7 @@ To facilitate this process, we have incorporated the undercover_easy gem along w
 
 ### Improve Unit testcase coverage
 
-The codebase currently has a code coverage of approximately 86%. However, some recently added functions were lacking unit test coverage. As part of this task, I have addressed this gap by writing unit tests specifically for those functions.
+The codebase currently has a code coverage of approximately 86%. However, some recently added functions were lacking unit test coverage. As part of this task, We have addressed this gap by writing unit tests specifically for those functions.
 
 ##### References [PR]
 - [Unit test for models](https://github.com/CircuitVerse/CircuitVerse/pull/3835)
