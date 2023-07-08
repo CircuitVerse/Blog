@@ -11,8 +11,8 @@ It's hard to believe that it has already been six weeks since I began my journey
 Time flies by quickly! 
 Throughout this period, I have gained extensive knowledge and experience by exploring various tools and have significantly 
 enhanced my skills in managing servers and handling applications in production serving a vast user base. It was also a
-remarkable experience to directly impact a large number of users through my contributions, such as migrating all user 
-avatars and circuits' images.
+remarkable experience to directly impact hundreds of thousands of users through my contributions, such as migrating all 
+user avatars and circuits' images.
 
 I will try to balance this blog with the technical work as well my general experience as a GSoC student at CircuitVerse.
 If you're interested in more technical details, you can find detailed information in the blog posts I wrote during the 
@@ -54,7 +54,7 @@ Initially, I had planned to prioritize the migration of assets to AWS S3. Howeve
 nature of this task and the need for data migration and validation, my mentor advised me to work on certain smaller tasks
 alongside it. 
 
-At the end of community bonding period I was invited to join the CircuitVerse organization on Github.
+At the end of community bonding period I was invited to join the CircuitVerse organization on GitHub.
 
 For the best part regarding the bonding period go [here](https://vaibhavupreti.github.io/hugo-blog/blog/community-bonding-period-gsoc/#the-best-part-).
 
@@ -178,7 +178,7 @@ the second step that completesthe migrate to object storage task.
 mrsk is a tool that allows you to deploy docker containers to bare metal servers, (or cloud VMs) using docker with zero 
 downtime. mrsk is still in aplha stage but is now in production at [37signals](https://37signals.com/).
 
-During this time, I connected with my mentor and we had detailed discussions, exchanging ideas and exploring different 
+During this time, I connected with my mentor and, we had detailed discussions, exchanging ideas and exploring different 
 strategies for deploying CircuitVerse to a production environment using mrsk.
 One important topic we deliberated on was whether to maintain the existing configuration of having PostgreSQL and Redis on 
 the server itself or to transition them to containers while persisting data using volumes.
