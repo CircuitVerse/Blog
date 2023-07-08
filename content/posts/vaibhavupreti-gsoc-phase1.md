@@ -202,7 +202,7 @@ ran out of memory. Despite this, we were able to successfully migrate hundreds o
 During Week 6, my main focus was on continuing the work related to the mrsk task and updating the Rails API for the 
 Serving assets using ActiveStorage pull request at CircuitVerse.
 
-The mrsk task itself was quite time-consuming, taking around 25-30 minutes for all the steps on my intel Mac.
+The mrsk task itself was quite time-consuming, taking around 25–30 minutes for all the steps on my intel Mac.
 The process involved creating the Docker image for the rails app, pushing the image to the repository, pulling it to the 
 server, and then restarting the application. 
 Fortunately, I had previously invested effort in creating a personal deployment of CircuitVerse using mrsk, which helped 
@@ -227,7 +227,7 @@ review my pull requests and providing guidance whenever I encountered challenges
 
 - [GSoC Week 6](https://vaibhavupreti.github.io/hugo-blog/blog/gsoc-week6/)
 - [ghcr containers mrsk](https://github.com/vaibhavupreti/CircuitVerse/pkgs/container/circuitverse/105682802?tag=0e1da975def42e5091b41b05d703a983a64b260a)
-- [Deploying CircuitVerse using mrsk | youtube](https://www.youtube.com/watch?v=KWJlWUfPWhw)
+- [Deploying CircuitVerse using mrsk | YouTube](https://www.youtube.com/watch?v=KWJlWUfPWhw)
 
 ### Commits Merged 
 
