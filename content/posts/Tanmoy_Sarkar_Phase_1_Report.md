@@ -29,7 +29,7 @@ In the first phase, we have covered
 
 ### Integrate Ruby Debugger
 
-This integration enhances the debugging experience for developers by providing a visual debugging capability directly from their integrated development environment (IDE). It allows anyone to conveniently set breakpoints and debug the application from their IDE. This integration support  also docker based environment. By changing configuration in IDE , it can easily connect to TCP based debugger and debug the application easily. Documentation has been updated accordingly.
+This integration enhances the debugging experience for developers by providing a visual debugging capability directly from their integrated development environment (IDE). It allows anyone to conveniently set breakpoints and debug the application from their IDE. This integration also support docker based environment. By changing configuration in IDE , it can easily connect to TCP based debugger and debug the application easily. The documentation has been updated accordingly.
 
 ##### References
 - Demo Video : [Click Here](https://github.com/CircuitVerse/CircuitVerse/assets/57363826/1c0e957e-3eed-4555-8670-27df282786ab)
