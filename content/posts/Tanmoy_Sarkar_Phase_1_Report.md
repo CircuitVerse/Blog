@@ -74,7 +74,7 @@ In production, vite can pack all the javascript files together and serve static 
 
 RBS [Ruby static typing] enabled static typing mechanism which enables to maintain consistency in codebase and reduce the bugs in code. 
 
-We used `rbs_rails` gem for rbs as it provides some prebuilt task and cli to generate untyped *.rbs annotation files from already written codes. With this we used `steep` gem to verify type signatures. 
+We used `rbs_rails` gem for rbs as it provides some prebuilt task and cli to generate untyped `*.rbs` annotation files from already written codes. With this we used `steep` gem to verify type signatures. 
 
 ##### References
 - PR : [Install RBS & Configure](https://github.com/CircuitVerse/CircuitVerse/pull/3807)
