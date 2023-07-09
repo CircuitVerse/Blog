@@ -12,7 +12,7 @@ This blog is dedicated to summarise the progress for the first phase of the proj
 
 ## About My Project
 
-My project focuses on making the process of working with CircuitVerse easier and more efficient. The main goal is to simplify setting up the development environment and working with the code. Additionally, Our aim to enhance the test cases and improve the continuous integration (CI) workflow, which will ultimately reduce the time required for code review by maintainers.
+This project focuses on making the process of working and developing with CircuitVerse easier and more efficient. The main goal is to simplify setting up the development environment and working with the code. Additionally, Our aim to enhance the test cases and improve the continuous integration (CI) workflow, which will ultimately reduce the time required for code review by maintainers.
 
 In the first phase, we have covered
 
