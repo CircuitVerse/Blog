@@ -7,7 +7,7 @@ type: post
 ---
 
 
-This blog is dedicated to my progress in the first phase of Google Summer of Code  2023.
+This blog is dedicated to summarise the progress for the first phase of the project "Improve the Development Experience" in Google Summer of Code'2023.
 
 
 ## About My Project
