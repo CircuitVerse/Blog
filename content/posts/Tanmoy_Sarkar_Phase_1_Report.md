@@ -61,7 +61,7 @@ Currently, documentation and support has been added for
 
 Previously in the project, all javascript compiled in a single one via esbuild and served by sprocket asset pipeline in development and production [mostly same]. As a result, during development on each change, esbuild need to build multiple JS files againg which increase friction during development. 
 
-That’s why vite rails is integrated and simulator assets moved to vite. After this integration, if there are many changes in the javascript, only the specific portion will be updated in the website and hot reload will be performed (if possible), otherwise entire page will reload. Also, instead of packing and serving javascript files, it will load all dependency of javascript files asynchronously in browser. 
+That’s why vite rails is integrated, and simulator assets moved to vite. After this integration, if there are many changes in the javascript, only the specific portion will be updated in the website and hot reload will be performed (if possible), otherwise entire page will reload. Also, instead of packing and serving javascript files, it will load all dependency of javascript files asynchronously in browser. 
 
 In production, vite can pack all the javascript files together and serve static javascript files to make it faster.
 
@@ -145,4 +145,4 @@ To optimize the integration testing process in CircuitVerse, Capybara has been u
 ### Future Work
 The work of phase 1 was focused on integration various development tools to improve quality of code and development experience.
 
-In the second phase, we will be focusing on improvement of development environment including fine tuning docker development setup and integration of available remote development platform. These improvements will undoubtedly contribute to an even more productive and seamless development process.
+In the second phase, we will be focusing on improvement of development environment including fine-tuning docker development setup and integration of available remote development platform. These improvements will undoubtedly contribute to an even more productive and seamless development process.
