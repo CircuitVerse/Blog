@@ -29,7 +29,7 @@ In the first phase, we have covered
 
 ### Integrate Ruby Debugger
 
-This integration enhances the debugging experience for developers by providing a visual debugging capability directly from their integrated development environment (IDE). It allows anyone to conveniently set breakpoints and debug the application from their IDE. This integration also support docker based environment. By changing configuration in IDE , it can easily connect to TCP based debugger and debug the application easily. The documentation has been updated accordingly.
+This integration enhances the debugging experience for developers by providing a visual debugging capability directly from their integrated development environment (IDE). It allows anyone to conveniently set breakpoints and debug the application from their IDE. This integration also support docker based environment. By changing configuration in IDE , it can easily connect to TCP based debugger and debug the application easily. [The documentation](https://github.com/tanmoysrt/CircuitVerse/blob/solargraph/yard/documentation/LSP-SETUP.MD) has been updated accordingly.
 
 ##### References
 - Demo Video : [Click Here](https://github.com/CircuitVerse/CircuitVerse/assets/57363826/1c0e957e-3eed-4555-8670-27df282786ab)
@@ -139,3 +139,10 @@ To optimize the integration testing process in CircuitVerse, Capybara has been u
 - PR : [Integration testing for group management](https://github.com/CircuitVerse/CircuitVerse/pull/3864)
 - PR : [Integration testing for assignment management](https://github.com/CircuitVerse/CircuitVerse/pull/3865)
 - PR : [Integration testing for project management](https://github.com/CircuitVerse/CircuitVerse/pull/3866)
+
+---
+
+### Future Work
+The work of phase 1 was focused on integration various development tools to improve quality of code and development experience.
+
+In the second phase, we will be focusing on improvement of development environment including fine tuning docker development setup and integration of available remote development platform. These improvements will undoubtedly contribute to an even more productive and seamless development process.
