@@ -6,7 +6,7 @@ author: Arnab Das
 type: post
 ---
 
-![GSoC@CircuitVerse](/images/Arnab_Das_GSoC'23/coverImage.png)
+![GSoC@CircuitVerse](/images/Arnab_GSoC23/cover.png)
 
 This blog post is to summarize the work done in the First Phase of **Google Summer of Code @ 2023**.
 
