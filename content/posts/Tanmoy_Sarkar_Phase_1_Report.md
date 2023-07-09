@@ -59,7 +59,7 @@ Currently, documentation and support has been added for
 
 ### Integrate Vite Rails
 
-Previously in the project all the javascript compiled in single one via esbuild and served by sprocket asset pipeline in development and production [mostly same]. As a result, during development on each change, esbuild need to build multiple JS files againg which increase friction during development. 
+Previously in the project, all javascript compiled in a single one via esbuild and served by sprocket asset pipeline in development and production [mostly same]. As a result, during development on each change, esbuild need to build multiple JS files againg which increase friction during development. 
 
 That’s why vite rails integrated and simulator assets moved to vite. After this integration, if there are many changes in the javascript, only the spciefic portion will be updated i website and hot reload will be performed if possible, else complete page will reload. Also, instead of packing and serving javascript files, it will load all dependency of javascript files asynchronously in browser. 
 
