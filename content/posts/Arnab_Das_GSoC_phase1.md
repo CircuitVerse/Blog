@@ -13,7 +13,7 @@ This blog post is to summarize the work done in the First Phase of **Google Summ
 ### [Work Repository 🖥](https://github.com/CircuitVerse/cv-frontend-vue)
 
 > **[_CircuitVerse Simulator with VueJS -_](https://summerofcode.withgoogle.com/programs/2023/projects/eg17qD6w)
-> While carrying forward the goals from last year's project My project focuses on finishing up the development of Vue.js circuit simulator while boosting its performance, stability, and scalability by transitioning the JavaScript codebase to TypeScript. It encompasses integrating the simulator with the main repository, carrying out new API endpoint creation and integration, introducing new features, and enhancing user experience.**
+> While carrying forward the goals from last year's project My project focuses on finishing up the development of Vue.js circuit simulator while boosting its performance, stability, and scalability by transitioning the JavaScript codebase to TypeScript. This project encompasses integrating the simulator with the main repository, carrying out new API endpoint creation and integration, introducing new features, and enhancing user experience.**
 
 ## Phase 1 - Milestones Achieved
 
@@ -21,19 +21,19 @@ This blog post is to summarize the work done in the First Phase of **Google Summ
 
 ### I. Integrating the simulator with the main repository
 
-Previous year the simulator was decoupled from the main repository and was being developed as a independent repository. This year the simulator is being integrated with the main repository as git submodule. With this a static build of the vue simulator will be served from the main repository and users will be able to use the simulator from [circuitverse.org](https://circuitverse.org) website.
+Previous year the simulator was decoupled from the main repository and was being developed as an independent repository. This year the simulator is being integrated with the main repository as git submodule. With this a static build of the vue simulator will be served from the main repository and users will be able to use the simulator from [circuitverse.org](https://circuitverse.org) website.
 
-Also I added the proxy in the simulator dev server so when the project is being developed using `vite dev` developers can use the api endpoints from the main repository hosted locally or remotely.
+Also, I added the proxy in the simulator dev server so when the project is being developed using `vite dev` developers can use the api endpoints from the main repository hosted locally or remotely.
 
 ### II. Creation of new API endpoints in `api/v1` format for simulator
 
 As our target is to be able to operate the simulator independently without any dependency on the main repository, new api endpoints were created for the simulator. this included creation of the following api endpoints:
 
-- `GET /api/v1/projects/:id/check_edit_access` - To check if the signed in user has edit access to the project
+- `GET /api/v1/projects/:id/check_edit_access` - To check if the signed-in user has edit access to the project
 - `GET /api/v1/projects/:id/circuit_data` - Return the circuit data as a json object if user has view access to the project
 - `PATCH /api/v1/projects/update_circuit` - Update the circuit data of the project if user has edit access to the project
 - `POST /api/v1/projects` - To create a new project with circuit data
-- `POST /api/v1/simulator/post_issue` - To post an issue to slack channel using slack hooks
+- `POST /api/v1/simulator/post_issue` - To post an issue to Slack channel using Slack hooks
 - `POST /api/v1/simulator/verilogcv` - To convert the verilog code to circuitverse simulator compatible json object
 
 ### III. Implementation of JWT for the [circuitverse.org](https://circuitverse.org) website & the vue simulator
@@ -56,7 +56,7 @@ With the creation of the new api endpoints and jwt setup it was time to implemen
 
 #### - replacing all confirm() alert() prompt() with custom vue components
 
-Previously the simulator used the default browser confirm(), alert() & prompt() for the confirmation of deletion of circuits, renaming of circuits, saving of circuits etc. This was replaced with custom vue components to make the simulator more user friendly.
+Previously the simulator used the default browser confirm(), alert() & prompt() for the confirmation of deletion of circuits, renaming of circuits, saving of circuits etc. This was replaced with custom vue components to make the simulator more user-friendly.
 
 ![Alert](/images/Arnab_GSoC23/alert.png)
 ![Confirm](/images/Arnab_GSoC23/confirm.png)
@@ -70,13 +70,13 @@ this was achieved with a dialog box to update the project details from the simul
 
 ##### - creation of wysiwyg editor for project description
 
-at the time of implementing the update project details dialog box, there was no pre-setup wysiwyg editor available which was compatible with out project. So I created a custom wysiwyg editor using the [tiptap](https://www.tiptap.dev/) library as a vue component.
+at the time of implementing the update project details dialog box, there was no pre-setup wysiwyg editor available which was compatible with our project. So I created a custom wysiwyg editor using the [tiptap](https://www.tiptap.dev/) library as a vue component.
 
 ![Update Project Details](/images/Arnab_GSoC23/update_project_details.png)
 
 #### - Implementation of Import and Export of circuits as `.cv` files
 
-With the introduction of the import and export of circuits as .cv files, users will be able to import and export their circuits as .cv files. This will allow users to share their circuits with other users and also allow users to import circuits from other users. Also this would help the users to keep a local backup of their circuits.
+With the introduction of the import and export of circuits as .cv files, users will be able to import and export their circuits as .cv files. This will allow users to share their circuits with other users and also allow users to import circuits from other users. Also, this would help the users to keep a local backup of their circuits.
 
 ![import_export](/images/Arnab_GSoC23/import_export.gif)
 
@@ -87,7 +87,7 @@ With the introduction of the import and export of circuits as .cv files, users w
 
 #### - New UI for user menu
 
-The user menu was updated to make it more user friendly and to reduce to complexity of implementing new features.
+The user menu was updated to make it more user-friendly and to reduce to complexity of implementing new features.
 
 <!-- ![user menu long](/images/Arnab_GSoC23/user_menu_long.png)
 ![user menu](/images/Arnab_GSoC23/user_menu2.png) -->
@@ -96,7 +96,7 @@ The user menu was updated to make it more user friendly and to reduce to complex
 
 #### - New UI for navbar buttons
 
-The navbar buttons were updated to reduce the complexity and DOM manipulation but most importantly to make the navbar for mobile devices more user friendly.
+The navbar buttons were updated to reduce the complexity and DOM manipulation but most importantly to make the navbar for mobile devices more user-friendly.
 
 <!-- The desktop navbar look is identical as old ones
 ![navbar](/images/Arnab_GSoC23/navbar.png)
