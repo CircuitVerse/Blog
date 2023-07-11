@@ -226,7 +226,6 @@ review my pull requests and providing guidance whenever I encountered challenges
 **References**
 
 - [GSoC Week 6](https://vaibhavupreti.github.io/hugo-blog/blog/gsoc-week6/)
-- [ghcr images mrsk](https://github.com/vaibhavupreti/CircuitVerse/pkgs/container/circuitverse/105682802?tag=0e1da975def42e5091b41b05d703a983a64b260a)
 - [Deploying CircuitVerse using mrsk | YouTube](https://www.youtube.com/watch?v=KWJlWUfPWhw)
 
 ### Commits Merged 
