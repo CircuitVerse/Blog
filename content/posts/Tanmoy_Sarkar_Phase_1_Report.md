@@ -32,8 +32,7 @@ In the first phase, we have covered
 This integration enhances the debugging experience for developers by providing a visual debugging capability directly from their integrated development environment (IDE). It allows anyone to conveniently set breakpoints and debug the application from their IDE. This integration also support docker based environment. By changing configuration in IDE , it can easily connect to TCP based debugger and debug the application easily. [The documentation](https://github.com/tanmoysrt/CircuitVerse/blob/solargraph/yard/documentation/LSP-SETUP.MD) has been updated accordingly.
 
 **Debugger Preview**
-![ruby-debugger](/images/tanmoy_gsoc23/ruby_debugger.gif)
-
+{{< video src="/images/tanmoy_gsoc23/ruby_debugger.mp4" type="video/mp4" preload="auto" >}}
 
 ##### Pull Requests
 - PR : [Ruby debugger integration](https://github.com/CircuitVerse/CircuitVerse/pull/3760)
