@@ -8,7 +8,7 @@ type: post
 
 ![GSoC@CircuitVerse](/images/Arnab_GSoC23/cover.png)
 
-This blog post is to summarize the work done in the First Phase of **Google Summer of Code @ 2023**.
+This blog post is to summarize the work done in the First Phase of **Google Summer of Code @ 2023** for the project **Development and integration of Vue.js simulator**.
 
 ### [Work Repository 🖥](https://github.com/CircuitVerse/cv-frontend-vue)
 
@@ -70,7 +70,7 @@ This was achieved with a dialog box to update the project details from the simul
 
 ##### - creation of wysiwyg editor for project description
 
-At the time of implementing the update project details dialog box, there was no pre-setup `wysiwyg` editor available which was compatible with our project. So I created a custom `wysiwyg` editor using the [tiptap](https://www.tiptap.dev/) library as a vue component.
+At the time of implementing the update project details dialog box, there was no pre-setup `wysiwyg` editor available which was compatible with our project. So a custom `wysiwyg` editor using the [tiptap](https://www.tiptap.dev/) library was created as a vue component.
 
 ![Update Project Details](/images/Arnab_GSoC23/update_project_details.png)
 
@@ -142,14 +142,14 @@ Fix custom shortcut to work on load, reduce DOM manipulation and use vue interpo
 
 ---
 
-- implementation of embedded simulator view
-- dragging of panels in the simulator
-- conversion of all the remaining components to vue components
-- removal of jquery from the simulator
-- conversion to typescript
+- Implementation of embedded simulator view
+- Dragging of panels in the simulator
+- Conversion of all the remaining components to vue components
+- Removal of jquery from the simulator
+- Conversion to typescript
 - i18n support for whole simulator in three languages (english, hindi, bengali)
-- stabilizing the simulator
-- clearing the codebase and improve the file structure
+- Stabilizing the simulator
+- Clearing the codebase and improve the file structure
 
 ## Learning
 
