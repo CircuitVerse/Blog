@@ -70,7 +70,7 @@ This was achieved with a dialog box to update the project details from the simul
 
 ##### - creation of wysiwyg editor for project description
 
-at the time of implementing the update project details dialog box, there was no pre-setup wysiwyg editor available which was compatible with our project. So I created a custom wysiwyg editor using the [tiptap](https://www.tiptap.dev/) library as a vue component.
+At the time of implementing the update project details dialog box, there was no pre-setup `wysiwyg` editor available which was compatible with our project. So I created a custom `wysiwyg` editor using the [tiptap](https://www.tiptap.dev/) library as a vue component.
 
 ![Update Project Details](/images/Arnab_GSoC23/update_project_details.png)
 
