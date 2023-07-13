@@ -49,7 +49,7 @@ With the creation of the new api endpoints and jwt setup it was time to implemen
 #### - fixing bugs in the simulator
 
 - While implementing the api endpoints in the simulator, we came across multiple bugs related to the tabs, circuit data generation for save, switching of circuit, deletion of circuit, creation of new circuits etc. All these issues occurred due to the development of the simulator without loading data from the api endpoints.
-- previously DOM manipulation was used to handle the loading, switching, deletion & creation of circuits in the scopes but with the implementation in vueJs, I moved all the tab related data to pinia store and manipulated the data in store to perform the switching, deletion, creation of circuits. This drastically reduced the usage of DOM manipulation and made the simulator more stable.
+- Previously DOM manipulation was used to handle the loading, switching, deletion & creation of circuits in the scopes but with the implementation in vueJs, we moved all the tab related data to pinia store and manipulated the data in store to perform the switching, deletion, creation of circuits. This drastically reduced the usage of DOM manipulation and made the simulator more stable.
 - Similarly the bugs regarding circuit creation and deletion were fixed by creation of new independent components for those functions and using the store to manipulate the data.
 
 ### V. Implementation of the new features in the vue simulator
