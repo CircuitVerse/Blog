@@ -13,7 +13,7 @@ This blog post is to summarize the work done in the First Phase of **Google Summ
 ### [Work Repository 🖥](https://github.com/CircuitVerse/cv-frontend-vue)
 
 > **[_CircuitVerse Simulator with VueJS -_](https://summerofcode.withgoogle.com/programs/2023/projects/eg17qD6w)
-> While carrying forward the goals from last year's project My project focuses on finishing up the development of Vue.js circuit simulator while boosting its performance, stability, and scalability by transitioning the JavaScript codebase to TypeScript. This project encompasses integrating the simulator with the main repository, carrying out new API endpoint creation and integration, introducing new features, and enhancing user experience.**
+> While carrying forward the goals from last year's project, this project focuses on finishing up the development of Vue.js circuit simulator while boosting its performance, stability, and scalability by transitioning the JavaScript codebase to TypeScript. This project encompasses integrating the simulator with the main repository, carrying out new API endpoint creation and integration, introducing new features, and enhancing user experience.**
 
 ## Phase 1 - Milestones Achieved
 
