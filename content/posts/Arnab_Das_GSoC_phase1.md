@@ -66,7 +66,7 @@ Previously the simulator used the default browser confirm(), alert() & prompt() 
 
 Previously when a new project was created the user was redirected to the project details edit page to update the project details. But to make the simulator independent of the main repository, it was necessary to allow users to update project details from the simulator itself which also made the user experience better.
 
-this was achieved with a dialog box to update the project details from the simulator.
+This was achieved with a dialog box to update the project details from the simulator.
 
 ##### - creation of wysiwyg editor for project description
 
