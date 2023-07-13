@@ -80,29 +80,17 @@ With the introduction of the import and export of circuits as `.cv` files, users
 
 ![import_export](/images/Arnab_GSoC23/import_export.gif)
 
-<!-- ![Import](/images/Arnab_GSoC23/import.png)
-![Export](/images/Arnab_GSoC23/export.png) -->
-
 ### VI. UI updates in the vue simulator
 
 #### - New UI for user menu
 
 The user menu was updated to make it more user-friendly and to reduce the complexity of implementing new features.
 
-<!-- ![user menu long](/images/Arnab_GSoC23/user_menu_long.png)
-![user menu](/images/Arnab_GSoC23/user_menu2.png) -->
-
 ![user menu](/images/Arnab_GSoC23/user_menu.gif)
 
 #### - New UI for navbar buttons
 
 The navbar buttons were updated to reduce the complexity and DOM manipulation but most importantly to make the navbar for mobile devices more user-friendly.
-
-<!-- The desktop navbar look is identical as old ones
-![navbar](/images/Arnab_GSoC23/navbar.png)
-
-the mobile navbar is now converted into a drawer which can be opened by clicking on the hamburger icon on the top left corner of the navbar.
-![navbar mobile](/images/Arnab_GSoC23/navbar_mobile.png) -->
 
 ![navbar](/images/Arnab_GSoC23/navbar.gif)
 
