@@ -21,7 +21,7 @@ This blog post is to summarize the work done in the First Phase of **Google Summ
 
 ### I. Integrating the simulator with the main repository
 
-Previous year the simulator was decoupled from the main repository and was being developed as an independent repository. This year the simulator is being integrated with the main repository as git submodule. With this a static build of the vue simulator will be served from the main repository and users will be able to use the simulator from [circuitverse.org](https://circuitverse.org) website.
+Previous year, the simulator was decoupled from the main repository and was being developed as an independent repository. This year the simulator is being integrated with the main repository as git submodule. With this, a static build of the vue simulator will be served from the main repository and users will be able to use the simulator from [circuitverse.org](https://circuitverse.org) website.
 
 Also, I added the proxy in the simulator dev server so when the project is being developed using `vite dev` developers can use the api endpoints from the main repository hosted locally or remotely.
 
