@@ -38,7 +38,7 @@ As our target is to be able to operate the simulator independently without any d
 
 ### III. Implementation of JWT for the [circuitverse.org](https://circuitverse.org) website & the vue simulator
 
-JWT was implemented for the [circuitverse.org](https://circuitverse.org) website and the vue simulator. This was done to make the simulator independent of the main repository and to make it more secure. The JWT token is generated from the main repository and is stored in the browser cookie as secure and httpOnly cookie. depending on whether the user selected the `remember me` option the cookie is saved either as session based or with bi-weekly expiry. The JWT token is then used to authenticate the user for the simulator api requests.
+JWT was implemented for the [circuitverse.org](https://circuitverse.org) website and the vue simulator. This was done to make the simulator independent of the main repository and to make it more secure. The JWT token is generated from the main repository and is stored in the browser cookie as secure and httpOnly cookie. Depending on whether the user selected the `remember me` option, the cookie is saved either as session based or with bi-weekly expiry. The JWT token is then used to authenticate the user for the simulator api requests.
 
 ### IV. Implementation of the new api endpoints in the vue simulator
 
