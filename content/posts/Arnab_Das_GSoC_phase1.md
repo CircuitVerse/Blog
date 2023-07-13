@@ -87,7 +87,7 @@ With the introduction of the import and export of circuits as .cv files, users w
 
 #### - New UI for user menu
 
-The user menu was updated to make it more user-friendly and to reduce to complexity of implementing new features.
+The user menu was updated to make it more user-friendly and to reduce the complexity of implementing new features.
 
 <!-- ![user menu long](/images/Arnab_GSoC23/user_menu_long.png)
 ![user menu](/images/Arnab_GSoC23/user_menu2.png) -->
