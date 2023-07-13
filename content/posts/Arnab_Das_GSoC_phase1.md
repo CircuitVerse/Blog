@@ -122,7 +122,7 @@ the mobile navbar is now converted into a drawer which can be opened by clicking
 
 ##### - custom shortcut fix
 
-fix custom shortcut to work on load, reduce DOM manipulation and use vue interpolation.
+Fix custom shortcut to work on load, reduce DOM manipulation and use vue interpolation.
 
 ## Links to Pull Requests
 
