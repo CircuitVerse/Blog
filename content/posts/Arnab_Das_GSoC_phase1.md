@@ -76,7 +76,7 @@ At the time of implementing the update project details dialog box, there was no 
 
 #### - Implementation of Import and Export of circuits as `.cv` files
 
-With the introduction of the import and export of circuits as .cv files, users will be able to import and export their circuits as .cv files. This will allow users to share their circuits with other users and also allow users to import circuits from other users. Also, this would help the users to keep a local backup of their circuits.
+With the introduction of the import and export of circuits as `.cv` files, users will be able to import and export their circuits as `.cv` files. This will allow users to share their circuits with other users and also allow users to import circuits from other users. Also, this would help the users to keep a local backup of their circuits.
 
 ![import_export](/images/Arnab_GSoC23/import_export.gif)
 
