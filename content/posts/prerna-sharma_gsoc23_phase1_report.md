@@ -50,7 +50,7 @@ This way, the simulator will never freeze, and uncaught errors can be handled ea
 
  **Work Sample**
 
-![State Machine](/images/prerna_gsoc23/statemachine.gif)
+{{< video src="/images/prerna_gsoc23/statemachine.mp4" type="video/mp4" preload="auto" >}}
 
  **Pull Request**
 
@@ -68,7 +68,7 @@ By implementing this simulator crash recovery mechanism, users can avoid losing 
 
  **Work Sample**
 
-![Simulator Crash recovery](/images/prerna_gsoc23/simulator_crash_recovery.gif)
+{{< video src="/images/prerna_gsoc23/simulator_crash_recovery.mp4" type="video/mp4" preload="auto" >}}
 
  **Pull Request**
 
@@ -115,7 +115,7 @@ These functions provide valuable assistance in debugging circuit issues, allowin
 
  **Work Sample**
 
-![Added helpful functions for debugging of circuit](/images/prerna_gsoc23/HelpfulFunctionss.gif)
+{{< video src="/images/prerna_gsoc23/HelpfulFunctions.mp4" type="video/mp4" preload="auto" >}}
 
  **Pull Request**
 
