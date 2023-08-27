@@ -200,7 +200,7 @@ The setup documentation has been updated to reflect the changes made to the deve
 - [GSoC 2023 CircuitVerse | Week 6 Report](https://tanmoy.online/week-6-circuitversegsoc23)
 - [GSoC 2023 CircuitVerse | Week 7 & 8 Report](https://tanmoy.online/week-7-8-circuitversegsoc23)
 - [GSoC 2023 CircuitVerse | Week 9, 10 & 11 Report](https://tanmoy.online/week-9-10-11-circuitversegsoc23)
-- [GSoC 2023 CircuitVerse | Week 12 Report](https://tanmoy.online/week-12-circuitversegsoc231)
+- [GSoC 2023 CircuitVerse | Week 12 Report](https://tanmoy.online/week-12-circuitversegsoc23)
 
 ### Experience
 
