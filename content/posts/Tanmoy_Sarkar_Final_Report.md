@@ -114,7 +114,7 @@ We have also included `steep check` in our CI to verify the changes in code or r
 - [feat: Add RBS to CI](https://github.com/CircuitVerse/CircuitVerse/pull/3833)
 - [feat: add rbs for models](https://github.com/CircuitVerse/CircuitVerse/pull/3955)
 
-> RBS has beend added for `models` only. We will add RBS for other files in future.
+> RBS has beend added for `models` only. We will add RBS for other files in the future.
 
 ### Integrate Undercover CI
 ---
@@ -157,18 +157,18 @@ After various changes in development environment, it was required to update gitp
 
 #### GitHub Codespaces
 GitHub Codespaces is a similiar platform like Gitpod but more integrated with GitHub.
-We have added support for GitHub Codespaces in our project, so that anyone can setup the project in GitHub Codespaces in single click and start contributing to the project. It supports all the features like solargraph LSP, debugger, etc and comes with pre-installed extensions in web based VS Code.
+We have added support for GitHub Codespaces in our project, so that anyone can set up the project in GitHub Codespaces in single click and start contributing to the project. It supports all the features like solargraph LSP, debugger, etc. and comes with pre-installed extensions in web based VS Code.
 
 ##### Pull Requests
 - [fix: Gitpod Remote Development Revamp](https://github.com/CircuitVerse/CircuitVerse/pull/3892)
-- [feat: Github Codespace as Remote Development Environment](https://github.com/CircuitVerse/CircuitVerse/pull/3894)
+- [feat: GitHub Codespace as Remote Development Environment](https://github.com/CircuitVerse/CircuitVerse/pull/3894)
 
 ### Improve Docker Development Setup
 ---
 The docker based development setup has been improved to make it more efficient and easy to use. The following changes have been made to the setup:
 - Docker Image only contains the environment not the codebase. So once the image is built, there is no need to rebuild the image again and again.
 - Auto reload on code changes.
-- No permission error in Linux for chnages in mounted volume.
+- No permission error on Linux for chnages in mounted volume.
 - Cache volume added for gems and node modules. So lower wait time for starting the server.
 - Developers can restart the rails server without restarting the docker container.
 - Developers can run unit tests and integration tests in docker container.
@@ -183,7 +183,7 @@ The docker based development setup has been improved to make it more efficient a
 ### Improve Setup Documentation
 ---
 The setup documentation has been updated to reflect the changes made to the development environment. The following changes have been made to the documentation:
-- Splitted the documentation into multiple files for better readability.
+- Split the documentation into multiple files for better readability.
 - Added specific local installation instructions for Linux, Mac and Windows.
 - Added specific remote development instructions for GitHub Codespaces and Gitpod.
 - Added instructions for using Solargraph LSP and Debugger.
@@ -207,7 +207,7 @@ The setup documentation has been updated to reflect the changes made to the deve
 - Mentor: Vedant Jain and Smriti Garg
 - Contributor: Tanmoy Sarkar
 
-> I've had a wonderful time working with CircuitVerse. Through this experience, I've learned about various tools and concepts, giving me a fresh outlook on open source projects. I've gained knowledge in areas such as Solargraph LSP, Debugger, Vite, Rollup, Github Actions CI, Remote Development Platform, and Docker-based development setup. This newfound knowledge will definitely benefit me in the future. The mentors and organization admin were incredibly supportive and helpful, and I'm truly grateful for their guidance and assistance.
+> I've had a wonderful time working with CircuitVerse. Through this experience, I've learned about various tools and concepts, giving me a fresh outlook on open source projects. I've gained knowledge in areas such as Solargraph LSP, Debugger, Vite, Rollup, GitHub Actions CI, Remote Development Platform, and Docker-based development setup. This newfound knowledge will definitely benefit me in the future. The mentors and organization admin were incredibly supportive and helpful, and I'm truly grateful for their guidance and assistance.
 
 
 ### Conclusion
