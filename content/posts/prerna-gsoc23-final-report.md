@@ -19,7 +19,7 @@ My project is focused on enhancing the stability and reliability of simulation e
 - **Fix Data integrity issues**: Our goal was to identify and fix the data integrity issues that were causing data corruption for users.
 - **Implement a debug interface on the simulator**: The aim was to implement a debug interface on the simulator that would give us more information about the simulator's state from the dev console, allow us to load circuits, and dynamically load and unload parts of the circuit.
 - **Implement a safe recovery from simulator crashes**:  A safe recovery flow that ideally lets the user restore a previous non-erroneous state of the circuit.
-- **Make a better system for high impedance (X) values**: n the previously implemented system for high-impedance values, there were some shortcomings that needed to be rectified.
+- **Make a better system for high impedance (X) values**: In the previously implemented system for high-impedance values, there were some shortcomings that needed to be rectified.
 
 ### Data integrity issues
 
@@ -39,7 +39,7 @@ I've rectified the saving of the 'zero' delay value for components. With this fi
 
 #### Persistent Error Messages After Issue Resolution
 
-This issue was reported many times on the Slack channel. I've addressed it by implementing a fix. Previously, when an error message was displayed on the canvas and a user clicked on it multiple times in quick succession, the message persisted even after the error was resolved. I've resolved this problem, ensuring that error messages are now removed properly once the issue is resolved.
+I had observed on Slack that many users reported this issue. I have implemented a fix for this. In the past, when the canvas displayed an error message and a user clicked on it multiple times in quick succession, the message would persist even after resolving the error. I successfully resolved this problem, ensuring that error messages are now properly removed once the issue is addressed.
 
 **Demo**
 
@@ -54,15 +54,15 @@ This issue was reported many times on the Slack channel. I've addressed it by im
 
 ### Debug interface on the simulator
 
-I have implemented 4 sub-features within it, which will make the circuit debugging process easier:
+I have implemented 4 sub-features within it, which will make the circuit debugging process easier than before.
 
 #### A way for the circuit to recover from errors if the erroneous component is removed
 
- In this, I have created a state machine. So, Now whenever an uncaught exception error occurs in the simulator, the state of the simulator transitions from normal to an error state. All tabs from which the user can add new components remain hidden while the simulator is in the error state. Once the user removes the erroneous component, all tabs become visible again, and the simulator returns to the normal state.
+ In this, I have implemented a state machine. So, Now whenever an uncaught exception error occurs in the simulator, the state of the simulator transitions from normal to an error state. All tabs from which the user can add new components remain hidden while the simulator is in the error state. Once the user removes the erroneous component, all tabs become visible again, and the simulator returns to the normal state.
 
 #### Identify the currently selected component and modify that component's object
 
-For this feature, I've implemented two functions. The first function is 'getCurrentlySelectedComponent', which returns the currently selected component. The second function is 'getAllSelectedComponent', which returns all the selected components if multiple elements are selected together in the circuit. Then, I've implemented the 'modifyCurrentlySelectedComponent(property, value)' function. This function takes two parameters: the property of the currently selected component that needs modification and the modified value. It then updates the specified property in the global scope.
+For this feature, I've implemented two functions. The first function is 'getCurrentlySelectedComponent', which returns the currently selected component. The second function is 'getAllSelectedComponent', which returns all the selected components if multiple elements are selected together in the circuit. Then, I've implemented the 'modifyCurrentlySelectedComponent' function. This function takes two parameters: the property of the currently selected component that needs modification and the modified value. It then updates the specified property in the global scope.
 
 #### In case of the 'Simulation Stack Exceeded' error, a way to find the components that are being added to the simulation stack an unnaturally large number of times
 
