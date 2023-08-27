@@ -151,7 +151,13 @@ To optimize the integration testing process in CircuitVerse, Capybara has been u
 
 ### Improve Remote Development Platform [GitHub Codespaces, Gitpod]
 ---
+#### Gitpod
+Gitpod is a cloud-based development environment that allows you to create a fully functional development environment in your browser. 
+After various changes in development environment, it was required to update gitpod configuration. After update, it now supports solargraph LSP and debugger.
 
+#### GitHub Codespaces
+GitHub Codespaces is a similiar platform like Gitpod but more integrated with GitHub.
+We have added support for GitHub Codespaces in our project, so that anyone can setup the project in GitHub Codespaces in single click and start contributing to the project. It supports all the features like solargraph LSP, debugger, etc and comes with pre-installed extensions in web based VS Code.
 
 ##### Pull Requests
 - [fix: Gitpod Remote Development Revamp](https://github.com/CircuitVerse/CircuitVerse/pull/3892)
@@ -159,7 +165,16 @@ To optimize the integration testing process in CircuitVerse, Capybara has been u
 
 ### Improve Docker Development Setup
 ---
-[CONTENT]
+The docker based development setup has been improved to make it more efficient and easy to use. The following changes have been made to the setup:
+- Docker Image only contains the environment not the codebase. So once the image is built, there is no need to rebuild the image again and again.
+- Auto reload on code changes.
+- No permission error in Linux for chnages in mounted volume.
+- Cache volume added for gems and node modules. So lower wait time for starting the server.
+- Developers can restart the rails server without restarting the docker container.
+- Developers can run unit tests and integration tests in docker container.
+- New tools such as Solargraph LSP, Debugger, Vite Rails have been added to the docker image.
+- Added support for remote debugging in docker container.
+- Supports added for Linux, Mac and Windows.
 
 ##### Pull Requests
 - [feat: docker based development improvement](https://github.com/CircuitVerse/CircuitVerse/pull/3998)
@@ -167,7 +182,11 @@ To optimize the integration testing process in CircuitVerse, Capybara has been u
 
 ### Improve Setup Documentation
 ---
-[CONTENT]
+The setup documentation has been updated to reflect the changes made to the development environment. The following changes have been made to the documentation:
+- Splitted the documentation into multiple files for better readability.
+- Added specific local installation instructions for Linux, Mac and Windows.
+- Added specific remote development instructions for GitHub Codespaces and Gitpod.
+- Added instructions for using Solargraph LSP and Debugger.
 
 ##### Pull Requests
 - [chore: Documentation Update](https://github.com/CircuitVerse/CircuitVerse/pull/3933)
