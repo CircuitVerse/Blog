@@ -155,9 +155,15 @@ To optimize the integration testing process in CircuitVerse, Capybara has been u
 Gitpod is a cloud-based development environment that allows you to create a fully functional development environment in your browser. 
 After various changes in development environment, it was required to update gitpod configuration. After update, it now supports solargraph LSP and debugger.
 
+**Preview**
+{{< video src="/images/tanmoy_gsoc23/gitpod.mp4" type="video/mp4" preload="auto" >}}
+
 #### GitHub Codespaces
 GitHub Codespaces is a similiar platform like Gitpod but more integrated with GitHub.
 We have added support for GitHub Codespaces in our project, so that anyone can set up the project in GitHub Codespaces in single click and start contributing to the project. It supports all the features like solargraph LSP, debugger, etc. and comes with pre-installed extensions in web based VS Code.
+
+**Preview**
+{{< video src="/images/tanmoy_gsoc23/github_codespaces.mp4" type="video/mp4" preload="auto" >}}
 
 ##### Pull Requests
 - [fix: Gitpod Remote Development Revamp](https://github.com/CircuitVerse/CircuitVerse/pull/3892)
