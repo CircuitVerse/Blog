@@ -12,13 +12,13 @@ This blog post is a report of all the features implemented, goals accomplished, 
 
 ## About My Project
 
-My project is focused on enhancing the stability and reliability of simulation environments. It aims to address common issues such as crashes, slow performance, and unexpected behavior that can disrupt the simulation experience for complex circuits.
+My project is focused on enhancing the stability and reliability of simulation environments. It aims to resolve common issues such as crashes, slow performance, and unexpected behavior that can disrupt the simulation experience for complex circuits.
 
 ## Project Goals and Implementation
 
-- **Fix Data integrity issues**: Our goal was to identify and fix the data integrity issues that were causing data corruption for users.
+- **Fix Data integrity issues**: The goal was to identify and fix the data integrity issues that were causing data corruption for users.
 - **Implement a debug interface on the simulator**: The aim was to implement a debug interface on the simulator that would give us more information about the simulator's state from the dev console, allow us to load circuits, and dynamically load and unload parts of the circuit.
-- **Implement a safe recovery from simulator crashes**:  A safe recovery flow that ideally lets the user restore a previous non-erroneous state of the circuit.
+- **Implement a safe recovery from simulator crashes**:  A safe recovery flow that ideally lets the user to restore a previous non-erroneous state of the circuit.
 - **Make a better system for high impedance (X) values**: In the previously implemented system for high-impedance values, there were some shortcomings that needed to be rectified.
 
 ### Data integrity issues
@@ -58,7 +58,7 @@ I have implemented 4 sub-features within it, which will make the circuit debuggi
 
 #### A way for the circuit to recover from errors if the erroneous component is removed
 
- In this, I have implemented a state machine. So, Now whenever an uncaught exception error occurs in the simulator, the state of the simulator transitions from normal to an error state. All tabs from which the user can add new components remain hidden while the simulator is in the error state. Once the user removes the erroneous component, all tabs become visible again, and the simulator returns to the normal state.
+ In this, I have implemented a state machine. So, Now whenever an uncaught exception error occurs in the simulator, the state of the simulator transitions from normal to an error state. All the tabs from which the user can add new component will remain hidden until the simulator is in the error state. Once the user removes the erroneous component, all the tabs become visible again, and the simulator returns to the normal state.
 
 #### Identify the currently selected component and modify that component's object
 
@@ -143,6 +143,6 @@ I've created comprehensive blog posts for each phase of GSoC, aiming for them to
 
 ## Conclusion
 
-It's true that time flies. It feels as though it was just 2-4 days ago that the GSoC coding period began, and now it has come to an end so quickly. It's astonishing how swiftly time has passed by. The experience was filled with moments of intense concentration and dedication, and it's a bit surreal to see it conclude.
+It's true that time flies. It feels as though it was just 2-4 days ago that the GSoC coding period began, and now it has come to an end so quickly. It's astonishing how swiftly time has passed by. The experience was filled with moments of intense concentration and dedication.
 
 However, I am extremely happy that my project has been successfully completed. And,I would like to express gratitude to my mentors [Pulkit Gupta](https://github.com/pulkit-30), [Ruturaj Mohite](https://github.com/gr455), [Pranay Simejia](https://github.com/pranay-simejia), and [Satvik Ramaprasad](https://github.com/satu0king). Their invaluable feedback on my progress and unwavering support have played a pivotal role in this journey.
