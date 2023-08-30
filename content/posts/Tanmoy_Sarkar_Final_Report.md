@@ -20,7 +20,7 @@ This project focuses on making the process of working and developing with Circui
 
 ### Project Goals
 ---
-Throught this period, we have focused on improving the development experience of CircuitVerse. The main goals of this project are:
+Throughout this period, we have focused on improving the development experience of CircuitVerse. The main goals of this project are:
 
 * Integrate Ruby Debugger
 * Integrate Solargraph LSP & Write YARD Docs
