@@ -49,7 +49,7 @@ This integration enhances the debugging experience for developers by providing a
 ---
 Solargraph is a Language Server Protocol (LSP) server that enhances autocompletion for Ruby codebases by providing YARD documentation. To further enhance support for Rails codebases, the solargraph-rails gem has been installed and configured. YARD documentation has been generated for the entire codebase to ensure seamless autocompletion.
 
-This integration also supports Docker-based environments, allowing the application to be run in a Docker container while connecting the IDE/Editor's solargraph extension to the Solargraph server via a TCP socket. Initially, there was a significant challenge in this setup. The extension used to send the current directory to the LSP server, but the LSP server had a different path inside the Docker container. However, this issue was successfully resolved by creating a symlink inside the container. 
+This integration also supports Docker-based environment, allowing the application to be run in a Docker container while connecting the IDE/Editor's solargraph extension to the Solargraph server via a TCP socket. Initially, there was a significant challenge in this setup. The extension was used to send the current directory to the LSP server, but the LSP server had a different path inside the Docker container. However, this issue was successfully resolved by creating a symlink inside the container. 
 
 ![solargraph-docker](/images/tanmoy_gsoc23/solargraph-docker.jpeg)
 
