@@ -9,7 +9,7 @@ type: post
 ![gsoc23_final_phase](/images/tanmoy_gsoc23/final_phase_cover_image.png)
 
 
-This blog is dedicated to describe the work we have done and the goals we have accomplished in Google Summer of Code'23.
+This blog is dedicated to describe the work we have done and the goals we have accomplished in [Improve the development experience](https://github.com/CircuitVerse/CircuitVerse/wiki/GSoC%2723-Project-List#project-4---improve-the-development-experience) project as a part of GSoC'23 at [CircuitVerse](https://circuitverse.org/)
 
 
 ### Project Description
