@@ -88,7 +88,7 @@ OpenTelemetry's architecture and its utilization in our service-
 
 ### 4. Zero Downtime Deployment Pipeline with GitHub Actions and Kamal 🛠️ 
 
-Successfully setup a Continous Deployment Pipeline that deploys CircuitVerse Docker images to production using GitHub Actions and [kamal](https://kamal-deploy.org/) with zero downtime.
+Successfully set up a Continous Deployment Pipeline that deploys CircuitVerse Docker images to production using GitHub Actions and [kamal](https://kamal-deploy.org/) with zero downtime.
 
 Kamal uses the dynamic reverse-proxy Traefik to hold requests, while the new app container is started and the old one is stopped — working seamlessly across multiple hosts, using SSHKit to 
 execute commands. Originally built for Rails apps, Kamal will work with any type of web app that can be containerized with Docker.
@@ -96,28 +96,28 @@ execute commands. Originally built for Rails apps, Kamal will work with any type
 
 The workflow consists of two jobs:
 
-1. **build-production**:
+1. **`build-production`**:
 This job builds the Docker image and pushes it to the registry for linux/amd64 and linux/arm64 architectures.
 The build process is optimized using docker buildx caching, significantly reducing build times.
 
-2. **deploy**:
+2. **`deploy`**:
 After the build job completes, the deploy workflow requires a review by a repository committer.
 Once approved, it sets up Kamal and deploys the latest Docker image tagged with the GitHub SHA hash from the repository's current origin.
 
 ![kamal-job](/images/vaibhav-upreti/kamal-job.png)
 
-As we can see in the image above the deploy job has protection rules for the "production" environment in GitHub Actions. When a newer deploy job is enqueued, it cancels the previous workflow to ensure the latest image is deployed.
+As we can see in the image above the deploy job has protection rules for the "production" environment in GitHub Actions. When a newer `deploy` job is enqueued, it cancels the previous workflow to ensure the latest image is deployed.
 
 
 In the deploy action, Kamal performs several key tasks:
 1. pulls the image from the registry
-2. runs the images as healthcheck on the servers at `localhost:3999/up` route.
-3. If the health check are healthy, Kamal proceeds to swap the existing container with the newer version.
+2. runs healthchecks on the servers at `http://localhost:3999/up` route.
+3. If the healthchecks are healthy, Kamal proceeds to swap the existing container with the newer version.
 4. However, if the health check fails, Kamal acquires a lock on the deployment to prevent any conflicts or issues during the update process.
 
-Hence in CircuitVerse CI workflows, we build Docker images for each pull request to the master branch, helping developers validate their code for production readiness.
+Hence, in CircuitVerse CI workflows, we build Docker images for each pull request to the master branch, helping developers validate their code for production readiness.
 
-**Memory Optimization**: Configured Jemalloc for Docker image, reducing memory fragmentation.
+**Memory Optimisation**: Configured Jemalloc for Docker image, reducing memory fragmentation.
 
 Deploying CircuitVerse to staging environment successfully.
 
