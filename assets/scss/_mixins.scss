@@ -47,6 +47,8 @@
 // Circuitverse Logo
 .navigation{
   .img-fluid{
+
+	max-height: 100px;
     max-width: 70% !important;
   }
 }
@@ -126,3 +128,26 @@
   max-width: 100%;
   height: auto;
 }
+
+// toc
+.toc {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+body .toc a {
+    display: block;
+    text-decoration: none;
+    color: #000 !important; /* Dark black text color with !important */
+    font-weight: bold !important; /* Make the text bold with !important */
+    cursor: pointer;
+    margin-left: 10px; /* Adjust the margin to control the indentation */
+    margin-bottom: 5px; /* Reduce space between headings */
+}
+
+body .toc a:hover {
+      color: #4CAF50 !important; /* Light green text color on hover with !important */
+ }

@@ -25,3 +25,18 @@ hugo new posts/my_new_post.md
 # Run Instructions
 Start Server: `hugo server -D` 
 
+## ShortCodes
+
+Some common Hugo ShortCodes that might come in handy while writing a blog post:
+1. Table of Contents
+
+```html
+<!-- Use anywhere in markdown -->
+{{<toc>}}
+```
+
+2. Embed a Video
+
+```html
+{{< video src="/path/to/video.mp4" type="video/mp4" preload="auto" >}}
+```
