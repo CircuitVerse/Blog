@@ -7,7 +7,7 @@ author: Arnab Das
 type: post
 ---
 
-![GSoC@CircuitVerse](/images/Arnab_GSoC23/cover.png)
+![GSoC@CircuitVerse](/images/Arnab_GSoC23/final_cover.png)
 
 This blog post is to summarize all the work done in **Google Summer of Code @ 2023** for the project **Development and integration of Vue.js simulator**.
 
