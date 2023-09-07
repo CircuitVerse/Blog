@@ -132,8 +132,8 @@ In addition to this, `alert()`, `prompt()`, and `confirm()` were replaced with c
 With the increase in new features and functionalities, it was essential to enhance the UI and UX of the simulator to make it more user-friendly & developer friendly. This included:
 
 1. Replacing the old `alert()`, `prompt()`, and `confirm()` with custom dialog boxes (as discussed ago).
-2. updating the user menu to make it more user friendly and easier to add new features.
-3. updating the navbar to make it more developer friendly and user friendly in smaller screens.
+2. updating the user menu to make it more user-friendly and easier to add new features.
+3. updating the navbar to make it more developer friendly and user-friendly in smaller screens.
 
 **Read my [Phase 1 blog](https://blog.circuitverse.org/posts/arnab_das_gsoc_phase1/) for more details on [Implementation of new features](http://localhost:1313/posts/arnab_das_gsoc_final_report/#-implementation-of-new-features-) & [UI and UX](http://localhost:1313/posts/arnab_das_gsoc_final_report/#-enhancing-ui-and-ux-) updates**
 
@@ -141,9 +141,9 @@ With the increase in new features and functionalities, it was essential to enhan
 
 With the conversion of the simulator to Vue.js & TypeScript lots of bugs were introduced and the old methods (such as DOM manipulation for ui changes & simulator logics) were not working, for this new methods based on Vue & es6 js were used. To talk about some of the major are:
 
-1. moving the tab related data (eg. tabs info, active tabs etc) to be stored on Pinia Store.
+1. moving the tab related data (e.g. tabs info, active tabs etc.) to be stored on Pinia Store.
 2. Using Vue methods for tabs loading and switching.
-3. Removal of most of SetInterval (which made the simulator slower) with vue.js watch and computed methods.
+3. Removal of most of SetInterval (which made the simulator slower) with Vue.js watch and computed methods.
 4. Saving all user Info & project related information in Pinia Store.
 5. Removal most DOM manipulation with Vue methods.
 6. Simulator crash on switching to layout mode.
@@ -158,13 +158,13 @@ These were some of the major issues fixed which hindered the Performance & stabi
 
 Previously the simulator leveraged jQueryUI for the dragging functionality of the panels. However, with the transition to Vue.js, this functionality was lost.
 
-we used modern ES6 JavaScript to implement the dragging functionality. After some research and testing, we decided to use [interact.js](https://github.com/taye/interact.js). The main reason behind using this library was its small size, similar usage to jQueryUI, most nearest internal implementation if it was to be implemented from scratch and most importantly it provided all the functionality needed for the simulator.
+we used modern ES6 JavaScript to implement the dragging functionality. After some research and testing, we decided to use [interact.js](https://github.com/taye/interact.js). The main reason behind using this library was its small size, similar usage to jQueryUI, nearest internal implementation if it was to be implemented from scratch and most importantly it provided all the functionality needed for the simulator.
 
 {{< video src="/videos/Arnab_GSoC23/dragging.mp4" controls="true" preload="auto" >}}
 
 ### 🔹 Implementation of Embed view of the simulator 🖼️
 
-Embed view provides a preview of the circuit which, in which one can't edit the circuit. this also allows users to embed the circuit in external websites. This was implemented by creating a new route `/simualtorvue/embed/:id` which would render the embed view of the circuit.
+Embed view provides a preview of the circuit which, in which one can't edit the circuit. this also, allows users to embed the circuit in external websites. This was implemented by creating a new route `/simualtorvue/embed/:id` which would render the embed view of the circuit.
 
 {{< video src="/videos/Arnab_GSoC23/embed.mp4" controls="true" preload="auto" >}}
 
@@ -176,19 +176,19 @@ The simulator was initially available only in English. However, with the introdu
 
 ### 🔹 Removal of jQuery, jQueryUI & integration of TypeScript 📦
 
-The simulator was initially built using jQuery and jQueryUI. However, jQuery being a somewhat old technology & the large size of codebase it was decided to remove all jQuery related code using es6 javascript & jQueryUI with Vue.js to make the frontend code broken into smaller component which would help new developers and make the development experience better. This also meant we could get rid of DOM manipulation using the power of Vue.js
+The simulator was initially built using jQuery and jQueryUI. However, jQuery being a somewhat old technology & the large size of codebase it was decided to remove all jQuery related code using es6 javascript & jQueryUI with Vue.js to make the frontend code broken into smaller component which would help new developers and make the development experience better. This also, meant we could get rid of DOM manipulation using the power of Vue.js
 
 For the typescript Integration we started with the components and converted most of them to typescript, after that the conversion of javascript files were started, some files could not be changed as active changes were being made by other contributors which need to be merged before conversion of those files, this is to be done in future period.
 
 ### 🔹 Refactoring of Styles and Codebase 🔄
 
-Old simulator code was using SCSS at a lot of part of the codebase so those were to be converted to CSS & the new components corresponding styles were moved to the corresponding Vue components `<style></style>` tags. This was done to make the codebase more developer friendly and easier to understand. Also the clearing & refactoring of codebase was started to remove unused code and make the codebase more readable. the following folder structure was decided to be followed for the refactoring:
+Old simulator code was using SCSS at a lot of part of the codebase , so those were to be converted to CSS & the new components corresponding styles were moved to the corresponding Vue components `<style></style>` tags. This was done to make the codebase more developer friendly and easier to understand. Also, the clearing & refactoring of codebase was started to remove unused code and make the codebase more readable. the following folder structure was decided to be followed for the refactoring:
 
 ![refactoring folder structure](/images/Arnab_GSoC23/refactor.png)
 
 ### 🔹 Future Work 📅
 
-- currently the simulator is working totally fine only few functionalities have some bugs so most important point would be fixing those to make the simulator fully ready to replace the current one.
+- currently the simulator is working totally fine only few functionalities have some bugs , so most important point would be fixing those to make the simulator fully ready to replace the current one.
 - Creating the mobile version of the vue simulator.
 - Finishing up the typescript integration & style Refactoring.
 - Rigorous testing of each and every functionalities.
@@ -236,4 +236,4 @@ Old simulator code was using SCSS at a lot of part of the codebase so those were
 
 ### 🔹 Conclusion ✅
 
-Spending the summer working on this project has been an amazing experience. I've learned a lot about Vue.js, TypeScript, Ruby On rails, Docker etc amazing technologies. I've also learned a lot about the open-source community and how to work with a team of developers. I'm grateful to CircuitVerse for giving me this opportunity and to my mentors - [Aboobacker MK](https://github.com/tachyons), [Devjit Choudhury](https://github.com/devartstar) and [Vedant Jain](https://github.com/vedant-jain03) for their guidance and support throughout the summer. Also kudos to my fellow mantees for all their support, help & collaboration throughout the project period.
+Spending the summer working on this project has been an amazing experience. I've learned a lot about Vue.js, TypeScript, Ruby on rails, Docker etc. amazing technologies. I've also, learned a lot about the open-source community and how to work with a team of developers. I'm grateful to CircuitVerse for giving me this opportunity and to my mentors - [Aboobacker MK](https://github.com/tachyons), [Devjit Choudhury](https://github.com/devartstar) and [Vedant Jain](https://github.com/vedant-jain03) for their guidance and support throughout the summer. Also, kudos to my fellow mantees for all their support, help & collaboration throughout the project period.
