@@ -158,7 +158,7 @@ These were some of the major issues fixed which hindered the Performance & stabi
 
 Previously the simulator leveraged jQueryUI for the dragging functionality of the panels. However, with the transition to Vue.js, this functionality was lost.
 
-we used modern ES6 JavaScript to implement the dragging functionality. After some research and testing, we decided to use [interact.js](https://github.com/taye/interact.js). The main reason behind using this library was its small size, similar usage to jQueryUI, nearest internal implementation if it was to be implemented from scratch and most importantly it provided all the functionality needed for the simulator.
+We used modern ES6 JavaScript to implement the dragging functionality. After some research and testing, we decided to use [interact.js](https://github.com/taye/interact.js). The main reason behind using this library was its small size, similar usage to jQueryUI, nearest internal implementation if it was to be implemented from scratch and most importantly it provided all the functionality needed for the simulator.
 
 {{< video src="/videos/Arnab_GSoC23/dragging.mp4" controls="true" preload="auto" >}}
 
