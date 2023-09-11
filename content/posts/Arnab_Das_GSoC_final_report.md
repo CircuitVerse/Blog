@@ -141,7 +141,7 @@ With the increase in new features and functionalities, it was essential to enhan
 
 With the conversion of the simulator to Vue.js & TypeScript lots of bugs were introduced and the old methods (such as DOM manipulation for ui changes & simulator logics) were not working, for this new methods based on Vue & es6 js were used. To talk about some of the major are:
 
-1. moving the tab related data (e.g. tabs info, active tabs etc.) to be stored on Pinia Store.
+1. Moving the tab related data (e.g. tabs info, active tabs etc.) to be stored on Pinia Store.
 2. Using Vue methods for tabs loading and switching.
 3. Removal of most of SetInterval (which made the simulator slower) with Vue.js watch and computed methods.
 4. Saving all user Info & project related information in Pinia Store.
