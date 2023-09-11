@@ -188,7 +188,7 @@ Old simulator code was using SCSS at a lot of part of the codebase , so those we
 
 ### 🔹 Future Work 📅
 
-- currently the simulator is working totally fine only few functionalities have some bugs , so most important point would be fixing those to make the simulator fully ready to replace the current one.
+- Currently, the simulator is working totally fine only a few functionalities have some bugs, so the most important point would be fixing those to make the simulator fully ready to replace the current one.
 - Creating the mobile version of the vue simulator.
 - Finishing up the typescript integration & style Refactoring.
 - Rigorous testing of each and every functionalities.
