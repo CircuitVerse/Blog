@@ -164,7 +164,7 @@ We used modern ES6 JavaScript to implement the dragging functionality. After som
 
 ### 🔹 Implementation of Embed view of the simulator 🖼️
 
-Embed view provides a preview of the circuit which, in which one can't edit the circuit. this also, allows users to embed the circuit in external websites. This was implemented by creating a new route `/simualtorvue/embed/:id` which would render the embed view of the circuit.
+Embed view provides a preview of the circuit, in which one can't edit the circuit. This also, allows users to embed the circuit in external websites. This was implemented by creating a new route `/simualtorvue/embed/:id` which would render the embed view of the circuit.
 
 {{< video src="/videos/Arnab_GSoC23/embed.mp4" controls="true" preload="auto" >}}
 
