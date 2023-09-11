@@ -27,7 +27,7 @@ This blog post is to summarize all the work done in **Google Summer of Code @ 20
 1. Conversion of Components to Vue.js Components
 2. Integration of Vue Simulator in the main repository
 3. Designing and implementing new API endpoints
-4. implementation of JWT for Vue Simulator
+4. Implementation of JWT for Vue Simulator
 5. Integration of new API endpoints
 6. Enhancing UI and UX
 7. Implementation of new features
