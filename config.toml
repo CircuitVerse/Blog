@@ -100,7 +100,7 @@ link = "https://circuitverse.org"
 icon = "ti-facebook" # themify icon pack https://themify.me/themify-icons
 link = "https://www.facebook.com/CircuitVerse"
 [[params.social]]
-icon = "fa-brands fa-x-twitter" # themify icon pack https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+icon = "fa-brands fa-x-twitter" # font-awesome icon pack https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
 link = "https://twitter.com/CircuitVerse"
 [[params.social]]
 icon = "ti-github" # themify icon pack https://themify.me/themify-icons
