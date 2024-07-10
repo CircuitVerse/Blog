@@ -184,7 +184,7 @@ In the fourth week, the focus was on enhancing the admin dashboard to allow admi
 - **Modal Structure:**
   - A modal to manage moderators was created, displaying current moderators and allowing the addition of new ones.
 
-    ```erb
+    ```
     <div id="addModeratorsModal" class="modal fade" role="dialog">
       <div class="modal-dialog primary-modal-dialog">
         <div class="modal-content">
