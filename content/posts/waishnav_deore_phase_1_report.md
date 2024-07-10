@@ -25,6 +25,8 @@ So far, we have covered and implemented the following features in the first phas
 * **New forum thread notification in Slack channel**
 * **Added SimpleMDE Markdown editor for drafting messages**
 
+For detailed implementation of these feature do checkout the biweekly blog posts [here](https://waishnav.github.io/blog/tags/gsoc/).
+
 ---
 
 ### Appraisal Tests and CI Fixes
@@ -63,7 +65,7 @@ The following are some small UI-UX improvements we have made to the forum post c
 
 We have covered the language filter to gatekeep inappropriate language. However, there are still chances that users can post spam content since the `language_filter` gem is not that powerful. To mitigate this, we implemented the **Report as Spam** feature. This feature allows users to report a post as spam. Once reported, the post will be reviewed by moderators.
 
-To learn more about the implementation details, you can check out my biweekly blog post on my GSoC experience [here](https://waishnav.github.io/blog/week-3-4-experience-moderation-tools-and-spam-reports-gsoc24-circuitverse/). In the blog, I've discussed each aspect of the implementation in detail.
+To learn more about the implementation details, you can check out my biweekly blog post on my GSoC experience [here](https://medium.com/@waishnav/moderation-tools-and-spam-reports-week-3-4-report-gsoc24-circuitverse-f0d214648bf3). In the blog, I've discussed each aspect of the implementation in detail.
 
 #### 1. Report as Spam Modal
 ![report-as-spam-modal](/images/waishnav_deore/report-as-spam-modal.png)
