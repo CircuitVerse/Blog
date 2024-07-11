@@ -18,19 +18,19 @@ The project aims to address the need for a comprehensive practice section within
 
 In the first phase, we have covered
 * Community Bonding Period
-* Creating controllers, schemas and tables for all the use case [Week 1 to 3]
+* Creating controllers, schemas and tables for circuitverse practice section [Week 1 to 3]
 * Manage question moderators[Week 4]
-* Moderator Question Creation and Integration[Week 5 to 6]
+* Moderator Question Creation and Simulator Integration[Week 5 to 6]
 
 ---
 
 ### Community Bonding Period
 
-During the community bonding period for GSoC at CircuitVerse, we engaged in various activities to prepare for the project. We began by participating in meet-and-greet sessions with mentors, contributors, and admins, where we shared our excitement for GSoC, discussed our journeys, and introduced our projects. Mentors [Vaibhav Upreti](https://www.linkedin.com/in/vaibhav-upreti/), [Vedant Jain](https://www.linkedin.com/in/vedant-jain-781006145/), and [Tanmoy Sarkar](https://www.linkedin.com/in/tanmoysrt/), answered questions about the CircuitVerse Practice Section project, and [Aboobacker MK](https://www.linkedin.com/in/aboobacker-m-k/) provided insights into the 12-week project process and discussed open defects in CircuitVerse.
+During the community bonding period for GSoC at CircuitVerse, there were various activities to provide more context for the project. The project begins with a meet-and-greet sessions with mentors, contributors, and admins, where everyone shared their excitement for GSoC, discussed their journeys, and discussed about the projects. Mentors [Vaibhav Upreti](https://www.linkedin.com/in/vaibhav-upreti/), [Vedant Jain](https://www.linkedin.com/in/vedant-jain-781006145/), and [Tanmoy Sarkar](https://www.linkedin.com/in/tanmoysrt/), answered questions about the CircuitVerse Practice Section project, and [Aboobacker MK](https://www.linkedin.com/in/aboobacker-m-k/) provided insights into the 12-week project process and discussed open defects in CircuitVerse.
 
 Following this, we revisited key technologies by refreshing knowledge of Ruby on Rails through The Odin Project documentation and Vue JS with a YouTube crash course. This preparation was essential for upcoming work on the CircuitVerse codebase.
 
-We then focused on a detailed exploration of the CircuitVerse codebase, identifying areas for modification and making initial changes. we had in-depth discussions with [Ruturaj Mohite](https://www.linkedin.com/in/ruturaj-mohite/), about potential edge cases and the development of the question practice simulator versus the standard simulator, including how to track and save user progress.
+Then, the focus got shifted to detailed exploration of the CircuitVerse codebase, identifying areas for modification and making initial changes. we had in-depth discussions with [Ruturaj Mohite](https://www.linkedin.com/in/ruturaj-mohite/), about potential edge cases and the development of the question practice simulator versus the standard simulator, including how to track and save user progress.
 
 Overall, the community bonding period was an enriching experience that laid a strong foundation for the project.
 
@@ -120,21 +120,14 @@ For more detailed information, please refer to [this](https://medium.com/@jaydip
 
 In the fourth week, the focus was on enhancing the admin dashboard to allow admins to manage moderators who can create questions on the UI. A new button was added to the admin's dashboard to facilitate the addition and removal of moderators.
 
-![add-moderator](/images/Jaydip_GSoC24/add_moderator_button.webp)
+
 
 #### UI Changes
 
 - **Dashboard Button:**
   - Added a new button to the admin's dashboard to manage moderators.
-  - Modified the `app/views/users/circuitverse/index.html.erb` file:
 
-    ```erb
-    <% if current_user.admin? %>
-      <button type="button" class="btn btn-secondary ml-0" data-toggle="modal" data-target="#addModeratorsModal"><%= t("users.circuitverse.index.add_moderator") %></button>
-    <% end %>
-
-    <%= render partial: "add_moderators_modal" %>
-    ```
+ ![add-moderator](/images/Jaydip_GSoC24/add_moderator_button.webp)
 
 - **Modal for Managing Moderators:**
   - When the button is clicked, a modal opens where admins can enter email addresses of users to be added as moderators or remove existing moderators.
@@ -146,109 +139,22 @@ In the fourth week, the focus was on enhancing the admin dashboard to allow admi
 - **Add Moderators:**
   - The `add_moderators` function processes the email addresses entered by the admin and updates the `question_bank_moderator` field for the corresponding users.
 
-    ```
-    def add_moderators
-      emails = params[:emails].split(',').map(&:strip)
-      users = User.where(email: emails)
-      
-      users.each do |user|
-        user.update(question_bank_moderator: true)
-      end
-      
-      if users.all? { |user| user.errors.empty? }
-        redirect_back(fallback_location: root_path)
-      else
-        render json: { errors: users.map(&:errors).flat_map(&:full_messages) }, status: :unprocessable_entity
-      end
-    end
-    ```
+  
 - **Manage Moderators:**
   - The `manage_moderators` function lists current moderators and allows the admin to remove them by updating their `question_bank_moderator` field.
-
-    ```
-    def manage_moderators
-      @moderators = User.where(question_bank_moderator: true)
-      if params[:remove_moderator_id]
-        moderator = User.find_by(id: params[:remove_moderator_id])
-        if moderator.present?
-          moderator.update(question_bank_moderator: false)
-        else
-          flash[:alert] = "Moderator not found."
-        end
-      end
-    end
-    ```
 
 #### Modal Partial
 
 - **Modal Structure:**
-  - A modal to manage moderators was created, displaying current moderators and allowing the addition of new ones.
+  - A modal to manage moderators was created, displaying current moderators and allowing the addition of new ones. Also when the x button beside a particular mail id is clicked the access of moderator to that particular user is removed
 
-    ```
-    <div id="addModeratorsModal" class="modal fade" role="dialog">
-      <div class="modal-dialog primary-modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header primary-modal-header">
-            <h4 class="modal-title">Manage Moderators</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <p>Current Moderators:</p>
-            <div id="moderators-list">
-              <% if @moderators.present? %>
-                <% @moderators.each do |moderator| %>
-                  <div id="moderator-<%= moderator.id %>" class="badge badge-info badge-pill">
-                    <%= moderator.email %>
-                    <%= link_to "×", api_v1_remove_moderator_path(moderator.id), method: :delete, remote: true, class: "remove-moderator-btn", data: { id: moderator.id } %>
-                  </div>
-                <% end %>
-              <% else %>
-                <p>No moderators found.</p>
-              <% end %>
-            </div>
-
-            <hr>
-
-            <p>Add New Moderators:</p>
-            <%= form_with(url: api_v1_users_add_moderators_path, method: :post, local: true) do |form| %>
-              <div class="form-group d-flex flex-column">
-                <%= form.label :emails, "Email Addresses" %>
-                <%= form.text_area :emails, class: "form-control", id: "group_moderator_emails", rows: 3, placeholder: "Enter email addresses separated by commas" %>
-              </div>
-              <div class="modal-footer">
-                <%= form.submit "Add Moderators", class: "btn primary-button", id: "add-moderator-button" %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-    ```
-
-- **JavaScript for Modal:**
-  - Script tag is added to handle the removal of moderators without a page refresh.
-    ```
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll('.remove-moderator-btn').forEach(function(button) {
-          button.addEventListener('ajax:success', function(event) {
-            const moderatorId = this.dataset.id;
-            const moderatorDiv = document.getElementById(`moderator-${moderatorId}`);
-            if (moderatorDiv) {
-              moderatorDiv.remove();
-            }
-          });
-        });
-      });
-    </script>
-    ```
 ![manage-moderator-2](/images/Jaydip_GSoC24/manage-mod-2.webp)
 
 For more detailed information, please refer to [this](https://medium.com/@jaydipdey2807/week-4-at-circuitverse-google-summer-of-code-2024-a134f59f05f4) blog post
 
 ---
 
-### Moderator Question Creation and Integration
+### Moderator Question Creation and Simulator Integration
 
 During the fifth and sixth week, the focus was on enabling moderators to create questions through the UI and integrate these functionalities with the backend. A new option was added to the navbar for moderators and admins to access the question creation form.
 
@@ -257,13 +163,6 @@ During the fifth and sixth week, the focus was on enabling moderators to create 
 - **Navbar Option for Adding Questions:**
   - Added a new option in the navbar visible only to moderators and admins:
 
-    ```erb
-    <% if user_signed_in? && current_user.question_bank_moderator %>
-      <li class="nav-item px-1">
-        <a class="nav-link navbar-item navbar-text" href="#" onclick="redirectToAddQuestion()"><%= t("layout.link_to_add_questions") %></a>
-      </li>
-    <% end %>
-    ```
 ![add-question-nav](/images/Jaydip_GSoC24/add-q.webp)
 
 - **Question Creation Form:**
@@ -287,37 +186,14 @@ During the fifth and sixth week, the focus was on enabling moderators to create 
   - **Storing Progress:**
     - The question_id and other form values are stored in localStorage when the moderator navigates to the simulator page.
   - **Loading Progress:**
-    - On the simulator page, if `question_id` is found in localStorage, the corresponding circuit data is loaded:
-
-      ```
-      const urlParams = new URLSearchParams(window.location.search);
-      const questionId = urlParams.get('question_id');
-      if (window.location.pathname.startsWith("/simulator") && questionId && localStorage.getItem(questionId)) {
-          load(JSON.parse(localStorage.getItem(questionId)));
-      }
-      ```
+    - On the simulator page, if `question_id` is found in localStorage, the corresponding circuit data is loaded
   
  ![add-question-simulator](/images/Jaydip_GSoC24/add-q-sim.webp) 
 
   - **Saving Data:**
     - When the "Save" button on the simulator page is clicked, the circuit data is saved to localStorage
 
-      ```
-      document.getElementById('saveButton').addEventListener('click', () => {
-          const urlParams = new URLSearchParams(window.location.search);
-          const questionId = urlParams.get('question_id');
-       
-          if (questionId) {
-              let fl = 1;
-              const data = generateSaveData("Untitled", fl);
-              const localStorageKey = `${questionId}`;
-              localStorage.setItem(localStorageKey, data);
-              alert("Circuit boilerplate and test data saved");
-          } else {
-              alert("Error: Something went wrong! Try again");
-          }
-      });
-      ```
+
 **Add question flowchart**
 ![add-question-flowchart](/images/Jaydip_GSoC24/add-q-flow.webp)
 
@@ -338,11 +214,17 @@ For more detailed information, please refer to [this](https://medium.com/@jaydip
 
 ### Pull Request
 
-Pull request for phase 1 can be found [here](https://github.com/CircuitVerse/CircuitVerse/pull/5015)
+- PR : [Creating controllers, schemas and tables for circuitverse practice section](https://github.com/CircuitVerse/CircuitVerse/pull/4967)
+- PR : [Addig moderators and questions with simulator integration](https://github.com/CircuitVerse/CircuitVerse/pull/5015)
 
 
 ---
 
 ### Future Work
 
-The tasks to be done include developing the UI for the moderators dashboard and integrating it with the backend to enable CRUD operations on questions. Next, efforts will focus on making the question practice page responsive across all screens, implementing filtering logic and backend integration, and setting up auto-verification and submission of questions. Additionally, a progressive dashboard for users will be created to display submission history and progress, followed by backend integration and addition of test cases. 
+- Develop the UI for the moderators dashboard and integrate it with the backend to enable CRUD operations on questions.
+- Make the question practice page responsive across all screens and implement filtering logic with backend integration.
+- Set up auto-verification and submission of questions.
+- Create a progressive dashboard for users to display submission history and progress.
+- Integrate the user dashboard with the backend.
+- Add test cases for all functionalities.
