@@ -338,7 +338,7 @@ For more detailed information, please refer to [this](https://medium.com/@jaydip
 
 ### Pull Request
 
-Pull request for phase 1 can be found [here](https://github.com/CircuitVerse/CircuitVerse/pull/3863)
+Pull request for phase 1 can be found [here](https://github.com/CircuitVerse/CircuitVerse/pull/5015)
 
 
 ---
