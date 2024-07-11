@@ -1,7 +1,7 @@
 +++
 title = "Aryann Dwivedi"
 image = "/images/authors/aryann_dwivedi.jpg"
-description = ""
+description = "Undergrad at VNIT Nagpur | Open source enthusiast"
 +++
 
 Google Summer of Code 2024 @ CircuitVerse || [Visvesvaraya National Institue of Technology, Nagpur](https://vnit.ac.in/)
