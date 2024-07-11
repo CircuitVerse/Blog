@@ -12,7 +12,7 @@ This blog is dedicated to summarise the progress for the first phase of the proj
 
 ![phase-1](/images/Jaydip_GSoC24/Phase-1.png)
 
-## About My Project
+## About the Project
 
 The project aims to address the need for a comprehensive practice section within CircuitVerse, enhancing learning and engagement in digital logic design. It includes developing a Question Bank Management system for convenient access to categorized questions, each featuring a Circuit Template with input/output probes and a pre-configured testbench. Markdown support will be integrated for improved readability and flexibility in displaying questions. A Question Bank Moderator role will be introduced for selected users to add and modify questions. Answers submitted by users will be automatically verified using CircuitVerse's testbench feature, enhancing the learning experience. Additionally, a Progress Dashboard within user profiles will track submission history and progress, with users able to choose between public or private visibility.
 
@@ -26,9 +26,9 @@ In the first phase, we have covered
 
 ### Community Bonding Period
 
-During the community bonding period for GSoC at CircuitVerse, we engaged in various activities to prepare for the project. We began by participating in meet-and-greet sessions with mentors, contributors, and admins, where we shared our excitement for GSoC, discussed our journeys, and introduced our projects. My mentors [Vaibhav Upreti](https://www.linkedin.com/in/vaibhav-upreti/), [Vedant Jain](https://www.linkedin.com/in/vedant-jain-781006145/), and [Tanmoy Sarkar](https://www.linkedin.com/in/tanmoysrt/), answered my questions about the CircuitVerse Practice Section project, and [Aboobacker MK](https://www.linkedin.com/in/aboobacker-m-k/) provided insights into the 12-week project process and discussed open defects in CircuitVerse.
+During the community bonding period for GSoC at CircuitVerse, we engaged in various activities to prepare for the project. We began by participating in meet-and-greet sessions with mentors, contributors, and admins, where we shared our excitement for GSoC, discussed our journeys, and introduced our projects. Mentors [Vaibhav Upreti](https://www.linkedin.com/in/vaibhav-upreti/), [Vedant Jain](https://www.linkedin.com/in/vedant-jain-781006145/), and [Tanmoy Sarkar](https://www.linkedin.com/in/tanmoysrt/), answered questions about the CircuitVerse Practice Section project, and [Aboobacker MK](https://www.linkedin.com/in/aboobacker-m-k/) provided insights into the 12-week project process and discussed open defects in CircuitVerse.
 
-Following this, we revisited key technologies by refreshing my knowledge of Ruby on Rails through The Odin Project documentation and Vue JS with a YouTube crash course. This preparation was essential for my upcoming work on the CircuitVerse codebase.
+Following this, we revisited key technologies by refreshing knowledge of Ruby on Rails through The Odin Project documentation and Vue JS with a YouTube crash course. This preparation was essential for upcoming work on the CircuitVerse codebase.
 
 We then focused on a detailed exploration of the CircuitVerse codebase, identifying areas for modification and making initial changes. we had in-depth discussions with [Ruturaj Mohite](https://www.linkedin.com/in/ruturaj-mohite/), about potential edge cases and the development of the question practice simulator versus the standard simulator, including how to track and save user progress.
 
