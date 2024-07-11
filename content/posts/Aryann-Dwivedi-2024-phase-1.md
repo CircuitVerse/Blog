@@ -1,7 +1,7 @@
 ---
 title: "Aryann Dwivedi 2024 Phase 1"
 date: 2024-07-11T16:43:15+05:30
-draft: true
+draft: false
 author: Aryann Dwivedi
 type: post
 ---
