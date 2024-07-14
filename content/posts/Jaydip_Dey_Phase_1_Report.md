@@ -215,7 +215,7 @@ For more detailed information, please refer to [this](https://medium.com/@jaydip
 ### Pull Request
 
 - PR : [Creating controllers, schemas and tables for circuitverse practice section](https://github.com/CircuitVerse/CircuitVerse/pull/4967)
-- PR : [Addig moderators and questions with simulator integration](https://github.com/CircuitVerse/CircuitVerse/pull/5015)
+- PR : [Adding moderators and questions with simulator integration](https://github.com/CircuitVerse/CircuitVerse/pull/5015)
 
 
 ---
