@@ -25,7 +25,7 @@ So far, we have covered and implemented the following features in the first phas
 * **New forum thread notification in Slack channel**
 * **Added SimpleMDE Markdown editor for drafting messages**
 
-For detailed implementation of these feature do checkout the biweekly blog posts [here](https://waishnav.github.io/blog/tags/gsoc/).
+For detailed implementation of these features do checkout the biweekly blog posts [here](https://waishnav.github.io/blog/tags/gsoc/).
 
 ---
 
