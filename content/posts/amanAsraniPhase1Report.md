@@ -46,7 +46,7 @@ Currently, CircuitVerse doesn’t verify user's emails during registration, so w
 ![Email Verification Flow](/images/Aman_Asrani/EmailVerifiationFlow.png)
 
 **Checkout the below Video For better Understanding**
-{{< video src="/images/Aman_Asrani/Email Verification using Devise Confirmable.mp4" type="video/mp4" preload="auto" >}}
+{{< video src="/images/Aman_Asrani/emailVerificationUsingDeviseConfirmable.mp4" type="video/mp4" preload="auto" >}}
 
 ##### Pull Requests
 - PR : [Email Verification during during user registration](https://github.com/CircuitVerse/CircuitVerse/pull/4993)
@@ -66,8 +66,7 @@ There should be a button to resend emails in case there is a failure in sending 
 ### POC for Email Verification for Pre-Existing Users
 
 One of the most crucial question for the task Email Verification at the time of User Registration is “ What to do with Pre-Existing Users?”. Earlier we thought to treat the Pre-Existing Users as verified but the problem with this approach is that existing users who added fake emails will get verified and also we couldn’t block them suddenly that they should verify their email first to continue. So, created the POC in the below video:
-
-{{< video src="/images/Aman_Asrani/Proposed Method for Email Verifiacation of Existing User.mp4" type="video/mp4" preload="auto" >}}
+{{< video src="/images/Aman_Asrani/pocEmailVerificationForPreExistingUsers.mp4" type="video/mp4" preload="auto" >}}
 However, we haven’t test this method yet because of having an unknown database error which still trying to resolve
 
 ### Migration to View Components
@@ -101,7 +100,7 @@ The component includes logic for image preview, title, and URL generation. Also 
 Created `CircuitCardComponent` to encapsulate the rendering logic for circuit cards. Handled edge cases such as non-existent or nil project names in parameters. Added comprehensive tests and previews with annotations.
 
 **Checkout the Below Video which shows Previews of `CircuitCard` and `FeaturedExampleCard` with Annonations**
-{{< video src="/images/Aman_Asrani/Preview FeaturedExample Card and CircuitCard.mp4" type="video/mp4" preload="auto" >}}
+{{< video src="/images/Aman_Asrani/previewFeaturedExampleCardAndCircuitCard.mp4" type="video/mp4" preload="auto" >}}
 
 ![CircuitCard_view_component](/images/Aman_Asrani/CircuitCardViewComponent.png)
 ![CircuitCard_view_component](/images/Aman_Asrani/CircuitCardViewComponentReuse.png)
