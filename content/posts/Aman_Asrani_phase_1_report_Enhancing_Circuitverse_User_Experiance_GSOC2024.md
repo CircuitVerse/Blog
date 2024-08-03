@@ -30,7 +30,7 @@ So far, we have covered and implemented the following features in the first phas
 
 Single sign-on (SSO) is an identification method that enables users to log in to multiple applications and websites with one set of credentials. SSO streamlines the authentication process for users.SAML (Security Assertion Markup Language) is a markup language designed for exchanging authentication information between the user, the identity provider, and the service provider.
 
-I initially encountered a number of problems some of which are because of gem `devise-saml-authenticable` and  gem `ruby-saml` versioning compatibility. Finally,  I was able to redirect to the OKTA login page and obtain the SAML answer after addressing these. But then I ran into a problem while trying to sign the user which took too much time and then finally, during a meeting with Tanmoy Bhaiya, we discovered that the create method in the `saml_sessions_controller` was being overridden by the `create` method from the `devise_saml_authenticable` gem. Then finally SAML based SSO works smoothly.
+We initially encountered a number of problems, some of which were due to gem devise-saml-authenticable and gem ruby-saml versioning compatibility. Finally, we were able to redirect to the OKTA login page and obtain the SAML answer after addressing these issues. However, we then ran into a problem while trying to sign the user, which took too much time. During a meeting with Tanmoy Bhaiya, we discovered that the create method in the saml_sessions_controller was being overridden by the create method from the devise_saml_authenticable gem. Finally, SAML-based SSO worked smoothly.
 
 **Checkout the Below Video**
 {{< video src="/images/Aman_Asrani/sso.mp4" type="video/mp4" preload="auto" >}}
@@ -40,7 +40,7 @@ I initially encountered a number of problems some of which are because of gem `d
 
 ### Email Verification at the time of User Registration
 
-Currently, CircuitVerse doesn’t verify users’ emails during registration, so we need to implement email verification at that time. Initially, I used Sendrik as the email service, but then I get to know that CircuitVerse already has access to AWS. So, I switched to using AWS SES (Simple Email Service) to send confirmation emails.
+Currently, CircuitVerse doesn’t verify user's emails during registration, so we need to implement email verification at that time. Initially, we used Sendrik as the email service, but then  get to know that CircuitVerse already has access to AWS. So,  switched to using AWS SES (Simple Email Service) to send confirmation emails.
 
 **How I Implemented? You can see the Flow below**
 ![Email Verification Flow](/images/Aman_Asrani/EmailVerifiationFlow.png)
@@ -54,7 +54,7 @@ Currently, CircuitVerse doesn’t verify users’ emails during registration, so
 
 ### Resend Email Verification Functionality
 
-There should be a button to resend emails in case there is a failure in sending the initial email. This failure could be due to issues with AWS or any other reason. To address this, I have added a button that allows users to resend the verification email. Fortunately, all the logic for handling this is already managed by the Devise gem, which is very convenient. This ensures that users can receive their confirmation emails without any hassle, even if there are technical difficulties. Below are the screenshots showing this new feature.
+There should be a button to resend emails in case there is a failure in sending the initial email. This failure could be due to issues with AWS or any other reason. To address this, We have added a button that allows users to resend the verification email. Fortunately, all the logic for handling this is already managed by the Devise gem, which is very convenient. This ensures that users can receive their confirmation emails without any hassle, even if there are technical difficulties. Below are the screenshots showing this new feature.
 
 ![Resend_Email](/images/Aman_Asrani/resendEmailButton.png)
 
@@ -65,14 +65,14 @@ There should be a button to resend emails in case there is a failure in sending 
 
 ### POC for Email Verification for Pre-Existing Users
 
-One of the most crucial question for the task Email Verification at the time of User Registration is “ What to do with Pre-Existing Users?”. Earlier I thought to treat the Pre-Existing Users as verified but the problem with this approach is that existing users who added fake emails will get verified and also we couldn’t block them suddenly that they should verify their email first to continue. So, I suggest the POC in the below video:
+One of the most crucial question for the task Email Verification at the time of User Registration is “ What to do with Pre-Existing Users?”. Earlier we thought to treat the Pre-Existing Users as verified but the problem with this approach is that existing users who added fake emails will get verified and also we couldn’t block them suddenly that they should verify their email first to continue. So, created the POC in the below video:
 
 {{< video src="/images/Aman_Asrani/Proposed Method for Email Verifiacation of Existing User.mp4" type="video/mp4" preload="auto" >}}
-However, I haven’t test this method yet because of having an unknown database error which I am still trying to resolve
+However, we haven’t test this method yet because of having an unknown database error which still trying to resolve
 
 ### Migration to View Components
 
-As part of my ongoing contributions to CircuitVerse, one of my primary tasks has been to migrate several components to use ViewComponent. This migration is aimed at improving the maintainability, readability, and reusability of our codebase. By encapsulating UI logic within ViewComponents, we can ensure a cleaner separation of concerns, making the code easier to test and update in the future. Below is a summary of the PRs I have created for this migration effort:
+As part of this project, one of primary tasks has been to migrate several components to use ViewComponent. This migration is aimed at improving the maintainability, readability, and reusability of our codebase. By encapsulating UI logic within ViewComponents, we can ensure a cleaner separation of concerns, making the code easier to test and update in the future. Below is a summary of the PRs I have created for this migration effort:
 
 #### Migrate Home page Buttons to a View Component:
 Migrates the buttons on the home page to a dedicated ViewComponent.Included Test for button component, which is the beauty of view component that we can create test for the individual Componentand also added the Preview for the component
@@ -111,7 +111,7 @@ Created `CircuitCardComponent` to encapsulate the rendering logic for circuit ca
 
 
 #### Migrate footer partial into a view component:
-I have added Small Small Components for better readability and maintanibility
+Added Small Small Components for better readability and maintanibility
 - Moved the footer links rendering into `FooterLinksComponent`
 - Moved the social links rendering into `SocialLinksComponent`
 - Integrated both components into the main `FooterComponent`
@@ -134,7 +134,7 @@ The component includes logic for image preview, title, and URL generation. Also 
 
 ### Logs Maintenance
 
-Initially, I had considered setting up a Git Hook. However, this approach would likely requirestoring the logs in our database, which is an expensive task.
+Initially, We had considered setting up a Git Hook. However, this approach would likely requirestoring the logs in our database, which is an expensive task.
 Instead, I've found that we can leverage the GitHub API to fetch the logs, similar to how we currently retrieve contributor information (see attached image).
 
 ![Logs Maintenance](/images/Aman_Asrani/Logs_maintanance.png)
@@ -160,7 +160,7 @@ Instead, I've found that we can leverage the GitHub API to fetch the logs, simil
 
 ---
 
-In the previous weeks, I have been on an amazing circuit board journey. The community has been encouraging, motivating and I was able to plan and complete my duties with a lot of freedom, guided by my mentors. I have learnt quite a lot about how big projects are done; it has also given me the confidence as a developer.
+The journey has been truly amazing, filled with both challenges and growth. The community has been incredibly encouraging and motivating, providing a lot of freedom while being guided by our mentors. I have learned a great deal about how large projects are managed, and this experience has greatly boosted our confidence as developers.
 
 I would like to thank,
 [Aboobacker MK](https://github.com/tachyons), [Smriti Garg](https://github.com/smritigarg), [Tanmoy Sarkar](https://github.com/tanmoysrt), [Vedant Jain](https://github.com/vedant-jain03), [Arnab Das](https://github.com/Arnabdaz) for giving me chance for this incredible opportunity and guiding me throughout the project.
