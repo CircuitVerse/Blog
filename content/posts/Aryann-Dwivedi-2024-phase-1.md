@@ -1,5 +1,5 @@
 ---
-title: "Simulator Version Control: Phase 1 (GSoC 2023)"
+title: "Simulator Version Control: Phase 1 (GSoC 2024)"
 date: 2024-07-11T16:43:15+05:30
 draft: false
 author: Aryann Dwivedi
@@ -20,7 +20,7 @@ This report consolidates the progress made during the first phase of Google Summ
 
 ### Community Bonding Period @Circuitverse
 
-I had our first meeting with all the mentors and contributors, and it was a pleasure to meet everyone. The meeting was very productive, allowing us to learn more about CircuitVerse's culture and its mission to provide free digital logic circuit simulators to over half a million people. These exchanges promoted understanding and laid the groundwork for effective teamwork through shared experiences and technological discussions.
+We had our first meeting with all the mentors and contributors, and it was a pleasure to meet everyone. The meeting was very productive, allowing us to learn more about CircuitVerse's culture and its mission to provide free digital logic circuit simulators to over half a million people. These exchanges promoted understanding and laid the groundwork for effective teamwork through shared experiences and technological discussions.
 
 ### Milestones Achieved
 
@@ -65,7 +65,7 @@ With the directories restructured for different simulator versions, the build co
 
 
 
-Pull Request
+**Pull Request**  
 
 - [Build Script Modification](https://github.com/CircuitVerse/cv-frontend-vue/pull/327)
 
@@ -75,7 +75,7 @@ To store the version of the circuit in the database, a new column named `version
 
 ![Work Flow](/images/Aryann_Dwivedi_GSoC24/adding_version_column.webp)
 
-Pull Request
+**Pull Request**  
 
 - [Adding version column to Projects table](https://github.com/CircuitVerse/CircuitVerse/pull/4999)
 
@@ -98,13 +98,13 @@ To swap versions of the simulator, I used a query parameter (simver) in the URL 
 
 ![Work Flow](/images/Aryann_Dwivedi_GSoC24/version_config_simver.png)
 
-Pull Request
+**Pull Request**  
 
 - [Enable Main simulator to load Vue simulator](https://github.com/CircuitVerse/cv-frontend-vue/pull/332)
 
 #### FINAL RESULT
 
-In this video, the version is specified on the navbar just for representation purposes. It is not included in the actual project or code.
+In this video, the version is specified on the navbar soleley for representation purposes. It is not included in the actual project or code.
 
 {{< video src="/images/Aryann_Dwivedi_GSoC24/version-hostswapping.webm" type="video/webm" preload="auto" >}}
 
