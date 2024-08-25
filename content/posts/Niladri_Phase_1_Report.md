@@ -7,19 +7,19 @@ type: post
 
 ![gsoc-cover](/images/niladri-cover.png)
 
-It's been 8 weeks, and I have completed my first phase of GSoC. Throughout this phase, I have been working on the Vue Simulator for CircuitVerse. I learned a lot about Vue.js and TypeScript, and I have made significant progress in the project. I had to extend my phase 1 to 8 weeks due to exams, which gave me the time to complete this phase. During this time I really enjoyed working on the project and learned a lot of new things. I am looking forward to the next phase of the project.
+It's been 8 weeks, and We have completed our first phase of GSoC. Throughout this phase, We have been working on the Vue Simulator for CircuitVerse. I learned a lot about Vue.js and TypeScript, and We have made significant progress in the project. We had to extend my phase 1 to 8 weeks due to exams, which gave me the time to complete this phase. During this time I really enjoyed working on the project and learned a lot of new things. I am looking forward to the next phase of the project.
 
 ## Project Overview 📋
 
-The main goal of this project is to create a new simulator for CircuitVerse using Vue.js, which will be more interactive and user-friendly. The new simulator will be more efficient and will provide a better user experience. I have been working on this project for the past 8 weeks and I have made significant progress. I have completed the first phase of the project and I am happy with the progress I have made so far.
+The main goal of this project is to create a new simulator for CircuitVerse using Vue.js, which will be more interactive and user-friendly. The new simulator will be more efficient and will provide a better user experience. We have been working on this project for the past 8 weeks and We have made significant progress. We have completed the first phase of the project and We am happy with the progress We have made so far.
 
 [GSoC-Project](https://summerofcode.withgoogle.com/programs/2024/projects/ZzPe11H4)
 
-During the past 8 weeks, My primary focus was to convert all the remaining components to vue components, and move all updates and bug fixes from main repository, during the last few weeks I focused on converting all jquery DOM manipulations to vue'reactives and typescipe integration.
+During the past 8 weeks, My primary focus was to convert all the remaining components to vue components, and move all updates and bug fixes from main repository, during the last few weeks We focused on converting all jquery DOM manipulations to vue'reactives and typescipe integration.
 
 ## Community Bonding Period 🏙 ~ (May 1 - May 26)
 
-At first, I had a meeting with my project mentors to plan the timeline and discuss some decisions required based on my GSoC proposal. We decided to finish up some small bug fixes and minor updates during the community bonding period itself, some of them are :-
+At first, We had a meeting with my project mentors to plan the timeline and discuss some decisions required based on my GSoC proposal. We decided to finish up some small bug fixes and minor updates during the community bonding period itself, some of them are :-
 
 - Advance Options for embed view implemented.
 - Fix for Timing Diagram increase decrease buttons.
@@ -58,9 +58,9 @@ It is a single PR for all the updates that can be directly applied to the Vue si
 
 ## Coding Period ~ Phase 1 💻
 
-After susscessfully completing the community bonding period, which was quite productive, I started with the coding period, where I did tasks weekly for 8 weeks.
+After susscessfully completing the community bonding period, which was quite productive, We started with the coding period, where We did tasks weekly for 8 weeks.
 
-I had lots of meetings and discussions with my mentors, which helped me a lot in understanding the codebase and the project requirements.
+We had lots of meetings and discussions with my mentors, which helped me a lot in understanding the codebase and the project requirements.
 
 #### Week 1 & 2 (May 27 - June 9)
 
@@ -73,11 +73,11 @@ The main goal of this task was to achieve:
 #### Implementation of LayoutElements Panel Vue Component
 Previously, the LayoutElements Panel was in the extra.vue file.
 
-First, I created a new Vue file for the LayoutElements Panel and moved the HTML part inside the `<template> <template/>` tag.
+First, We created a new Vue file for the LayoutElements Panel and moved the HTML part inside the `<template> <template/>` tag.
 
-Since the original codebase used vanilla JavaScript for some DOM manipulation, I converted these to Vue's reactive properties.
+Since the original codebase used vanilla JavaScript for some DOM manipulation, We converted these to Vue's reactive properties.
 
-Additionally, I moved all related styles into the `<style> <style/>` tag.
+Additionally, We moved all related styles into the `<style> <style/>` tag.
 
 ![image](/images/niladri_GSoC24/layout1.avif)
 
@@ -94,9 +94,9 @@ Fixed it! using Changing some CSS properties
 
 #### Week 3 & 4 (June 10 - June 23)
 
-This 2 weeks I have been focusing on Implementing the remaining components and VUE + TS Integration with removal of JQuery.
+This 2 weeks We have been focusing on Implementing the remaining components and VUE + TS Integration with removal of JQuery.
 
-Some of the Components that I have Implemented are:
+Some of the Components that We have Implemented are:
 
 - `TestBench Panel.vue`
 - `TestBench Creator.vue`
@@ -116,7 +116,7 @@ Pania Store came really in handy to Implement the state management very nicely, 
 
 ![image](/images/niladri_GSoC24/testbench1.avif)
 
-As planned in my proposal I started with implementing the creator component using vuetify and converted all jQuery & DOM manipulations to Vue's reactives and typescript integration.
+As planned in my proposal We started with implementing the creator component using vuetify and converted all jQuery & DOM manipulations to Vue's reactives and typescript integration.
 
 Previously we were using the creator as a separate window, so this time Creating TestBenchCreator.vue eliminated the need to a extra window and the data transmission was done using pinia to transmit data between Creator and Testbench Panel component.
 
@@ -165,7 +165,7 @@ Inside the Timing diagram component typescript was integrated and vue's reactive
 A new pinia store timingDiagramStore was implemented to maintain the data flow for the timing diagram.
 
 ### Typescript Integration in smaller files
-some smaller files that were previously in javascript have been converted to typescript as the changes were very minimal, I committed them in a single branch only.
+some smaller files that were previously in javascript have been converted to typescript as the changes were very minimal, We committed them in a single branch only.
 
 **References**
 
@@ -175,7 +175,7 @@ some smaller files that were previously in javascript have been converted to typ
 
 #### Week 7 & 8 (July 8 - July 21)
 
-This were the last 2 weeks of the first phase, and I had to extend my phase 1 to 8 weeks due to exams, in these 2 weeks I focused on converting all jquery DOM manipulations to vue'reactives and typescipe integration.
+This were the last 2 weeks of the first phase, and We had to extend my phase 1 to 8 weeks due to exams, in these 2 weeks We focused on converting all jquery DOM manipulations to vue'reactives and typescipe integration.
 
 #### Some of the files that were converted are:-
 
@@ -208,4 +208,4 @@ and also created a interface for array extension methods.
 
 ### Conclusion
 
-I have learned a lot about Vue.js and TypeScript, and I have made significant progress in the project. Thanks to all my mentors for their guidance and support throughout this phase. I am looking forward to the next phase of the project.
+I have learned a lot about Vue.js and TypeScript, and We have made significant progress in the project. Thanks to all my mentors for their guidance and support throughout this phase. I am looking forward to the next phase of the project.
