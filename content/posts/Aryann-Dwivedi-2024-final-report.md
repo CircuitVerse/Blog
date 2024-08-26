@@ -79,21 +79,21 @@ This setup allows each version to be built and managed independently while keepi
 
 ### Creating a bash script to build different versions for Vite
 
-To build different versions at once, I wanted to run all the Vite configuration files for each version. To do this, I first needed a way to store the simulator versions. I chose to store this information in a `version.json` file, where I kept the version details, including the date and description, in JSON format.
+To build different versions at once, we wanted to run all the Vite configuration files for each version. To do this, we first needed a way to store the simulator versions. We chose to store this information in a `version.json` file, where we kept the version details, including the date and description, in JSON format.
 
-Next, I created a bash script that reads through the versions listed in the `version.json` file. The script then builds each version using the command `npx vite build --config vite.config."$version".ts`.
+Next, we created a bash script that reads through the versions listed in the `version.json` file. The script then builds each version using the command `npx vite build --config vite.config."$version".ts`.
 
-Finally, to make this process easy to execute during development, I specified the build command in the `package.json` file as `"build": "bash build.sh"`. This way, I can run the build script for all versions with a single command.
+Finally, to make this process easy to execute during development, we specified the build command in the `package.json` file as `"build": "bash build.sh"`. This way, we can run the build script for all versions with a single command.
 
-{{< video src="/videos/Aryann_Final_GSoC2024/buildigversion.webm" controls="true" preload="auto" >}}
+{{< video src="/videos/Aryann_Final_GSoC2024/buildingversion.webm" controls="true" preload="auto" >}}
 
 ### Implementing hot-swapping of the Vue simulator from the main CircuitVerse repository by taking query parameter (simver)
 
-To implement hotswapping in the Vue simulator, I needed to enable version switching based on the `simver` query parameter. This required modifying the entry point of the simulator so that when the query parameter changes, the code can seamlessly switch between versions.
+To implement hotswapping in the Vue simulator, we needed to enable version switching based on the `simver` query parameter. This required modifying the entry point of the simulator so that when the query parameter changes, the code can seamlessly switch between versions.
 
-Since the `index.html` file of the Vue simulator must load the correct JavaScript and CSS files, it wasn’t feasible to include script tags for both `v0` and `v1` in a single file. To solve this, I needed a way to dynamically load the appropriate script tag based on the version specified.
+Since the `index.html` file of the Vue simulator must load the correct JavaScript and CSS files, it wasn’t feasible to include script tags for both `v0` and `v1` in a single file. To solve this, we needed a way to dynamically load the appropriate script tag based on the version specified.
 
-This led me to implement a solution where the script tag is injected dynamically. Instead of hardcoding both script tags, I replace them with an injection script that loads the correct version’s script tag from the build file. This approach ensures that each version is built separately and avoids loading all versions in the same file.
+This led me to implement a solution where the script tag is injected dynamically. Instead of hardcoding both script tags, we replace them with an injection script that loads the correct version’s script tag from the build file. This approach ensures that each version is built separately and avoids loading all versions in the same file.
 
 {{< video src="/videos/Aryann_Final_GSoC2024/correct_version.webm" controls="true" preload="auto" >}}
 
@@ -110,23 +110,23 @@ This configuration injects the script tag for the specified version (e.g., `v0` 
 
 ### Adding Version in the circuit data
 
-The issue we faced was determining the version of the circuit created. There were two possible approaches: either store the version in the project table or include it in the circuit data. Since the circuit data can be accessed offline, I chose to add a field for the simulator version directly within the circuit data. By storing the simulator version in the circuit data, we can easily check and manage the circuit version, allowing us to load the circuit with the appropriate simulator version.
+The issue we faced was determining the version of the circuit created. There were two possible approaches: either store the version in the project table or include it in the circuit data. Since the circuit data can be accessed offline, we chose to add a field for the simulator version directly within the circuit data. By storing the simulator version in the circuit data, we can easily check and manage the circuit version, allowing us to load the circuit with the appropriate simulator version.
 
 
 {{< video src="/videos/Aryann_Final_GSoC2024/store_simulatorVersion.webm" controls="true" preload="auto" >}}
 
 ### Redirecting to correct circuit_version based on simulatorVersion
 
-The challenge I faced was determining the version of the circuit that was created. I considered two approaches: either storing the version in the `project` table or storing it in the `circuit_data`. Given that `circuit_data` can be easily loaded in offline mode, I chose to add an extra field to `circuit_data` to store the `simulatorVersion`.
+The challenge we faced was determining the version of the circuit that was created. We considered two approaches: either storing the version in the `project` table or storing it in the `circuit_data`. Given that `circuit_data` can be easily loaded in offline mode, we chose to add an extra field to `circuit_data` to store the `simulatorVersion`.
 
-By storing the `simulatorVersion` in `circuit_data`, I can easily check the version of the circuit whenever needed. This makes it straightforward to swap between versions based on the stored version information.
+By storing the `simulatorVersion` in `circuit_data`, we can easily check the version of the circuit whenever needed. This makes it straightforward to swap between versions based on the stored version information.
 
 
 {{< video src="/videos/Aryann_Final_GSoC2024/correct_version.webm" controls="true" preload="auto" >}}
 
 ### Adding index-cv.html to inject custom script
 
-To ensure the development server for `cv-frontend-vue` works correctly, I needed to avoid dynamic changes in the entry point (`index.html`). Since the development of `cv-frontend-vue` is static, I created a separate `index-cv.html` file to serve as the entry point for the main repository. The `index.html` file remains the entry point for the `cv-frontend-vue` repository.
+To ensure the development server for `cv-frontend-vue` works correctly, we needed to avoid dynamic changes in the entry point (`index.html`). Since the development of `cv-frontend-vue` is static, we created a separate `index-cv.html` file to serve as the entry point for the main repository. The `index.html` file remains the entry point for the `cv-frontend-vue` repository.
 
 This setup allows the default version to be loaded statically in `cv-frontend-vue`, maintaining stability during development. If anyone wants to develop in a different version, they would need to manually change the default version in the `cv-frontend-vue` repository. However, for the main repository, version changes can still be handled automatically.
 
@@ -134,15 +134,15 @@ This setup allows the default version to be loaded statically in `cv-frontend-vu
 
 ### Setting v0 as the default simulator
 
-Since we're setting up the default version to `v0`, I needed to make some changes in the entry point of `index.html`. Given that the Vue simulator's development is statically handled, I set the `src` of the script tag in `index.html` to `"v0/src/main.ts"`. This ensures that every time someone opens a development server, the entry point points directly to the `v0` version.
+Since we're setting up the default version to `v0`, we needed to make some changes in the entry point of `index.html`. Given that the Vue simulator's development is statically handled, we set the `src` of the script tag in `index.html` to `"v0/src/main.ts"`. This ensures that every time someone opens a development server, the entry point points directly to the `v0` version.
 
-To support this setup, I also modified the `vite.config.ts` file, which is the configuration file for the Vue development server. Specifically, I changed the path aliases (`'#'` and `'@'`) to point towards the `v0` directory. While this approach may not be ideal for frequent version switching, it provides the necessary flexibility when needed.
+To support this setup, we also modified the `vite.config.ts` file, which is the configuration file for the Vue development server. Specifically, we changed the path aliases (`'#'` and `'@'`) to point towards the `v0` directory. While this approach may not be ideal for frequent version switching, it provides the necessary flexibility when needed.
 
 ### Adding Circuit Preview image for Vue simulator
 
 There was a bug in the Vue simulator where image previews for circuits weren't displaying correctly. The issue stemmed from the fact that we were using Active Storage to attach images in the project table for the main simulator, which allowed image previews to display properly for circuits created there. However, this functionality hadn't been implemented in the Vue simulator, leading to a lack of image previews for circuits created within it.
 
-To fix this, I added a method for attaching images during the circuit creation process in the Vue simulator. This ensures that image previews are now properly displayed for circuits created in both the main simulator and the Vue simulator.
+To fix this, we added a method for attaching images during the circuit creation process in the Vue simulator. This ensures that image previews are now properly displayed for circuits created in both the main simulator and the Vue simulator.
 
 #### Before
 
@@ -155,7 +155,7 @@ To fix this, I added a method for attaching images during the circuit creation p
 
 ### Update simulatorvue action to use version parameter for dynamic HTML file
 
-In the `StaticController` for the Vue simulator, I've implemented an action named `simulatorvue` that dynamically serves the correct version of the Vue simulator based on a `simver` parameter in the URL query string. If no version is provided, it defaults to `"v0"`. 
+In the `StaticController` for the Vue simulator, we've implemented an action named `simulatorvue` that dynamically serves the correct version of the Vue simulator based on a `simver` parameter in the URL query string. If no version is provided, it defaults to `"v0"`. 
 
 The action constructs the file path to the `index-cv.html` file, which is located in the public directory under a version-specific subdirectory (e.g., `public/simulatorvue/v0/index-cv.html`). By setting `layout: false`, the file is rendered without any Rails layouts. This setup allows me to easily switch between different versions of the Vue.js application depending on the URL parameter.
 
@@ -163,15 +163,17 @@ The action constructs the file path to the `index-cv.html` file, which is locate
 
 ### Adding version specific links to the Launch button of circuit.
 
-To ensure users are redirected to the correct version of the simulator in which a circuit was created, I needed to implement changes to the links associated with the circuit's launch button. These links are now dynamic, meaning they retrieve the `simulatorVersion` from the `circuit_data` and then generate the appropriate redirect URL. The resulting URL is structured as `'/simulatorvue?simver={simulatorVersion}'`, ensuring that users are directed to the specific version of the simulator that corresponds to the circuit they are trying to access.
+To ensure users are redirected to the correct version of the simulator in which a circuit was created, we needed to implement changes to the links associated with the circuit's launch button. These links are now dynamic, meaning they retrieve the `simulatorVersion` from the `circuit_data` and then generate the appropriate redirect URL. The resulting URL is structured as `'/simulatorvue?simver={simulatorVersion}'`, ensuring that users are directed to the specific version of the simulator that corresponds to the circuit they are trying to access.
 
 {{< video src="/videos/Aryann_Final_GSoC2024/link_launchsim.webm" controls="true" preload="auto" >}}
 
 
 ### Future Work 
 
-- Currently writing tests for all the ruby on rails code is left
-- UI/UX for changing the version.
+- Writing tests for all the Ruby on Rails code.
+- Designing and implementing the UI/UX for version switching.
+- Creating a dialog box to appear when switching versions.
+- Enable embed mode for different version circuits.
 
 ###  Pull Requests 
 
@@ -208,4 +210,4 @@ To ensure users are redirected to the correct version of the simulator in which 
 
 Spending the summer working on this project has been an incredible experience. I've gained valuable knowledge in technologies like JavaScript, Vite Build and Development server, Ruby on Rails, and Docker. I've also had the opportunity to learn about the open-source community and collaborate effectively with a team of developers. 
 
-I'm deeply grateful to CircuitVerse for this opportunity and to my mentors—[Aboobacker MK](https://github.com/tachyons), [Ruturaj Mohite](https://github.com/gr455), [Josh Varga](https://github.com/JoshVarga), [Prerna Sharma](https://github.com/Prerna-0202) and [Vaibhav Upreti](https://github.com/VaibhavUpreti) and —for their guidance and support throughout the summer. A big thanks as well to my fellow mentees for their constant support, help, and collaboration throughout the project.
+I am deeply grateful to CircuitVerse for this opportunity and to my mentors—[Aboobacker MK](https://github.com/tachyons), [Josh Varga](https://github.com/JoshVarga), and [Prerna Sharma](https://github.com/Prerna-0202)—for their invaluable guidance and support throughout the summer. I also want to extend special thanks to [Ruturaj Mohite](https://github.com/gr455) and [Vaibhav Upreti](https://github.com/VaibhavUpreti) for their ongoing support throughout the project. Additionally, I appreciate my fellow mentees for their constant assistance, help, and collaboration during this time.
