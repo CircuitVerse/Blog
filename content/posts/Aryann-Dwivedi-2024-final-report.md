@@ -46,14 +46,16 @@ This report consolidates the progress made during Google Summer of Code 2024 cod
 The primary goal of this project is to manage multiple versions of the Vue simulator by organizing the project structure accordingly. To achieve this:
 
 **Version-Specific Directories:**
-   - Create separate folders for each version of the Vue simulator (e.g., v0, v1).
-
-   ![versioning directories](/images/aryann_final_blog2024/versiondirectory.png)
+   - Creating separate folders for each version of the Vue simulator (e.g., v0, v1).
 
 
 **Source File Management:**
-   - Copy the contents of the src folder into each version-specific directory.
+   - Taking the contents of the src folder into each version-specific directory.
    - The v0 folder contains the src files for version v0, and similarly, the v1 folder containS the src files for version v1.
+
+
+   ![versioning directories](/images/aryann_final_blog2024/versiondirectory.png)
+
 
 This approach allows for maintaining and developing multiple versions of the simulator independently.
 
@@ -183,6 +185,7 @@ To ensure users are redirected to the correct version of the simulator in which 
 
 - [attach circuit preview image to project during create and update actions](https://github.com/CircuitVerse/CircuitVerse/pull/5047)
 - [update simulatorvue action to use version parameter for dynamic HTML file](https://github.com/CircuitVerse/CircuitVerse/pull/5030)
+- [changing redirect link in the buttons for vue simulator circuits](https://github.com/CircuitVerse/CircuitVerse/pull/5054)
 
 ##### [Vue Simulator Repo](https://github.com/CircuitVerse/cv-frontend-vue) :
 
