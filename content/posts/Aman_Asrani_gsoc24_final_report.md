@@ -128,7 +128,7 @@ The component includes logic for image preview, title, and URL generation. Also 
 
 ### Logs Maintenance
 
-Initially, We had considered setting up a Git Hook. However, this approach would likely requirestoring the logs in our database, which is an expensive task.
+Initially, We had considered setting up a Git Hook. However, this approach requires storing the logs in our database, which is expensive.
 Instead, I've found that we can leverage the GitHub API to fetch the logs, similar to how we currently retrieve contributor information (see attached image).
 
 ![Logs Maintenance](/images/Aman_Asrani/Logs_maintanance.png)
