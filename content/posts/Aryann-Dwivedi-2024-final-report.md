@@ -198,7 +198,7 @@ To ensure users are redirected to the correct version of the simulator in which 
 
 ### Blogs 
 
-[**Phase 1 blog GSoC@24 Aryann Dwivedi**](https://blog.circuitverse.org/posts/arnab_das_gsoc_phase1/)
+[**Phase 1 blog GSoC@24 Aryann Dwivedi**](https://blog.circuitverse.org/posts/aryann-dwivedi-2024-phase-1/)
 
 - `week 1` - [GSoC@24 - week 1 blog](https://medium.com/@aryanndwivedi2403/gsoc-24-circuitverse-week-1-report-31e38cc408de)
 - `week 2 & 3` - [GSoC@24 - week 2&3 blog](https://medium.com/@aryanndwivedi2403/gsoc24-circuitverse-week-3-4-report-695c89931df4)
