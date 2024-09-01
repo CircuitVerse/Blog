@@ -123,7 +123,7 @@ Here is the video of search functionality which will be going to be used by Circ
 
 ### 7. Leaderboard Ranking
 
-Ranking is important, if one need to judge the crediblity of the message. Using simple point distribution on forum thread creation, on comments etc etc, we can simply able to create a leaderboard of users.
+Ranking is important for judging the credibility of a message, and it's also crucial for recognizing the contributions of forum members.
 
 During the implementation, I got little confuse where the distribution of the points logic should exists, in the controller or in the model file. Then I read few blogs on fat model and slim controllers and vice versa.
 In the rails, these conventions are very helpful and important, depending on it's usecase one can utilize this concepts.
