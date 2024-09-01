@@ -128,7 +128,7 @@ Ranking is important, if one need to judge the crediblity of the message. Using 
 During the implementation, I got little confuse where the distribution of the points logic should exists, in the controller or in the model file. Then I read few blogs on fat model and slim controllers and vice versa.
 In the rails, these conventions are very helpful and important, depending on it's usecase one can utilize this concepts.
 
-Here is the screenshot of leaderboard page. Note: UI of leaderboard may changes later
+Here is the screenshot of leaderboard page. Note: UI of leaderboard may change later
 
 ![leaderboard-ranking](/images/waishnav_deore/leaderboard-ranking.png)
 
