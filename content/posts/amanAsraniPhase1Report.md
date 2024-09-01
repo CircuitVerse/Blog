@@ -15,7 +15,7 @@ Welcome to this blog, dedicated to summarizing the achievements of the first pha
 ### About the Project 🖥
 
 > **[_Enhancing CircuitVerse User Experiance_](https://summerofcode.withgoogle.com/programs/2024/projects/h3QKa7eD)
-> The "Enhancing CircuitVerse User Experience" project is all about making CircuitVerse.org more engaging and user-friendly for everyone who loves digital circuits by introducing many features such improving SSO integration,better learning management system (LMS) and single sign-on (SSO) integration, plus email verification for extra security, Logs Mtransitioning to more efficient UI components will help create a smoother and safer user experience,Weekly Contest, Logs Maintenance, UI-Based Language Contribution**
+> The "Enhancing CircuitVerse User Experience" project is all about making CircuitVerse.org more engaging and user-friendly for everyone who loves digital circuits by introducing many features such improving SSO integration, single sign-on (SSO) integration, plus email verification for extra security, transitioning to view components  which  help creating  a smoother and safer user experience and having better code readability and usabilty, weekly Contest, Logs Maintenance, UI-Based Language Contribution**
 
 So far, we have covered and implemented the following features in the first phase of the project:
 
