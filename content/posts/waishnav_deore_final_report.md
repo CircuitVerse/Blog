@@ -158,7 +158,7 @@ You guys can checkout these blogs [here](https://waishnav.github.io/blog/tags/gs
 
 I’m excited to continue to contribute to this incredible open-source project which helps students to design and learn about digital circuit design.
 
-Additionaly, I started to work on this project with the thought that this revamped forum gemd will be distributed and published as different name, instead of `simple_discussion`
+Additionaly, I started to work on this project with the thought that this revamped forum gem will be distributed and published as different name, instead of `simple_discussion`
 
 ---
 
