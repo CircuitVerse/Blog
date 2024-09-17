@@ -10,7 +10,7 @@ type: post
 This blog post is the final report for the **CircuitVerse Practice section** , which is a part of **Google Summer of Code 2024**. The project aimed create a practice section where user can practice circuit related problems.
 
 
-![phase-1](/images/Jaydip_GSoC24/Final_Report.png)
+![final_report](/images/Jaydip_GSoC24/Final_Report.png)
 
 
 ## Table of Contents
@@ -37,8 +37,6 @@ This blog post is the final report for the **CircuitVerse Practice section** , w
 - 📝 **Question Management with Simulator Integration**: Allowing admins and moderators to add, edit, and delete questions. Users can attempt a question with circuit boilerplate. 📝
 
 
-
-
 - ✅ **Auto Verification and Submission**: Auto-verify and submit circuits, storing users' progress. ✅
 
 
@@ -57,13 +55,10 @@ This blog post is the final report for the **CircuitVerse Practice section** , w
 In the admin dashboard there is a button named `Add moderators` where admins can add the new email id's of the moderators or can remove the existing one.
 
 
-
-
 ![image](/images/Jaydip_GSoC24/manage-mod-2.webp)
 
 
 ### 🔧 Question Category Management 🔧
-
 
 Similar to the Add moderators button, in the dashboard there should be an option of `Add categories`. But unlike Add modertaors , Add Categories will be visible to both question bank moderators and the admins. Clicking this button will open a modal where user can add a new category or delete and existing one.
 
