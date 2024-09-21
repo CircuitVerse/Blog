@@ -6,7 +6,7 @@ author: Jaydip Dey
 type: post
 ---
 
-This blog post is the final report for the **CircuitVerse Practice section** , which is a part of **Google Summer of Code 2024**. The project aimed create a practice section where user can practice circuit related problems.
+This blog post is the final report for the **CircuitVerse Practice section** , which is a part of **Google Summer of Code 2024**. The project aimed to create a practice section where user can practice circuit related problems.
 
 
 ![final_report](/images/Jaydip_GSoC24/Final_Report.png)
@@ -24,42 +24,38 @@ This blog post is the final report for the **CircuitVerse Practice section** , w
 ### Implemented features
 
 
-- 👥 **Admins Managing Moderators**: Allowing admins to add and remove question moderators. 👥
+- 👥 **Moderator Role Administration**: Allowing admins to add and remove question moderators.
 
 
-- 🔧 **Question Category Management**: Allowing admins and moderators to create and delete question categories. 🔧
+- 🔧 **Question Category Management**: Allowing admins and moderators to create and delete question categories.
 
 
-- 🔍 **Questions Page**: Features including search, filtering capabilities, pagination, and view options. 🔍
+- 🔍 **Question Lisiting**: Features including search, filtering capabilities, pagination, and view options.
 
 
-- 📝 **Question Management with Simulator Integration**: Allowing admins and moderators to add, edit, and delete questions. Users can attempt a question with circuit boilerplate. 📝
+- 📝 **Question Management with Simulator Integration**: Allowing admins and moderators to add, edit, and delete questions. Users can attempt a question with circuit boilerplate.
 
 
-- ✅ **Auto Verification and Submission**: Auto-verify and submit circuits, storing users' progress. ✅
+- ✅ **Auto Verification and Submission**: Auto-verify and submit circuits, storing users' progress.
 
 
-- 📊 **User Dashboard**: A dashboard to track submission history and progress, with the ability to toggle visibility. 📊
+- 📊 **User Dashboard**: A dashboard to track submission history and progress, with the ability to toggle visibility.
 
 
-- 🚦 **Feature Access Control**: A Flipper feature flag to control access/block this entire feature. 🚦
-
+- 🚦 **Feature Access Control**: A Flipper feature flag to control access/block this entire feature.
 
 ---
 
-
 ### 👥 Admins Managing Moderators 👥
 
-
-In the admin dashboard there is a button named `Add moderators` where admins can add the new email id's of the moderators or can remove the existing one.
-
+From the admin dashboard, admins can add new moderator email IDs or remove existing ones.
 
 ![image](/images/Jaydip_GSoC24/manage-mod-2.webp)
 
 
 ### 🔧 Question Category Management 🔧
 
-Similar to the Add moderators button, in the dashboard there should be an option of `Add categories`. But unlike Add modertaors , Add Categories will be visible to both question bank moderators and the admins. Clicking this button will open a modal where user can add a new category or delete and existing one.
+Similar to the moderator management feature, in the dashboard there will be an option for `Add categories`. But unlike Add modertaors , Add Categories will be visible to both question bank moderators and the admins. Clicking this button will open a modal where user can add a new category or delete and existing one.
 
 
 ![image](/images/Jaydip_GSoC24/categories.png)
@@ -75,13 +71,13 @@ The below screenshot shows the placement of the above two feature buttons:
 ### 🔍 Questions Page 🔍
 
 
-This is the page where users will be able to see and browse questions. Features that are implemented in this page includes:
+This is the page where users will be able to browse and view questions. The features implemented on this page include:
 
 
-- Search filer to search for any questions based on its title and/or description.
-- Filter by question categories, difficulty level and status(attempted, unattempted or solved).
-- Change the view (List or grid). By default all the questions are displayed in grid view.
-- Pagination is included so that users can see maximum 6 questions.
+- Search filer to search for any questions based on its title or description.
+- Filter by question category, difficulty level and status (attempted, unattempted or solved).
+- Change the view to list or grid mode. By default, all the questions are displayed in grid view.
+- Pagination is implemented to display a maximum of 6 questions per page.
 
 
 ![image](/images/Jaydip_GSoC24/question_other.png)
@@ -90,7 +86,7 @@ This is the page where users will be able to see and browse questions. Features 
 ### 📝 Question Management with Simulator Integration 📝
 
 
-Moderators will be able to create/delete/edit a question
+Moderators will be able to create/delete/edit a question.
 
 
 ##### Create question
@@ -103,7 +99,7 @@ In that form they can add question heading, statement (**markdown supported**), 
 ![image](/images/Jaydip_GSoC24/add-q.png)
 
 
-* On clicking `Create Circuit boilerplate and Test Data`, simulator page is opened to add circuit boilerplate, which will contain input/output probes and a pre-configured testbench. Moderator needs to click on save on the top right after adding boilerplate and testbench data. This gives users a ready-made setup to start solving digital logic problems.
+* On clicking `Create Circuit boilerplate and Test Data`, simulator page will be opened to add circuit boilerplate, which will contain input/output probes and a pre-configured testbench. Moderator needs to click on save on the top right after adding boilerplate and testbench data. This gives users a ready-made setup to start solving digital logic problems.
 
 
 ![image](/images/Jaydip_GSoC24/boilerplate.png)
@@ -113,7 +109,7 @@ In that form they can add question heading, statement (**markdown supported**), 
 ##### Edit and delete question
 
 
-* Moderators and admins will be able to edit and delete a question. On the questions page, two more buttons of edit and delete will be there to Edit or delete a question. In case of edit , a form similar to create question will open with data populated
+* Moderators and admins will be able to edit and delete a questions. On the questions page, two additional buttons, `Edit` and `Delete` will be available for modifying or removing a question. When the Edit button is clicked, a form similar to the one used for creating a question will appear, pre-populated with the existing question's data.
 * On clicking the delete button an alert will be shown to confirm the action, and on clicking yes, questions will be deleted.
 
 
@@ -123,7 +119,7 @@ In that form they can add question heading, statement (**markdown supported**), 
 ##### Simulator Integration
 
 
-* When the user clicks on a question, then the question is displayed alongside the circuit boilerplate which the moderator has configured while creating the question
+* When the user clicks on a question, then the question is displayed alongside the circuit boilerplate which the moderator has configured while creating the question.
 * TestBench is removed from the UI , so that user can't see hidden test cases while attempting a question.
 
 
@@ -135,7 +131,7 @@ In that form they can add question heading, statement (**markdown supported**), 
 
 * When the user clicks on `Submit and Test` button, then the number of test case passed out of total number test cases (provided in the testBench while creating question) is shown as an alert.
 If all the test cases are passed, then it goes under `solved` category else it goes under `attempted` category.
-* **Progress of the user is also saved** when the user clicks on `Submit and Test` button, so that the user can start of from where he/she left off.
+* **Progress of the user is also saved**.  When the user clicks the `Submit and Test` button, their progress is saved, allowing them to resume later from the same point where they left off.
 
 
 
@@ -159,7 +155,7 @@ If all the test cases are passed, then it goes under `solved` category else it g
 ### 🚦 Feature Access Control 🚦
 
 
-A flipper named `question_bank` has been created to enable or disable this feature. When enabled, all the features of this project can be accessed by the members of respective roles. When disabled none of the features including administrative can be accessed .
+A feature flag named `question_bank` has been added in flipper dashboard to enable or disable this feature. When enabled, all project features are accessible to members of the respective roles. When disabled, none of the features including administrative functions can be accessed.
 
 
 ### 📅 Future work 📅
@@ -191,6 +187,7 @@ Pull request for the entire feature can be found [here](https://github.com/Circu
 - `week 7 & 8` - [GSoC@24 - week 7&8 blog](https://medium.com/@jaydipdey2807/week-7-8-at-circuitverse-google-summer-of-code-2024-1931cf66e654)
 - `week 9 & 10` - [GSoC@24 - week 9&10 blog](https://medium.com/@jaydipdey2807/week-7-8-at-circuitverse-google-summer-of-code-2024-1931cf66e654)
 - `week 11 & 12` - [GSoC@24 - week 11&12 blog](https://medium.com/@jaydipdey2807/week-11-12-at-circuitverse-google-summer-of-code-2024-a743d731035b)
+- `Extension period` - [GSoC@24 -  Extension period blog](https://medium.com/@jaydipdey2807/extension-period-at-circuitverse-google-summer-of-code-2024-e858a414a202)
 
 
 
