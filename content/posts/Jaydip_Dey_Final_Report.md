@@ -30,7 +30,7 @@ This blog post is the final report for the **CircuitVerse Practice section** , w
 - 🔧 **Question Category Management**: Allowing admins and moderators to create and delete question categories.
 
 
-- 🔍 **Question Lisiting**: Features including search, filtering capabilities, pagination, and view options.
+- 🔍 **Question Listing**: Features including search, filtering capabilities, pagination, and view options.
 
 
 - 📝 **Question Management with Simulator Integration**: Allowing admins and moderators to add, edit, and delete questions. Users can attempt a question with circuit boilerplate.
