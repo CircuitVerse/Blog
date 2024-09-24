@@ -46,7 +46,7 @@ This blog post is the final report for the **CircuitVerse Practice section** , w
 
 ---
 
-### 👥 Admins Managing Moderators 👥
+### 👥 Moderator Role Administration 👥
 
 From the admin dashboard, admins can add new moderator email IDs or remove existing ones.
 
@@ -68,7 +68,7 @@ The below screenshot shows the placement of the above two feature buttons:
 ![image](/images/Jaydip_GSoC24/admin-mod.png)
 
 
-### 🔍 Questions Page 🔍
+### 🔍 Question Listing 🔍
 
 
 This is the page where users will be able to browse and view questions. The features implemented on this page include:
