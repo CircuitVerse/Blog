@@ -1,12 +1,12 @@
 ---
-title: "Jaydip_Dey_Final_Report"
+title: "CircuitVerse Practice Section"
 date: 2024-09-13T14:22:06+05:30
 draft: false
 author: Jaydip Dey
 type: post
 ---
 
-This blog post is the final report for the **CircuitVerse Practice section** , which is a part of **Google Summer of Code 2024**. The project aimed to create a practice section where user can practice circuit related problems.
+This blog post is the final report for the **CircuitVerse Practice Section** , which is a part of **Google Summer of Code 2024**. The project aimed to create a practice section where user can practice circuit related problems.
 
 
 ![final_report](/images/Jaydip_GSoC24/Final_Report.png)
