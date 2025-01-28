@@ -1,0 +1,14 @@
+// Custom styles for the Main Site button
+.btn-outline-primary {
+  &.ml-3 {
+    padding: 8px 20px;
+    font-size: 14px;
+    border-radius: 30px;
+    
+    &:hover {
+      color: #fff;
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  }
+} 
