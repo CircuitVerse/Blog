@@ -22,4 +22,20 @@
     font-size: 14px;
     border-radius: 30px;
   }
+}
+
+// Search button styles
+.search-btn {
+  padding: 0.5rem 1rem;
+  color: #212529;
+  display: inline-flex;
+  align-items: center;
+  
+  &:hover {
+    color: #0056b3;
+  }
+  
+  i {
+    font-size: 1.2rem;
+  }
 } 
