@@ -167,4 +167,30 @@
       font-size: 16px;
     }
   }
+}
+
+// CircuitVerse button styles
+.btn-outline-success {
+  &.ml-3 {
+    padding: 8px 20px;
+    font-size: 14px;
+    border-radius: 30px;
+    color: #28a745;
+    border-color: #28a745;
+    
+    &:hover {
+      color: #fff;
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+  }
+}
+
+// Style for CircuitVerse nav link
+.navbar-nav .nav-item:last-child .nav-link {
+  color: #28a745 !important; // Green color
+  
+  &:hover {
+    color: darken(#28a745, 10%) !important; // Slightly darker green on hover
+  }
 } 
