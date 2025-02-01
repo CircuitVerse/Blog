@@ -48,4 +48,9 @@
     </nav>
   </div>
 </header>
-{{ partial "search.html" . }} 
+{{ partial "search.html" . }}
+
+<!-- Process and load search.js from assets -->
+{{ $search := resources.Get "js/search.js" }}
+{{ $searchJS := $search | resources.Minify }}
+<script src="{{ $searchJS.RelPermalink }}"></script> 
