@@ -9,39 +9,21 @@
         {{ .Site.Title }}
         {{ end }}
       </a>
-      <div class="collapse navbar-collapse text-center order-lg-2 order-3" id="navigation">
-        <ul class="navbar-nav mx-auto">
-          {{ range .Site.Menus.main }}
-          {{ if .HasChildren }}
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              {{ .Name }}
-            </a>
-            <div class="dropdown-menu">
-              {{ range .Children }}
-              <a class="dropdown-item" href="{{ .URL | absURL }}">{{ .Name }}</a>
-              {{ end }}
-            </div>
-          </li>
-          {{ else }}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
-          </li>
-          {{ end }}
-          {{ end }}
-        </ul>
+      
+      <!-- Search Bar in Middle -->
+      <div class="search-bar-container mx-auto">
+        <form class="search-form" action="">
+          <input type="search" class="search-input-header" placeholder="Search...">
+          <button type="submit" class="search-submit">
+            <i class="ti-search"></i>
+          </button>
+        </form>
       </div>
 
       <div class="order-2 order-lg-3 d-flex align-items-center">
         <button class="navbar-toggler border-0 order-1" type="button" data-toggle="collapse" data-target="#navigation">
           <i class="ti-menu"></i>
         </button>
-        <div class="nav-item search-button">
-          <a href="#!" class="nav-link" data-toggle="search">
-            <i class="ti-search"></i>
-          </a>
-        </div>
         <a href="https://circuitverse.org" class="btn btn-sm btn-outline-success ml-3">CircuitVerse</a>
         <a href="/contact" class="btn btn-sm btn-outline-primary ml-3">Contact</a>
       </div>
