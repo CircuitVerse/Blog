@@ -96,4 +96,24 @@
     border-radius: 15px;
     padding: 20px;
   }
+}
+
+// Search button visibility fix
+.search-button {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  
+  .nav-link {
+    color: #212529;
+    padding: 0.5rem;
+    
+    &:hover {
+      color: #0056b3;
+    }
+    
+    i {
+      font-size: 18px;
+    }
+  }
 } 
