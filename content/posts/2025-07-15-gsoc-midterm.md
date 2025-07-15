@@ -50,7 +50,7 @@ Project 1 focuses on four user‑facing improvements:
 
 ### 1. Weekly Contest core (merged)
 
-{{< video src="static/videos/Aditya_Singh_GSoC_2025/weekly_contest_demo.mp4" type="video/mp4" preload="auto" >}}
+{{< video src="/videos/Aditya_Singh_GSoC_2025/weekly_contest_demo.webm" controls="true" preload="auto" >}}
 
 *Video courtesy of **[Aman Asrani](https://github.com/Asrani-Aman)**, whose earlier groundwork accelerated final delivery.*
 
@@ -59,7 +59,7 @@ Project 1 focuses on four user‑facing improvements:
 
 ### 2. Leaderboard (current milestone & upcoming refactor)
 
-{{< video src="static/videos/Aditya_Singh_GSoC_2025/leaderboard_demo.mp4" type="video/mp4" preload="auto" >}}
+{{< video src="/videos/Aditya_Singh_GSoC_2025/leaderboard_demo.webm" controls="true" preload="auto" >}}
 
 #### What is shipped today
 
