@@ -48,7 +48,7 @@ Three broad RSpec suites now exercise every state transition of a contest, inclu
 Several code changes after the contest merge made the old Leaderboard hard to rebase, so I rewrote it on a clean branch. **[#5887](https://github.com/CircuitVerse/CircuitVerse/pull/5887)**
 
 ### Sprint 6 (14 July → mid‑term) – Performance triage  
-With **Bullet** noisy in dev and **Sentry** revealing real‑world hotspots, I patched a few N + 1 offenders locally, also fixed a runtime error lingering in the codebase.
+With **Bullet** noisy in dev and **Sentry** revealing real‑world hotspots, I patched a few N + 1 offenders locally, also identified and squashed a ArgumentError lingering in the codebase (**PR [#5886](https://github.com/CircuitVerse/CircuitVerse/pull/5886)**).
 
 ---
 
