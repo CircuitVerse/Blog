@@ -16,7 +16,7 @@ type: post
 
 CircuitVerse already serves hundreds of thousands of circuits, yet the growing catalogue can be hard to navigate and the database work behind the scenes is beginning to strain. Project 1 is an attempt to address both fronts at once.  
 
-On the product side we want to help creators organise their work (folder‑based sub‑circuits, group‑level visibility) and help learners discover it (a richer Explore page and regular Weekly Contests with a public leaderboard). On the technical side we need to protect performance by eliminating N + 1 queries, adopting ViewComponents for clearer separation of presentation logic, and enforcing data‑layer guarantees through indices and transactions.  
+On the product side we want to help creators organise their work (folder‑based sub‑circuits, group‑level visibility) and help learners discover it (a richer Explore page and regular Weekly Contests with a public leaderboard). On the technical side we need to protect performance by eliminating N + 1 queries.
 
 Weekly Contest and its Leaderboard became the natural first milestone (already popular in the community but still on a long‑lived branch).
 
@@ -56,7 +56,10 @@ With **Bullet** noisy in dev and **Sentry** revealing real‑world hotspots, I p
 
 {{< video src="/videos/Aditya_Singh_GSoC_2025/weekly_contest_demo.webm" controls="true" preload="auto" >}}
 
-*Feature flag via Flipper lets us roll out safely*
+At its heart a Weekly Contest is a seven‑day challenge: an administrator opens a contest, participants submit their favourite circuits, and the community votes for the design they find most elegant or instructive.  
+Behind the scenes each contest lives in its own table, with submissions and votes linked through foreign keys. The contest feature has a 3 votes per user rule, the controller guards every step with Pundit policies, and a scheduled job closes the contest on the deadline before selecting a winner atomically based on highest votes. 
+
+From a user’s perspective the workflow is intentionally lightweight. A banner on the dashboard announces the current challenge, a single click copies an existing project into the contest, and progress is visible in real time as vote counts update. By wrapping the entire feature in a Flipper flag we can enable it for a small cohort first, observe behaviour in Sentry, and widen the rollout when we are confident in stability.
 
 ---
 
@@ -64,13 +67,13 @@ With **Bullet** noisy in dev and **Sentry** revealing real‑world hotspots, I p
 
 {{< video src="/videos/Aditya_Singh_GSoC_2025/leaderboard_demo.webm" controls="true" preload="auto" >}}
 
+A contest becomes far more engaging when results are transparent. The Leaderboard page answers that need by publishing a ranked list of all submissions as soon as voting begins. It pulls the final vote tally with a single SQL query, orders ties by the earlier submission timestamp so the result is deterministic, and then adds a touch of celebration: gold, silver, and bronze rows for the podium, complete with medal icons.
+
+---
+
 #### What is shipped today
 
-- Lists submissions **ranked by total votes**, with earlier timestamps breaking ties.  
-- “View Leaderboard” button appears on each contest page for **logged‑in users**.  
-- Top three rows get gold / silver / bronze styling plus medal icons for quick visual cues.  
-- A query object (ContestLeaderboardQuery) keeps SQL isolated and fully unit‑tested.  
-- First‑pass English locale keys already remove hard‑coded text from the view.
+The leaderboard feature lists all contest submissions ranked primarily by total votes, with ties broken by the earlier submission timestamp. Logged-in users can access the leaderboard directly through a “View Leaderboard” button available on each contest page. To enhance the user experience, the top three submissions are visually distinguished with gold, silver, and bronze styling, along with corresponding medal icons for immediate recognition. The underlying data retrieval is handled by a dedicated ContestLeaderboardQuery object, which encapsulates all SQL logic, ensuring clean separation of concerns and full unit test coverage. Additionally, a first round of localization has been implemented, replacing hard-coded text in the view with English locale keys.
 
 #### What happens next (mentor feedback items)
 
@@ -85,21 +88,13 @@ With **Bullet** noisy in dev and **Sentry** revealing real‑world hotspots, I p
 
 ## 6. Performance toolbox
 
-* **Bullet** catches N + 1 issues in dev; a background rake task dumps warnings for CI visibility.  
-* **Sentry** traces (production) confirm which Bullet warnings occur under real traffic; only those are prioritised for patching.
+The Bullet gem is integrated to detect N + 1 query issues during development. It also runs as a background Rake task, which logs warnings to make them visible in continuous integration workflows. In production, **Sentry** traces help identify which of these Bullet warnings actually occur under real user traffic. This allows the team to prioritize and patch only the issues that have a measurable impact in live environments.
 
 ---
 
 ## Looking ahead (Phase 2 targets)
 
-* **Merge Leaderboard v2** after OA review. 
-* **Ship Bullet‑based N + 1 patches** and monitor Sentry for regression.  
-* **Contests refactor (PR [#5895](https://github.com/CircuitVerse/CircuitVerse/pull/5895))**  
-  * Split into multiple controllers.  
-  * Add model‑level validations; remove stubs.  
-  * Wrap all views in ViewComponents.  
-* **Begin Group‑Specific Visibility** & **Folder‑based Sub‑circuits** foundations.  
-* **Explore page** feature once performance fixes stabilise.
+The upcoming goals include merging **Leaderboard v2**. Next, the plan is to **ship Bullet-based N + 1 patches** and closely monitor **Sentry** for any signs of regression in production. Work on the **Contests refactor** (PR [#5895](https://github.com/CircuitVerse/CircuitVerse/pull/5895)) will continue, which involves splitting logic into multiple controllers, introducing model-level validations while removing test stubs, and wrapping all views using ViewComponents. Foundations will also be laid for **Group-Specific Visibility** and **Folder-based Sub-circuits**, setting the stage for future user experience enhancements in phase 2. Finally, development on the new **Explore page** feature will begin once the system’s performance stabilizes post-fixes.
 
 ---
 
@@ -107,10 +102,11 @@ With **Bullet** noisy in dev and **Sentry** revealing real‑world hotspots, I p
 
 This progress reflects the collective effort of the **CircuitVerse community**:
 
-* **[Aboobacker MK](https://github.com/tachyons)** – Org admin, roadmap and review catalyst.  
-* **[Vaibhav Upreti](https://github.com/VaibhavUpreti) & [Yashika Jotwani](https://github.com/yashikajotwani12)** – Day‑to‑day mentors, code reviews, and architectural guidance.
-* **[Vedant Jain](https://github.com/vedant-jain03)** – The person who brought weekly contests to existence.
-* **[Aman Asrani](https://github.com/Asrani-Aman)** – Early implementations and demo of Weekly Contest core.
-* Fellow GSoC peers who shared insights, testing cycles, and late‑night debugging sessions.
+**[Aboobacker MK](https://github.com/tachyons)** provided overarching support as the org admin, helping steer the roadmap and catalyzing reviews.  
+**[Vaibhav Upreti](https://github.com/VaibhavUpreti)** and **[Yashika Jotwani](https://github.com/yashikajotwani12)** offered consistent day-to-day mentorship, covering code reviews and architectural guidance.  
+**[Vedant Jain](https://github.com/vedant-jain03)** laid the initial foundation by introducing the concept of weekly contests.  
+**[Aman Asrani](https://github.com/Asrani-Aman)** contributed with early implementations and a demo that shaped the core of the Weekly Contest feature.  
+Support also came from fellow GSoC peers who shared valuable insights, participated in testing cycles, and collaborated during late-night debugging sessions.
 
-Together the groundwork is set for an even more impactful second half.
+Together, this teamwork has laid a strong foundation for an even more impactful second half of the program.
+
