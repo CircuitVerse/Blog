@@ -8,7 +8,16 @@ tags:
 type: post
 ---
 
-> **TL;DR** – In the first six weeks of GSoC 2025, we completed the migration of core UI elements to **ViewComponents**, fully revamped key UIs (Header, Search Bar, Project, User, and Contribute Cards) and Search Page, built RTL support end‑to‑end, and laid the foundation for a comprehensive **Landing Page Revamp**. All major ViewComponent PRs have been merged; several UI revamp PRs are open for final review. Many thanks to mentors **[Vedant Jain](https://github.com/vedant-jain03)** & **[Aman Asrani](https://github.com/Asrani-Aman)**, and org admin **[Aboobacker MK](https://github.com/tachyons)** for their guidance.
+## Overview
+
+In the first six weeks of GSoC 2025, we achieved the following:
+
+- Completed the migration of core UI elements to **ViewComponents**.
+- Fully revamped key UIs, including the Header, Search Bar, Project, User, and Contribute Cards.
+- Overhauled the Search Page and built end-to-end RTL support.
+- Laid the foundation for a comprehensive **Landing Page Revamp**.
+
+All major ViewComponent PRs have been merged, with several UI revamp PRs open for final review. Many thanks to mentors **[Vedant Jain](https://github.com/vedant-jain03)** & **[Aman Asrani](https://github.com/Asrani-Aman)**, and org admin **[Aboobacker MK](https://github.com/tachyons)** for their guidance.
 
 ## Project scope
 
@@ -41,7 +50,20 @@ During the community bonding period, we laid a strong foundation for the project
 
 ---
 
+## ViewComponent Migration
+
+The migration to ViewComponents was essential for building a scalable and maintainable frontend. By encapsulating UI elements into reusable components, we could reduce code duplication, improve consistency, and streamline the development process. This modular approach allows for faster iterations and makes it easier to manage complex UIs across the application.
+
+- **PR #5811:** [ViewComponent: Search Bar](https://github.com/CircuitVerse/CircuitVerse/pull/5811)
+- **PR #5813:** [ViewComponent: User Card](https://github.com/CircuitVerse/CircuitVerse/pull/5813)
+- **PR #5815:** [ViewComponent: Project Card](https://github.com/CircuitVerse/CircuitVerse/pull/5815)
+- **PR #5830:** [ViewComponent: Contribute Card](https://github.com/CircuitVerse/CircuitVerse/pull/5830)
+- **PR #5802:** [ViewComponent: Team Section](https://github.com/CircuitVerse/CircuitVerse/pull/5802)
+- **PR #5795:** [ViewComponent: Text Editor](https://github.com/CircuitVerse/CircuitVerse/pull/5795)
+
 ## UI Revamps
+
+The primary motivation behind these UI revamps was to modernize the platform’s user interface and significantly enhance the user experience. Over time, the existing designs had become outdated and lacked a cohesive feel across different pages. By migrating to a component-based architecture with ViewComponents, we aimed to create a more intuitive, visually consistent, and maintainable frontend. This not only improves the overall aesthetic but also makes navigation and interaction smoother for all users.
 
 #### Search Bar
 
@@ -58,6 +80,12 @@ During the community bonding period, we laid a strong foundation for the project
 #### Landing Page
 
 {{< video src="/videos/Harsh_Bhadu_GSoC_2025/landing-page.mov" controls=true preload=true >}}
+
+### RTL Support
+
+In our commitment to making CircuitVerse a truly global platform, implementing Right-to-Left (RTL) language support was a critical step. This ensures that users who speak RTL languages, such as Arabic, Hebrew, and Persian, have a seamless and intuitive experience. By integrating RTL support from the ground up in our new components, we guarantee that our user interface is accessible and functions correctly for a diverse, worldwide community.
+
+Current Progress: Home Page & Search Page
 
 ---
 
@@ -77,4 +105,4 @@ Together, this groundwork sets us up for an even more impactful second half of G
 
 ### Acknowledgements
 
-I extend my sincere gratitude to the entire **CircuitVerse community** for their continuous support and feedback. A special thanks to my mentors, **[Vedant Jain](https://github.com/vedant-jain03)** and **[Aman Asrani](https://github.com/Asrani-Aman)**, for their invaluable guidance, and to our organization admin, **[Aboobacker MK](https://github.com/tachyons)**, for his unwavering support throughout the project.
+I extend my sincere gratitude to the entire **CircuitVerse community** for their continuous support and feedback. A special thanks to my mentors, **[Vedant Jain](https://github.com/vedant-jain03)** and **[Aman Asrani](https://github.com/Asrani-Aman)**, for their invaluable guidance, and to our organization admin, **[Aboobacker MK](https://github.com/tachyons)**, for his unwavering support throughout the project.
