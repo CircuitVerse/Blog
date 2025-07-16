@@ -7,57 +7,60 @@ tags: ["GSoC 2025", "CircuitVerse", "Backend", "Rails", "Performance"]
 type: post
 ---
 
-> **TL;DR** – The first half of Google Summer of Code 2025 focused on developing a production‑ready **Weekly Contest** feature, an all‑new **Leaderboard** for weekly contests, and the groundwork for performance enhancements that will shape the next release cycle.  
-> Many thanks to mentors **[Vaibhav Upreti](https://github.com/VaibhavUpreti)**
- & **[Yashika Jotwani](https://github.com/yashikajotwani12)**, and to org admin **[Aboobacker MK](https://github.com/tachyons)** for the steady guidance throughout.
+> **TL;DR** – Over the first six weeks of Google Summer of Code 2025 I finished the **Weekly Contest** feature, rebuilt an accompanying **Leaderboard**, and laid a foundation for systematic performance work inside CircuitVerse.  
+> None of this would have been possible without the patient guidance of my mentors **[Vaibhav Upreti](https://github.com/VaibhavUpreti)** and **[Yashika Jotwani](https://github.com/yashikajotwani12)**, and the sharp product sense of org‑admin **[Aboobacker MK](https://github.com/tachyons)**.
 
 ---
 
-## Project scope
+## 1. Where this project fits
 
-Project 1 focuses on four user‑facing improvements:
+CircuitVerse already serves hundreds of thousands of circuits, yet the growing catalogue can be hard to navigate and the database work behind the scenes is beginning to strain. Project 1 is an attempt to address both fronts at once.  
 
-| Track | Deliverable | Status at mid‑term |
-|-------|-------------|--------------------|
-| **Engagement** | Weekly Contests core feature | **Merged** (PR [#5799](https://github.com/CircuitVerse/CircuitVerse/pull/5799)) |
-| **Engagement** | Public Leaderboard for Weekly Contests | **Open for review** (PR [#5887](https://github.com/CircuitVerse/CircuitVerse/pull/5887)) |
-| **Performance** | Eliminate N + 1 queries visible in Sentry | Bullet audit complete, patches queued |
+On the product side we want to help creators organise their work (folder‑based sub‑circuits, group‑level visibility) and help learners discover it (a richer Explore page and regular Weekly Contests with a public leaderboard). On the technical side we need to protect performance by eliminating N + 1 queries, adopting ViewComponents for clearer separation of presentation logic, and enforcing data‑layer guarantees through indices and transactions.  
+
+Weekly Contest and its Leaderboard became the natural first milestone (already popular in the community but still on a long‑lived branch).
 
 ---
 
-## Community‑bonding highlights (May – early Jun)
+## 2. Community‑bonding recap (May → early June)
 
-* Structured the roadmap in GitHub Projects after calls with mentors.  
-* Synced with **[Harsh Bhadu](https://github.com/senbo1)** to de‑duplicate Locale‑switching, N+1 fixes, circuit visibility pages work across projects.  
-* Completed UI wire‑frames for the forthcoming Explore page.  
-* Consensus: move Weekly Contest + Leaderboard to the very front of the schedule.
+During May we drew up a detailed GitHub Projects board that sequenced every deliverable and explicitly removed overlaps with other GSoC initiatives. Locale‑switching work, for instance, moved to Project 3 so I could concentrate on contest code and performance fixes.
 
----
-
-## Weekly progress log
-
-| Block (Dates)           | Focus                      | Key Code Contributions                                                                                                                                                                                                                                                                                                                                                                                    |
-| ----------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **(9 – 15 Jun)**        | CI stability & branch hygiene          | • Added custom headless‑Chrome driver in `spec/support/capybara_chrome.rb`, eliminating flaky system specs.<br>• Split the monolithic branch into **PR #5799** (feature) and **#5800** (CI/infra) and performed a clean rebase.<br>• Pinned Selenium + Chrome flags in the GitHub Actions workflow for deterministic CI runs.                                                                             |
-| **(16 – 23 Jun)**       | Hardening backend rules                | • Created migration for a concurrent unique index on `(user_id, submission_id, contest_id)`.<br>• Introduced `Contest::CloseService` to wrap contest‑close and winner‑selection in a single transaction.<br>• Fixed guest 500s (`return unless current_user` guard) in `ContestsController#show`.<br>• Extended `ContestPolicy` to block cross‑account submission withdrawals.              |
-| **(24 – 30 Jun)**       | Leaderboard v1 & test reliability      | • Opened **PR #5821** with `ContestLeaderboardQuery`, helper‑based medal icons, and an ERB leaderboard view.<br>• Isolated Chrome profiles per spec run; eliminated state bleed between system tests.<br>• Removed legacy RuboCop offenses; set up `act` to run GitHub Actions locally.                                                                                                                   |
-| **(30 Jun – 6 Jul)**    | 100 % coverage & merge                 | • Authored three comprehensive end‑to‑end spec files, driving SimpleCov to **100 %** on new code.<br>• Removed all `:nocov:` guards and tightened coverage threshold.<br>• Merged **PR #5799** – Weekly‑Contest feature now in `master` behind Flipper.<br>• Integrated Bullet gem; generated first N + 1 report and fixed top offenders with `includes()` calls.                                         |
-| **(7 – 13 Jul)**        | Leaderboard v2 rebuild & perf triage   | • Re‑implemented Leaderboard on a clean branch; opened **PR #5887** against the new contest schema.<br>• Squashed fatal `ArgumentError` in `project_image_preview` (**PR [#5886](https://github.com/CircuitVerse/CircuitVerse/pull/5886)**).<br>• Added RSpec + system specs for Leaderboard; coverage green. |
-| **(14 Jul → Mid‑term)** | Evaluation prep | • REST‑style routes & locale files in progress. |
-
+Weekly calls turned design sketches into concrete decisions: the Explore page renamed “Component Lens” to **Topics**, Weekly Contest was promoted to the top of the schedule, and **[Aman Asrani](https://github.com/Asrani-Aman)** (the previous contest contributor & Circuitverse Mentor) kindly walked me through the remaining test gaps. By coding day one I had wire‑frames, test data, etc ready.
 
 ---
 
-### 1. Weekly Contest core (merged)
+## 3. Phase‑1 narrative
+
+### Sprint 1 (9 – 15 June) – Fighting flakes before writing features  
+The existing end‑to‑end tests failed randomly in CI because headless Chrome shared state between runs. I wrote a custom driver in `spec/support/capybara_chrome.rb`, forced unique user‑data‑dirs, and pinned compatible Selenium flags. With the pipeline finally deterministic I split one huge branch into two coherent PRs: **[#5799](https://github.com/CircuitVerse/CircuitVerse/pull/5799)** for Weekly Contest logic and **[#5800](https://github.com/CircuitVerse/CircuitVerse/pull/5800)** for CI/infra clean‑ups.
+
+### Sprint 2 (16 – 23 June) – Making contests safe to launch  
+A concurrent **PostgreSQL unique index** now guarantees one vote per user per submission, and a small `Contest::CloseService` wraps contest‑closure and winner‑selection in a single transaction. I also fixed a guest‑access 500, added a ten‑minute cache to an expensive `COUNT(*)`, and tightened Pundit policies so only authors can withdraw their own entries.
+
+### Sprint 3 (24 – 30 June) – First Leaderboard & deeper tests  
+I drafted `ContestLeaderboardQuery`, an ERB view with medal styling, and a suite of unit specs. At the same time I used **act** to run GitHub Actions locally and removed long‑standing RuboCop offences, giving reviewers a cleaner diff.
+
+### Sprint 4 (30 June – 6 July) – Coverage or bust  
+Three broad RSpec suites now exercise every state transition of a contest, including feature‑flag isolation and invalid paths. SimpleCov reads **100 %** on new code, letting me delete every `:nocov:` escape hatch. **[#5799](https://github.com/CircuitVerse/CircuitVerse/pull/5799)** merged on 4 July – feature‑flagged.
+
+### Sprint 5 (7 – 13 July) – Rebuilding Leaderboard again
+Several code changes after the contest merge made the old Leaderboard hard to rebase, so I rewrote it on a clean branch. **[#5887](https://github.com/CircuitVerse/CircuitVerse/pull/5887)**
+
+### Sprint 6 (14 July → mid‑term) – Performance triage  
+With **Bullet** noisy in dev and **Sentry** revealing real‑world hotspots, I patched a few N + 1 offenders locally, also fixed a runtime error lingering in the codebase.
+
+---
+
+## 4. Weekly Contest in production
 
 {{< video src="/videos/Aditya_Singh_GSoC_2025/weekly_contest_demo.webm" controls="true" preload="auto" >}}
 
-*Video courtesy of **[Aman Asrani](https://github.com/Asrani-Aman)**, whose earlier groundwork accelerated final delivery.*
+*Feature flag via Flipper lets us roll out safely*
 
-* Feature flag via **Flipper** allows gradual rollout.  
-* End‑to‑end RSpec + system specs. ( still need to tigthen these up a little before prod release )
+---
 
-### 2. Leaderboard (current milestone & upcoming refactor)
+## 5. Leaderboard – almost there
 
 {{< video src="/videos/Aditya_Singh_GSoC_2025/leaderboard_demo.webm" controls="true" preload="auto" >}}
 
@@ -66,7 +69,7 @@ Project 1 focuses on four user‑facing improvements:
 - Lists submissions **ranked by total votes**, with earlier timestamps breaking ties.  
 - “View Leaderboard” button appears on each contest page for **logged‑in users**.  
 - Top three rows get gold / silver / bronze styling plus medal icons for quick visual cues.  
-- A query object (`ContestLeaderboardQuery`) keeps SQL isolated and fully unit‑tested.  
+- A query object (ContestLeaderboardQuery) keeps SQL isolated and fully unit‑tested.  
 - First‑pass English locale keys already remove hard‑coded text from the view.
 
 #### What happens next (mentor feedback items)
@@ -75,22 +78,15 @@ Project 1 focuses on four user‑facing improvements:
 |------|------|
 | **ViewComponent wrapper** | Co‑locate markup, logic, and styling; enable isolated component tests & previews. |
 | **Full I18n sweep** | Move every remaining string into locale files for effortless translation. |
-| **Pure REST route** | Shift to `/contests/:id/leaderboard` served by a dedicated `LeaderboardsController#show`. |
+| **Pure REST route** | Shift to /contests/:id/leaderboard served by a dedicated LeaderboardsController#show. |
 | **Caching strategy** | Cache the ranked result per contest to avoid repeat queries under high traffic. |
-
-
-### 3. Performance instrumentation
-
-* **Bullet** catches N + 1 issues in dev; a background rake task dumps warnings for CI visibility.  
-* **Sentry** traces (production) confirm which Bullet warnings occur under real traffic; only those are prioritised for patching.
 
 ---
 
-## Lessons & reflections
+## 6. Performance toolbox
 
-1. **Green CI first, features second - Every line of Code added is a liability**
-2. **Specs pay dividends**
-3. **Mentorship matters** – Weekly syncs surface blind spots faster than any static checklist.
+* **Bullet** catches N + 1 issues in dev; a background rake task dumps warnings for CI visibility.  
+* **Sentry** traces (production) confirm which Bullet warnings occur under real traffic; only those are prioritised for patching.
 
 ---
 
