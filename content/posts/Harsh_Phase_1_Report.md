@@ -8,7 +8,7 @@ tags:
 type: post
 ---
 
-## Overview
+### Overview
 
 In the first six weeks of GSoC 2025, we achieved the following:
 
@@ -19,7 +19,7 @@ In the first six weeks of GSoC 2025, we achieved the following:
 
 All major ViewComponent PRs have been merged, with several UI revamp PRs open for final review. Many thanks to mentors **[Vedant Jain](https://github.com/vedant-jain03)** & **[Aman Asrani](https://github.com/Asrani-Aman)**, and org admin **[Aboobacker MK](https://github.com/tachyons)** for their guidance.
 
-## Project scope
+### Project scope
 
 | Track                       | Deliverable                                                | Status at mid‑term                  |
 | --------------------------- | ---------------------------------------------------------- | ----------------------------------- |
@@ -31,13 +31,13 @@ All major ViewComponent PRs have been merged, with several UI revamp PRs open fo
 
 ---
 
-## Community‑bonding highlights (May – early Jun)
+### Community‑bonding highlights (May – early Jun)
 
 During the community bonding period, we laid a strong foundation for the project. After initial sync-ups with my mentors, we structured a clear roadmap using GitHub Projects to track our progress. To ensure efficient work and avoid duplicating efforts, I coordinated with fellow contributor **[Aditya Singh](https://github.com/salmoneatenbybear)** on tasks related to locale-switching and fixing N+1 queries.
 
 ---
 
-## Weekly progress log
+### Weekly progress log
 
 | Block (Dates)               | Focus                                          | Key Contributions                                                                                                                                                                                                                                                                                                                                             |
 | --------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ During the community bonding period, we laid a strong foundation for the project
 
 ---
 
-## ViewComponent Migration
+### ViewComponent Migration
 
 The migration to ViewComponents was essential for building a scalable and maintainable frontend. By encapsulating UI elements into reusable components, we could reduce code duplication, improve consistency, and streamline the development process. This modular approach allows for faster iterations and makes it easier to manage complex UIs across the application.
 
@@ -61,7 +61,7 @@ The migration to ViewComponents was essential for building a scalable and mainta
 - **PR #5802:** [ViewComponent: Team Section](https://github.com/CircuitVerse/CircuitVerse/pull/5802)
 - **PR #5795:** [ViewComponent: Text Editor](https://github.com/CircuitVerse/CircuitVerse/pull/5795)
 
-## UI Revamps
+### UI Revamps
 
 The primary motivation behind these UI revamps was to modernize the platform’s user interface and significantly enhance the user experience. Over time, the existing designs had become outdated and lacked a cohesive feel across different pages. By migrating to a component-based architecture with ViewComponents, we aimed to create a more intuitive, visually consistent, and maintainable frontend. This not only improves the overall aesthetic but also makes navigation and interaction smoother for all users.
 
@@ -89,13 +89,13 @@ Current Progress: Home Page & Search Page
 
 ---
 
-## Lessons & reflections
+### Lessons & reflections
 
 The first phase of the project offered several key insights. I learned that building a modular UI with ViewComponents significantly accelerates both development and testing cycles. Breaking down large pull requests into smaller, more focused pieces proved crucial in reducing friction during code reviews and getting feedback faster. Furthermore, integrating RTL support from the beginning helped prevent significant rework and ensured our layouts were consistently bidirectional. Regular sync-ups with my mentors were invaluable for aligning on priorities and identifying potential blind spots early in the process.
 
 ---
 
-## Phase 2 targets
+### Phase 2 targets
 
 Looking ahead to Phase 2, the focus will be on several key areas. We plan to complete the migration of remaining UI elements, such as the Team Section and Text Editor, to ViewComponents. A major goal is to enhance the Search Page by adding sorting and filtering capabilities and resolving underlying N+1 query problems. I will also work on resolving comments on the Landing Page revamp PR to get it merged. Other priorities include improving the email verification flow as part of the user onboarding process and incrementally extending RTL support to all remaining pages.
 
