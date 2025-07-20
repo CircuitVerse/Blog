@@ -1,7 +1,7 @@
 ---
 title: "Open Hardware Component Library | GSoC 2025 | Phase 1 Report"
 date: 2025-07-16T21:42:30+05:30
-draft: true
+draft: false
 author: "Nihal Rajpal"
 type: post
 ---
@@ -58,7 +58,6 @@ We also prioritized documentation from the very beginning. Following the standar
 
 Another key milestone was integrating support for real hardware communication. On the **web**, we successfully used the **Web Serial API** to send and receive data with physical devices like Arduino. This proof of concept lays the foundation for interactive circuit simulations that connect directly to real-world hardware.
 
-<!-- TODO: Add demo video link for Web Serial PoC (Web) here -->
 
 To bring this functionality to the **desktop**, we collaborated closely with contributor **Harsh Rao**, who guided us through the architecture of the CircuitVerse desktop app built using **Tauri**. Since Tauri relies on a WebView internally, standard browser-based APIs like Web Serial do not work out of the box. To address this, we used the `isTauri` hook to detect the desktop environment and load native functionality accordingly.
 
