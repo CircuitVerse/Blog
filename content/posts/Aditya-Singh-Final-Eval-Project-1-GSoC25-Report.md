@@ -24,56 +24,18 @@ My GSoC 2025 project with CircuitVerse initially named: **Project 1 – Circuit 
 By the end of my work, I realized that a more suited title should be:  
 **“Circuit Visibility Boosting & Platform Performance Enhancement”**
 
-Why that shift? Because as you’ll see in the details below, my contributions were more about making circuits more discoverable, engaging, and accessible to the community.
+Because as you’ll see in the details below, my contributions were more about making circuits more discoverable, engaging, and accessible to the community.
 
 ---
 
-## Original Scope of My Project
+## Goals & What I Shipped
 
-When I began GSoC 2025, the planned scope of my project included:
-
-- Weekly Contests Leaderboard Page  
-- Group-Specific Visibility Feature  
-- Folder-based Subcircuits in the Simulator  
-- Explore Page  
-- N+1 Query Fixes  
-- Locale Selector on the Home Page  
-
----
-
-## How the Scope Evolved
-
-As the summer progressed, the project’s scope naturally shifted and matured. This was a positive evolution, and I adapted my focus to ensure I delivered the features that would bring the most impact and long-term value to the CircuitVerse community.
-
-By the end of my GSoC journey, my work had evolved into:
-
-- A complete Weekly Contests feature (end-to-end)  
-- Weekly Contests Leaderboard  
-- Explore Page  
-- Fixes for pre-existing N+1 query issues  
-- Feature improvements and performance enhancements within both the Weekly Contests system and the Explore Page 
-- Group Specific Visibility feature 
-
----
-
-## Why the Scope Evolved
-
-When the project began, the plan assumed that the long-awaited Weekly Contests core feature — a long-standing dream for CircuitVerse — would already be complete and merged into the master branch.  
-
-However, given the sheer size of this feature (thousands of lines of code, multiple moving parts, and significant accountability), it hadn't landed in master by the time GSoC 2025 kicked off. This immediately raised a crucial insight: **a leaderboard page without a working contests system is meaningless.**
-
-Instead of trying to build on top of unfinished ground, I pivoted. I took on the responsibility of refactoring and completing the entire Weekly Contests system end-to-end, ensuring it was ready for production.
-
-At the same time, we evaluated the other items in the original scope. Two key changes followed:
-
-1. **Folder-based subcircuits** were deprioritized. While interesting, they weren’t as much of a priority as compared to the “giants” of Contests and the Explore Page. Dropping this allowed us to pour more energy into features with immediate community value.  
-
-2. The **Locale Selector on the home page** was shifted to Project 3, which focuses on migrating the UI to ViewComponents. Since that project already involves significant changes to the homepage, it made more sense to bundle this small feature there for efficiency and coherence.  
-
-In hindsight, this scope evolution wasn’t just a compromise, it was a **strategic realignment**. It ensured we focused on delivering features that were production-ready, community-facing, and high-value, rather than scattering effort across smaller or less critical tasks.  
-
-That’s why the project’s final shape truly lives up to its refined title:  
-**Circuit Visibility Boosting & Platform Performance Enhancement.**
+- **Weekly Contests** end-to-end in production (feature-flagged)  
+- A public **Leaderboard** for transparent results  
+- A new **Explore Page** for discovery (Circuit of the Week, Editor Picks, Recent Circuits, and Browse circuits by popular tags)  
+- **Performance improvements** across heavy pages by eliminating N+1 queries  
+- Initial **Group-Specific Visibility** capability (WIP)  
+- A handful of small clean-ups and fixes outside the core scope that improved code quality
 
 ---
 
@@ -162,8 +124,27 @@ Finally, a couple of tidy-ups that helped the codebase as a whole. In [#5962](ht
 
 ---
 
-### **Demos for all the features**
+### **Other Contributions (outside GSoC scope)**
 
+| Item                                                                                   | Links / Notes |
+| -------------------------------------------------------------------------------------- | ------------- |
+| Implement Cursor-Based Pagination                                                      | [#5199](https://github.com/CircuitVerse/CircuitVerse/pull/5199) |
+| Percy Visual Regression Testing (CI integration and workflows)                         | [#5266](https://github.com/CircuitVerse/CircuitVerse/pull/5266), [#5547](https://github.com/CircuitVerse/CircuitVerse/pull/5547), [#5552](https://github.com/CircuitVerse/CircuitVerse/pull/5552) |
+| Docs migration from Docsify → Docusaurus                    | [#405](https://github.com/CircuitVerse/CircuitVerseDocs/pull/405), [#421](https://github.com/CircuitVerse/CircuitVerseDocs/pull/421), [DEPLOY](https://docs.circuitverse.org/)  |
+| Verilog investigation spike                                                            | [#5236 conversation](https://github.com/CircuitVerse/CircuitVerse/issues/5236#issuecomment-2564067639) |
+| Fix invalid cursor edge cases                                                          | [#5216](https://github.com/CircuitVerse/CircuitVerse/pull/5216) |
+| UI bug fixes                                                                           | [#5183](https://github.com/CircuitVerse/CircuitVerse/pull/5183), [#5263](https://github.com/CircuitVerse/CircuitVerse/pull/5263) |
+| CI fix                                                                                 | [#5178](https://github.com/CircuitVerse/CircuitVerse/pull/5178) |
+| Bootstrap upgrade to 5.3.3                                                             | [#5135](https://github.com/CircuitVerse/CircuitVerse/pull/5135) |
+| Test suite improvements                                                                | [#5237](https://github.com/CircuitVerse/CircuitVerse/pull/5237) |
+| Dependency upgrade                                                                     | [#5238](https://github.com/CircuitVerse/CircuitVerse/pull/5238) |
+| Simulator performance audit (Firefox Profiler)                                         | [audit](https://github.com/CircuitVerse/CircuitVerse/issues/5250#issuecomment-2565172626) |
+| Testbench scope expansion (discussion)                                                 | [Discussion](https://github.com/CircuitVerse/CircuitVerse/issues/5397) |
+| Proposed the idea behind Project 6 of GSoC ’25 @ CV                         | [check idea no. 2](https://github.com/orgs/CircuitVerse/discussions/5388#discussioncomment-12083766) |
+
+---
+
+### **Demos for all the features**
 
 #### 1. Contests + Leaderboard
 
@@ -199,34 +180,34 @@ I’ve already opened up a few issues and discussions that I believe are crucial
 - **Finishing the Group Specific Visibility feature** – [#5942](https://github.com/CircuitVerse/CircuitVerse/pull/5942)
 
 ---
+
 ### **Project Tracking Docs**
 
-| Resource                              | Link                                                                                                                              |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| GitHub Projects Page                  | [View Board](https://github.com/orgs/CircuitVerse/projects/33/views/1)                                                           |
-| Async Status Update Sheet             | [Google Sheet](https://docs.google.com/spreadsheets/d/1VdbK5Dvtkj5Apt7CDU5M2VlmQSH7AbzMe4eNqmiuMkA/edit?usp=sharing)              |
-| Meeting Notes (Weekly Mentor Syncs)   | [Google Doc](https://docs.google.com/document/d/1TGeTLY8dC36nonSqsrdX-aCP7FFcTIK72IH6SHNv1NM/edit?usp=sharing)                    |
+| Resource                            | Link                                                                                                                              |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| GitHub Projects Page                | [View Board](https://github.com/orgs/CircuitVerse/projects/33/views/1)                                                           |
+| Async Status Update Sheet           | [Google Sheet](https://docs.google.com/spreadsheets/d/1VdbK5Dvtkj5Apt7CDU5M2VlmQSH7AbzMe4eNqmiuMkA/edit?usp=sharing)              |
+| Meeting Notes (Weekly Mentor Syncs) | [Google Doc](https://docs.google.com/document/d/1TGeTLY8dC36nonSqsrdX-aCP7FFcTIK72IH6SHNv1NM/edit?usp=sharing)                    |
 
 ---
 
 ### **Weekly Blogs**
 
-| Week      | Blog Link                                                                                                                                 |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Community Bonding | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-community-bonding-period-my-reflections-experiences-6e50914e7ee7) |
-| Week 1    | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-1-chasing-ci-stability-and-contest-completion-4ca7421edb74)       |
-| Week 2    | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-2-from-it-runs-to-its-ready-for-everyone-7dd059b2927f)           |
-| Week 3    | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-3-when-progress-slows-lessons-surface-8cfb7b6da7c2)               |
-| Week 4    | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-4-finding-my-footing-and-stabilizing-the-ship-356ff72203bf)       |
-| Week 5    | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-5-closing-the-loop-opening-new-frontiers-7aef91da563a)            |
-| Week 6    | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverseweek-6-leaderboard-closer-to-merge-bugs-squashed-and-the-production-prep-a04954fbeaaf) |
-| Week 7    | [Read](https://blog.circuitverse.org/posts/aditya-singh-phase-1-gsoc25-report/)                                                           |
-| Week 8    | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-8-group-specific-visbility-feature-and-contests-refactor-7b0da95d65f8) |
-| Week 9    | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-9-contests-refactor-has-started-to-feel-right-565c670fe02a)       |
-| Week 10   | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-10-its-time-to-floor-the-accelerator-chat-we-were-soooo-cooked-c8ad356dca32) |
-| Week 11   | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-11-circuitverse-is-evolving-ce0d962472df)                         |
-| Week 12   | *This blog itself*                                                                                                                        |
-
+| Week              | Blog Link                                                                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Community Bonding | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-community-bonding-period-my-reflections-experiences-6e50914e7ee7)     |
+| Week 1            | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-1-chasing-ci-stability-and-contest-completion-4ca7421edb74)       |
+| Week 2            | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-2-from-it-runs-to-its-ready-for-everyone-7dd059b2927f)           |
+| Week 3            | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-3-when-progress-slows-lessons-surface-8cfb7b6da7c2)               |
+| Week 4            | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-4-finding-my-footing-and-stabilizing-the-ship-356ff72203bf)       |
+| Week 5            | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-5-closing-the-loop-opening-new-frontiers-7aef91da563a)            |
+| Week 6            | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverseweek-6-leaderboard-closer-to-merge-bugs-squashed-and-the-production-prep-a04954fbeaaf) |
+| Week 7            | [Read](https://blog.circuitverse.org/posts/aditya-singh-phase-1-gsoc25-report/)                                                           |
+| Week 8            | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-8-group-specific-visbility-feature-and-contests-refactor-7b0da95d65f8) |
+| Week 9            | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-9-contests-refactor-has-started-to-feel-right-565c670fe02a)       |
+| Week 10           | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-10-its-time-to-floor-the-accelerator-chat-we-were-soooo-cooked-c8ad356dca32) |
+| Week 11           | [Read](https://medium.com/@salmoneatenbybear/gsoc-2025-circuitverse-week-11-circuitverse-is-evolving-ce0d962472df)                         |
+| Week 12           | *This blog itself*                                                                                                                        |
 
 ---
 
