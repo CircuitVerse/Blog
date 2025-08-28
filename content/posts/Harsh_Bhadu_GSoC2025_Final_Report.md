@@ -113,7 +113,7 @@ This experience taught me the importance of diving deep into framework internals
 
 #### **Revamped Landing Page**
 
-{{< video src="/videos/Harsh_Bhadu_GSoC_2025/landing-page.mov" controls=true preload=true >}}
+{{< video src="/videos/Harsh_Bhadu_GSoC_2025/landing-page.mp4" controls=true preload=true >}}
 
 *The new landing page features a modern design with improved hero section, feature highlights, testimonials, and call-to-action buttons, all with built-in RTL support.*
 
@@ -134,6 +134,12 @@ This experience taught me the importance of diving deep into framework internals
 ![Project Grid](/videos/Harsh_Bhadu_GSoC_2025/project.png)
 
 *The modernized project grid showcases circuits with improved visual hierarchy, star counts, view counts, and author information in an organized grid layout.*
+
+#### **RTL Support**
+
+![RTL Support](/videos/Harsh_Bhadu_GSoC_2025/arabic.png)
+
+*The revamped UI supports RTL languages, ensuring a smooth user experience for users in Arabic and other RTL languages.*
 
 ---
 
