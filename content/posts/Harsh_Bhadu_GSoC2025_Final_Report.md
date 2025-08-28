@@ -57,6 +57,16 @@ Shifting to search improvements in Phase 2, I tackled performance bottlenecks by
 
 Throughout, I fixed bugs like nil checks in notifications and added translations for the Search Bar, reducing CSS redundancy and ensuring mobile consistency. Beyond my scope, I created "good first" issues and collaborated on some view components, embodying the open-source spirit.
 
+
+### The Toughest Technical Challenge: Stimulus Controller Communication
+
+The most challenging aspect of my entire GSoC journey was implementing the sorting and the filtering UI using the Stimulus framework. What made this particularly difficult was the scarcity of comprehensive resources because both the official Stimulus documentation and YouTube tutorials were surprisingly sparse when it came to advanced controller communication patterns.
+
+The core challenge involved creating seamless communication between the main search controller and the two sorting and filtering controllers: one managing the filter state (tags, countries, institutes) and another handling the sort dropdown (newest, oldest, most stars, etc.).
+
+This experience taught me the importance of diving deep into framework internals and community resources when official documentation falls short. It also reinforced that sometimes the most valuable learning happens when you're forced to piece together solutions from multiple fragmented sources.
+
+
 ---
 
 ## PR Index
