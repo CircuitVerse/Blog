@@ -91,7 +91,7 @@ My journey with CircuitVerse doesn’t end with GSoC. There are several importan
 
 I’ve already opened up a few issues and discussions that I believe are crucial next steps:
 
-- **Enhancing Contest Experience** – [#5998](https://github.com/CircuitVerse/CircuitVerse/pull/5998)  
+- **Enhancing Contest Experience** – [#5998](https://github.com/CircuitVerse/CircuitVerse/issues/5998)  
   A discussion around evolving contests into a more engaging, problem-statement-based challenge. This includes improving the UI by adding CircuitVerse-style graphics to contest cards, and exploring broader enhancements to move from the current open-ended format toward a faster, more sophisticated experience.  
 
 - **Preventing Forked Circuit Submissions** – [#6009](https://github.com/CircuitVerse/CircuitVerse/issues/6009)  
