@@ -13,7 +13,7 @@ type: post
 
 ## Introduction
 
-I’m Harsh Bhadu, also known as [senbo1](https://github.com/senbo1) on GitHub. I'm a passionate developer with an interest in web technologies, UI/UX design, and open-source contributions. This summer, I participated in GSoC 2025 with CircuitVerse, working on modernizing the platform's UI and improving user search experiences.
+I’m Harsh Bhadu, also known as [senbo1](https://github.com/senbo1) on GitHub. I'm a developer with an interest in web technologies, UI/UX design, and open-source contributions. This summer, I participated in GSoC 2025 with CircuitVerse, working on modernizing the platform's UI and improving user search experiences.
 
 ---
 
@@ -44,7 +44,7 @@ By the end of GSoC, my contributions included:
 
 ## The Work I Did
 
-My journey started during the community bonding period, where I synced up with mentors Vedant Jain and Aman Asrani to map out a clear roadmap using GitHub Projects. We coordinated with fellow contributor Aditya Singh on overlapping tasks like explore page, N+1 queries, etc, setting the stage for collaborative progress. One early challenge was handling large pull request for the Header migration which I broke into smaller, focused ones, which streamlined reviews and accelerated merges.
+My journey started during the community bonding period, where I synced up with mentors Vedant Jain and Aman Asrani to map out a clear roadmap using GitHub Projects. We coordinated with fellow contributor Aditya Singh on overlapping tasks like explore page, N+1 queries, etc. One early challenge was handling large pull request for the Header migration which I broke into smaller, focused ones, which streamlined reviews and accelerated merges.
 
 Diving into ViewComponent migrations, I transformed various partials to enhance reusability and testability. For example, starting with Text Editor and progressing to the Search Bar, where I introduced customizable parameters, these changes isolated components and made testing a breeze. This modular approach not only reduced code duplication but also sped up development cycles, a key learning that shaped my workflow.
 
