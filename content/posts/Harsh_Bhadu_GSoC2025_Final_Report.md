@@ -17,13 +17,9 @@ I’m Harsh Bhadu, also known as [senbo1](https://github.com/senbo1) on GitHub. 
 
 ---
 
-## Project Scope and Objectives
+## Project Scope and Initial Requirements
 
 My GSoC 2025 project focused on migrating UI elements to ViewComponents to enhance code modularity and maintainability, while also revamping key interfaces and optimizing the search functionality for better performance and usability. This work directly contributes to a more scalable, accessible, and user-friendly CircuitVerse platform.
-
----
-
-## Project Scope and Initial Requirements
 
 The primary objectives outlined in my GSoC proposal were:
 
@@ -46,25 +42,20 @@ By the end of GSoC, my contributions included:
 
 ---
 
-## Rationale for Scope Adaptation
+## The Work I Did
 
-The project adapted based on mentor feedback, design iterations in Figma, and priorities for immediate impact. We prioritized ViewComponent migrations and UI revamps early to build a strong foundation, then shifted to search optimizations in Phase 2. Some elements like email verification were planned but deferred to post-GSoC due to time constraints, allowing deeper focus on core UI and search features. This evolution ensured production-ready, high-value deliverables while aligning with community needs.
+My journey started during the community bonding period, where I synced up with mentors Vedant Jain and Aman Asrani to map out a clear roadmap using GitHub Projects. We coordinated with fellow contributor Aditya Singh on overlapping tasks like explore page, N+1 queries, etc, setting the stage for collaborative progress. One early challenge was handling large pull request for the Header migration which I broke into smaller, focused ones, which streamlined reviews and accelerated merges.
 
----
+Diving into ViewComponent migrations, I transformed various partials to enhance reusability and testability. For example, starting with Text Editor and progressing to the Search Bar, where I introduced customizable parameters, these changes isolated components and made testing a breeze. This modular approach not only reduced code duplication but also sped up development cycles, a key learning that shaped my workflow.
 
-## Technical Implementation and Contributions
+Before working on the UI revamps, we had async communication with UI Lead Nitin who provided valuable feedback on the Figma designs, ensuring our implementation would meet design standards and user experience goals. The UI revamps were particularly exciting, aligning closely with Figma designs while baking in RTL support from the outset to avoid costly rework later. Revamping the Navbar involved modernizing its look and ensuring seamless RTL compatibility, which was crucial for users in Arabic, other RTL Languages. Similarly, updating the Project Card introduced grid layouts, making it more interactive and responsive. I remember iterating on the User Card's translations and the Contribute Card's SCSS updates, addressing mentor feedback to polish these elements.
 
-My contributions centered on modernizing CircuitVerse's frontend architecture and enhancing user interactions. Starting with design discussions in Figma, I finalized UIs for search and key components.
+The Landing Page overhaul stands out as one of the largest UI efforts. It involved modularizing components like feature card, badge element, Stats card into View Components, ensuring everything matched the approved design and supported RTL. Seeing it merge and go live in production was a thrilling milestone—it now greets CircuitVerse's users with a fresh, inviting interface.
 
-I began by migrating various partials to ViewComponents, which improved reusability, testability, and isolation. For instance, [#5493](https://github.com/CircuitVerse/CircuitVerse/pull/5493) migrated OAuth links, adding tests and previews. This pattern continued with [#5811](https://github.com/CircuitVerse/CircuitVerse/pull/5811) for the Search Bar (introducing parameters for customization), [#5813](https://github.com/CircuitVerse/CircuitVerse/pull/5813) for User Cards, [#5815](https://github.com/CircuitVerse/CircuitVerse/pull/5815) for Project Cards (simplifying helpers), [#5830](https://github.com/CircuitVerse/CircuitVerse/pull/5830) for Contribute Cards (with SCSS updates), and more.
 
-UI revamps followed, aligning with Figma designs and adding RTL support. [#5833](https://github.com/CircuitVerse/CircuitVerse/pull/5833) revamped the Navbar, [#5839](https://github.com/CircuitVerse/CircuitVerse/pull/5839) updated the Search Bar for responsiveness and RTL, [#5862](https://github.com/CircuitVerse/CircuitVerse/pull/5862) modernized Project Cards with grid layouts and "Show More" buttons, [#5870](https://github.com/CircuitVerse/CircuitVerse/pull/5870) refreshed User Cards with translations, and [#5875](https://github.com/CircuitVerse/CircuitVerse/pull/5875) overhauled the Landing Page (Hero, Features, Testimonials, CTAs) using modular components—now live in production.
+Shifting to search improvements in Phase 2, I tackled performance bottlenecks by implementing counter caches for stars and project counts, enabling efficient sorting without heavy queries. Integrating a Stimulus controller added dynamic UI flair, like auto-submitting on resource changes for a smoother experience. The filters feature, currently in Review as of writing this report, brings multi-select tags for projects and dropdowns for user countries and institutes, complete with Apply/Clear buttons to preserve state.
 
-For search improvements, I addressed performance by adding counter caches in [#5946](https://github.com/CircuitVerse/CircuitVerse/pull/5946) for efficient sorting by stars/projects count, integrated a Stimulus controller for dynamic UI, and ensured I18n support. [#6001](https://github.com/CircuitVerse/CircuitVerse/pull/6001) (WIP) adds filters like multi-select tags for projects and country/institute for users, with Apply/Clear buttons and state preservation.
-
-Fixes included [#5825](https://github.com/CircuitVerse/CircuitVerse/pull/5825) for nil checks in notifications and [#5889](https://github.com/CircuitVerse/CircuitVerse/pull/5889) for search bar translations. These efforts reduced CSS redundancy, fixed bugs, and ensured consistency across RTL and mobile views.
-
-Outside scope, I created good first issues and collaborated on cross-project tasks, like coordinating with other contributors on View Components and other small tasks.
+Throughout, I fixed bugs like nil checks in notifications and added translations for the Search Bar, reducing CSS redundancy and ensuring mobile consistency. Beyond my scope, I created "good first" issues and collaborated on some view components, embodying the open-source spirit.
 
 ---
 
@@ -74,7 +65,6 @@ Outside scope, I created good first issues and collaborated on cross-project tas
 
 | PR | Status |
 | -- | ------ |
-| [#5493](https://github.com/CircuitVerse/CircuitVerse/pull/5493) – Migrate OAuth links partial to ViewComponent | Merged |
 | [#5811](https://github.com/CircuitVerse/CircuitVerse/pull/5811) – Migrate Search Bar to ViewComponent | Merged |
 | [#5813](https://github.com/CircuitVerse/CircuitVerse/pull/5813) – Migrate User Card to ViewComponent (Search Page) | Merged |
 | [#5815](https://github.com/CircuitVerse/CircuitVerse/pull/5815) – Migrate Project Card to ViewComponent | Merged |
@@ -109,7 +99,7 @@ Outside scope, I created good first issues and collaborated on cross-project tas
 
 ---
 
-### **Demos**
+### **Demos and Screenshots**
 
 #### **Revamped Landing Page**
 
@@ -122,6 +112,18 @@ Outside scope, I created good first issues and collaborated on cross-project tas
 {{< video src="/videos/Harsh_Bhadu_GSoC_2025/search.mp4" controls=true preload=true >}}
 
 *The search functionality now includes sorting by different criteria, improved UI responsiveness, and better performance through counter caches.*
+
+#### **User Grid Layout**
+
+![User Grid](/videos/Harsh_Bhadu_GSoC_2025/user.png)
+
+*The revamped user grid features a clean, responsive layout with user cards displaying profile information, circuit counts, and member duration in a visually appealing format.*
+
+#### **Project Grid Layout**
+
+![Project Grid](/videos/Harsh_Bhadu_GSoC_2025/project.png)
+
+*The modernized project grid showcases circuits with improved visual hierarchy, star counts, view counts, and author information in an organized grid layout.*
 
 ---
 
