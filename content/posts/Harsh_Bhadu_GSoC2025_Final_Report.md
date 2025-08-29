@@ -73,6 +73,8 @@ This experience taught me the importance of diving deep into framework internals
 
 ### **ViewComponent Migrations**
 
+ViewComponents are like building blocks for the website's interface. We needed them to make the code easier to manage and reuse, avoiding repetition and making future changes simpler. I successfully converted several key parts of the UI into these components, improving the overall structure and maintainability of the codebase.
+
 | PR | Status |
 | -- | ------ |
 | [#5811](https://github.com/CircuitVerse/CircuitVerse/pull/5811) – Migrate Search Bar to ViewComponent | Merged |
@@ -85,6 +87,8 @@ This experience taught me the importance of diving deep into framework internals
 
 ### **UI Revamps and UX Enhancements**
 
+This involved updating the look and feel of various pages to make them more modern and user-friendly. It was needed to improve navigation, add support for right-to-left languages like Arabic, and ensure everything works well on mobile devices. I revamped the navbar, search bar, cards, and landing page, resulting in a fresher, more accessible interface.
+
 | PR | Status |
 | -- | ------ |
 | [#5833](https://github.com/CircuitVerse/CircuitVerse/pull/5833) – Revamp Navbar UI with RTL support | Merged |
@@ -94,6 +98,8 @@ This experience taught me the importance of diving deep into framework internals
 | [#5875](https://github.com/CircuitVerse/CircuitVerse/pull/5875) – Revamp Landing Page with modular components and RTL | Merged |
 
 ### **Search Enhancements**
+
+Search enhancements mean improving how users find projects and people on the site. We needed this to make searches faster and more relevant, with better sorting and filtering options. I added efficient sorting, filters for tags, countries, and institutes, and performance boosts, making the search experience quicker and more intuitive.
 
 | PR | Status |
 | -- | ------ |
