@@ -1,5 +1,5 @@
 ---
-title: "Project 1 Circuit Visibility Boosting & Platform Performance Enhancement : GSoC 2025 Final Report"
+title: "Project 1: Circuit Visibility Boosting & Platform Performance Enhancement — GSoC 2025 Final Report"
 date: 2025-08-24T16:41:46+05:30
 draft: false
 author: Aditya Singh
@@ -35,15 +35,15 @@ Because as you’ll see in the details below, my contributions were more about m
 
 ---
 
-## The work I did :
+## The work I did:
 
-The Weekly Contest feature started with [#5799](https://github.com/CircuitVerse/CircuitVerse/pull/5799). The problem was simple: we didn’t have a safe, end-to-end way to host contests. I implemented submissions, fair voting, automatic winner selection, admin tools, notifications, and deadline handling, released behind a feature flag so we could roll it out gradually. Contests feature was in master but it was not ready for prod, so I cleaned up the architecture in [#5943](https://github.com/CircuitVerse/CircuitVerse/pull/5943) by splitting responsibilities into focused controllers, adopting reusable components, enforcing RESTful routes, and tightening validations and database constraints.
+The Weekly Contest feature started with [#5799](https://github.com/CircuitVerse/CircuitVerse/pull/5799). The problem was simple: we didn’t have a safe, end-to-end way to host contests. I implemented submissions, fair voting, automatic winner selection, admin tools, notifications, and deadline handling, released behind a feature flag so we could roll it out gradually. The Contests feature was on the master branch but was not ready for production, so I cleaned up the architecture in [#5943](https://github.com/CircuitVerse/CircuitVerse/pull/5943) by splitting responsibilities into focused controllers, adopting reusable components, enforcing RESTful routes, and tightening validations and database constraints.
 
 That groundwork made it easy to address bugs such as withdrawals after a contest ended. I hid the button and blocked the action server-side. I also fixed a brittle votes association that threw errors when users were deleted. To make the UI global-ready and calmer, I replaced hard-coded English with i18n (including pluralization and RTL safety) and switched the ticking countdown to a clear, server-rendered label. I then simplified the contest test suite by asserting the actual text users see rather than translation keys. Finally, I added a guarded, admin-only flow to delete completed contests via a confirmation modal, ensuring live contests remain protected.
 
 To make results visible in a better way, [#5975](https://github.com/CircuitVerse/CircuitVerse/pull/5975) introduced a public Contest Leaderboard with ranked submissions, author links, votes, submission times, a winner badge, and a clear “back to contest” path. It’s a straightforward view that rewards participation and closes the loop for entrants.
 
-We needed circuit discovery to have its own home, so [#5977](https://github.com/CircuitVerse/CircuitVerse/pull/5977) launched the feature-flagged Explore page: a single, responsive place for Circuit of the Week, Editor Picks, Recent, and Tags, with cursor-based pagination for the recent circuits page. I followed up by making the tests speak in plain English so they better reflect real UI. Top Tags then got first-class treatment where I added dedicated tag pages with cursor-based pagination, graceful recovery from malformed cursors, and caching of popular tags to reduce database load. To keep Explore fast, [#5996](https://github.com/CircuitVerse/CircuitVerse/pull/5996) preloaded preview attachments across sections to remove N+1 queries, and I improved the quality of the tag surface by excluding symbol-only/numeric tags and introducing deterministic tiebreak sorting for a stable order.
+We needed circuit discovery to have its own home, so [#5977](https://github.com/CircuitVerse/CircuitVerse/pull/5977) launched the feature-flagged Explore page: a single, responsive place for Circuit of the Week, Editor Picks, Recent, and Tags, with cursor-based pagination for the recent circuits page. I followed up by making the tests speak in plain English so they better reflect real UI. Top Tags then got first-class treatment where I added dedicated tag pages with cursor-based pagination, graceful recovery from malformed cursors, and caching of popular tags to reduce database load. To keep Explore fast, [#5996](https://github.com/CircuitVerse/CircuitVerse/pull/5996) preloaded preview attachments across sections to remove N+1 queries, and I improved the quality of the tag surface by excluding symbol-only/numeric tags and introducing deterministic tiebreaker sorting for a stable order.
 
 Across the app, I focused on eliminating N+1 queries in pages that load a lot of media. I preloaded profile pictures on user listings; did the same for user profiles by eager loading both circuit previews and avatars; applied eager loading to the homepage’s featured and project lists; and accelerated group pages by preloading members, users, and their avatars. To verify these improvements aren’t just theoretical, I added the Bullet gem in development and test so any missed eager loads show up immediately during local runs and CI.
 
@@ -71,15 +71,15 @@ Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a d
 
 #### 1. Contests + Leaderboard
 
-*Currently in production, live to 25% of users.*
+*As of Aug 24, 2025, in production and live to ~25% of users.*
 
 {{< video src="/videos/Aditya_Singh_GSoC_2025/Contests Leaderboard DEMO.webm" controls="true" preload="auto" >}}
 
 ---
 
-#### 2. Explore page 
+#### 2. Explore Page
 
-*Currently in production and live to **all** of Circuitverse's 3.2 Lakh + users all over the globe*
+*As of Aug 24, 2025, live to **all** of CircuitVerse’s ~320,000+ users worldwide.*
 
 {{< video src="/videos/Aditya_Singh_GSoC_2025/Explore Page.webm" controls="true" preload="auto" >}}
 
@@ -89,13 +89,13 @@ Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a d
 
 My journey with CircuitVerse doesn’t end with GSoC. There are several important improvements I’d love to continue working on, especially to make **Weekly Contests** even better.  
 I’ve already opened up a few issues and discussions that I believe are crucial next steps:
-- **Enhancing the Contest Experience** – [#5998](https://github.com/CircuitVerse/CircuitVerse/issues/5998)  
+- **Enhancing the Contest Experience** — [#5998](https://github.com/CircuitVerse/CircuitVerse/issues/5998)  
   A discussion around evolving contests into a more engaging, problem-statement-based challenge. This includes improving the UI by adding CircuitVerse-style graphics to contest cards, and exploring broader enhancements to move from the current open-ended format toward a faster, more sophisticated experience.  
-- **Preventing Forked Circuit Submissions** – [#6009](https://github.com/CircuitVerse/CircuitVerse/issues/6009)  
+- **Preventing Forked Circuit Submissions** — [#6009](https://github.com/CircuitVerse/CircuitVerse/issues/6009)  
   Right now, contests allow forked circuits to be submitted. Since originality is core to the spirit of contests, this behavior needs to be restricted to encourage authentic work.  
-- **Admin Customization of Contest Names** – [#6010](https://github.com/CircuitVerse/CircuitVerse/issues/6010)  
+- **Admin Customization of Contest Names** — [#6010](https://github.com/CircuitVerse/CircuitVerse/issues/6010)  
   Adding functionality for admins to set custom contest names, making contests more flexible and aligned with specific themes or goals.
-- **Finishing the Group-Specific Visibility feature** – [#5942](https://github.com/CircuitVerse/CircuitVerse/pull/5942)
+- **Finishing the Group-Specific Visibility feature (PR)** — [#5942](https://github.com/CircuitVerse/CircuitVerse/pull/5942)
 
 ---
 
