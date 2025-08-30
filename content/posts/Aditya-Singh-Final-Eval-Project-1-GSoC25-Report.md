@@ -1,8 +1,10 @@
 ---
-title: "Project 1: Circuit Visibility Boosting & Platform Performance Enhancement — GSoC 2025 Final Report"
+title: "Project 1: Circuit Visibility Boosting & Platform Performance Enhancement - GSoC 2025 Final Report"
 date: 2025-08-24T16:41:46+05:30
 draft: false
 author: Aditya Singh
+slug: "gsoc-2025-project-1-final-report-project-1"
+description: "Final GSoC 2025 report for Project 1: boosting circuit visibility and improving platform performance at CircuitVerse."
 tags: ["GSoC 2025", "CircuitVerse", "Backend", "Rails", "Performance"]
 type: post
 ---
@@ -30,12 +32,12 @@ Because as you’ll see in the details below, my contributions were more about m
 - A public **Leaderboard** for transparent results  
 - A new **Explore Page** for discovery (Circuit of the Week, Editor Picks, Recent Circuits, and Browse circuits by popular tags)  
 - **Performance improvements** across heavy pages by eliminating N+1 queries  
-- Initial **Group-Specific Visibility** capability (WIP)  
+- Initial Group-specific visibility (WIP)  
 - A handful of small clean-ups and fixes outside the core scope that improved code quality
 
 ---
 
-## The work I did:
+## The Work I Did
 
 The Weekly Contest feature started with [#5799](https://github.com/CircuitVerse/CircuitVerse/pull/5799). The problem was simple: we didn’t have a safe, end-to-end way to host contests. I implemented submissions, fair voting, automatic winner selection, admin tools, notifications, and deadline handling, released behind a feature flag so we could roll it out gradually. The Contests feature was on the master branch but was not ready for production, so I cleaned up the architecture in [#5943](https://github.com/CircuitVerse/CircuitVerse/pull/5943) by splitting responsibilities into focused controllers, adopting reusable components, enforcing RESTful routes, and tightening validations and database constraints.
 
@@ -49,7 +51,7 @@ Across the app, I focused on eliminating N+1 queries in pages that load a lot of
 
 I also began a Group-specific visibility feature (WIP). The goal is to allow sharing a project only with members of a selected group. The work introduces a “Group” access type, adds the `group_id` association, updates policies and form behavior, and wires up the basic controller flow. It still needs much more work, tighter validation, friendlier error handling, and comprehensive tests before it’s complete.
 
-Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a duplicate attribute from the API serializer. This was outside my GSoC scope but worth fixing for consistency. I also resolved a refactor fallout from another GSoC project by removing obsolete two-argument calls, inlining the logic, and cleaning up tests. It was a small example of cross-project collaboration: if you see a crack forming, seal it. GSoC should be about contributing wherever it helps while covering the defined scope—but scope should never be a ceiling.
+Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a duplicate attribute from the API serializer. This was outside my GSoC scope but worth fixing for consistency. I also resolved a refactor fallout from another GSoC project by removing obsolete two-argument calls, inlining the logic, and cleaning up tests. It was a small example of cross-project collaboration: if you see a crack forming, seal it. In GSoC, the scope should guide your work, but it shouldn’t limit it. Contributing wherever it genuinely helps the project is just as important - scope defines direction, not a ceiling on your impact.
 
 ---
 
@@ -71,17 +73,17 @@ Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a d
 
 #### 1. Contests + Leaderboard
 
-*As of Aug 24, 2025, in production and live to ~25% of users.*
+*As of Aug 24, 2025, in production and live to about 25% of users.*
 
-{{< video src="/videos/Aditya_Singh_GSoC_2025/Contests Leaderboard DEMO.webm" controls="true" preload="auto" >}}
+{{< video src="/videos/Aditya_Singh_GSoC_2025/Contests%20Leaderboard%20DEMO.webm" controls="true" preload="metadata" >}}
 
 ---
 
 #### 2. Explore Page
 
-*As of Aug 24, 2025, live to **all** of CircuitVerse’s ~320,000+ users worldwide.*
+*As of Aug 24, 2025, live to **all** CircuitVerse users (over 320,000 worldwide).*
 
-{{< video src="/videos/Aditya_Singh_GSoC_2025/Explore Page.webm" controls="true" preload="auto" >}}
+{{< video src="/videos/Aditya_Singh_GSoC_2025/Explore%20Page.webm" controls="true" preload="metadata" >}}
 
 ---
 
@@ -89,13 +91,13 @@ Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a d
 
 My journey with CircuitVerse doesn’t end with GSoC. There are several important improvements I’d love to continue working on, especially to make **Weekly Contests** even better.  
 I’ve already opened up a few issues and discussions that I believe are crucial next steps:
-- **Enhancing the Contest Experience** — [#5998](https://github.com/CircuitVerse/CircuitVerse/issues/5998)  
+- **Enhancing the Contest Experience** - [#5998](https://github.com/CircuitVerse/CircuitVerse/issues/5998)  
   A discussion around evolving contests into a more engaging, problem-statement-based challenge. This includes improving the UI by adding CircuitVerse-style graphics to contest cards, and exploring broader enhancements to move from the current open-ended format toward a faster, more sophisticated experience.  
-- **Preventing Forked Circuit Submissions** — [#6009](https://github.com/CircuitVerse/CircuitVerse/issues/6009)  
+- **Preventing Forked Circuit Submissions** - [#6009](https://github.com/CircuitVerse/CircuitVerse/issues/6009)  
   Right now, contests allow forked circuits to be submitted. Since originality is core to the spirit of contests, this behavior needs to be restricted to encourage authentic work.  
-- **Admin Customization of Contest Names** — [#6010](https://github.com/CircuitVerse/CircuitVerse/issues/6010)  
+- **Admin Customization of Contest Names** - [#6010](https://github.com/CircuitVerse/CircuitVerse/issues/6010)  
   Adding functionality for admins to set custom contest names, making contests more flexible and aligned with specific themes or goals.
-- **Finishing the Group-Specific Visibility feature (PR)** — [#5942](https://github.com/CircuitVerse/CircuitVerse/pull/5942)
+- **Finishing the Group-specific visibility feature (PR)** - [#5942](https://github.com/CircuitVerse/CircuitVerse/pull/5942)
 
 ---
 
