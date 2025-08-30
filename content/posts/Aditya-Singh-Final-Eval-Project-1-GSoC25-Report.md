@@ -1,9 +1,9 @@
 ---
-title: "Project 1 Circuit Visibility Boosting & Platform Performance Enhancement : GSoC 2025 Final Report"
+title: "Project 1 Circuit Visibility Boosting & Platform Performance Enhancement : GSoC 2025 Final Report"
 date: 2025-08-24T16:41:46+05:30
 draft: false
 author: Aditya Singh
-tags: ["GSoC 2025", "CircuitVerse", "Backend", "Rails", "Performance"]
+tags: ["GSoC 2025", "CircuitVerse", "Backend", "Rails", "Performance"]
 type: post
 ---
 
@@ -15,7 +15,7 @@ I’m **[Aditya Umesh Singh](https://www.linkedin.com/in/adityaumeshsingh/)** al
 
 ## Focus of This Blog
 
-My GSoC 2025 project with CircuitVerse initially named: **Project 1 : Circuit Management & Performance Enhancement**
+My GSoC 2025 project with CircuitVerse was initially named: **Project 1: Circuit Management & Performance Enhancement**
 
 By the end of my work, I realized that a more suited title should be:  
 **“Circuit Visibility Boosting & Platform Performance Enhancement”**
@@ -39,21 +39,21 @@ Because as you’ll see in the details below, my contributions were more about m
 
 The Weekly Contest feature started with [#5799](https://github.com/CircuitVerse/CircuitVerse/pull/5799). The problem was simple: we didn’t have a safe, end-to-end way to host contests. I implemented submissions, fair voting, automatic winner selection, admin tools, notifications, and deadline handling, released behind a feature flag so we could roll it out gradually. Contests feature was in master but it was not ready for prod, so I cleaned up the architecture in [#5943](https://github.com/CircuitVerse/CircuitVerse/pull/5943) by splitting responsibilities into focused controllers, adopting reusable components, enforcing RESTful routes, and tightening validations and database constraints.
 
-That groundwork made it easy to address bugs like withdrawal after a contest ended, I hid the button and blocked the action server-side, and I also fixed a brittle votes association that threw errors when users were deleted. To make the UI global-ready and calmer, I replaced hard-coded English with i18n (including pluralization and RTL safety) and switched the ticking countdown to a clear, server-rendered label. I then simplified the contest test suite by asserting the actual text users see rather than translation keys. Finally, I added a guarded, admin-only flow to delete completed contests via a confirmation modal, ensuring live contests remain protected.
+That groundwork made it easy to address bugs such as withdrawals after a contest ended. I hid the button and blocked the action server-side. I also fixed a brittle votes association that threw errors when users were deleted. To make the UI global-ready and calmer, I replaced hard-coded English with i18n (including pluralization and RTL safety) and switched the ticking countdown to a clear, server-rendered label. I then simplified the contest test suite by asserting the actual text users see rather than translation keys. Finally, I added a guarded, admin-only flow to delete completed contests via a confirmation modal, ensuring live contests remain protected.
 
 To make results visible in a better way, [#5975](https://github.com/CircuitVerse/CircuitVerse/pull/5975) introduced a public Contest Leaderboard with ranked submissions, author links, votes, submission times, a winner badge, and a clear “back to contest” path. It’s a straightforward view that rewards participation and closes the loop for entrants.
 
-We needed circuit discovery to have its own home, so [#5977](https://github.com/CircuitVerse/CircuitVerse/pull/5977) launched the feature-flagged Explore page: a single, responsive place for Circuit of the Week, Editor Picks, Recent, and Tags, with cursor-based pagination for the recent circuits page. I followed up by making the tests speak in plain English so they better reflect real UI. Top Tags then got first-class treatment where I added dedicated tag pages with cursor based pagination, graceful recovery from malformed cursors, and caching of popular tags to reduce database load. To keep Explore fast, [#5996](https://github.com/CircuitVerse/CircuitVerse/pull/5996) preloaded preview attachments across sections to remove N+1 queries, and I improved the quality of the tag surface by excluding symbol-only/numeric tags and introducing deterministic tie-break sorting for a stable order.
+We needed circuit discovery to have its own home, so [#5977](https://github.com/CircuitVerse/CircuitVerse/pull/5977) launched the feature-flagged Explore page: a single, responsive place for Circuit of the Week, Editor Picks, Recent, and Tags, with cursor-based pagination for the recent circuits page. I followed up by making the tests speak in plain English so they better reflect real UI. Top Tags then got first-class treatment where I added dedicated tag pages with cursor-based pagination, graceful recovery from malformed cursors, and caching of popular tags to reduce database load. To keep Explore fast, [#5996](https://github.com/CircuitVerse/CircuitVerse/pull/5996) preloaded preview attachments across sections to remove N+1 queries, and I improved the quality of the tag surface by excluding symbol-only/numeric tags and introducing deterministic tiebreak sorting for a stable order.
 
-Across the app, I focused on eliminating N+1 queries in pages that load a lot of media. I preloaded profile pictures on user listings; did the same for user profiles by eager-loading both circuit previews and avatars; applied eager loading to the homepage’s featured and project lists; and accelerated group pages by preloading members, users, and their avatars. To verify these improvements aren’t just theoretical, I added the Bullet gem in development and test so any missed eager-loads show up immediately during local runs and CI.
+Across the app, I focused on eliminating N+1 queries in pages that load a lot of media. I preloaded profile pictures on user listings; did the same for user profiles by eager loading both circuit previews and avatars; applied eager loading to the homepage’s featured and project lists; and accelerated group pages by preloading members, users, and their avatars. To verify these improvements aren’t just theoretical, I added the Bullet gem in development and test so any missed eager loads show up immediately during local runs and CI.
 
-I also began a Group-specific visibility feature (WIP). The goal is to allow sharing a project only with members of a selected group. The work introduces a “Group” access type, adds the group_id association, updates policies and form behavior, and wires up the basic controller flow. It still needs much more work, tighter validation, friendlier error handling, and comprehensive tests before it’s complete.
+I also began a Group-specific visibility feature (WIP). The goal is to allow sharing a project only with members of a selected group. The work introduces a “Group” access type, adds the `group_id` association, updates policies and form behavior, and wires up the basic controller flow. It still needs much more work, tighter validation, friendlier error handling, and comprehensive tests before it’s complete.
 
-Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a duplicate attribute from the API serializer, this was outside my GSoC scope, but worth fixing for consistency, and I resolved a refactor fallout from another GSoC project by removing obsolete two-argument calls, inlining the logic, and cleaning up tests. It was a small example of cross-project collaboration: if you see a crack forming, seal it. I think that GSoC should be to contribute wherever it helps while obviously covering the scope defined, but scope should never be a ceiling.
+Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a duplicate attribute from the API serializer. This was outside my GSoC scope but worth fixing for consistency. I also resolved a refactor fallout from another GSoC project by removing obsolete two-argument calls, inlining the logic, and cleaning up tests. It was a small example of cross-project collaboration: if you see a crack forming, seal it. GSoC should be about contributing wherever it helps while covering the defined scope—but scope should never be a ceiling.
 
 ---
 
-## PR highlights
+## PR Highlights
 
 | PR | What | Status |
 |----|------|--------|
@@ -63,7 +63,7 @@ Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a d
 | [#5975](https://github.com/CircuitVerse/CircuitVerse/pull/5975) | Contest Leaderboard | Merged |
 | [#5996](https://github.com/CircuitVerse/CircuitVerse/pull/5996) | Preload circuit previews (N+1 fix) | Merged |
 
-**See the full list of my GSoC’25 PRs : [here](https://github.com/CircuitVerse/CircuitVerse/pulls?q=is%3Apr+author%3Asalmoneatenbybear+label%3AGSoC%2725+)**
+**See the full list of my GSoC 2025 PRs: [here](https://github.com/CircuitVerse/CircuitVerse/pulls?q=is%3Apr+author%3Asalmoneatenbybear+label%3AGSoC%2725+)**
 
 ---
 
@@ -88,20 +88,14 @@ Finally, a couple of tidy-ups that helped the codebase as a whole. I removed a d
 ### **Done? Not yet...**
 
 My journey with CircuitVerse doesn’t end with GSoC. There are several important improvements I’d love to continue working on, especially to make **Weekly Contests** even better.  
-
 I’ve already opened up a few issues and discussions that I believe are crucial next steps:
-
-- **Enhancing Contest Experience** – [#5998](https://github.com/CircuitVerse/CircuitVerse/issues/5998)  
+- **Enhancing the Contest Experience** – [#5998](https://github.com/CircuitVerse/CircuitVerse/issues/5998)  
   A discussion around evolving contests into a more engaging, problem-statement-based challenge. This includes improving the UI by adding CircuitVerse-style graphics to contest cards, and exploring broader enhancements to move from the current open-ended format toward a faster, more sophisticated experience.  
-
 - **Preventing Forked Circuit Submissions** – [#6009](https://github.com/CircuitVerse/CircuitVerse/issues/6009)  
   Right now, contests allow forked circuits to be submitted. Since originality is core to the spirit of contests, this behavior needs to be restricted to encourage authentic work.  
-
 - **Admin Customization of Contest Names** – [#6010](https://github.com/CircuitVerse/CircuitVerse/issues/6010)  
   Adding functionality for admins to set custom contest names, making contests more flexible and aligned with specific themes or goals.
-
-- **Finishing the Group Specific Visibility feature** – [#5942](https://github.com/CircuitVerse/CircuitVerse/pull/5942)
-
+- **Finishing the Group-Specific Visibility feature** – [#5942](https://github.com/CircuitVerse/CircuitVerse/pull/5942)
 
 ---
 
