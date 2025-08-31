@@ -15,7 +15,7 @@ type: posts
 
 Greetings to the CircuitVerse community, and a warm welcome to those visiting for the first time.
 
-I am **Yashvant Singh** ([JatsuAkaYashvant](https://github.com/JatsuAkaYashvant)), a pre-final year undergraduate student at the **National Institute of Technology**. I am someone who loves to explore new ideas and challenge myself to go beyond my limits. Over the past few years, this curiosity has led me into the world of open source and development, where I continue to learn from the best and contribute wherever I can.
+I am **Yashvant Singh** ([JatsuAkaYashvant](https://github.com/JatsuAkaYashvant)), a pre-final year undergraduate student at the **National Institute of Technology Hamirpur**. I am someone who loves to explore new ideas and challenge myself to go beyond my limits. Over the past few years, this curiosity has led me into the world of open source and development, where I continue to learn from the best and contribute wherever I can.
 
 Interestingly, my GSoC journey with CircuitVerse began in a rather unexpected way. I first came across the project through a [YouTube video](https://www.youtube.com/watch?v=QXGierzS76Y&t=214s) by **Devansh Dixit**, titled as: ***“How I cracked GSoC in 6 months | Real Documentation.”*** That video not only introduced me to Google Summer of Code, but also to CircuitVerse as a platform that makes learning digital circuits accessible to students everywhere. What started as curiosity soon turned into determination, I wanted to contribute to this ecosystem that helps learners understand circuits in such a simple yet powerful way.  
 
@@ -155,7 +155,7 @@ This means anyone can now grab the latest APK directly from our releases page wi
 
 The difference was immediate. Contributors could open a pull request and, instead of just reading the code, they could **download and run a preview APK of that exact PR**. Imagine spotting a bug in a circuit simulation, submitting a PR, and within minutes you have a link to the updated app with your fix, ready to test. That’s the kind of instant feedback loop that keeps open source moving.
 
-Dive in the world of Circuitverse - [Download the latest Release](https://github.com/CircuitVerse/mobile-app/releases)
+Dive into the world of Circuitverse - [Download the latest Release](https://github.com/CircuitVerse/mobile-app/releases)
 
 ---
 
@@ -230,7 +230,7 @@ With these improvements, projects are not only easier to manage, but also easier
 
 ---
 
-# A Better Simulator Experience  
+## A Better Simulator Experience  
 
 The simulator has always been at the core of CircuitVerse. It is where ideas come alive, circuits are tested, and projects take shape. With this update, we have made the simulator more powerful, more reliable, and better connected to the way you work.  
 
@@ -268,7 +268,7 @@ The simulator is the highlight of CircuitVerse, and these improvements make it m
 
 ---
 
-# A Simpler, Stronger CircuitVerse: Removing Facebook Login & Expanding Platforms  
+## A Simpler, Stronger CircuitVerse: Removing Facebook Login & Expanding Platforms  
 
 Over the last few weeks, I’ve been working on making CircuitVerse both lighter and more accessible. This update brings some meaningful changes that simplify how the app works, improve stability, and even expand the platforms you can run it on.  
 
@@ -306,7 +306,7 @@ Now, when you tap a button, it responds with a subtle animation, a tiny moment o
 
 And to save you from the frustration of closing the app by mistake, there’s now an exit confirmation dialog, gently asking if you’re sure before leaving.
 
-![exit_confirmation](/images/Yashvant_Singh/final_report/yahvant_exit.jpg)
+![exit_confirmation](/images/Yashvant_Singh/final_report/yashvant_exit.jpg)
 
 These may not sound like headline features, but together they create a sense of polish and care. They make the app friendlier, easier to trust, and just a little more delightful to use, because learning circuits should feel as smooth as it is powerful.   
 
