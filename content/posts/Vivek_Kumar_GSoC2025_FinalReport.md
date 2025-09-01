@@ -1,5 +1,5 @@
 ---
-title: "Enhanced Verilog Support & Stability: GSoC 2025 Final Report |Project 5|"
+title: "Enhanced Verilog Support & Stability: GSoC 2025 Final Report"
 date: 2025-08-31T14:04:00+05:30
 author: Vivek Kumar Ray
 type: post
