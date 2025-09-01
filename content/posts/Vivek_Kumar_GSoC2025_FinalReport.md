@@ -27,7 +27,10 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Enhanc
 
 ---
 
-[Video demonstration of my work can be found on this link](https://www.youtube.com/embed/6wrr2ERPNHs)
+{{< youtube id="6wrr2ERPNHs" >}}
+
+---
+
 [Project link](https://github.com/orgs/CircuitVerse/projects/37/views/1)
 
 ---
@@ -56,33 +59,21 @@ CircuitVerse can generate Verilog for circuits designed in the simulator. The `m
 **Checkout the Below Video for before and after fix**
 {{< video src="/videos/Vivek_Gsoc25/VerilogModule.mp4" type="video/mp4" preload="auto" >}}
 
-**In total 8 verilog modules were added, some of them are displayed below : **
+
+In total 8 verilog modules were added, some of them are displayed below : 
+
 ![Circuit to Verilog](/images/Vivek_Kumar_Gsoc2025/ALUVerilog.png)
 ![Circuit to Verilog](/images/Vivek_Kumar_Gsoc2025/adder.png)
 
-##### Pull Requests
-
-- PR : [JK Flip Flop](https://github.com/CircuitVerse/cv-frontend-vue/pull/591)
-- PR : [SR Flip Flop](https://github.com/CircuitVerse/cv-frontend-vue/pull/592)
-- PR : [ALU](https://github.com/CircuitVerse/cv-frontend-vue/pull/593)
-- PR : [D-Latch](https://github.com/CircuitVerse/cv-frontend-vue/pull/594)
-- PR : [Force Gate](https://github.com/CircuitVerse/cv-frontend-vue/pull/609)
-- PR : [LSB](https://github.com/CircuitVerse/cv-frontend-vue/pull/621)
-- PR : [TestBench Element](https://github.com/CircuitVerse/cv-frontend-vue/pull/611)
-
 ### Bugs which were fixed in the Verilog Modules
 
-- Wrong and incomplete verilog code for adder
+- Wrong and incomplete verilog code for adder , the adder 
+
 ![adder](/images/Vivek_Kumar_Gsoc2025/adder.png)
 - Undefined parameters in the Flip Flops
 - Missing bitwidth support in some elements
 - Inconsistent verilog logic
 - SR flip flop wrong logic
-
-##### Pull Requests
-- PR : [DFF fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/619)
-- PR : [TFF fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/620)
-- PR : [Adder fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/645)
 
 ### Yosys upgrade and migration
 
@@ -97,21 +88,15 @@ The Circuitverse Yosys forked repo is behind its parent by some 39 PRs, the pare
 
 The Yosys repo is now updated, folder structure updated & consistent with its parent and migrated to ts. In the future any changes to its parent can be easily merged with much conflicts between the two.
 
-##### Pull Requests
-- PR : [Yosys upgrade](https://github.com/CircuitVerse/yosys2digitaljs-server/pull/6)
-- PR : [CI fix](https://github.com/CircuitVerse/yosys2digitaljs-server/pull/7)
-
 ### Revamping the Verilog code editor and Verilog Terminal
 
 CircuitVerse provides its users the feature of Verilog code editor. Which can be used by the users to write verilog code and then convert them into circuits and further integrate them into their circuits on the simulator.
 
 #### The goal of the Code Editor is to:
 
-- Enable writing and editing Verilog code inside CircuitVerse
-- Send code to a backend (powered by Yosys, an open-source synthesis tool)
-- and Parse the output and generate a visual circuit automatically
+The Code Editor enables users to write and edit Verilog code directly inside CircuitVerse. The users can write and edit their verilog code inside the code editor. Once the code is written, it can be sent to backend powered by Yosys, an open-source synthesis tool. The Yosys backend processes the code, parses the output, and automatically generates a visual circuit based on the Verilog description. This ciruit then turns into a black box circuit that can be simulated in the circuitverse simulator and also connected with other circuit elements.
 
-The Code Editor is built using CodeMirror — a powerful and customizable browser-based code editor.
+The Code Editor is built using CodeMirror - a powerful and customizable browser-based code editor.
 
 ####  The code Editor has the following features currently:
 - Syntax highlighting for Verilog
@@ -132,9 +117,6 @@ But the UI/UX of the code editor is not particularly encouraging for the users, 
 - Code completion
 - Code folding and bracket matching
 
-##### Pull Requests
-- PR : [Verilog Code editor](https://github.com/CircuitVerse/cv-frontend-vue/pull/628)
-
 ### Verilog Terminal
 After the initial changes of font, line-spacing, padding, and auto-bracket matching were implemented to the verilog code editor, there was a need to further improve the verilog code editor and align it with traditional code editors. To do this Verilog code editor terminal was introduced.
 
@@ -143,8 +125,6 @@ The Verilog Terminal provides a console-like view for synthesis/log outputs and 
 The verilog terminal logs the process status, success messages, and error logs. It also displays the synatx and other error messages sent from the YOSYS server and displays it to the users, so that they can debug their Verilog Code easily. Further Enhancements can also be added to it, which can include terminal taking commands to save, reset and close the verilog editor and further enhancements.
 
 ![Verilog Terminal](/images/Vivek_Kumar_Gsoc2025/verilogTerminal.png)
-
-- PR : [Verilog Code editor](https://github.com/CircuitVerse/cv-frontend-vue/pull/640)
 
 ### Play/Pause Button to the Simulator
 The play/pause button halts the simulation engine, clocks, and UI updates. Users can pause to build/debug circuits and conserve browser resources, then resume when ready. This reduces confusion and supports workflows like debugging, testbenches, and timing diagrams.
@@ -167,23 +147,32 @@ I also created developer-focused docs to make it easy to set up the Verilog feat
 ![doc3](/images/Vivek_Kumar_Gsoc2025/doc3.png)
 
 ---
-#### Pull Requests
+
+### Pull Requests
+- PR : [JK Flip Flop](https://github.com/CircuitVerse/cv-frontend-vue/pull/591)
+- PR : [SR Flip Flop](https://github.com/CircuitVerse/cv-frontend-vue/pull/592)
+- PR : [ALU](https://github.com/CircuitVerse/cv-frontend-vue/pull/593)
+- PR : [D-Latch](https://github.com/CircuitVerse/cv-frontend-vue/pull/594)
+- PR : [Force Gate](https://github.com/CircuitVerse/cv-frontend-vue/pull/609)
+- PR : [LSB](https://github.com/CircuitVerse/cv-frontend-vue/pull/621)
+- PR : [TestBench Element](https://github.com/CircuitVerse/cv-frontend-vue/pull/611)
+- PR : [DFF fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/619)
+- PR : [TFF fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/620)
+- PR : [Adder fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/645)
+- PR : [Verilog Code editor](https://github.com/CircuitVerse/cv-frontend-vue/pull/628)
+- PR : [Verilog Code editor](https://github.com/CircuitVerse/cv-frontend-vue/pull/640)
 - PR : [Pr doc1](https://github.com/CircuitVerse/cv-frontend-vue/pull/628)
 - PR : [Pr doc2](https://github.com/CircuitVerse/CircuitVerseDocs/pull/437)
 - PR : [Pr doc3](https://github.com/CircuitVerse/CircuitVerseDocs/pull/438)
+- PR : [Yosys upgrade](https://github.com/CircuitVerse/yosys2digitaljs-server/pull/6)
+- PR : [CI fix](https://github.com/CircuitVerse/yosys2digitaljs-server/pull/7)
 
 ---
 ## Learning
 
----
+This project taught me a lot about VueJs and how the simulation engine works behind the scenes. I got hands-on with Verilog, writing modules and testbenches, and really improved my digital design skills. Working with Yosys and its move to TypeScript was a great way to learn about backend integration and modern codebases.
 
-- Learned about VueJs and Simulation engine
-- Enhanced my Verilog knowledge and testbench writing skills
-- Learned about Yosys and TypeScript Migration
-- Learned and applied Object-Oriented coding practices
-- Enhanced and expanded my debugging skills
-- Learned Docker and networking between containers
-- Improved my coding knowledge
+I also picked up better object-oriented coding habits and got much faster at debugging tricky issues. Setting up Docker and container networking was new for me, but now I feel confident managing development environments. Overall, I became a more versatile coder and learned a ton from collaborating with the CircuitVerse community.
 
 ## Conclusion
 
