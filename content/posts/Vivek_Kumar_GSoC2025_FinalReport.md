@@ -28,6 +28,7 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Enhanc
 ---
 
 [Video demonstration of my work can be found on this link](https://www.youtube.com/embed/6wrr2ERPNHs)
+[Project link](https://github.com/orgs/CircuitVerse/projects/37/views/1)
 
 ---
 ### Version confusion
