@@ -56,6 +56,16 @@ CircuitVerse has the feature of generating Verilog code for the circuit designed
 ![Circuit to Verilog](/images/Vivek_Kumar_Gsoc2025/ALUVerilog.png)
 ![Circuit to Verilog](/images/Vivek_Kumar_Gsoc2025/adder.png)
 
+##### Pull Requests
+
+- PR : [JK Flip Flop](https://github.com/CircuitVerse/cv-frontend-vue/pull/591)
+- PR : [SR Flip Flop](https://github.com/CircuitVerse/cv-frontend-vue/pull/592)
+- PR : [ALU](https://github.com/CircuitVerse/cv-frontend-vue/pull/593)
+- PR : [D-Latch](https://github.com/CircuitVerse/cv-frontend-vue/pull/594)
+- PR : [Force Gate](https://github.com/CircuitVerse/cv-frontend-vue/pull/609)
+- PR : [LSB](https://github.com/CircuitVerse/cv-frontend-vue/pull/621)
+- PR : [TestBench Element](https://github.com/CircuitVerse/cv-frontend-vue/pull/611)
+
 ### Bugs which were fixed in the Verilog Modules
 
 - Wrong and incomplete verilog code for adder
@@ -64,6 +74,11 @@ CircuitVerse has the feature of generating Verilog code for the circuit designed
 - Missing bitwidth support in some elements
 - Inconsistent verilog logic
 - SR flip flop wrong logic
+
+##### Pull Requests
+- PR : [DFF fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/619)
+- PR : [TFF fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/620)
+- PR : [Adder fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/645)
 
 ### Yosys Upgradation and Migration
 
@@ -77,6 +92,10 @@ The Circuitverse Yosys forked repo is behind its parent by some 39 PRs, the pare
 ![Verilog to circuit feature](/images/Vivek_Kumar_Gsoc2025/YosysCV.png)
 
 The Yosys repo is now updated, folder structure updated & consistent with its parent and migrated to ts. In the future any changes to its parent can be easily merged with much conflicts between the two.
+
+##### Pull Requests
+- PR : [Yosys upgrade](https://github.com/CircuitVerse/yosys2digitaljs-server/pull/6)
+- PR : [CI fix](https://github.com/CircuitVerse/yosys2digitaljs-server/pull/7)
 
 ### Revamping the Verilog code editor and Verilog Terminal
 
@@ -100,7 +119,6 @@ The Code Editor is built using CodeMirror — a powerful and customizable browse
 But the UI/UX of the code editor is not particularly encouraging for the users, also there are lots of features that can be added to it to make it better.
 
 ![Verilog to circuit feature](/images/Vivek_Kumar_Gsoc2025/updatedCodeEditor.png)
-
 #####  I have implemented the following things, which were proposed:
 - Improved indentation between code and line numbering, between numbering and the edge
 - CTRL + S shortcut for the save button
@@ -110,10 +128,17 @@ But the UI/UX of the code editor is not particularly encouraging for the users, 
 - Code completion
 - Code folding and bracket matching
 
+##### Pull Requests
+- PR : [Verilog Code editor](https://github.com/CircuitVerse/cv-frontend-vue/pull/628)
+
 ### Verilog Terminal
-Verilog Terminal their circuits and perform other functions while conserving the resources of the browser. This feature allows users to stop the continuous simulation of their circuits
+After the initial changes of font, line-spacing, padding, and auto-bracket matching were implemented to the verilog code editor, there was a need to further improve the verilog code editor and align it with traditional code editors. To do this Verilog code editor terminal was introduced.
+
+The verilog terminal logs the process status, success messages, and error logs. It also displays the synatx and other error messages sent from the YOSYS server and displays it to the users, so that they can debug their Verilog Code easily. Further Enhancements can also be added to it, which can include terminal taking commands to save, reset and close the verilog editor and further enhancements.
 
 ![Verilog Terminal](/images/Vivek_Kumar_Gsoc2025/verilogTerminal.png)
+
+- PR : [Verilog Code editor](https://github.com/CircuitVerse/cv-frontend-vue/pull/640)
 
 ### Play/Pause Button to the Simulator
 The play/pause button stops the whole simulation engine, clock, and any UI updates for the circuit elements. This results in a complete pause of the simulator, which allows the users to build their circuits and perform other functions while conserving the resources of the browser. This feature allows users to stop the continuous simulation of their circuits, first pause the simulation, get their circuits ready, and then simulate it.
@@ -122,8 +147,7 @@ This avoids confusion and helps users to perform other types of things like debu
 ![Play pause button](/images/Vivek_Kumar_Gsoc2025/playPauseButton.png)
 
 ### Resizable & draggable view of tools window
-
-reziable 
+The tools section of the Simulator contains various tools, each having thier own window. In the vue-simulator the windows of the tools are neither resizable and nor draggale which causes a lot fo trouble for the users, as they can neither change the size or drag it somewhere. These tools windows were made resizable and draggable allowing the users to do the both.
 
 ### Verilog feature documentation
 
@@ -140,7 +164,8 @@ A special focus was also given to creating the documentation for the developers 
 ---
 #### Pull Requests
 - PR : [Pr](https://github.com/CircuitVerse/cv-frontend-vue/pull/628)
-
+- PR : [Pr](https://github.com/CircuitVerse/CircuitVerseDocs/pull/437)
+- PR : [Pr](https://github.com/CircuitVerse/CircuitVerseDocs/pull/438)
 
 ---
 ## Learning
