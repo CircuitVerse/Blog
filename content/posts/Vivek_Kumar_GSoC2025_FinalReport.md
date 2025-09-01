@@ -27,6 +27,9 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Enhanc
 
 ---
 
+[Video demonstration of my work can be found on this link](https://www.youtube.com/embed/6wrr2ERPNHs)
+
+---
 ### Version confusion
 CircuitVerse had implemented the versioning system to avoid merging big changes to the simulator directly. This resulted in the formation of V0/, V1/ and SRC/ folders in the vue-simulator. Currently the V0 folder is default source but it can be changed by altering the configuration files. My changes were made and merged into the V1/ folder. In future all these folders will be in sync and users can change between the verisons easily.
 
@@ -134,6 +137,8 @@ But the UI/UX of the code editor is not particularly encouraging for the users, 
 ### Verilog Terminal
 After the initial changes of font, line-spacing, padding, and auto-bracket matching were implemented to the verilog code editor, there was a need to further improve the verilog code editor and align it with traditional code editors. To do this Verilog code editor terminal was introduced.
 
+The Verilog Terminal provides a console-like view for synthesis/log outputs and errors, reducing context switching. It complements the play/pause control so users can pause simulation, inspect messages, and iterate efficiently.
+
 The verilog terminal logs the process status, success messages, and error logs. It also displays the synatx and other error messages sent from the YOSYS server and displays it to the users, so that they can debug their Verilog Code easily. Further Enhancements can also be added to it, which can include terminal taking commands to save, reset and close the verilog editor and further enhancements.
 
 ![Verilog Terminal](/images/Vivek_Kumar_Gsoc2025/verilogTerminal.png)
@@ -154,7 +159,7 @@ As part of this project, I documented the Verilog feature in detail with example
 
 I also created developer-focused docs to make it easy to set up the Verilog feature locally and extend it further.
 
-#### Documenting the Verilog Features:
+#### Documenting the Verilog features:
 
 ![doc1](/images/Vivek_Kumar_Gsoc2025/doc1.png)
 ![doc2](/images/Vivek_Kumar_Gsoc2025/doc2.png)
