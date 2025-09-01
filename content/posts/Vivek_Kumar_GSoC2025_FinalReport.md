@@ -20,10 +20,10 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Enhanc
 ### New features that have been added and merged include:
 - Verilog modules for circuit elements
 - Play/Pause button in the simulator
-- Improved UI/UX for code-editor
+- Improved UI/UX for code editor
 - Verilog terminal
 - Resizable & draggable view of tools window
-- Yosys Upgradation
+- Yosys Upgrade
 
 ---
 
@@ -36,9 +36,9 @@ CircuitVerse had implemented the versioning system to avoid merging big changes 
 
 ### Adding the Verilog Modules for Circuit Elements
 
-CircuitVerse has the feature of generating Verilog code for the circuit designed in the Simualtor. The moduleVerilog() function is responsible for generating the verilog moduels for the Circuit element. Some of the circuit elements which are mentioned below don't have this module, this causes the calling of missing verilog functions. The goal of the first week was to add the verilog module for all the missing elements. 
+CircuitVerse can generate Verilog for circuits designed in the simulator. The `moduleVerilog()` function generates Verilog modules for circuit elements. Some elements (listed below) were missing these modules, causing calls to undefined Verilog functions. The first week focused on adding the missing Verilog modules.
 
-##### The Verilog Module for the following Circuit elements were added: 
+#### The Verilog Module for the following Circuit elements were added: 
 
 - SR Flip Flops
 - JK Flip Flops
@@ -52,7 +52,7 @@ CircuitVerse has the feature of generating Verilog code for the circuit designed
 **Checkout the Below Video for before and after fix**
 {{< video src="/videos/Vivek_Gsoc25/VerilogModule.mp4" type="video/mp4" preload="auto" >}}
 
-**In total 7 verilog modules were added, some of them are displayed below : **
+**In total 8 verilog modules were added, some of them are displayed below : **
 ![Circuit to Verilog](/images/Vivek_Kumar_Gsoc2025/ALUVerilog.png)
 ![Circuit to Verilog](/images/Vivek_Kumar_Gsoc2025/adder.png)
 
@@ -80,7 +80,7 @@ CircuitVerse has the feature of generating Verilog code for the circuit designed
 - PR : [TFF fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/620)
 - PR : [Adder fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/645)
 
-### Yosys Upgradation and Migration
+### Yosys upgrade and migration
 
 Yosysdigitaljs-server created by Marek Materzok is the technology behind the feature that allows users to convert Verilog code
 into circuits in the simulator.
@@ -101,7 +101,7 @@ The Yosys repo is now updated, folder structure updated & consistent with its pa
 
 CircuitVerse provides its users the feature of Verilog code editor. Which can be used by the users to write verilog code and then convert them into circuits and further integrate them into their circuits on the simulator.
 
-##### The goal of the Code Editor is to:
+#### The goal of the Code Editor is to:
 
 - Enable writing and editing Verilog code inside CircuitVerse
 - Send code to a backend (powered by Yosys, an open-source synthesis tool)
@@ -109,7 +109,7 @@ CircuitVerse provides its users the feature of Verilog code editor. Which can be
 
 The Code Editor is built using CodeMirror — a powerful and customizable browser-based code editor.
 
-#####  The code Editor has the following features currently:
+####  The code Editor has the following features currently:
 - Syntax highlighting for Verilog
 - Smart indentation
 - Line numbering
@@ -119,7 +119,7 @@ The Code Editor is built using CodeMirror — a powerful and customizable browse
 But the UI/UX of the code editor is not particularly encouraging for the users, also there are lots of features that can be added to it to make it better.
 
 ![Verilog to circuit feature](/images/Vivek_Kumar_Gsoc2025/updatedCodeEditor.png)
-#####  I have implemented the following things, which were proposed:
+####  I have implemented the following things, which were proposed:
 - Improved indentation between code and line numbering, between numbering and the edge
 - CTRL + S shortcut for the save button
 - Option to increase the font size
@@ -141,8 +141,7 @@ The verilog terminal logs the process status, success messages, and error logs. 
 - PR : [Verilog Code editor](https://github.com/CircuitVerse/cv-frontend-vue/pull/640)
 
 ### Play/Pause Button to the Simulator
-The play/pause button stops the whole simulation engine, clock, and any UI updates for the circuit elements. This results in a complete pause of the simulator, which allows the users to build their circuits and perform other functions while conserving the resources of the browser. This feature allows users to stop the continuous simulation of their circuits, first pause the simulation, get their circuits ready, and then simulate it.
-This avoids confusion and helps users to perform other types of things like debugging, testbench, timming diagram and other functions in the simulator.
+The play/pause button halts the simulation engine, clocks, and UI updates. Users can pause to build/debug circuits and conserve browser resources, then resume when ready. This reduces confusion and supports workflows like debugging, testbenches, and timing diagrams.
 
 ![Play pause button](/images/Vivek_Kumar_Gsoc2025/playPauseButton.png)
 
@@ -151,11 +150,11 @@ The tools section of the Simulator contains various tools, each having thier own
 
 ### Verilog feature documentation
 
-As part of this project, one of the primary tasks has been to document the verilog feature in deatil with examples for the CircuitVerse users. I have created detailed documentation for both the Verilog feature with examples for the CircuitVerse users to experiment with it and use them.
+As part of this project, I documented the Verilog feature in detail with examples for CircuitVerse users.
 
-A special focus was also given to creating the documentation for the developers of the CircuitVerse so that they can easily setup the Verilog feature in thier local machine and develop it further.
+I also created developer-focused docs to make it easy to set up the Verilog feature locally and extend it further.
 
-##### Documenting the Verilog Features:
+#### Documenting the Verilog Features:
 
 ![doc1](/images/Vivek_Kumar_Gsoc2025/doc1.png)
 ![doc2](/images/Vivek_Kumar_Gsoc2025/doc2.png)
@@ -178,6 +177,7 @@ A special focus was also given to creating the documentation for the developers 
 - Learned and applied Object-Oriented coding practices
 - Enhanced and expanded my debugging skills
 - Learned Docker and networking between containers
+- Improved my coding knowledge
 
 ## Conclusion
 
