@@ -168,9 +168,9 @@ I also created developer-focused docs to make it easy to set up the Verilog feat
 
 ---
 #### Pull Requests
-- PR : [Pr](https://github.com/CircuitVerse/cv-frontend-vue/pull/628)
-- PR : [Pr](https://github.com/CircuitVerse/CircuitVerseDocs/pull/437)
-- PR : [Pr](https://github.com/CircuitVerse/CircuitVerseDocs/pull/438)
+- PR : [Pr doc1](https://github.com/CircuitVerse/cv-frontend-vue/pull/628)
+- PR : [Pr doc2](https://github.com/CircuitVerse/CircuitVerseDocs/pull/437)
+- PR : [Pr doc3](https://github.com/CircuitVerse/CircuitVerseDocs/pull/438)
 
 ---
 ## Learning
