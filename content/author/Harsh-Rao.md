@@ -1,7 +1,7 @@
 +++
-title = "Aman Asrani"
-image = "/images/authors/Aman_Asrani .JPG"
-description = "Google Summer of Code 2024 @ CircuitVerse"
+title = "Harsh Rao"
+image = "/images/authors/Harsh_Rao.JPG"
+description = "Google Summer of Code 2025 @ CircuitVerse"
 +++
 
 Google Summer of Code 2024 @ CircuitVerse || Electronics and Communication Undergraduate at Birla Institute of Technology and Sciences Pilani, Goa Campus || Class of 2027
