@@ -15,31 +15,262 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Deskto
 ---
 
 > **[_Desktop Application & Vue Frontend Updates:_](https://summerofcode.withgoogle.com/programs/2025/projects/RLcXZOiF)
-> The project works on the Vue Simulator **
+> The project works on the Vue Simulator and aims at pushing the vue-simulator to production. We have achieved several milestones like Authentication model, a beautiful Release Pipeline for Tauri simulator, version sync for v0 and v1, a brand new Testbench UI and many more. Let's dive into them right away !!**
 
-### New features that have been added and merged include:
-- Verilog modules for circuit elements
-- Play/Pause button in the simulator
-- Improved UI/UX for code editor
-- Verilog terminal
-- Resizable & draggable view of tools window
-- Yosys Upgrade
-
----
-
-{{< youtube id="6wrr2ERPNHs" >}}
+### Major statures that have been added and merged include:
+- Authentication model for Web and Tauri Simulator
+- Release Pipeline for Tauri Simulator
+- An improved Testbench UI/UX
+- Vue-Simulator integration with the primary codebase
+- Legacy feature sync to v0 and v1
+- Tackling major bugs
 
 ---
 
-[Project link](https://github.com/orgs/CircuitVerse/projects/37/views/1)
+[Project link](https://github.com/orgs/CircuitVerse/projects/43/views/2)
 
 ---
 ### Version confusion
 CircuitVerse had implemented the versioning system to avoid merging big changes to the simulator directly. This resulted in the formation of V0/, V1/ and SRC/ folders in the vue-simulator. Currently the V0 folder is default source but it can be changed by altering the configuration files. My changes were made and merged into the V1/ folder. In future all these folders will be in sync and users can change between the verisons easily.
 
-### The Verilog feature in CircuitVerse includes
-1. Circuit to Verilog - allows users to convert circuit to verilog code
-2. Verilog to Circuit - allows users to convert verilog code to circuits
+### Automating Cross-Platform Desktop Releases
+One of the key deliverables for my GSoC project was a reliable release pipeline for the CircuitVerse desktop app. I initially explored fully automated tools like semantic-release and release-it!, but they offered less manual control than we needed. The ideal solution needed to balance powerful automation with maintainer oversight.
+
+The breakthrough was using GitHub Actions' workflow_dispatch. This allows us to trigger the release manually, providing input on the version type (major, minor, or patch), giving us the perfect blend of automation and control. This approach culminated in the final workflow that now powers our desktop releases.
+
+### The Release Workflow Code
+The entire process is encapsulated in a single GitHub Actions workflow file. It's composed of two primary jobs: build-tauri to compile the application across all platforms, and create-release to package and publish the final release.
+
+```bash
+name: Manually Triggered Desktop Release
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: desktop-release-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  workflow_dispatch:
+    inputs:
+      version-bump:
+        description: 'The type of version bump (major, minor, or patch)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
+
+jobs:
+  build-tauri:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Cache Node.js Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm install
+        shell: bash
+
+      - name: Run Cross-Platform Build Script
+        run: node build-desktop.js
+        shell: bash
+
+      - name: Setup Rust (stable)
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install Linux Dependencies (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt update
+          sudo apt install libwebkit2gtk-4.1-dev \
+          build-essential \
+          curl \
+          wget \
+          file \
+          libxdo-dev \
+          libssl-dev \
+          libayatana-appindicator3-dev \
+          librsvg2-dev
+        shell: bash
+
+      - name: Install macOS Dependencies
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew update
+          brew install pkg-config
+        shell: bash
+
+      - name: Install Windows Dependencies
+        if: matrix.os == 'windows-latest'
+        shell: powershell
+        run: |
+          choco install -y wixtoolset nsis microsoft-edge-webview2-runtime
+
+      - name: Cache Rust Dependencies
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "./src-tauri"
+
+      - name: Build Tauri App
+        run: npm run tauri build
+        shell: bash
+
+      - name: Upload Tauri Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tauri Build Artifacts (${{ matrix.os }})
+          path: |
+            src-tauri/target/release/bundle
+
+  create-release:
+    runs-on: ubuntu-latest
+    needs: build-tauri
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate Changelog
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download all build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Prepare Release Assets
+        run: |
+          mkdir -p release-assets
+          # Move all built files (.deb, .AppImage, .msi, .dmg) into one folder
+          # The '|| true' prevents the workflow from failing if a specific file type doesn't exist
+          find artifacts -type f \( -name "*.deb" -o -name "*.AppImage" -o -name "*.msi" -o -name "*.dmg" \) -exec cp {} release-assets/ \; || true
+          
+          if [ -d "artifacts/Tauri Build Artifacts (macos-latest)/src-tauri/target/release/bundle/macos" ]; then
+            cd "artifacts/Tauri Build Artifacts (macos-latest)/src-tauri/target/release/bundle/macos"
+            for app in *.app; do
+              zip -r "../../../release-assets/${app%.app}.zip" "$app"
+            done
+            cd -
+          fi
+          
+          echo "Prepared release assets:"
+          ls -l release-assets/
+
+      - name: Install GitHub CLI
+        run: |
+          type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+          && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+          && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+          && sudo apt update \
+          && sudo apt install gh -y
+
+      - name: Determine New Version and Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Fetch the latest tag from the repository
+          LATEST_TAG=$(git tag --sort=-v:refname | head -n 1)
+          if [[ -z "$LATEST_TAG" ]]; then
+            # If no tags exist, start from v0.0.0
+            LATEST_TAG="v0.0.0"
+          fi
+          
+          # Parse the latest tag to get major, minor, and patch numbers
+          if [[ "$LATEST_TAG" =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
+            MAJOR=${BASH_REMATCH[1]}
+            MINOR=${BASH_REMATCH[2]}
+            PATCH=${BASH_REMATCH[3]}
+          else
+            echo "Could not parse latest tag: $LATEST_TAG. Starting from v0.1.0."
+            MAJOR=0; MINOR=1; PATCH=0
+          fi
+          # Increment the version based on the manual input
+          BUMP_TYPE="${{ github.event.inputs.version-bump }}"
+          if [ "$BUMP_TYPE" == "major" ]; then
+            MAJOR=$((MAJOR + 1)); MINOR=0; PATCH=0
+          elif [ "$BUMP_TYPE" == "minor" ]; then
+            MINOR=$((MINOR + 1)); PATCH=0
+          else # Default to patch
+            PATCH=$((PATCH + 1))
+          fi
+          
+          if [ -n "${{ steps.changelog.outputs.tag }}" ]; then
+            NEW_VERSION="${{ steps.changelog.outputs.tag }}"
+            echo "Using tag from changelog output: $NEW_VERSION"
+          else
+            NEW_VERSION="v$MAJOR.$MINOR.$PATCH"
+          fi
+          echo "Creating new release: $NEW_VERSION"
+          
+          # Get the release notes generated by the changelog action
+          CHANGELOG_NOTES_FILE="RELEASE_NOTES.md"
+          printf "%s\n" "${{ steps.changelog.outputs.changelog }}" > "$CHANGELOG_NOTES_FILE"
+          
+          # Create the GitHub Release and upload all assets
+          test -n "$(ls -A release-assets 2>/dev/null)" || { echo "No assets to upload"; exit 1; }
+          gh release create "$NEW_VERSION" \
+            --title "CircuitVerse Desktop $NEW_VERSION" \
+            --notes-file "$CHANGELOG_NOTES_FILE" \
+            release-assets/*
+```
+### How It Works 🧐
+The workflow operates in two sequential jobs:
+
+**Job 1: `build-tauri`**
+This job is the workhorse, responsible for compiling the application. It uses a matrix strategy to run three parallel jobs, one for each target OS: `ubuntu-latest`, `windows-latest`, and `macos-latest`. This is the key to efficient cross-platform building.
+
+- **Environment Setup:** Each job begins by checking out the code and setting up the required toolchains, like Node.js and Rust. Crucially, it also installs OS-specific dependencies needed for compilation, such as `libwebkit2gtk-4.1-dev` on Ubuntu or `wixtoolset` on Windows.
+
+- **Dependency Caching:** To dramatically speed up build times on subsequent runs, the workflow caches both the Node.js (`.npm`) and Rust (`.cargo`, `target`) dependency directories. This avoids re-downloading and re-compiling hundreds of packages every time.
+
+- **Build & Upload:** The job then runs the tauri build command, which creates the native application installers. Once complete, it uses the `actions/upload-artifact` action to save these installers, making them available to the next job in the workflow.
+
+**Job 2: `create-release`**
+This job only runs after all three build jobs have completed successfully (needs: build-tauri). It handles the final packaging and publishing.
+
+- **Artifact & Code Aggregation:** It begins by downloading all the build artifacts (the installers for Linux, macOS, and Windows) from the previous job. It also checks out the repository with `fetch-depth: 0` to ensure it has the full git history, which is essential for the next step.
+
+- **Automated Changelog:** The `conventional-changelog-action` scans the git history since the last release tag. Based on conventional commit messages (like `feat:`, `fix:`, etc.), it automatically generates professional, well-formatted release notes.
+
+- **Versioning:** A bash script then determines the new version number. It fetches the latest git tag (e.g., `v1.2.3`), parses it, and increments the version based on the version-bump input (`patch`, `minor`, or `major`) that was provided when the workflow was triggered.
+
+- **Publishing:** Finally, using the GitHub CLI, the script creates a new GitHub Release. It tags the commit with the new version, sets the release title, attaches the auto-generated changelog as the release notes, and uploads all the cross-platform installers as release assets.
+
+**The Final Product ✨**
+The result is a beautifully simple and powerful release process. Now, any maintainer can go to the repository's "`Actions`" tab, select the "`Manually Triggered Desktop Release`" workflow, choose whether it's a `major`, `minor`, or `patch` release, and click "Run workflow."
+
+~~**[Screenshot Here]: A screenshot of the GitHub Actions UI showing the "Run workflow" button with the version-bump dropdown.**~~
+
+From there, everything is automated. Within minutes, a new, cross-platform release is published to GitHub, complete with installers for every OS and a professional changelog, ready for our users. This pipeline removes manual effort, eliminates human error, and ensures our releases are consistent and reliable every single time.
+
+~~**[GIF/Video Here]: A short screen recording showing the process from clicking "Run workflow" to the final, published release on the GitHub Releases page.**~~
 
 ### Adding the Verilog Modules for Circuit Elements
 
