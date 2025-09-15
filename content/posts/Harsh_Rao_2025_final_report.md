@@ -15,7 +15,7 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Deskto
 ---
 
 > **[_Desktop Application & Vue Frontend Updates:_](https://summerofcode.withgoogle.com/programs/2025/projects/RLcXZOiF)
-> The project works on the Vue Simulator and aims at pushing the vue-simulator to production. We have achieved several milestones like Authentication model, a beautiful Release Pipeline for Tauri simulator, version sync for v0 and v1, a brand new Testbench UI and many more. Let's dive into them right away !!**
+> The project works on the Vue Simulator and aims at completing the vue-simulator. We have achieved several milestones like Authentication model, a beautiful Release Pipeline for Tauri simulator, version sync for v0 and v1, a brand new Testbench UI and many more. Let's dive into them right away !!**
 
 ## Major statures that have been added and merged include:
 - Authentication model for Web and Tauri Simulator
@@ -23,8 +23,6 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Deskto
 - An improved Testbench UI/UX
 - Vue-Simulator integration with the primary codebase
 - Legacy feature sync to v0 and v1
-- Pushing vue simulator to Production
-- Tackling major bugs
 
 ---
 
@@ -366,8 +364,6 @@ After the previous year's GSOC project on implementing version control, we neede
 **Step 1:** This step was brute-force copying all of the files from the `src` folder to the versioned directories `v0` and `v1`.
 **Step 2:** Then we compared all of the changes that existed in `src` and not in `v0` and `v1`. We came across many small features that were missing for `src` which needed to be re-written, for eg: the version mismatch dialogue for the vue simulator in `openOffline.vue`. ([PR #599](https://github.com/CircuitVerse/cv-frontend-vue/pull/599))
 **Step 3:** This was the part where we tested the result of the change, since the change built up a massive PR, this step took time and also proved beneficial. We came across a few shortcomings, the major one being the preview circuits for version `v1` going into infinite reload. This was created due to an error that ocurred during the feature sync to `v1` folder, ([PR #647](https://github.com/CircuitVerse/cv-frontend-vue/pull/647)) 
-
-# Pushing vue-simulator to Production
 
 ---
 
