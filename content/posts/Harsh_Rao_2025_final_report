@@ -5,7 +5,7 @@ author: Harsh Rao
 type: post
 ---
 
-![gsoc-cover](/static/images/Harsh_Rao/Final_report.jpg)
+![gsoc-cover](/images/Harsh_Rao/Final_report.jpg)
 
 **Hey Everyone 😊**,
 
@@ -28,7 +28,7 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Deskto
 
 ---
 
-[Project link](https://github.com/orgs/CircuitVerse/projects/43/views/2)
+[<h3>Project link</h3>](https://github.com/orgs/CircuitVerse/projects/43/views/2) 
 
 ---
 # Authentication Model for Web and Tauri Simulator
@@ -85,9 +85,9 @@ It handles both **login** and **signup** flows via API requests to the CircuitVe
 
 These are some of the snaps of the Authentication model -<br>
 
-![Authentication sample image 1](/static/images/Harsh_Rao/Authentication1.png)<br>
-![Authentication sample image 2](/static/images/Harsh_Rao/Authentication2-final.png)
-![Authentication sample image 3](/static/images/Harsh_Rao/Authentication3-final.png)<br>
+![Authentication sample image 1](/images/Harsh_Rao/Authentication1.png)<br>
+![Authentication sample image 2](/images/Harsh_Rao/Authentication2-final.png)
+![Authentication sample image 3](/images/Harsh_Rao/Authentication3-final.png)<br>
 
 # Automating Cross-Platform Desktop Releases
 One of the key deliverables for my GSoC project was a reliable release pipeline for the CircuitVerse desktop app. I initially explored fully automated tools like semantic-release and release-it!, but they offered less manual control than we needed. The ideal solution needed to balance powerful automation with maintainer oversight.
@@ -338,14 +338,14 @@ This job only runs after all three build jobs have completed successfully (needs
 **The Final Product ([PR #636](https://github.com/CircuitVerse/cv-frontend-vue/pull/636))✨**
 The result is a beautifully simple and powerful release process. Now, any maintainer can go to the repository's "`Actions`" tab, select the "`Manually Triggered Desktop Release`" workflow, choose whether it's a `major`, `minor`, or `patch` release, and click "Run workflow."
 
-![Release Pipelines sample image 2](/static/images/Harsh_Rao/Release_Pipeline_1.png)
+![Release Pipelines sample image 2](/images/Harsh_Rao/Release_Pipeline_1.png)
 
 From there, everything is automated. Within minutes, a new, cross-platform release is published to GitHub, complete with installers for every OS and a professional changelog, ready for our users. This pipeline removes manual effort, eliminates human error, and ensures our releases are consistent and reliable every single time.
 
-![Release Pipelines sample image 2](/static/images/Harsh_Rao/Release_Pipeline_2.png)
+![Release Pipelines sample image 2](/images/Harsh_Rao/Release_Pipeline_2.png)
 
 ~~**[GIF/Video Here]: A short screen recording showing the process from clicking "Run workflow" to the final, published release on the GitHub Releases page.**~~
-<video controls src="../../static/videos/Harsh_Rao/release-pipeline-final.mp4" title="Release Pipeline example video"></video>
+{{< video src="/videos/Harsh_Rao/release-pipeline-final.mp4" controls=true preload=true >}}
 
 # The Artistic new Testbench UI
 
@@ -354,12 +354,12 @@ This has been the artistic side of the project. We have had the Testbench UI for
 Here are some snapshots of the new Testbench UI
 
 
-![Testbench sample image 1](/static/images/Harsh_Rao/Testbench_1.png)
-![Testbench sample image 2](/static/images/Harsh_Rao/Testbench_2.png)
+![Testbench sample image 1](/images/Harsh_Rao/Testbench_1.png)
+![Testbench sample image 2](/images/Harsh_Rao/Testbench_2.png)
 
 Here is a video showcasing the working of the new Testbench
 
-<video controls src="../../static/videos/Harsh_Rao/Testbench.mp4" title="Testbench example video"></video>
+{{< video src="/videos/Harsh_Rao/Testbench.mp4" controls=true preload=true >}}
 
 # Legacy version sync to versions v0 and v1
 
