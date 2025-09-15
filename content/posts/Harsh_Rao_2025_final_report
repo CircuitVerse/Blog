@@ -5,7 +5,7 @@ author: Harsh Rao
 type: post
 ---
 
-![gsoc-cover](/static/images/Harsh_Rao/Final_report.png)
+![gsoc-cover](/static/images/Harsh_Rao/Final_report.jpg)
 
 **Hey Everyone 😊**,
 
@@ -17,12 +17,13 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Deskto
 > **[_Desktop Application & Vue Frontend Updates:_](https://summerofcode.withgoogle.com/programs/2025/projects/RLcXZOiF)
 > The project works on the Vue Simulator and aims at pushing the vue-simulator to production. We have achieved several milestones like Authentication model, a beautiful Release Pipeline for Tauri simulator, version sync for v0 and v1, a brand new Testbench UI and many more. Let's dive into them right away !!**
 
-### Major statures that have been added and merged include:
+## Major statures that have been added and merged include:
 - Authentication model for Web and Tauri Simulator
 - Release Pipeline for Tauri Simulator
 - An improved Testbench UI/UX
 - Vue-Simulator integration with the primary codebase
 - Legacy feature sync to v0 and v1
+- Pushing vue simulator to Production
 - Tackling major bugs
 
 ---
@@ -30,15 +31,70 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Deskto
 [Project link](https://github.com/orgs/CircuitVerse/projects/43/views/2)
 
 ---
-### Version confusion
-CircuitVerse had implemented the versioning system to avoid merging big changes to the simulator directly. This resulted in the formation of V0/, V1/ and SRC/ folders in the vue-simulator. Currently the V0 folder is default source but it can be changed by altering the configuration files. My changes were made and merged into the V1/ folder. In future all these folders will be in sync and users can change between the verisons easily.
+# Authentication Model for Web and Tauri Simulator
+Let's begin with the very own Authentication model for vue-simulator that we recently published. The reason we needed a seperate Authentication model for vue simulator is because of Tauri. Earlier we were simply changing the `path` in the `URL` to direct to the Login page of Circuitverse for Authentication. This particulat method fails for the Tauri simulator because:<br> 
+- It is a stand alone simulator with no connection to the primary codebase.
+- We want the Tauri simulator to also work when user is offline.
+- We cannot redirect links like we do in web in Tauri.<br>
 
-### Automating Cross-Platform Desktop Releases
+To answer those needs, it was the need of the hour to create an authentication model for the vue-simulator and so did we deliver.The authentication system in the CircuitVerse frontend is built using **Vue 3 with TypeScript**.  
+It handles both **login** and **signup** flows via API requests to the CircuitVerse backend.
+
+- **Frontend Tech**: Vue 3 + TypeScript + Pinia (Auth Store)  
+- **API Layer**: Fetch (with [Tauri HTTP plugin](https://tauri.app))  
+- **Backend Endpoints**:  
+  - `POST /api/v1/auth/login`  
+  - `POST /api/v1/auth/signup`  
+
+## Authentication Flow
+
+1. **Auth Modal Handling**
+   - A modal component (`authModal`) is used to toggle between **login** and **signup**.
+   - Users can switch modes dynamically without leaving the page.
+
+2. **Form Validation**
+   - Basic client-side validation rules:  
+     - Required fields must not be empty.  
+     - Valid email format (`/.+@.+\..+/`).  
+     - Password must be at least 6 characters.  
+
+3. **Request Building**
+   - Depending on mode (`isLoginMode`), the request body changes:
+     - **Login**: `{ email, password }`  
+     - **Signup**: `{ name, email, password }`
+   - Requests are sent as JSON with appropriate headers.
+
+4. **API Communication**
+   - Uses the `fetch` function (via Tauri plugin when inside desktop app).
+   - On success, the backend responds with an **auth token**.
+
+5. **State Management**
+   - The received token is stored in the **Auth Store** (`useAuthStore()`).
+   - Store handles:
+     - Saving token
+     - Fetching user ID
+     - Sign-out / token removal
+
+6. **Error Handling**
+   - Common error responses:
+     - `401 Unauthorized` → Invalid credentials  
+     - `404 Not Found` → User does not exist  
+     - `409 Conflict` → User already exists  
+     - `422 Unprocessable Entity` → Invalid input  
+   - Errors are shown to the user via a **snackbar** notification system.
+
+These are some of the snaps of the Authentication model -<br>
+
+![Authentication sample image 1](/static/images/Harsh_Rao/Authentication1.png)<br>
+![Authentication sample image 2](/static/images/Harsh_Rao/Authentication2-final.png)
+![Authentication sample image 3](/static/images/Harsh_Rao/Authentication3-final.png)<br>
+
+# Automating Cross-Platform Desktop Releases
 One of the key deliverables for my GSoC project was a reliable release pipeline for the CircuitVerse desktop app. I initially explored fully automated tools like semantic-release and release-it!, but they offered less manual control than we needed. The ideal solution needed to balance powerful automation with maintainer oversight.
 
 The breakthrough was using GitHub Actions' workflow_dispatch. This allows us to trigger the release manually, providing input on the version type (major, minor, or patch), giving us the perfect blend of automation and control. This approach culminated in the final workflow that now powers our desktop releases.
 
-### The Release Workflow Code
+## The Release Workflow Code
 The entire process is encapsulated in a single GitHub Actions workflow file. It's composed of two primary jobs: build-tauri to compile the application across all platforms, and create-release to package and publish the final release.
 
 ```bash
@@ -240,9 +296,25 @@ jobs:
             --notes-file "$CHANGELOG_NOTES_FILE" \
             release-assets/*
 ```
-### How It Works 🧐
-The workflow operates in two sequential jobs:
+**Precursor:** We have also added `conventional-commit` to the workflows, this ensures smoothness in the Automation for version tag generation. This also helps give the maintainers a good holistic view of where the simulator stands at, in-turn helping them choose the `minor`,`patch` or `major` version bump in the Release. ([PR #656](https://github.com/CircuitVerse/cv-frontend-vue/pull/656))<br>
+From here on the commits made by everyone would be needing to follow the [conventional-commits](https://www.conventionalcommits.org/en/v1.0.0/), Some of them are as follows:
+#### Types
 
+The **type** indicates the nature of the change:
+
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation changes
+- **style**: Code style/formatting changes (no logic change)
+- **refactor**: Code changes that neither fix a bug nor add a feature
+- **perf**: Performance improvements
+- **test**: Adding or updating tests
+- **chore**: Build process, tooling, or maintenance tasks
+- **ci**: CI/CD related changes
+
+
+## How It Works 🧐<br>
+The workflow operates in two sequential jobs:<br>
 **Job 1: `build-tauri`**
 This job is the workhorse, responsible for compiling the application. It uses a matrix strategy to run three parallel jobs, one for each target OS: `ubuntu-latest`, `windows-latest`, and `macos-latest`. This is the key to efficient cross-platform building.
 
@@ -263,154 +335,62 @@ This job only runs after all three build jobs have completed successfully (needs
 
 - **Publishing:** Finally, using the GitHub CLI, the script creates a new GitHub Release. It tags the commit with the new version, sets the release title, attaches the auto-generated changelog as the release notes, and uploads all the cross-platform installers as release assets.
 
-**The Final Product ✨**
+**The Final Product ([PR #636](https://github.com/CircuitVerse/cv-frontend-vue/pull/636))✨**
 The result is a beautifully simple and powerful release process. Now, any maintainer can go to the repository's "`Actions`" tab, select the "`Manually Triggered Desktop Release`" workflow, choose whether it's a `major`, `minor`, or `patch` release, and click "Run workflow."
 
-~~**[Screenshot Here]: A screenshot of the GitHub Actions UI showing the "Run workflow" button with the version-bump dropdown.**~~
+![Release Pipelines sample image 2](/static/images/Harsh_Rao/Release_Pipeline_1.png)
 
 From there, everything is automated. Within minutes, a new, cross-platform release is published to GitHub, complete with installers for every OS and a professional changelog, ready for our users. This pipeline removes manual effort, eliminates human error, and ensures our releases are consistent and reliable every single time.
 
+![Release Pipelines sample image 2](/static/images/Harsh_Rao/Release_Pipeline_2.png)
+
 ~~**[GIF/Video Here]: A short screen recording showing the process from clicking "Run workflow" to the final, published release on the GitHub Releases page.**~~
+<video controls src="../../static/videos/Harsh_Rao/release-pipeline-final.mp4" title="Release Pipeline example video"></video>
 
-### Adding the Verilog Modules for Circuit Elements
+# The Artistic new Testbench UI
 
-CircuitVerse can generate Verilog for circuits designed in the simulator. The `moduleVerilog()` function generates Verilog modules for circuit elements. Some elements (listed below) were missing these modules, causing calls to undefined Verilog functions. The first week focused on adding the missing Verilog modules.
+This has been the artistic side of the project. We have had the Testbench UI for a while now, upto now it had recieved 2 major UI revamps during some of the previous GSOC projects. This time we went outside the current colour palette. We have used the classic Circuitverse green with white, which gives it a soft and user-friendly look.
 
-#### The Verilog Module for the following Circuit elements were added: 
-
-- SR Flip Flops
-- JK Flip Flops
-- ALU
-- D-Latch
-- ForceGate
-- LSB 
-- MSB
-- TestBench element
-
-**Checkout the Below Video for before and after fix**
-{{< video src="/videos/Vivek_Gsoc25/VerilogModule.mp4" type="video/mp4" preload="auto" >}}
+Here are some snapshots of the new Testbench UI
 
 
-In total 8 verilog modules were added, some of them are displayed below : 
+![Testbench sample image 1](/static/images/Harsh_Rao/Testbench_1.png)
+![Testbench sample image 2](/static/images/Harsh_Rao/Testbench_2.png)
 
-![Circuit to Verilog](/images/Vivek_Kumar_Gsoc2025/ALUVerilog.png)
-![Circuit to Verilog](/images/Vivek_Kumar_Gsoc2025/adder.png)
+Here is a video showcasing the working of the new Testbench
 
-### Bugs which were fixed in the Verilog Modules
+<video controls src="../../static/videos/Harsh_Rao/Testbench.mp4" title="Testbench example video"></video>
 
-- Wrong and incomplete verilog code for adder , the adder 
+# Legacy version sync to versions v0 and v1
 
-![adder](/images/Vivek_Kumar_Gsoc2025/adder.png)
-- Undefined parameters in the Flip Flops
-- Missing bitwidth support in some elements
-- Inconsistent verilog logic
-- SR flip flop wrong logic
+After the previous year's GSOC project on implementing version control, we needed to sync the legacy simulator versions to the versioned folders while syncing the changes in the src folder to v0 and v1 too. This was carried out in 3 steps.<br>
+**Step 1:** This step was brute-force copying all of the files from the `src` folder to the versioned directiories `v0` and `v1`.
+**Step 2:** Then we compared all of the changes that existed in `src` and not in `v0` and `v1`. We came across many small features that were missing for `src` which needed to be re-written, for eg: the version mismatch dialogue for the vue simulator in `openOffline.vue`. ([PR #599](https://github.com/CircuitVerse/cv-frontend-vue/pull/599))
+**Step 3:** This was the part where we tested the result of the change, since the change built up a massive PR, this step took time and also proved beneficial. We came across a few shortcomings, the major one being the preview circuits for version `v1` going into infinite reload. This was created due to an error that ocurred during the feature sync to `v1` folder, ([PR #647](https://github.com/CircuitVerse/cv-frontend-vue/pull/647)) 
 
-### Yosys upgrade and migration
-
-Yosysdigitaljs-server created by Marek Materzok is the technology behind the feature that allows users to convert Verilog code
-into circuits in the simulator.
-
-![Yosys feature](/images/Vivek_Kumar_Gsoc2025/yosys.png)
-
-The Circuitverse Yosys forked repo is behind its parent by some 39 PRs, the parent repo had been migrated from js to ts and even the folder structure has been changed.These changes include the server file to receive the request from circuitverse backend, docker file and other configuartion and minor changes from CircuitVerse.
-
-![Verilog to circuit feature](/images/Vivek_Kumar_Gsoc2025/YosysCV.png)
-
-The Yosys repo is now updated, folder structure updated & consistent with its parent and migrated to ts. In the future any changes to its parent can be easily merged with much conflicts between the two.
-
-### Revamping the Verilog code editor and Verilog Terminal
-
-CircuitVerse provides its users the feature of Verilog code editor. Which can be used by the users to write verilog code and then convert them into circuits and further integrate them into their circuits on the simulator.
-
-#### The goal of the Code Editor is to:
-
-The Code Editor enables users to write and edit Verilog code directly inside CircuitVerse. The users can write and edit their verilog code inside the code editor. Once the code is written, it can be sent to backend powered by Yosys, an open-source synthesis tool. The Yosys backend processes the code, parses the output, and automatically generates a visual circuit based on the Verilog description. This ciruit then turns into a black box circuit that can be simulated in the circuitverse simulator and also connected with other circuit elements.
-
-The Code Editor is built using CodeMirror - a powerful and customizable browser-based code editor.
-
-####  The code Editor has the following features currently:
-- Syntax highlighting for Verilog
-- Smart indentation
-- Line numbering
-- Theme customization (Solarized, Monokai, Blackboard, and more)
-- Reset editor button
-
-But the UI/UX of the code editor is not particularly encouraging for the users, also there are lots of features that can be added to it to make it better.
-
-![Verilog to circuit feature](/images/Vivek_Kumar_Gsoc2025/updatedCodeEditor.png)
-####  I have implemented the following things, which were proposed:
-- Improved indentation between code and line numbering, between numbering and the edge
-- CTRL + S shortcut for the save button
-- Option to increase the font size
-- Displaying error message properly, maybe a whole terminal experience to display the error message
-- Dark default theme in Vue-Simulator
-- Code completion
-- Code folding and bracket matching
-
-### Verilog Terminal
-After the initial changes of font, line-spacing, padding, and auto-bracket matching were implemented to the verilog code editor, there was a need to further improve the verilog code editor and align it with traditional code editors. To do this Verilog code editor terminal was introduced.
-
-The Verilog Terminal provides a console-like view for synthesis/log outputs and errors, reducing context switching. It complements the play/pause control so users can pause simulation, inspect messages, and iterate efficiently.
-
-The verilog terminal logs the process status, success messages, and error logs. It also displays the synatx and other error messages sent from the YOSYS server and displays it to the users, so that they can debug their Verilog Code easily. Further Enhancements can also be added to it, which can include terminal taking commands to save, reset and close the verilog editor and further enhancements.
-
-![Verilog Terminal](/images/Vivek_Kumar_Gsoc2025/verilogTerminal.png)
-
-### Play/Pause Button to the Simulator
-The play/pause button halts the simulation engine, clocks, and UI updates. Users can pause to build/debug circuits and conserve browser resources, then resume when ready. This reduces confusion and supports workflows like debugging, testbenches, and timing diagrams.
-
-![Play pause button](/images/Vivek_Kumar_Gsoc2025/playPauseButton.png)
-
-### Resizable & draggable view of tools window
-The tools section of the Simulator contains various tools, each having thier own window. In the vue-simulator the windows of the tools are neither resizable and nor draggale which causes a lot fo trouble for the users, as they can neither change the size or drag it somewhere. These tools windows were made resizable and draggable allowing the users to do the both.
-
-### Verilog feature documentation
-
-As part of this project, I documented the Verilog feature in detail with examples for CircuitVerse users.
-
-I also created developer-focused docs to make it easy to set up the Verilog feature locally and extend it further.
-
-#### Documenting the Verilog features:
-
-![doc1](/images/Vivek_Kumar_Gsoc2025/doc1.png)
-![doc2](/images/Vivek_Kumar_Gsoc2025/doc2.png)
-![doc3](/images/Vivek_Kumar_Gsoc2025/doc3.png)
+# Pushing vue-simulator to Production
 
 ---
 
 ### Pull Requests
-- PR : [JK Flip Flop](https://github.com/CircuitVerse/cv-frontend-vue/pull/591)
-- PR : [SR Flip Flop](https://github.com/CircuitVerse/cv-frontend-vue/pull/592)
-- PR : [ALU](https://github.com/CircuitVerse/cv-frontend-vue/pull/593)
-- PR : [D-Latch](https://github.com/CircuitVerse/cv-frontend-vue/pull/594)
-- PR : [Force Gate](https://github.com/CircuitVerse/cv-frontend-vue/pull/609)
-- PR : [LSB](https://github.com/CircuitVerse/cv-frontend-vue/pull/621)
-- PR : [TestBench Element](https://github.com/CircuitVerse/cv-frontend-vue/pull/611)
-- PR : [DFF fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/619)
-- PR : [TFF fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/620)
-- PR : [Adder fix](https://github.com/CircuitVerse/cv-frontend-vue/pull/645)
-- PR : [Verilog Code editor](https://github.com/CircuitVerse/cv-frontend-vue/pull/628)
-- PR : [Verilog Code editor](https://github.com/CircuitVerse/cv-frontend-vue/pull/640)
-- PR : [Pr doc1](https://github.com/CircuitVerse/cv-frontend-vue/pull/628)
-- PR : [Pr doc2](https://github.com/CircuitVerse/CircuitVerseDocs/pull/437)
-- PR : [Pr doc3](https://github.com/CircuitVerse/CircuitVerseDocs/pull/438)
-- PR : [Yosys upgrade](https://github.com/CircuitVerse/yosys2digitaljs-server/pull/6)
-- PR : [CI fix](https://github.com/CircuitVerse/yosys2digitaljs-server/pull/7)
+- PR : [Authentication Model](https://github.com/CircuitVerse/cv-frontend-vue/pull/657)
+- PR : [Release Pipelines](https://github.com/CircuitVerse/cv-frontend-vue/pull/636)
+- PR : [Testbench UI/UX](https://github.com/CircuitVerse/cv-frontend-vue/pull/650)
+- PR : [Versioning PR](https://github.com/CircuitVerse/cv-frontend-vue/pull/599)
+- PR : [Conventional commit workflow](https://github.com/CircuitVerse/cv-frontend-vue/pull/656)
+- PR : [Version sync](https://github.com/CircuitVerse/cv-frontend-vue/pull/599)
+- PR : [Infinite loop](https://github.com/CircuitVerse/cv-frontend-vue/pull/647)
 
 ---
 ## Learning
+I learned a lot related to working of things in software. Most of all I learned how to look for solutions. I really liked the part where I sat plannig with my mentors as to how we are gonna be approaching different contingencies. We implemented many ideas and had to leave behind many too. I learned about github actions, Vuejs, Rust and ts a lot. Also got to try my hands on Rails and Ruby too. 
 
-This project taught me a lot about VueJs and how the simulation engine works behind the scenes. I got hands-on with Verilog, writing modules and testbenches, and really improved my digital design skills. Working with Yosys and its move to TypeScript was a great way to learn about backend integration and modern codebases.
+These few weeks taught me a lot about how the industry works and how work is done. I learned a lot of things outside coding and got to meet many crazy people and learn from them.
 
-I also picked up better object-oriented coding habits and got much faster at debugging tricky issues. Setting up Docker and container networking was new for me, but now I feel confident managing development environments. Overall, I became a more versatile coder and learned a ton from collaborating with the CircuitVerse community.
 
 ## Conclusion
 
----
+My journey so far has been nothing but a roller-coaster. Each week I stumbled upon things I didn't know, then learned it, bugged my mentor about it, experimented with it and then implemented it. It has truly been a developer's dream till now. My mentors and CircuitVerse community have been very helpful and inspirational in my little journey. Looking forward to contribute and learn more.
 
-My journey so far has been exciting and amazing. Each week I stumble upon things I don't know, and I learn it, exeriment with it and then implement it. It has truly been a developers dream till now. My mentors and CircuitVerse community have been very helpful and inspirational in my little journey. Looking forward to contribute and learn more.
-
-I would like to thank,
-[Aboobacker MK](https://github.com/tachyons), [Vedant Jain](https://github.com/vedant-jain03), [Niladri Adhikary](https://github.com/niladrix719), [Josh Varga](https://github.com/JoshVarga), [Aman Asrani](https://github.com/tachyons), and other mentors and circuitverse contributors for helping and mentoring me throught the journey.
+I would like especially thank my mentor [Aryann Dwivedi](https://github.com/aryanndwi123) for being an amazing mentor and guiding my way out of the walls I kept head-butting into, I would also like to thank  [Niladri Adhikary](https://github.com/niladrix719), [Arnab Das](https://github.com/Arnabdaz), [Aboobacker MK](https://github.com/tachyons), [Vedant Jain](https://github.com/vedant-jain03) and other mentors and circuitverse contributors for helping and mentoring me throught the journey.
 
