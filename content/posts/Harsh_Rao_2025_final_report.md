@@ -28,12 +28,12 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Deskto
 
 ---
 
-[<h3>Project link</h3>](https://github.com/orgs/CircuitVerse/projects/43/views/2) 
+[<h3>Project Board</h3>](https://github.com/orgs/CircuitVerse/projects/43/views/2) 
 
 ---
 # Authentication Model for Web and Tauri Simulator
-Let's begin with the very own Authentication model for vue-simulator that we recently published. The reason we needed a seperate Authentication model for vue simulator is because of Tauri. Earlier we were simply changing the `path` in the `URL` to direct to the Login page of Circuitverse for Authentication. This particulat method fails for the Tauri simulator because:<br> 
-- It is a stand alone simulator with no connection to the primary codebase.
+Let's begin with the very own Authentication model for vue-simulator that we recently published. The reason we needed a seperate Authentication model for vue simulator is because of Tauri. Earlier we were simply changing the `path` in the `URL` to direct to the Login page of Circuitverse for Authentication. This particular method fails for the Tauri simulator because:<br> 
+- It is a standalone simulator with no connection to the primary codebase.
 - We want the Tauri simulator to also work when user is offline.
 - We cannot redirect links like we do in web in Tauri.<br>
 
@@ -97,7 +97,7 @@ The breakthrough was using GitHub Actions' workflow_dispatch. This allows us to 
 ## The Release Workflow Code
 The entire process is encapsulated in a single GitHub Actions workflow file. It's composed of two primary jobs: build-tauri to compile the application across all platforms, and create-release to package and publish the final release.
 
-```bash
+```yaml
 name: Manually Triggered Desktop Release
 
 permissions:
@@ -344,7 +344,6 @@ From there, everything is automated. Within minutes, a new, cross-platform relea
 
 ![Release Pipelines sample image 2](/images/Harsh_Rao/Release_Pipeline_2.png)
 
-~~**[GIF/Video Here]: A short screen recording showing the process from clicking "Run workflow" to the final, published release on the GitHub Releases page.**~~
 {{< video src="/videos/Harsh_Rao/release-pipeline-final.mp4" controls=true preload=true >}}
 
 # The Artistic new Testbench UI
@@ -364,7 +363,7 @@ Here is a video showcasing the working of the new Testbench
 # Legacy version sync to versions v0 and v1
 
 After the previous year's GSOC project on implementing version control, we needed to sync the legacy simulator versions to the versioned folders while syncing the changes in the src folder to v0 and v1 too. This was carried out in 3 steps.<br>
-**Step 1:** This step was brute-force copying all of the files from the `src` folder to the versioned directiories `v0` and `v1`.
+**Step 1:** This step was brute-force copying all of the files from the `src` folder to the versioned directories `v0` and `v1`.
 **Step 2:** Then we compared all of the changes that existed in `src` and not in `v0` and `v1`. We came across many small features that were missing for `src` which needed to be re-written, for eg: the version mismatch dialogue for the vue simulator in `openOffline.vue`. ([PR #599](https://github.com/CircuitVerse/cv-frontend-vue/pull/599))
 **Step 3:** This was the part where we tested the result of the change, since the change built up a massive PR, this step took time and also proved beneficial. We came across a few shortcomings, the major one being the preview circuits for version `v1` going into infinite reload. This was created due to an error that ocurred during the feature sync to `v1` folder, ([PR #647](https://github.com/CircuitVerse/cv-frontend-vue/pull/647)) 
 
@@ -378,12 +377,11 @@ After the previous year's GSOC project on implementing version control, we neede
 - PR : [Testbench UI/UX](https://github.com/CircuitVerse/cv-frontend-vue/pull/650)
 - PR : [Versioning PR](https://github.com/CircuitVerse/cv-frontend-vue/pull/599)
 - PR : [Conventional commit workflow](https://github.com/CircuitVerse/cv-frontend-vue/pull/656)
-- PR : [Version sync](https://github.com/CircuitVerse/cv-frontend-vue/pull/599)
 - PR : [Infinite loop](https://github.com/CircuitVerse/cv-frontend-vue/pull/647)
 
 ---
 ## Learning
-I learned a lot related to working of things in software. Most of all I learned how to look for solutions. I really liked the part where I sat plannig with my mentors as to how we are gonna be approaching different contingencies. We implemented many ideas and had to leave behind many too. I learned about github actions, Vuejs, Rust and ts a lot. Also got to try my hands on Rails and Ruby too. 
+I learned a lot related to working of things in software. Most of all I learned how to look for solutions. I really liked the part where I sat plannig with my mentors as to how we are going to be approaching different contingencies. We implemented many ideas and had to leave behind many too. I learned a lot about GitHub Actions, Vue.js, Rust, and TypeScript a lot. Also got to try my hands on Rails and Ruby too. 
 
 These few weeks taught me a lot about how the industry works and how work is done. I learned a lot of things outside coding and got to meet many crazy people and learn from them.
 
@@ -392,5 +390,5 @@ These few weeks taught me a lot about how the industry works and how work is don
 
 My journey so far has been nothing but a roller-coaster. Each week I stumbled upon things I didn't know, then learned it, bugged my mentor about it, experimented with it and then implemented it. It has truly been a developer's dream till now. My mentors and CircuitVerse community have been very helpful and inspirational in my little journey. Looking forward to contribute and learn more.
 
-I would like especially thank my mentor [Aryann Dwivedi](https://github.com/aryanndwi123) for being an amazing mentor and guiding my way out of the walls I kept head-butting into, I would also like to thank  [Niladri Adhikary](https://github.com/niladrix719), [Arnab Das](https://github.com/Arnabdaz), [Aboobacker MK](https://github.com/tachyons), [Vedant Jain](https://github.com/vedant-jain03) and other mentors and circuitverse contributors for helping and mentoring me throught the journey.
+I would especially like to thank my mentor [Aryann Dwivedi](https://github.com/aryanndwi123) for being an amazing mentor and guiding my way out of the walls I kept head-butting into, I would also like to thank  [Niladri Adhikary](https://github.com/niladrix719), [Arnab Das](https://github.com/Arnabdaz), [Aboobacker MK](https://github.com/tachyons), [Vedant Jain](https://github.com/vedant-jain03) and other mentors and circuitverse contributors for helping and mentoring me throught the journey.
 
