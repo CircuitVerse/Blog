@@ -23,6 +23,7 @@ Welcome to my final blog for Google Summer of Code 2025 for the project **Deskto
 - An improved Testbench UI/UX
 - Vue-Simulator integration with the primary codebase
 - Legacy feature sync to v0 and v1
+- Tackling major bugs - The Docker Failure
 
 ---
 
@@ -365,6 +366,29 @@ After the previous year's GSOC project on implementing version control, we neede
 **Step 2:** Then we compared all of the changes that existed in `src` and not in `v0` and `v1`. We came across many small features that were missing for `src` which needed to be re-written, for eg: the version mismatch dialogue for the vue simulator in `openOffline.vue`. ([PR #599](https://github.com/CircuitVerse/cv-frontend-vue/pull/599))
 **Step 3:** This was the part where we tested the result of the change, since the change built up a massive PR, this step took time and also proved beneficial. We came across a few shortcomings, the major one being the preview circuits for version `v1` going into infinite reload. This was created due to an error that ocurred during the feature sync to `v1` folder, ([PR #647](https://github.com/CircuitVerse/cv-frontend-vue/pull/647)) 
 
+# Tackling major bugs - The Docker Failure
+For Pushing the vue-simulator we needed to change the old hash pointing to the vue-submoudle in the primary codebase to the new hash pointing to the current vue-submodule. This step in theory was supposed to be just 2 steps : 
+- **Step 1:** `cd` into the `cv-frontend-vue` sumbmodule from the `master` and use `git branch` to switch to main
+- **Step 2:** Raise the PR for it.<br>
+
+But the technicalities of the process over shadowed us and we ran straight into a wall. The Docker publish image workflow was failing!. It had to pass else we couldn't merge the PR ([PR #6012](https://github.com/CircuitVerse/CircuitVerse/pull/6012)). Now we had to review and fix it, as soon as possible. This turned out to be trickier than we thought. It earlier seemed like just an issue due to  missing `v0` in the `outdir`. We tried fixing it that way but failed. Finally after a lot more debugging this is how we solved it.<br>
+**Problem Statement:** Docker build failed with "not found" error when copying Vue simulator files from `/public/simulatorvue/`.<br>
+**Root Cause:** Vite config used relative path ../public/simulatorvue/ with undefined DESKTOP_MODE, causing unpredictable build output location.<br>
+**Solution:** ([PR #6061](https://github.com/CircuitVerse/CircuitVerse/pull/6061))
+- Created explicit output directory `/output/simulatorvue/`
+- Set `DESKTOP_MODE=false` for consistent Vite behavior
+- Added fallback copy logic to handle different output paths
+```yml
+# In simulator_vue_build stage:
+RUN mkdir -p /output/simulatorvue
+ENV DESKTOP_MODE=false
+RUN npm run build
+RUN cp -r public/simulatorvue/* /output/simulatorvue/ || cp -r ../public/simulatorvue/* /output/simulatorvue/
+
+# In final stage:
+COPY --from=simulator_vue_build /output/simulatorvue/ /usr/src/app/public/simulatorvue
+```
+
 ---
 
 ### Pull Requests
@@ -374,6 +398,7 @@ After the previous year's GSOC project on implementing version control, we neede
 - PR : [Versioning PR](https://github.com/CircuitVerse/cv-frontend-vue/pull/599)
 - PR : [Conventional commit workflow](https://github.com/CircuitVerse/cv-frontend-vue/pull/656)
 - PR : [Infinite loop](https://github.com/CircuitVerse/cv-frontend-vue/pull/647)
+- PR : [Docker Failure Fix](https://github.com/CircuitVerse/CircuitVerse/pull/6061)
 
 ---
 ## Learning
