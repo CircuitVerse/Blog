@@ -166,11 +166,13 @@ It handles both **login** and **signup** flows via API requests to the CircuitVe
      - `422 Unprocessable Entity` → Invalid input 🛑  
    - Errors are shown to the user via a **snackbar** notification system. 🔔
 
-These are some of the snaps of the Authentication model -<br>
+These are some of the snaps of the Authentication model and its working video-<br>
 
 ![Authentication sample image 1](/images/Harsh_Rao/Authentication1.png) <br>
 ![Authentication sample image 2](/images/Harsh_Rao/Authentication2-final.png) <br>
 ![Authentication sample image 3](/images/Harsh_Rao/Authentication3-final.png) <br>
+{{< video src="/videos/Harsh_Rao/Authentication.mp4" controls=true preload=true >}}
+
 # 3. Conventional-Commit 🚀
 ---
 **Deliverable:** Now the commits to the cv-frontend-vue require to follow [`conventional-commits`](https://www.conventionalcommits.org/en/v1.0.0/) 📝. This is to add more meaning to commits for both humans and machines 🤖.
