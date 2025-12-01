@@ -112,10 +112,3 @@ icon = "ti-linkedin" # themify icon pack https://themify.me/themify-icons
 link = "https://www.linkedin.com/company/circuitverse"
 
 
-############################ Markdown / Goldmark ###############################
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
-
