@@ -4,7 +4,8 @@ title = "CircuitVerse Blog"
 theme = "northendlab-hugo"
 ############################ Default configuration #########################
 # post pagination
-paginate = "5"
+[pagination]
+  pagerSize = 10
 # post excerpt
 summaryLength = "10"
 # disqus short name
@@ -64,7 +65,8 @@ google_analitycs_id = "UA-112678513-4" # your id
 # contact form action
 contact_form_action = "https://formspree.io/support@circuitverse.org" # contact form works with : https://formspree.io
 # copyright
-copyright = "&copy; 2024 [CircuitVerse](https://circuitverse.org) All Rights Reserved"
+copyright = "&copy; 2025 [CircuitVerse](https://circuitverse.org) All Rights Reserved"
+disqusShortname = ""
 
 # preloader
 [params.preloader]
@@ -108,3 +110,12 @@ link = "https://github.com/Circuitverse/Circuitverse"
 [[params.social]]
 icon = "ti-linkedin" # themify icon pack https://themify.me/themify-icons
 link = "https://www.linkedin.com/company/circuitverse"
+
+
+############################ Markdown / Goldmark ###############################
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+
