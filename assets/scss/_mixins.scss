@@ -149,3 +149,17 @@ body .toc a {
 body .toc a:hover {
       color: #4CAF50 !important; /* Light green text color on hover with !important */
  }
+
+ /* --- 992–1200px squeeze zone fixes --- */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .banner .illustration {
+    max-width: 540px !important;   /* ensure image size sticks */
+    right: 15px !important;        /* prevent overlap */
+  }
+}
+/* In the squeeze band, cap the image and give the text a nudge */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .section.pt-0 .row.shadow.bg-white.p-5 > div:first-child img {
+    width: 180px !important;        /* 320–360 works well */
+  }
+}
