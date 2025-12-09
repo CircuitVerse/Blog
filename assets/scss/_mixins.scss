@@ -163,3 +163,21 @@ body .toc a:hover {
     width: 180px !important;        /* 320–360 works well */
   }
 }
+
+// --- Button color overrides for CircuitVerse theme ---
+.btn-primary,
+.container .btn-primary {
+  background: #42b983 !important;
+  border-color: #42b983 !important;
+}
+.btn-primary:active,
+.btn-primary:hover,
+.btn-primary.focus,
+.btn-primary.active,
+.container .btn-primary:active,
+.container .btn-primary:hover,
+.container .btn-primary.focus,
+.container .btn-primary.active {
+  background: #368f6e !important;
+  border-color: #368f6e !important;
+}
