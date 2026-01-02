@@ -64,7 +64,7 @@ google_analitycs_id = "UA-112678513-4" # your id
 # contact form action
 contact_form_action = "https://formspree.io/support@circuitverse.org" # contact form works with : https://formspree.io
 # copyright
-copyright = "&copy; 2025 [CircuitVerse](https://circuitverse.org) All Rights Reserved"
+copyright = "&copy; 2026 [CircuitVerse](https://circuitverse.org) All Rights Reserved"
 
 # preloader
 [params.preloader]
