@@ -176,3 +176,8 @@ body .toc a:hover {
   background: #368f6e !important;
   border-color: #368f6e !important;
 }
+
+.form-control:focus {
+  border-color: #40ba84 !important;
+  box-shadow: 0 0 0 0.2rem rgba(64, 186, 132, 0.25) !important;
+}
