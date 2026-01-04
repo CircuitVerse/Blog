@@ -68,6 +68,23 @@
 .search-btn:hover{
   color: #40ba84;
 }
+
+// Search box visibility improvements
+.search-wrapper {
+  background: rgba(0, 0, 0, 0.05); // subtle overlay
+}
+.search-box {
+  border: 2px solid #40ba84 !important; // CircuitVerse green border
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); // subtle shadow
+}
+.search-close {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+}
 .navbar-brand{
   padding-bottom: 0;
 }
