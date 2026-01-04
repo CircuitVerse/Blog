@@ -7,8 +7,13 @@ theme = "northendlab-hugo"
 paperSize = "5"
 # post excerpt
 summaryLength = "10"
-# disqus short name
+# disqus short name (deprecated but kept for Hugo 0.73.0 compatibility)
 disqusShortname = "blog-circuitverse-org" # get your shortname form here : https://disqus.com
+
+# Disqus configuration (current Hugo format)
+[services]
+  [services.disqus]
+    shortname = "blog-circuitverse-org"
 
 [outputs]
 home = ["HTML", "AMP", "RSS", "JSON"]
