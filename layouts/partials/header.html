@@ -13,6 +13,7 @@
         type="button"
         data-toggle="collapse"
         data-target="#navigation"
+        aria-label="Toggle navigation"
       >
         <i class="ti-menu text-dark h3"></i>
       </button>
@@ -26,6 +27,8 @@
           </li>
           {{ range .Site.Menus.main }} {{ if .HasChildren }}
           <li class="nav-item dropdown">
+            
+              <a
             
               class="nav-link dropdown-toggle"
               href="#"
