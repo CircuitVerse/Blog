@@ -84,7 +84,6 @@ Feedback from my mentors this sprint pushed me to **split my large dashboard PR 
 I also built the **Member Management page** with the goal of making it as low-friction as possible: an admin changes a member's role with a **single click** on an inline dropdown, adds members through a clean slide-over, and removes them inline, with no modals for the common actions.
 
 - **PR:** [Organization Settings (Edit) page](https://github.com/CircuitVerse/CircuitVerse/pull/7612)
-- **PR:** Member Management page *(link once opened)*
 
 ---
 
@@ -94,7 +93,6 @@ I also built the **Member Management page** with the goal of making it as low-fr
 
 The feature rests on two tables, `organizations` and `organization_members`, with members joining through a role-carrying join table. Organizations use `FriendlyId` for clean, human-readable URL slugs, and data integrity is guaranteed on two layers (a uniqueness validation plus a unique DB index) so a user can only ever hold one membership, and one role, per organization.
 
-<!-- add an ER diagram / schema screenshot here if you have one -->
 
 ### Authorization & Roles (RBAC)
 
@@ -110,7 +108,6 @@ The dashboard is the home of an organization. The tabs switch instantly on the c
 
 Managing members is built to be fast: one-click inline role changes, a slide-over for adding members, and inline removal, all protected by policy checks. The Settings page lets admins update everything about their organization (name, description, location, visibility, logo, links) and includes a **Danger Zone** for deletion, guarded by a type-to-confirm modal so nothing is deleted by accident.
 
-<!-- add a GIF of the one-click role change + settings page here -->
 
 ### Shipping safely with a feature flag
 
