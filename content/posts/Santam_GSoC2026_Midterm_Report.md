@@ -61,7 +61,7 @@ Some of the things I worked on during the first half:
 - Initial work on dynamic rendering
 - Mock data generation for testing
 
-I will add more exact PR links and screenshots here later.
+//TODO: Add PRs and screenshots
 
 ## What I Learned
 
