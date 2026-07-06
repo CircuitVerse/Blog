@@ -11,7 +11,7 @@ type: post
 
 This blog is about my work in the first phase of Google Summer of Code 2026 with CircuitVerse. 
 
-### Project Description
+## Project Description
 
 CircuitVerse has been running its legacy simulator for years while a full **Vue.js rewrite (VueSim)** sat nearly finished but unreleased, held back by a long tail of small bugs and an authentication flow that didn't play well with the rest of the platform. My project is to close that gap: stabilize VueSim so it can actually ship, and make sure users can log in cleanly and securely wherever they run CircuitVerse, in the browser or through the native **Tauri** desktop app.
 
