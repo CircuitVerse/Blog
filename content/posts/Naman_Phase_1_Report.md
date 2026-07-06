@@ -85,7 +85,7 @@ The dashboard is a single page with tabs for **Groups**, **Members**, and **Sett
 
 ### Sprint 6 (29 Jun–5 Jul): Splitting PRs & member management
 
-Based on mentor feedback this sprint, the large dashboard PR was **split into small, focused, stacked PRs** (one for the dashboard, one for the settings page, one for member management), which made reviews far faster and sharper. We worked through a detailed round of review comments across them, several of them security related: gating the organization param behind the feature flag on create only (to prevent org-hijacking through the edit form), making the "leave organization" action fail gracefully instead of erroring, and guarding the group authorization against invalid input.
+Based on mentor feedback this sprint, the large dashboard PR was **split into small, focused, stacked PRs** (one for the dashboard, one for the settings page, one for member management), which made reviews far faster and sharper. We worked through a detailed round of review comments across them, several of them security-related: gating the organization param behind the feature flag on create only (to prevent org-hijacking through the edit form), making the "leave organization" action fail gracefully instead of erroring, and guarding the group authorization against invalid input.
 
 We also built the **Member Management page** with the goal of making it as low-friction as possible: an admin changes a member's role with a **single click** on an inline dropdown, adds members through a clean slide-over, and removes them inline, with no modals for the common actions.
 
@@ -115,7 +115,7 @@ Managing members is built to be fast: one-click inline role changes, a slide-ove
 
 ### Shipping safely with a feature flag
 
-Because this feature is being built and merged incrementally, every organization-facing action is gated behind the **`:organizations` Flipper flag**. The code can be merged and deployed without any of it being reachable by real users until it's complete and approved, so there's zero risk of accidentally rolling out a half-baked feature.
+Because this feature is being built and merged incrementally, every organization-facing action is gated behind the **`:organizations` Flipper flag**. The code can be merged and deployed without any of it being reachable by real users until it's complete and approved, so there's little risk of accidentally rolling out a half-baked feature before it's ready.
 
 ---
 
