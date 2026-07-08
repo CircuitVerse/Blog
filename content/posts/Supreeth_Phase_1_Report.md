@@ -29,30 +29,30 @@ By the time coding officially began, I already had a working mental map of the c
 
 #### Sprint 1 (25–31 May): Bug-hunting in VueSim
 
-Week one was pure QA: finding and fixing the bugs standing between VueSim and a public release. I raised around eight PRs against the Vue simulator over the following weeks, the more notable ones being:
+Week one was pure QA: finding and fixing the bugs standing between VueSim and a public release. We raised around eight PRs against the Vue simulator over the following weeks, the more notable ones being:
 
 - A **`JSON.stringify`** footgun where some data was being stored as a stringified string instead of a proper object, which broke downstream parsing.
 - **Web fonts** failing to load because they weren't being copied into the public directory during the build, a build-pipeline bug that took real digging to trace, and was ultimately fixed by correcting the simulator's path in the build command.
 
-Weeks 2 and 3 were lighter on code since they overlapped with semester-end exams, work I front-loaded and caught up on around the exam schedule with my mentors' support.
+Weeks 2 and 3 were lighter on code since they overlapped with my semester-end exams, work we front-loaded and caught up on around the exam schedule with my mentors' support.
 
 #### Sprint 2 (11-19 June): Rethinking authentication
 
 The most significant change of this stretch was moving VueSim's login away from a **custom modal** to CircuitVerse's existing **Rails Devise** login form. Google and GitHub OAuth need a real browser context to complete their redirect flow, something a custom modal can't provide. Routing through the existing Devise form meant reusing infrastructure that was already battle-tested, then simply picking up the session cookie once the user authenticated.
 
-This is also where I went down a rabbit hole on what "logging out" actually means for a JWT-based session: a JWT is stateless, so deleting a client-side cookie doesn't revoke the token itself. A real logout needs to pair a short-lived access token with a server-side-revocable refresh token; otherwise a copied token stays valid until it expires regardless of what the browser does.
+This is also where we went down a rabbit hole on what "logging out" actually means for a JWT-based session: a JWT is stateless, so deleting a client-side cookie doesn't revoke the token itself. A real logout needs to pair a short-lived access token with a server-side-revocable refresh token; otherwise a copied token stays valid until it expires regardless of what the browser does.
 
 #### Sprint 3 (20-28 June): Tauri auth and PKCE
 
-With web auth settled, I moved to authentication for the **Tauri desktop app**, a materially harder problem since there's no cookie and no client secret to lean on safely. I evaluated two variants of the **OAuth Authorization Code + PKCE** flow: one using a loopback localhost server to catch the redirect, the other using a custom URI scheme (`circuitverse://callback`). Both need the desktop app to open a browser for login and exchange an auth code for a token afterward; they differ only in how that code gets handed back to the app.
+With web auth settled, we moved to authentication for the **Tauri desktop app**, a materially harder problem since there's no cookie and no client secret to lean on safely. We evaluated two variants of the **OAuth Authorization Code + PKCE** flow: one using a loopback localhost server to catch the redirect, the other using a custom URI scheme (`circuitverse://callback`). Both need the desktop app to open a browser for login and exchange an auth code for a token afterward; they differ only in how that code gets handed back to the app.
 
-Getting PKCE right meant understanding exactly what it protects against: an intercepted authorization code. The app generates a `code_verifier`, sends only its hash (`code_challenge`) up front, and later proves possession of the original secret when exchanging the code for a token. I also mapped out how `state`, `nonce`, and PKCE each guard a different failure mode (CSRF, ID-token replay, and code interception respectively), since they're often mentioned together but solve distinct problems.
+Getting PKCE right meant understanding exactly what it protects against: an intercepted authorization code. The app generates a `code_verifier`, sends only its hash (`code_challenge`) up front, and later proves possession of the original secret when exchanging the code for a token. We also mapped out how `state`, `nonce`, and PKCE each guard a different failure mode (CSRF, ID-token replay, and code interception respectively), since they're often mentioned together but solve distinct problems.
 
 #### Sprint 4 (29 Jun–5 Jul): Review cycles
 
 This sprint was less about new code and more about tightening what already existed. My mentor went through my open PRs in detail, and a good chunk of the week went into responding to review feedback and iterating, a rhythm that's been genuinely useful for catching things I'd otherwise have missed.
 
-I also made a deliberate call to **pause the from-scratch Tauri OAuth implementation**. Partway through wiring up poll codes and token exchange, it became clear I was re-solving a problem that established, well-tested patterns already handle. Rather than push forward and rediscover edge cases the hard way, I'm parking it until after the mid-term evaluation to revisit with an established pattern instead of a hand-rolled one.
+We also made a deliberate call to **pause the from-scratch Tauri OAuth implementation**. Partway through wiring up poll codes and token exchange, it became clear we were re-solving a problem that established, well-tested patterns already handle. Rather than push forward and rediscover edge cases the hard way, we are parking it until after the mid-term evaluation to revisit with an established pattern instead of a hand-rolled one.
 
 Meanwhile, VueSim's web authentication PR is up for review, and once merged, that clears the last major blocker standing between the rewrite and a real release.
 
@@ -84,7 +84,7 @@ An in-progress **OAuth Authorization Code + PKCE** flow for the desktop client, 
 
 - **Small, independent bugs add up to a release.** None of the VueSim fixes were individually dramatic, but together they were the difference between a stalled rewrite and a shippable one.
 - **Auth constraints depend entirely on context.** What works for a web login (cookies, modals) breaks down for OAuth redirects, and breaks down again for a desktop app with no client secret to protect. Solving auth generically instead of per-surface would have been a mistake.
-- **Knowing when to stop building from scratch is a skill.** Recognizing mid-implementation that I was re-deriving a well-solved problem, and choosing to pause rather than push through, felt like a more useful decision than finishing a custom flow just to say it was done.
+- **Knowing when to stop building from scratch is a skill.** Recognizing mid-implementation that we were re-deriving a well-solved problem, and choosing to pause rather than push through, felt like a more useful decision than finishing a custom flow just to say it was done.
 - **Review cycles sharpen the work.** Regular PR review with my mentor consistently surfaced cleaner approaches I hadn't considered on my own.
 - **Use AI as a research tool, not a substitute for debugging.** I learned to rely on AI for exploring concepts and possible approaches rather than asking it to identify and fix errors outright. Debugging issues myself led to a deeper understanding of the codebase and made the solutions more deliberate and reliable.
 
