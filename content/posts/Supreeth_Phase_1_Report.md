@@ -76,6 +76,8 @@ We explored an OAuth Authorization Code + PKCE flow for the desktop client, curr
 - [fix: the user profile picture not visible in the vuesim menu bar](https://github.com/CircuitVerse/CircuitVerse/pull/1120)
 - [fix: the locale language dropdown has inconsistent ui](https://github.com/CircuitVerse/CircuitVerse/pull/1118)
 
+### Video: 
+This video shows the fixes made through this project in the first phase : [Youtube link](https://youtu.be/_3TTF6MOmTY)
 
 ### Lessons & learnings
 
