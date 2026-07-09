@@ -100,4 +100,4 @@ This video shows the fixes made through this project in the first phase :
 
 ### Acknowledgements
 
-Thanks to the CircuitVerse community and to my mentors, **[Nihal S Rajpal](https://github.com/Nihal4777)**, **[Arnab Das](https://github.com/Arnabdaz)** and **[Niladri Adhikary](https://github.com/niladrix719)** for the consistent reviews and guidance through this phase. We look forward to getting VueSim shipped and Tauri authentication done right in Phase 2.
+Thanks to the CircuitVerse community and to my mentors, **[Nihal Rajpal](https://github.com/Nihal4777)**, **[Arnab Das](https://github.com/Arnabdaz)** and **[Niladri Adhikary](https://github.com/niladrix719)** for the consistent reviews and guidance through this phase. We look forward to getting VueSim shipped and Tauri authentication done right in Phase 2.
