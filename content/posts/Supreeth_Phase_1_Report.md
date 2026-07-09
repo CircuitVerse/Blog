@@ -9,6 +9,10 @@ type: post
 
 ![gsoc26_phase_1](/images/supreeth_gsoc26/gsoc26.png)
 
+Hey everyone,
+
+I'm [Supreeth C](https://www.linkedin.com/in/supreeth-c-shinichi/), aslo known as [ShinichiShi](https://github.com/ShinichiShi), a GSoC 2026 contributor for the project **"Vue Simulator Integration"**. This blog highlights the work completed during the first half of the GSoC coding period, including key fixes and improvements made to the Vue Simulator.
+
 ## Project Description
 
 CircuitVerse has been running its legacy simulator for years while a full **Vue.js rewrite (VueSim)** sat nearly finished but unreleased, held back by a long tail of small bugs and an authentication flow that didn't play well with the rest of the platform. This project aims to close that gap: stabilize VueSim so it can actually ship, and make sure users can log in cleanly and securely wherever they run CircuitVerse, in the browser or through the native **Tauri** desktop app.
