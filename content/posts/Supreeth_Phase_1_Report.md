@@ -77,7 +77,9 @@ We explored an OAuth Authorization Code + PKCE flow for the desktop client, curr
 - [fix: the locale language dropdown has inconsistent ui](https://github.com/CircuitVerse/CircuitVerse/pull/1118)
 
 ### Video: 
-This video shows the fixes made through this project in the first phase : [Youtube link](https://youtu.be/_3TTF6MOmTY)
+This video shows the fixes made through this project in the first phase :
+{{< youtube _3TTF6MOmTY >}}
+
 
 ### Lessons & learnings
 
