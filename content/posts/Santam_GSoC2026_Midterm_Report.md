@@ -115,12 +115,12 @@ Each workflow runs on pushes and pull requests to the main development branches,
 
 | PR | Title | Status |
 |---|---|---|
-| [#530](https://github.com/CircuitVerse/mobile-app/pull/530) | Fix: Upgrading Deprecated Dependencies Versions (Android) | ✅ Merged |
-| [#578](https://github.com/CircuitVerse/mobile-app/pull/578) | Removed auto-generated plugin files and added them to gitignore | ✅ Merged |
-| [#593](https://github.com/CircuitVerse/mobile-app/pull/593) | chore: upgraded dependencies | ✅ Merged |
-| [#619](https://github.com/CircuitVerse/mobile-app/pull/619) | Modified gitignores for modern Flutter builds | ✅ Merged |
-| [#624](https://github.com/CircuitVerse/mobile-app/pull/624) | Feat: Interactive Book V2 - Renderer, Home Screen, Navbar and Chapter 1 | 🔄 Open |
-| [#632](https://github.com/CircuitVerse/mobile-app/pull/632) | Divided CI to Android, iOS and Web | 🔄 Open |
+| [#530](https://github.com/CircuitVerse/mobile-app/pull/530) | Fix: Upgrading Deprecated Dependencies Versions (Android) |  Merged |
+| [#578](https://github.com/CircuitVerse/mobile-app/pull/578) | Removed auto-generated plugin files and added them to gitignore |  Merged |
+| [#593](https://github.com/CircuitVerse/mobile-app/pull/593) | chore: upgraded dependencies |  Merged |
+| [#619](https://github.com/CircuitVerse/mobile-app/pull/619) | Modified gitignores for modern Flutter builds |  Merged |
+| [#624](https://github.com/CircuitVerse/mobile-app/pull/624) | Feat: Interactive Book V2 - Renderer, Home Screen, Navbar and Chapter 1 |  Open |
+| [#632](https://github.com/CircuitVerse/mobile-app/pull/632) | Divided CI to Android, iOS and Web |  Open |
 
 ## What I Learned
 
@@ -130,6 +130,21 @@ Working with mentors and getting feedback regularly has been really helpful.
 
 ## Next Steps
 
-For the second half, I will continue working on the authentication flow and Interactive Book integration. The remaining chapters of the Interactive Book need to be wired up to the new renderer, and the auth flow needs to be completed with Firebase and Google Sign-In.
+For the second half, I will continue working on the authentication flow and Interactive Book integration. The remaining chapters of the Interactive Book need to be wired up to the new renderer, and the auth flow needs to be completed with Google Sign-In.
+
+Alongside that, I want to keep pushing on the broader product goals we discussed for the app:
+
+- Better logging and debugging support
+- Documentation improvements for the project and workflows
+- Dart issue cleanup, linting, and code quality checks
+- Test coverage improvements
+- A caching layer for better performance
+- Deep linking support
+- Push notifications
+- Play Store deployment
+- Localization
+- Search improvements
+- Splash screen work
+- Further state management and UI refinements, including the remaining Material 3 and Riverpod-related updates
 
 I am looking forward to continuing the project and improving the CircuitVerse mobile app further.
