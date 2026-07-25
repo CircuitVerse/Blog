@@ -162,40 +162,30 @@ body .toc a {
   display: block;
   text-decoration: none;
   color: #000 !important;
-  /* Dark black text color with !important */
   font-weight: bold !important;
-  /* Make the text bold with !important */
   cursor: pointer;
   margin-left: 10px;
-  /* Adjust the margin to control the indentation */
   margin-bottom: 5px;
-  /* Reduce space between headings */
 }
 
 body .toc a:hover {
   color: #4CAF50 !important;
-  /* Light green text color on hover with !important */
 }
 
-/* --- 992–1200px squeeze zone fixes --- */
+/* --- 992-1200px squeeze zone fixes --- */
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .banner .illustration {
     max-width: 540px !important;
-    /* ensure image size sticks */
     right: 15px !important;
-    /* prevent overlap */
   }
 }
 
-/* In the squeeze band, cap the image and give the text a nudge */
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .section.pt-0 .row.shadow.bg-white.p-5>div:first-child img {
     width: 180px !important;
-    /* 320–360 works well */
   }
 }
 
-// --- Button hover color overrides for CircuitVerse theme ---
 .btn-primary:active,
 .btn-primary:hover,
 .btn-primary.focus,
@@ -212,4 +202,43 @@ input.form-control:focus,
 textarea.form-control:focus {
   border-color: #40ba84;
   box-shadow: 0 0 0 0.2rem rgba(64, 186, 132, 0.25);
+}
+
+// Search bar
+.search-wrapper {
+  top: 0 !important;
+  bottom: 0 !important;
+  padding: 0 60px 0 24px;
+  background: #fff;
+  transition: opacity 0.2s ease, visibility 0.2s ease !important;
+}
+
+.search-wrapper form {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  right: 60px;
+  transform: translateY(-50%);
+}
+
+.search-box {
+  height: 42px !important;
+  width: 100% !important;
+  font-size: 15px;
+  border: 1.5px solid #e0e0e0 !important;
+  border-radius: 4px !important;
+  padding: 0 16px !important;
+
+  &:focus {
+    border-color: #40ba84 !important;
+    box-shadow: 0 0 0 3px rgba(64, 186, 132, 0.15) !important;
+    outline: 0;
+  }
+}
+
+.search-close {
+  top: 50% !important;
+  right: 16px !important;
+  transform: translateY(-50%) !important;
+  font-size: 16px !important;
 }
