@@ -9,7 +9,7 @@ type: post
 
 ![GSoC x CircuitVerse](/images/Priyank_Verma/gsoc_x_circuitvere.png)
 
-> **TL;DR:** Over twelve weeks of GSoC 2026, we brought **client-side Verilog synthesis** to CircuitVerse. Users can now write Verilog and have it compiled into a working circuit entirely in the browser, no server needed. The pipeline runs **YoWASP Yosys** (WebAssembly) inside a **Web Worker**, with a **VFS guard** for output validation, a **human-readable error parser**, a **timeout guard**, and **worker lifecycle management**. In the second half, we migrated the Verilog terminal to **reactive Pinia stores**, wrote **parity tests** that run real WASM synthesis against reference fixtures, and authored **comprehensive contributor documentation** covering the full architecture.
+> **TL;DR:** Over twelve weeks of GSoC 2026, we brought **client-side Verilog synthesis** to CircuitVerse's **Tauri desktop app**. Users can now write Verilog and have it compiled into a working circuit entirely on their machine, without a network round-trip. The pipeline runs **YoWASP Yosys** (WebAssembly) inside a **Web Worker**, with a **VFS guard** for output validation, a **human-readable error parser**, a **timeout guard**, and **worker lifecycle management**. In the second half, we migrated the Verilog terminal to **reactive Pinia stores**, wrote **parity tests** that run real WASM synthesis against reference fixtures, and authored **comprehensive contributor documentation** covering the full architecture.
 
 
 ---
@@ -18,7 +18,7 @@ type: post
 
 CircuitVerse is used by hundreds of thousands of students and educators to design and simulate digital circuits visually. But when it comes to Verilog, the platform had a gap. There was no way to compile Verilog code into a circuit without depending on an external server.
 
-**Client-Side Verilog Synthesis** fills that gap. The idea is to move the Verilog synthesis engine from the server to the browser using WebAssembly, so the **Tauri desktop app** can compile circuits fully offline with zero latency. No server, no internet. Just write Verilog and hit synthesize.
+**Client-Side Verilog Synthesis** fills that gap. The idea is to move the Verilog synthesis engine from the server to the browser using WebAssembly, so the **Tauri desktop app** can compile circuits fully offline without a network round-trip. No server, no internet. Just write Verilog and hit synthesize.
 
 ---
 
@@ -150,7 +150,7 @@ The synthesis pipeline follows a clean separation between the main thread and th
 
 **Error path:**
 
-If synthesis fails, the worker captures stderr lines (via console overrides and `printErr` callbacks), runs them through `errorParser.js`, and sends back a human-readable error message. All messages (progress, errors, results) flow through `synthesisStore` and are displayed reactively by `VerilogTerminal.vue`.
+If synthesis fails, the worker captures stderr lines (via console overrides and `printErr` callbacks), runs them through `errorParser.js`, and sends back a human-readable error message. All messages (progress, errors, and success messages) flow through `synthesisStore` and are displayed reactively by `VerilogTerminal.vue`.
 
 ---
 
@@ -244,8 +244,7 @@ The synthesis pipeline is solid and fully functional for the Tauri desktop app. 
 | Week 3 | [Read](https://medium.com/@priyank_verma/gsoc-week-3-the-sound-of-silence-a196dde67ea1) |
 | Week 4 | [Read](https://medium.com/@priyank_verma/gsoc-week-4-a-slight-hiccup-massive-simplifications-and-a-fever-273f71b5ceef) |
 | Week 5 | [Read](https://medium.com/@priyank_verma/gsoc-week-5-merged-prs-midterm-panic-and-the-waiting-game-e42af9181c7b) |
-| Week 6 | [Read](https://medium.com/@priyank_verma/gsoc-week-6-7-midterm-survival-pr-marathons-and-ronaldo-suuuiiii-4246b4c33c42) |
-| Week 7 | [Read](https://medium.com/@priyank_verma/gsoc-week-6-7-midterm-survival-pr-marathons-and-ronaldo-suuuiiii-4246b4c33c42) |
+| Week 6 - 7 | [Read](https://medium.com/@priyank_verma/gsoc-week-6-7-midterm-survival-pr-marathons-and-ronaldo-suuuiiii-4246b4c33c42) |
 | Week 8 | [Read](https://medium.com/@priyank_verma/gsoc-week-8-the-waiting-game-parity-tests-and-college-scams-c53cd047ba96) |
 | Week 9 | [Read](https://medium.com/@priyank_verma/gsoc-week-9-documentation-placements-and-the-duct-tape-of-web-assembly-064a8d36956f) |
 | Week 10 | [Read](https://medium.com/@priyank_verma/gsoc-week-10-wrapping-up-docs-new-faces-and-the-next-big-feature-193b454258e2) |
