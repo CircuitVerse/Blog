@@ -7,7 +7,7 @@ tags: ["GSoC 2026", "CircuitVerse", "Vue", "Simulator", "Verilog", "WebAssembly"
 type: post
 ---
 
-![GSoC x CircuitVerse](/images/Priyank_Verma/gsoc_x_circuitvere.png)
+![GSoC x CircuitVerse](/images/Priyank_Verma/gsoc_x_circuitverse.png)
 
 > **TL;DR:** Over the first six weeks of GSoC 2026, we brought **client-side Verilog synthesis** to CircuitVerse, users can now write Verilog and have it compiled into a working circuit entirely in the browser, no server needed. The pipeline runs **YoWASP Yosys** (WebAssembly) inside a **Web Worker**, with a **VFS guard** for output validation, a **human-readable error parser**, a **timeout guard** to catch runaway compilations, and **worker lifecycle management** to keep memory in check.
 

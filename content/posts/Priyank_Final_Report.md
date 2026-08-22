@@ -7,7 +7,7 @@ tags: ["GSoC 2026", "CircuitVerse", "Vue", "Simulator", "Verilog", "WebAssembly"
 type: post
 ---
 
-![GSoC x CircuitVerse](/images/Priyank_Verma/gsoc_x_circuitvere.png)
+![GSoC x CircuitVerse](/images/Priyank_Verma/gsoc_x_circuitverse.png)
 
 > **TL;DR:** Over twelve weeks of GSoC 2026, we brought **client-side Verilog synthesis** to CircuitVerse's **Tauri desktop app**. Users can now write Verilog and have it compiled into a working circuit entirely on their machine, without a network round-trip. The pipeline runs **YoWASP Yosys** (WebAssembly) inside a **Web Worker**, with a **VFS guard** for output validation, a **human-readable error parser**, a **timeout guard**, and **worker lifecycle management**. In the second half, we migrated the Verilog terminal to **reactive Pinia stores**, wrote **parity tests** that run real WASM synthesis against reference fixtures, and authored **comprehensive contributor documentation** covering the full architecture.
 
