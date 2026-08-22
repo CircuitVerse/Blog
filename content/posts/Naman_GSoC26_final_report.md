@@ -7,7 +7,7 @@ tags: ["GSoC 2026", "CircuitVerse", "Backend", "Rails", "Organizations"]
 type: post
 ---
 
-![gsoc-cover](/images/naman_gsoc_2026/banner.jpg)
+![Enterprise and Institutional Organizations GSoC 2026 final report banner](/images/naman_gsoc_2026/banner.jpg)
 
 **Hey everyone 👋**
 
@@ -15,14 +15,14 @@ Welcome to my final blog for **Google Summer of Code 2026** with **CircuitVerse*
 
 This summer I worked on **Project 6: Enterprise & Institutional Organization Features**. In short: schools and colleges use CircuitVerse heavily, but the platform had no concept of an *institution*. Groups, mentors, and students all existed as loose pieces. My project introduces **Organizations** as a proper container for all of it, with roles, permissions, invitations, and a dashboard to manage everything.
 
-### [Work Repository 🖥](https://github.com/CircuitVerse/CircuitVerse)
+## [Work Repository 🖥](https://github.com/CircuitVerse/CircuitVerse)
 
 > **[Enterprise & Institutional Organization Features](https://summerofcode.withgoogle.com/programs/2026/projects/BEUG5iMM/)**
 > Introduce Organizations end-to-end on CircuitVerse: a database foundation, a three-tier role system (Org Admin / Mentor / Member), Pundit-backed authorization, a full dashboard (Overview, Members, Settings), email-based member invitations, and organization-scoped groups and assignments, all rolled out safely behind a feature flag.
 
 ---
 
-### Project Goals & Accomplishments
+## Project Goals & Accomplishments
 
 ---
 
@@ -46,13 +46,13 @@ This summer I worked on **Project 6: Enterprise & Institutional Organization Fea
 
 ---
 
-# 1. Designing It First 🎨
+## 1. Designing It First 🎨
 
 The project started with Figma mockups rather than code ([#7358](https://github.com/CircuitVerse/CircuitVerse/issues/7358)). I sketched the index page, the creation form, and the dashboard, and iterated on them with my mentors during community bonding before touching the schema. The shipped UI evolved past those early designs, but having a visual target made the first PRs much easier to scope.
 
 ---
 
-# 2. The Foundation: Schema, Models & Authorization 🏗️
+## 2. The Foundation: Schema, Models & Authorization 🏗️
 
 ---
 **Deliverable:** Under the hood, an organization is a real database entity with members, roles, and rules about who can do what. This section is the invisible 40% of the project that everything else stands on.
@@ -67,7 +67,7 @@ On top of that sit the two models ([#7451](https://github.com/CircuitVerse/Circu
 
 ### Roles at a glance
 
-| Capability | Org Admin | Mentor | Student |
+| Capability | Org Admin | Mentor | Member |
 | --- | :---: | :---: | :---: |
 | Manage org  | ✅ | ❌ | ❌ |
 | Add / remove org members | ✅ | ❌ | ❌ |
@@ -87,7 +87,7 @@ Halfway through the summer, a large Pundit refactor landed on `master` (policy n
 
 ---
 
-# 3. Organization Pages: Index, Creation & the Dashboard 🖥️
+## 3. Organization Pages: Index, Creation & the Dashboard 🖥️
 
 ---
 **Deliverable:** Organizations are reachable straight from the navbar. You can browse the ones you belong to, create a new one with a proper form, and land on a dashboard with three tabs (Overview, Members, and Settings) that always tells you where you are.
@@ -100,27 +100,24 @@ The **dashboard** ([#7701](https://github.com/CircuitVerse/CircuitVerse/pull/770
 
 A small touch I ended up liking a lot: the browser tab title updates as you move around, so a tab reads `Organizations / ABC Delhi - Members` and you can tell your tabs apart at a glance.
 
-
 {{< video src="/videos/naman_gsoc_2026/org-creation-dashboard.mp4" type="video/mp4" preload="auto" >}}
-
 
 ---
 
-# 4. Members & Role Management 👥
+## 4. Members & Role Management 👥
 
 ---
 **Deliverable:** The Members tab is mission control for an organization's people. Admins can change roles, and remove members. Every destructive action sits behind a confirmation, and every rule is enforced on the server.
 
 ---
 
-The members page [#7771](https://github.com/CircuitVerse/CircuitVerse/pull/7771) lists everyone with their role, filtering by role, sorting (by name by default, which was a review suggestion I agreed with, or by role or join date), and paginates for large institutions. Role changes and removals go through confirmation dialogs, and the same Pundit policies from the foundation section back every action. Members who aren't admins get a "Leave organization" action instead, with the sole-admin case blocked so an org can't orphan itself.
-
+The members page ([#7771](https://github.com/CircuitVerse/CircuitVerse/pull/7771)) lists everyone with their role, filtering by role, sorting (by name by default, which was a review suggestion I agreed with, or by role or join date), and paginates for large institutions. Role changes and removals go through confirmation dialogs, and the same Pundit policies from the foundation section back every action. Members who aren't admins get a "Leave organization" action instead, with the sole-admin case blocked so an org can't orphan itself.
 
 {{< video src="/videos/naman_gsoc_2026/members-management.mp4" type="video/mp4" preload="auto" >}}
 
 ---
 
-# 5. Email-Based Member Invitations ✉️
+## 5. Email-Based Member Invitations ✉️
 
 ---
 **Deliverable:** Adding people is now just typing their emails and picking a role. Existing CircuitVerse users are added instantly. Everyone else gets an invitation email and joins automatically, with the right role, the moment they sign up.
@@ -140,7 +137,7 @@ belongs_to :group, optional: true
 belongs_to :organization, optional: true
 ```
 
-The create action normalizes and validates the submitted emails, drops anyone who's already a member (and the current user), then either adds each person immediately or leaves them a pending invitation:
+The create action normalizes and validates the submitted emails, drops anyone who's already a member (and the current user), then either adds each person immediately or leaves them a pending invitation.
 
 When an invited person signs up, a callback on `User` consumes their pending invitations inside a transaction and turns each one into the right membership: a group membership (plus the parent organization) for group invites, or an organization membership carrying the stored role for org invites.
 
@@ -164,13 +161,11 @@ The invite modal uses a **Select2** tag input: type emails, and space, comma, or
 
 The invitation email itself had a real bug waiting: `PendingInvitationMailer` was written for groups only, so an organization invitation crashed it on a nil group. I made the mailer and its template organization-aware. Org invitees now get a proper "you've been added to *Organization Name*, sign up to access it" email, and group emails are untouched.
 
-
 {{< video src="/videos/naman_gsoc_2026/invite-flow.mp4" type="video/mp4" preload="auto" >}}
-
 
 ---
 
-# 6. Organization-Scoped Groups & Assignments 🗂️
+## 6. Organization-Scoped Groups & Assignments 🗂️
 
 ---
 **Deliverable:** Groups and assignments that belong to an organization now live under it, in structure and in URL. An institution's mentor navigates organization → group → assignment along one clean path.
@@ -179,15 +174,13 @@ The invitation email itself had a real bug waiting: `PendingInvitationMailer` wa
 
 An organization isn't much use if its classrooms float free. I nested group URLs under their parent organization ([#7756](https://github.com/CircuitVerse/CircuitVerse/pull/7756)) and then scoped assignments under those organization group URLs ([#7768](https://github.com/CircuitVerse/CircuitVerse/pull/7768)). The hierarchy shapes authorization naturally too, since access flows down from the org.
 
-This area also produced the summer's most satisfying bug fix ([#7744](https://github.com/CircuitVerse/CircuitVerse/pull/7742)): org admins couldn't open groups inside their own organization. Chasing that one down was a good lesson in how routing scope and policy scope have to agree with each other.
-
+This area also produced the summer's most satisfying bug fix ([#7742](https://github.com/CircuitVerse/CircuitVerse/pull/7742)): org admins couldn't open groups inside their own organization. Chasing that one down was a good lesson in how routing scope and policy scope have to agree with each other.
 
 {{< video src="/videos/naman_gsoc_2026/scoped-groups.mp4" type="video/mp4" preload="auto" >}}
 
-
 ---
 
-# 7. Switcher & Polish 🔀
+## 7. Switcher & Polish 🔀
 
 ---
 **Deliverable:** Belong to more than one organization? A switcher in the dashboard header hops between them. Around it, a round of UI refinements makes the whole feature feel finished rather than bolted on.
@@ -198,10 +191,9 @@ The **organization switcher** ([#7786](https://github.com/CircuitVerse/CircuitVe
 
 {{< video src="/videos/naman_gsoc_2026/switcher.mp4" type="video/mp4" preload="auto" >}}
 
-
 ---
 
-### Pull Requests
+## Pull Requests
 
 **Some of the most important pull requests of the project. For the full set, see [all my CircuitVerse PRs](https://github.com/CircuitVerse/CircuitVerse/pulls?q=is%3Apr+author%3Anaman79820).**
 
@@ -225,26 +217,25 @@ The **organization switcher** ([#7786](https://github.com/CircuitVerse/CircuitVe
 | [#7742](https://github.com/CircuitVerse/CircuitVerse/pull/7742) | Fix: org admins could not open their own org groups | Merged |
 | [#7786](https://github.com/CircuitVerse/CircuitVerse/pull/7786) | Organization switcher | Merged |
 
-
 ---
 
-### Learning 📚
+## Learning 📚
 
 Coming into this summer I could write Rails. Coming out of it, I understand it.
- 
+
 **The Rails foundation, properly this time.** Building a feature this size meant working through nearly every layer of the framework rather than the handful I was comfortable with. Migrations, models and associations, validations, callbacks, enums, controllers, strong parameters, policies, ViewComponents, Stimulus controllers, mailers, i18n, feature flags, and the test suite around all of it. Things I had used before without really understanding, like `has_many :through` or `after_commit` callbacks, became tools I now reach for deliberately because I know what they do and when they bite.
- 
+
 **Databases and query craft.** A lot of my growth was below the model layer. I learned how to design a schema that holds up (a role-carrying join table, uniqueness enforced in both the model and the database so duplicates are impossible even under a race), and how to write queries that do not fall apart at scale. Sorting, filtering, and paginating members taught me to think in terms of what SQL my Active Record actually produces, and to reach for `pluck` and `exists?` where loading full objects would be wasteful.
- 
+
 **Indexing, caching, and optimization.** Adding a unique compound index to make invitation creation race-safe was the moment indexes stopped being an abstraction. I learned why concurrent index builds matter on a live table, why foreign keys are added without validating existing rows, and how counter caches and eager loading avoid the N+1 queries that quietly make a page slow. The `strong_migrations` gem blocked me repeatedly, and every single time it was right to.
- 
+
 **Reading a large codebase.** Perhaps the most useful skill of all. Almost every good decision I made started with reading how CircuitVerse already solved a similar problem. The invitation flow is the clearest example: instead of inventing something, I traced how Groups handle invitations end to end, found where their approach fell short, and built on it. Knowing a codebase deeply is what lets you extend it without fighting it.
- 
+
 **Working the way a team works.** Small, stacked, reviewable pull requests. Design decisions discussed before the code is written. Review feedback treated as free senior-engineer attention rather than criticism. Security asked about first on a multi-tenant feature, not last. These habits shaped the project more than any single technical choice.
 
 ---
 
-### Weekly Blogs
+## Weekly Blogs
 
 | Week | Blog Link |
 | ---- | --------- |
@@ -253,7 +244,7 @@ Coming into this summer I could write Rails. Coming out of it, I understand it.
 | Week 3 | [Read](https://medium.com/@naman79820/coding-period-week-3-23e177eb3913) |
 | Week 4 | [Read](https://medium.com/@naman79820/coding-period-week-4-3a758d2a7d1f) |
 | Week 5 | [Read](https://medium.com/@naman79820/coding-period-week-5-891892d4606a) |
-| Week 6 | [Read](https://medium.com/@naman79820/midterm-blog-dashboard-ui-and-a-surprise-called-subgroups-coding-period-week-6-7-%EF%B8%8F-99e7cd052e43l) |
+| Week 6 | [Read](https://medium.com/@naman79820/midterm-blog-dashboard-ui-and-a-surprise-called-subgroups-coding-period-week-6-7-%EF%B8%8F-99e7cd052e43) |
 | Week 7 | *Mid-term report*  [Read](https://blog.circuitverse.org/posts/naman_phase_1_report/) |
 | Week 8 | [Read](https://medium.com/@naman79820/a-mistake-i-own-and-slowing-down-a-bit-coding-period-week-8-%EF%B8%8F-9fe2d94640ec) |
 | Week 9 | [Read](https://medium.com/@naman79820/grinding-on-views-planning-sso-and-standing-up-for-something-coding-period-week-9-99ded6f348a5) |
@@ -263,7 +254,7 @@ Coming into this summer I could write Rails. Coming out of it, I understand it.
 
 ---
 
-### Experience 🙏
+## Experience 🙏
 
 - **Mentors:** [Vedant Jain](https://github.com/vedant-jain03), [Yashika Jotwani](https://github.com/yashikajotwani12), [Pratham More](https://github.com/PRATHAM2002-DS)
 - **Org Admin:** [Vedant Jain](https://github.com/vedant-jain03), [Aboobacker MK](https://github.com/tachyons)
@@ -271,7 +262,7 @@ Coming into this summer I could write Rails. Coming out of it, I understand it.
 
 Working on CircuitVerse this summer was the most rewarding stretch of building I've done. Organizations touched almost every layer of the app, from migrations to Pundit policies to Stimulus controllers, and getting to carry a feature that size from a Figma mockup all the way to production taught me more than any course could have.
 
-Thank you to my mentors for the reviews, the whole discussions, and the patience with my questions, and the whole CircuitVerse community for making it easy to keep showing up. Every round of feedback made the feature better, and me too.
+Thank you to my mentors for the reviews, the discussions, and the patience with my questions, and the whole CircuitVerse community for making it easy to keep showing up. Every round of feedback made the feature better, and me too.
 
 Here's to institutions finding a proper home on CircuitVerse, and to everything that gets built on top of it next.
 
