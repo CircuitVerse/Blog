@@ -13,183 +13,150 @@ type: post
 
 Welcome to my final blog for **Google Summer of Code 2026** with **CircuitVerse**. For anyone new to it: CircuitVerse is a digital circuit simulation platform where circuits can be designed and simulated through a graphical interface. You can build anything from a single logic gate up to a complete CPU, though the software is aimed primarily at educational use.
 
-This summer I worked on **Project 6: Enterprise & Institutional Organization Features**. In short: schools and colleges use CircuitVerse heavily, but the platform had no concept of an *institution*. Groups, mentors, and students all existed as loose pieces. My project introduces **Organizations** as a proper container for all of it, with roles, permissions, invitations, and a dashboard to manage everything.
-
-## [Work Repository 🖥](https://github.com/CircuitVerse/CircuitVerse)
-
-> **[Enterprise & Institutional Organization Features](https://summerofcode.withgoogle.com/programs/2026/projects/BEUG5iMM/)**
-> Introduce Organizations end-to-end on CircuitVerse: a database foundation, a three-tier role system (Org Admin / Mentor / Member), Pundit-backed authorization, a full dashboard (Overview, Members, Settings), email-based member invitations, and organization-scoped groups and assignments, all rolled out safely behind a feature flag.
+This summer I worked on **Project 6: Enterprise & Institutional Organization Features**, and this post walks through what it is, who it helps, and what is still to come.
 
 ---
 
-## Project Goals & Accomplishments
+## What are Organizations, and who are they for?
+
+Plenty of schools, colleges, and coaching institutes already use CircuitVerse. A professor creates a group, adds their students, sets assignments, and everything works. But the moment an institution has more than one teacher, that model starts to strain.
+
+Groups sit on their own with no shared home. You can add a colleague as a mentor, but only one group at a time, so there is no way to say "this person helps run everything in our department." There is no single place to see what your institution is doing, no shared list of who belongs to it.
+
+**Organizations** fix that. An organization is a container for everything an institution does on CircuitVerse: its people, its groups, and its assignments, with proper roles deciding who can do what.
+
+### Who benefits
+
+**Institutions and departments** get a single home on CircuitVerse. All your groups live under one roof, with a shared member list and a dashboard that shows what is happening across the whole institution rather than one teacher at a time.
+
+**Teachers and professors** stop being solely responsible for everything they create. Multiple mentors can run groups inside the same organization, and an admin can hand over or reassign things when someone changes roles or leaves. Adding people is now as simple as typing their email addresses.
+
+**Students** get added to their institution once and see the groups that belong to it, rather than tracking down invite links for each individual group.
+
+**Administrators** get a real permission system. An org admin manages the organization and its people, mentors run their groups, and members participate. Nobody has more access than they need.
 
 ---
 
-1. Figma UI/UX mockups for the complete Organizations experience
-2. Core database schema: organizations table, organization_members table, and organization_id on groups for classroom nesting
-3. Organization and OrganizationMember models, logo attachments, link validation, and a role enum
-4. OrganizationsController and OrganizationMembersController
-5. Pundit authorization policies for organizations and their members
-6. Organizations index page with navbar access
-7. Organization creation page and form
-8. Organization dashboard with Overview / Members / Settings tabs
-9. Members page with role filter, sorting, and pagination
-10. Role management: change roles, remove members, leave an organization, and sole-admin protection
-11. Email-based member invitations (backend + UI)
-12. Organization-aware invitation emails
-13. Nested group URLs under organizations
-14. Assignments scoped under organization group URLs
-15. Organization switcher in the dashboard header
-16. Form and index UI refinements, browser-tab breadcrumbs, full i18n for all new copy
-17. Everything behind the `:organizations` feature flag for a safe rollout
+## What has been built
 
----
+### An organization with a proper home
 
-## 1. Designing It First 🎨
+You can create an organization with a name, description, location, logo, and links to your institution's website or social profiles. It gets its own dashboard split into three tabs: **Overview** for the groups inside it, **Members** for the people, and **Settings** for everything else.
 
-The project started with Figma mockups rather than code ([#7358](https://github.com/CircuitVerse/CircuitVerse/issues/7358)). I sketched the index page, the creation form, and the dashboard, and iterated on them with my mentors during community bonding before touching the schema. The shipped UI evolved past those early designs, but having a visual target made the first PRs much easier to scope.
+{{< video src="/videos/naman_gsoc_2026/org-creation-dashboard.mp4" type="video/mp4" preload="auto" >}}
 
----
-
-## 2. The Foundation: Schema, Models & Authorization 🏗️
-
----
-**Deliverable:** Under the hood, an organization is a real database entity with members, roles, and rules about who can do what. This section is the invisible 40% of the project that everything else stands on.
-
----
-
-The data layer came together across a series of scoped issues: the core `organizations` table ([#7370](https://github.com/CircuitVerse/CircuitVerse/pull/7370)), the `organization_members` join table ([#7391](https://github.com/CircuitVerse/CircuitVerse/pull/7391)), and an `organization_id` column on groups so a classroom can nest inside its institution ([#7370](https://github.com/CircuitVerse/CircuitVerse/pull/7370)).
-
-On top of that sit the two models ([#7451](https://github.com/CircuitVerse/CircuitVerse/pull/7451)). `Organization` has an attached logo (validated client-side for type and size before upload), a description, a location field ([#7563](https://github.com/CircuitVerse/CircuitVerse/pull/7563)), and up to five validated external links. `OrganizationMember` carries the role system as a plain Rails enum:
-
-![Organization role enum](/images/naman_gsoc_2026/Organization_role_enum.png)
-
-### Roles at a glance
+### Three roles, clearly separated
 
 | Capability | Org Admin | Mentor | Member |
 | --- | :---: | :---: | :---: |
 | Manage org  | ✅ | ❌ | ❌ |
 | Add / remove org members | ✅ | ❌ | ❌ |
-| Create new groups (classrooms) | ✅ | ✅ | ❌ |
+| Create new groups | ✅ | ✅ | ❌ |
 | Manage / delete all groups | ✅ | ❌ | ❌ |
 | Manage / delete assigned groups | ✅ | Owned only | ❌ |
 | View dashboard | ✅ | ✅ | ✅ |
 | Leave org | ✅* | ✅ | ✅ |
 
-<small>*An admin can only leave if another admin remains, and if they are not the primary mentor of any group in the organization.</small>
+<small>*An admin can only leave if another admin remains, and if they are not the primary mentor of any group in the organization. This stops an organization from ending up with nobody able to manage it.</small>
 
-The controllers ([#7457](https://github.com/CircuitVerse/CircuitVerse/pull/7457)) handle the CRUD and member management, and **Pundit policies** ([#7493](https://github.com/CircuitVerse/CircuitVerse/pull/7493)) decide who gets to do what. Authorization was where most of the careful thinking happened. A mentor must not be able to remove another member. A student must never reach admin actions. And the last remaining admin cannot demote or remove themselves, because that would leave the organization permanently unmanageable. The sole-admin protection is enforced server-side on update, destroy, and leave.
+### Adding people by email
 
-One design decision I like here: unauthorized access to an organization returns a **404, not a 403**. If you're not supposed to see an org, the app behaves as if it doesn't exist at all, which avoids leaking which private organizations are on the platform. Actions inside the members controller return an honest 403 instead, since at that point you already know the org exists.
+Adding members is now just typing their email addresses and picking a role. If someone already has a CircuitVerse account, they are added straight away. If they do not, they get an invitation email, and the moment they sign up they join your organization automatically with the role you chose for them.
 
-Halfway through the summer, a large Pundit refactor landed on `master` (policy normalization plus a `verify_authorized` safety net).
+This is the same flow CircuitVerse Groups already use, so it should feel familiar if you have added people to a group before.
 
----
+{{< video src="/videos/naman_gsoc_2026/invite-flow.mp4" type="video/mp4" preload="auto" >}}
 
-## 3. Organization Pages: Index, Creation & the Dashboard 🖥️
+### Managing your members
 
----
-**Deliverable:** Organizations are reachable straight from the navbar. You can browse the ones you belong to, create a new one with a proper form, and land on a dashboard with three tabs (Overview, Members, and Settings) that always tells you where you are.
-
----
-
-With the foundation in place, the pages came next. The **index page** ([#7744](https://github.com/CircuitVerse/CircuitVerse/pull/7744)) lists your organizations as cards (with logos and a member count that caps at "1000+" rather than printing silly numbers) and is linked from the navbar. The **creation page** ([#7739](https://github.com/CircuitVerse/CircuitVerse/pull/7739)) hosts the organization form: name, description, location, external links you can add and remove dynamically, and a logo uploader with a live preview.
-
-The **dashboard** ([#7701](https://github.com/CircuitVerse/CircuitVerse/pull/7701)) is built from ViewComponents. A shell component renders the tab navigation, with the form and social-links pieces as their own components. The **Overview** tab shows the organization's groups. The **Settings** tab ([#7747](https://github.com/CircuitVerse/CircuitVerse/pull/7747)) holds the edit form plus a Danger Zone: deleting an organization requires typing its name to confirm, and any groups inside it become standalone groups instead of vanishing.
-
-A small touch I ended up liking a lot: the browser tab title updates as you move around, so a tab reads `Organizations / ABC Delhi - Members` and you can tell your tabs apart at a glance.
-
-{{< video src="/videos/naman_gsoc_2026/org-creation-dashboard.mp4" type="video/mp4" preload="auto" >}}
-
----
-
-## 4. Members & Role Management 👥
-
----
-**Deliverable:** The Members tab is mission control for an organization's people. Admins can change roles, and remove members. Every destructive action sits behind a confirmation, and every rule is enforced on the server.
-
----
-
-The members page ([#7771](https://github.com/CircuitVerse/CircuitVerse/pull/7771)) lists everyone with their role, filtering by role, sorting (by name by default, which was a review suggestion I agreed with, or by role or join date), and paginates for large institutions. Role changes and removals go through confirmation dialogs, and the same Pundit policies from the foundation section back every action. Members who aren't admins get a "Leave organization" action instead, with the sole-admin case blocked so an org can't orphan itself.
+The Members tab lists everyone with their role. You can filter by role, sort the list, and page through it if your institution is large. Admins can change someone's role or remove them, each behind a confirmation. Anyone can leave an organization themselves, with the sole-admin case blocked so an organization is never left unmanageable.
 
 {{< video src="/videos/naman_gsoc_2026/members-management.mp4" type="video/mp4" preload="auto" >}}
 
+### Groups that belong somewhere
+
+Groups and assignments created inside an organization now live under it, both in how they are organized and in their web addresses. A mentor moves along one clear path: organization, then group, then assignment.
+
+{{< video src="/videos/naman_gsoc_2026/scoped-groups.mp4" type="video/mp4" preload="auto" >}}
+
+### Switching between organizations
+
+If you belong to more than one institution, a switcher in the dashboard header moves between them. It stays out of the way if you only belong to one.
+
+{{< video src="/videos/naman_gsoc_2026/switcher.mp4" type="video/mp4" preload="auto" >}}
+
 ---
 
-## 5. Email-Based Member Invitations ✉️
+## What is still to come
+ 
+Organizations lays a foundation, and there is plenty that can be built on top of it:
+ 
+- **Institutional single sign-on.** Letting institutions connect their own identity provider so members sign in with their existing college or university accounts, rather than maintaining separate CircuitVerse credentials.
+- **Custom branding.** Letting an institution give its organization page its own look, and potentially its own subdomain.
+- **Continued polish.** Richer organization pages and smaller improvements as institutions start using it and tell us what they need.
+
+If you run into a bug while using Organizations, or you have an idea for something that would genuinely make it more useful, open an issue on the [CircuitVerse repository](https://github.com/CircuitVerse/CircuitVerse/issues). Feedback from people actually using it is what shapes what gets built next.
 
 ---
-**Deliverable:** Adding people is now just typing their emails and picking a role. Existing CircuitVerse users are added instantly. Everyone else gets an invitation email and joins automatically, with the right role, the moment they sign up.
 
----
+## For the developers: how it was built
 
-This was the biggest single piece of the summer ([#7799](https://github.com/CircuitVerse/CircuitVerse/pull/7799)), and it shipped as two stacked PRs: a backend PR (models, migrations, controller, mailer) and a UI PR on top.
+The rest of this post is the technical side, for anyone curious about the implementation or looking to contribute.
 
-The original plan was an invite-token / shareable-link system, and an early version of it existed. After discussing it with my mentors, I ripped it out and rebuilt the flow around **email invitations**, the same way CircuitVerse Groups already work. Consistency won: users already understand the Groups flow, and reviewers can compare the two implementations side by side.
+### The foundation: schema, models, and authorization
 
-### How it works
+The data layer came together across a series of scoped PRs: the core `organizations` table ([#7370](https://github.com/CircuitVerse/CircuitVerse/pull/7370)), the `organization_members` join table ([#7391](https://github.com/CircuitVerse/CircuitVerse/pull/7391)), and an `organization_id` column on groups so a group can nest inside its institution.
 
-Organizations reuse the existing `PendingInvitation` model instead of adding a new one. I extended it so an invitation belongs to *either* a group *or* an organization, and added a `role` column so the intended role survives sign-up:
+On top of that sit the two models ([#7451](https://github.com/CircuitVerse/CircuitVerse/pull/7451)). `Organization` has an attached logo, a description, a location field ([#7563](https://github.com/CircuitVerse/CircuitVerse/pull/7563)), and up to five validated external links. `OrganizationMember` carries the role system as a plain Rails enum:
 
+![Organization role enum](/images/naman_gsoc_2026/Organization_role_enum.png)
+
+The controllers ([#7457](https://github.com/CircuitVerse/CircuitVerse/pull/7457)) handle the CRUD and member management, and **Pundit policies** ([#7493](https://github.com/CircuitVerse/CircuitVerse/pull/7493)) decide who gets to do what. Authorization was where most of the careful thinking happened. A mentor must not be able to remove another member. A member must never reach admin actions. And the last remaining admin cannot demote or remove themselves, because that would leave the organization permanently unmanageable. The sole-admin protection is enforced server-side on update, destroy, and leave.
+
+One design decision I like here: unauthorized access to an organization returns a **404, not a 403**. Organizations are private to their members, so if you are not part of one, the app behaves as if it does not exist at all rather than confirming it is there and refusing you. Actions inside the members controller return an honest 403 instead, since at that point you already know the organization exists.
+
+### The pages
+
+The **index page** ([#7744](https://github.com/CircuitVerse/CircuitVerse/pull/7744)) lists your organizations as cards and is linked from the navbar. The **creation page** ([#7739](https://github.com/CircuitVerse/CircuitVerse/pull/7739)) hosts the organization form with dynamic link fields and a live logo preview. The **dashboard** ([#7701](https://github.com/CircuitVerse/CircuitVerse/pull/7701)) is built from ViewComponents, with a shell component rendering the tab navigation. The **Settings** tab ([#7747](https://github.com/CircuitVerse/CircuitVerse/pull/7747)) holds the edit form plus a Danger Zone, where deleting an organization requires typing its name to confirm and any groups inside it become standalone groups rather than vanishing.
+
+### Member management and email invitations
+ 
+This was the biggest single piece of the summer, and it shipped as two stacked pull requests: [#7799](https://github.com/CircuitVerse/CircuitVerse/pull/7799) for the backend (models, migrations, controller, and mailer) and [#7771](https://github.com/CircuitVerse/CircuitVerse/pull/7771) for the interface. Between them they cover the whole members experience: the members page with its role filtering, sorting and pagination, the role-change and remove actions, leaving an organization, and the invitation flow itself.
+ 
+The original plan was an invite-token and shareable-link system, and an early version of it existed. After discussing it with my mentors, we decided to drop it and rebuild the flow around email invitations, matching how Groups already work.
+ 
+Organizations reuse the existing `PendingInvitation` model rather than adding a new one. It was extended so an invitation belongs to *either* a group *or* an organization, with a `role` column added so the intended role survives sign-up:
+ 
 ```ruby
 belongs_to :group, optional: true
 belongs_to :organization, optional: true
 ```
+ 
+When an invited person signs up, a callback on `User` consumes their pending invitations inside a transaction and turns each one into the right membership.
 
-The create action normalizes and validates the submitted emails, drops anyone who's already a member (and the current user), then either adds each person immediately or leaves them a pending invitation.
+#### Why a `role` column? A lesson from Groups
 
-When an invited person signs up, a callback on `User` consumes their pending invitations inside a transaction and turns each one into the right membership: a group membership (plus the parent organization) for group invites, or an organization membership carrying the stored role for org invites.
+While studying the Groups code I found something interesting. Groups tracks mentorship with a boolean, but only applies it to users who *already exist*. Invite a brand-new email as a mentor in a Group, and they sign up as a plain member, because the pending invitation never stored the mentor flag and the intent is silently lost. My mentor asked why I was not just replicating the Groups approach, and this was the answer: organizations have three roles (a boolean cannot represent them), and I wanted the invited role to actually survive sign-up.
 
-### Why a `role` column? A lesson from Groups
+#### Hardening it
 
-While studying the Groups code, I found something interesting: Groups tracks mentorship with a boolean, but only applies it to users who *already exist*. Invite a brand-new email as a mentor in a Group, and they sign up as a plain member, because the pending invitation never stored the mentor flag and the intent is silently lost. My mentor asked why I wasn't just replicating the Groups approach, and this was the answer: organizations have three roles (a boolean can't represent them), and I wanted the invited role to actually survive sign-up. Storing the role on the invitation solves both.
+Review feedback pushed the implementation further, and every round made it better:
 
-### Hardening it
+- **Canonical emails.** Every address is stripped and lowercased before any lookup or write, so `John@X.com` cannot slip past the existing-member check as a duplicate of `john@x.com`.
+- **Race safety.** A unique index on `(organization_id, email)` plus `create_or_find_by!` means two simultaneous invites of the same address cannot create duplicate rows or send duplicate emails.
+- **Role precedence.** On sign-up I use `find_or_initialize_by` and set the role explicitly, so a direct organization invitation's role applies even if a membership already exists from a group invite processed first.
+- **A restored behavior.** My first refactor accidentally dropped the line that adds group invitees to their group's parent organization. Review caught it, and I restored it.
+- **Graceful failures.** The create action rescues validation errors and redirects with an alert instead of returning a 500.
 
-Review feedback (automated and human) pushed the implementation further, and every round made it better:
+### Scoped groups and assignments
 
-- **Canonical emails.** Every address is stripped and lowercased before any lookup or write, so `John@X.com` can't sneak past the existing-member check as a duplicate of `john@x.com`.
-- **Race safety.** A unique index on `(organization_id, email)` plus `create_or_find_by!` means two simultaneous invites of the same address can't create duplicate rows or send duplicate emails.
-- **Role precedence.** On sign-up I use `find_or_initialize_by` and set the role explicitly, so a direct org invitation's role applies even if a membership already exists from a group invite processed first.
-- **A restored behavior.** My first refactor accidentally dropped the line that adds group invitees to their group's parent organization. Review caught it; I restored it, matching the original behavior exactly.
-- **Graceful failures.** The create action rescues validation errors and redirects with an alert instead of blowing up with a 500.
+I nested group URLs under their parent organization ([#7756](https://github.com/CircuitVerse/CircuitVerse/pull/7756)) and then scoped assignments under those organization group URLs ([#7768](https://github.com/CircuitVerse/CircuitVerse/pull/7768)). The hierarchy shapes authorization naturally, since access flows down from the organization.
 
-### The UI and the mailer
+This area also produced the summer's most satisfying bug fix ([#7742](https://github.com/CircuitVerse/CircuitVerse/pull/7742)): org admins could not open groups inside their own organization. Chasing that one down was a good lesson in how routing scope and policy scope have to agree with each other.
 
-The invite modal uses a **Select2** tag input: type emails, and space, comma, or Enter turns each one into a removable tag, with a role dropdown alongside. Two things bit me here. Select2 inside a Bootstrap modal needs `dropdownParent` pointed at the modal or the input becomes unclickable, and this codebase imports Stimulus as `'stimulus'` (not `'@hotwired/stimulus'`), which cost me an hour of a controller silently never connecting.
+### Switcher and polish
 
-The invitation email itself had a real bug waiting: `PendingInvitationMailer` was written for groups only, so an organization invitation crashed it on a nil group. I made the mailer and its template organization-aware. Org invitees now get a proper "you've been added to *Organization Name*, sign up to access it" email, and group emails are untouched.
-
-{{< video src="/videos/naman_gsoc_2026/invite-flow.mp4" type="video/mp4" preload="auto" >}}
-
----
-
-## 6. Organization-Scoped Groups & Assignments 🗂️
-
----
-**Deliverable:** Groups and assignments that belong to an organization now live under it, in structure and in URL. An institution's mentor navigates organization → group → assignment along one clean path.
-
----
-
-An organization isn't much use if its classrooms float free. I nested group URLs under their parent organization ([#7756](https://github.com/CircuitVerse/CircuitVerse/pull/7756)) and then scoped assignments under those organization group URLs ([#7768](https://github.com/CircuitVerse/CircuitVerse/pull/7768)). The hierarchy shapes authorization naturally too, since access flows down from the org.
-
-This area also produced the summer's most satisfying bug fix ([#7742](https://github.com/CircuitVerse/CircuitVerse/pull/7742)): org admins couldn't open groups inside their own organization. Chasing that one down was a good lesson in how routing scope and policy scope have to agree with each other.
-
-{{< video src="/videos/naman_gsoc_2026/scoped-groups.mp4" type="video/mp4" preload="auto" >}}
-
----
-
-## 7. Switcher & Polish 🔀
-
----
-**Deliverable:** Belong to more than one organization? A switcher in the dashboard header hops between them. Around it, a round of UI refinements makes the whole feature feel finished rather than bolted on.
-
----
-
-The **organization switcher** ([#7786](https://github.com/CircuitVerse/CircuitVerse/pull/7786)) sits in the dashboard header and lists the organizations you belong to; it stays out of the way when you only have one. The final stretch was a refinement pass ([#7785](https://github.com/CircuitVerse/CircuitVerse/pull/7785)): cleaner form and index styling, better empty states, and consistent i18n across every new string.
-
-{{< video src="/videos/naman_gsoc_2026/switcher.mp4" type="video/mp4" preload="auto" >}}
+The **organization switcher** ([#7786](https://github.com/CircuitVerse/CircuitVerse/pull/7786)) sits in the dashboard header. The final stretch was a refinement pass ([#7785](https://github.com/CircuitVerse/CircuitVerse/pull/7785)): cleaner form and index styling, better empty states, and consistent i18n across every new string.
 
 ---
 
@@ -215,7 +182,7 @@ The **organization switcher** ([#7786](https://github.com/CircuitVerse/CircuitVe
 | [#7744](https://github.com/CircuitVerse/CircuitVerse/pull/7744) | Organizations index page with navbar access | Merged |
 | [#7739](https://github.com/CircuitVerse/CircuitVerse/pull/7739) | Organization creation page | Merged |
 | [#7742](https://github.com/CircuitVerse/CircuitVerse/pull/7742) | Fix: org admins could not open their own org groups | Merged |
-| [#7786](https://github.com/CircuitVerse/CircuitVerse/pull/7786) | Organization switcher | Merged |
+| [#7786](https://github.com/CircuitVerse/CircuitVerse/pull/7786) | Organization switcher | In review |
 
 ---
 
@@ -257,7 +224,7 @@ Coming into this summer I could write Rails. Coming out of it, I understand it.
 ## Experience 🙏
 
 - **Mentors:** [Vedant Jain](https://github.com/vedant-jain03), [Yashika Jotwani](https://github.com/yashikajotwani12), [Pratham More](https://github.com/PRATHAM2002-DS)
-- **Org Admin:** [Vedant Jain](https://github.com/vedant-jain03), [Aboobacker MK](https://github.com/tachyons)
+- **Org Admin:** [Vedant Jain](https://github.com/vedant-jain03), [Aboobacker MK](https://github.com/tachyons), [Aman Asrani](https://github.com/Asrani-Aman)
 - **Contributor:** [Naman Chhabra](https://github.com/naman79820)
 
 Working on CircuitVerse this summer was the most rewarding stretch of building I've done. Organizations touched almost every layer of the app, from migrations to Pundit policies to Stimulus controllers, and getting to carry a feature that size from a Figma mockup all the way to production taught me more than any course could have.
