@@ -11,7 +11,7 @@ type: post
 
 **Hey everyone 👋**
 
-Welcome to my final blog for **Google Summer of Code 2026** with **CircuitVerse**. For anyone new to it: CircuitVerse is a digital circuit simulation platform where circuits can be designed and simulated through a graphical interface. You can build anything from a single logic gate up to a complete CPU, though the software is aimed primarily at educational use.
+Welcome to my final blog for **Google Summer of Code 2026** with **[CircuitVerse](https://circuitverse.org/)**. For anyone new to it: CircuitVerse is a digital circuit simulation platform where circuits can be designed and simulated through a graphical interface. You can build anything from a single logic gate up to a complete CPU, though the software is aimed primarily at educational use.
 
 This summer I worked on **Project 6: Enterprise & Institutional Organization Features**, and this post walks through what it is, who it helps, and what is still to come.
 
@@ -38,6 +38,8 @@ Groups sit on their own with no shared home. You can add a colleague as a mentor
 ---
 
 ## What has been built
+
+Everything below is merged and shipping behind the `:organizations` feature flag. That means the code is on production but switched off, so it can be enabled gradually rather than turned on for everyone at once. If you do not see Organizations in your account yet, that is why.
 
 ### An organization with a proper home
 
@@ -87,16 +89,12 @@ If you belong to more than one institution, a switcher in the dashboard header m
 
 ---
 
-## What is still to come
+## Found a bug or have an idea?
  
-Organizations lays a foundation, and there is plenty that can be built on top of it:
+Organizations is new, and the best way to shape where it goes is to tell us how it works for you. If you run into a bug while using it, or you have an idea for something that would make Organizations more useful, open an issue on the [CircuitVerse repository](https://github.com/CircuitVerse/CircuitVerse/issues).
  
-- **Institutional single sign-on.** Letting institutions connect their own identity provider so members sign in with their existing college or university accounts, rather than maintaining separate CircuitVerse credentials.
-- **Custom branding.** Letting an institution give its organization page its own look, and potentially its own subdomain.
-- **Continued polish.** Richer organization pages and smaller improvements as institutions start using it and tell us what they need.
-
-If you run into a bug while using Organizations, or you have an idea for something that would genuinely make it more useful, open an issue on the [CircuitVerse repository](https://github.com/CircuitVerse/CircuitVerse/issues). Feedback from people actually using it is what shapes what gets built next.
-
+Real feedback from people like you using it is what decides what gets built next.
+ 
 ---
 
 ## For the developers: how it was built
