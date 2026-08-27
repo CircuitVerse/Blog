@@ -7,7 +7,7 @@ tags: ["GSoC 2026", "CircuitVerse", "Vue", "Simulator", "Verilog", "WebAssembly"
 type: post
 ---
 
-![GSoC x CircuitVerse](/images/Priyank_Verma/gsoc_x_circuitverse.png)
+![GSoC x CircuitVerse](/images/Priyank_Verma/gsoc_x_circuitverse.webp)
 
 > **TL;DR:** Over the first six weeks of GSoC 2026, we brought **client-side Verilog synthesis** to CircuitVerse, users can now write Verilog and have it compiled into a working circuit entirely in the browser, no server needed. The pipeline runs **YoWASP Yosys** (WebAssembly) inside a **Web Worker**, with a **VFS guard** for output validation, a **human-readable error parser**, a **timeout guard** to catch runaway compilations, and **worker lifecycle management** to keep memory in check.
 
@@ -98,7 +98,7 @@ Second, I went through multiple rounds of mentor review on the error handling PR
 
 The synthesis pipeline follows a clean separation between the main thread and the worker:
 
-![Workflow](/images/Priyank_Verma/workflow.png)
+![Workflow](/images/Priyank_Verma/workflow.webp)
 
 **If synthesis fails**, the worker captures stderr lines (via console overrides and printErr callbacks), runs them through `errorParser.js`, and sends back a human-readable error message instead.
 

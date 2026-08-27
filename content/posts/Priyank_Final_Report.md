@@ -7,7 +7,7 @@ tags: ["GSoC 2026", "CircuitVerse", "Vue", "Simulator", "Verilog", "WebAssembly"
 type: post
 ---
 
-![GSoC x CircuitVerse](/images/Priyank_Verma/gsoc_x_circuitverse.png)
+![GSoC x CircuitVerse](/images/Priyank_Verma/gsoc_x_circuitverse.webp)
 
 > **TL;DR:** Over twelve weeks of GSoC 2026, we brought **client-side Verilog synthesis** to CircuitVerse's **Tauri desktop app**. Users can now write Verilog and have it compiled into a working circuit entirely on their machine, without a network round-trip. The pipeline runs **YoWASP Yosys** (WebAssembly) inside a **Web Worker**, with a **VFS guard** for output validation, a **human-readable error parser**, a **timeout guard**, and **worker lifecycle management**. In the second half, we migrated the Verilog terminal to **reactive Pinia stores**, wrote **parity tests** that run real WASM synthesis against reference fixtures, and authored **comprehensive contributor documentation** covering the full architecture.
 
@@ -54,7 +54,7 @@ In short:
 - **Week 4** built `errorParser.js` to transform raw Yosys error output into student-friendly messages like `Syntax error on line 7: unexpected 'endmodule', expected identifier`.
 - **Week 5** tackled worker lifecycle management to prevent unbounded WASM memory growth, and went through multiple rounds of mentor review on the error handling PR.
 
-{{< youtube YfINmQvsOXM >}}
+{{< youtube OpvKLyF-3Ss >}}
 
 ---
 
@@ -135,7 +135,7 @@ Please scroll down to get a proper documented summary of this project.
 
 The synthesis pipeline follows a clean separation between the main thread and the worker:
 
-![Workflow](/images/Priyank_Verma/workflow.png)
+![Workflow](/images/Priyank_Verma/workflow.webp)
 
 **Happy path:**
 
