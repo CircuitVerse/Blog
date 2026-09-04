@@ -1,0 +1,107 @@
+diff --git a/lib/ui/views/ib/builders/ib_chapter_contents_builder.dart b/lib/ui/views/ib/builders/ib_chapter_contents_builder.dart
+index 34bac16..34dd680 100644
+--- a/lib/ui/views/ib/builders/ib_chapter_contents_builder.dart
++++ b/lib/ui/views/ib/builders/ib_chapter_contents_builder.dart
+@@ -3,6 +3,18 @@ import 'package:flutter_markdown/flutter_markdown.dart';
+ import 'package:markdown/markdown.dart' as md;
+ 
+ class IbChapterContentsBuilder extends MarkdownElementBuilder {
++  // Registers the tag as a block element, without which flutter_markdown
++  // treats it as inline and crashes on the null root block tag.
++  @override
++  bool isBlockElement() => true;
++
++  // The element's own text is metadata (an id), not content to render.
++  // Returning a widget rather than null keeps flutter_markdown from
++  // leaving an empty inline behind, which trips its end-of-build assert.
++  @override
++  Widget visitText(md.Text text, TextStyle? preferredStyle) =>
++      const SizedBox.shrink();
++
+   IbChapterContentsBuilder({this.chapterContents});
+ 
+   final Widget? chapterContents;
+diff --git a/lib/ui/views/ib/builders/ib_interaction_builder.dart b/lib/ui/views/ib/builders/ib_interaction_builder.dart
+index 5749240..19aff28 100644
+--- a/lib/ui/views/ib/builders/ib_interaction_builder.dart
++++ b/lib/ui/views/ib/builders/ib_interaction_builder.dart
+@@ -8,6 +8,18 @@ import 'package:mobile_app/viewmodels/ib/ib_page_viewmodel.dart';
+ import 'package:webview_flutter/webview_flutter.dart';
+ 
+ class IbInteractionBuilder extends MarkdownElementBuilder {
++  // Registers the tag as a block element, without which flutter_markdown
++  // treats it as inline and crashes on the null root block tag.
++  @override
++  bool isBlockElement() => true;
++
++  // The element's own text is metadata (an id), not content to render.
++  // Returning a widget rather than null keeps flutter_markdown from
++  // leaving an empty inline behind, which trips its end-of-build assert.
++  @override
++  Widget visitText(md.Text text, TextStyle? preferredStyle) =>
++      const SizedBox.shrink();
++
+   IbInteractionBuilder({required this.model});
+ 
+   final IbPageViewModel model;
+diff --git a/lib/ui/views/ib/builders/ib_pop_quiz_builder.dart b/lib/ui/views/ib/builders/ib_pop_quiz_builder.dart
+index 059f1ea..ac01f5f 100644
+--- a/lib/ui/views/ib/builders/ib_pop_quiz_builder.dart
++++ b/lib/ui/views/ib/builders/ib_pop_quiz_builder.dart
+@@ -5,6 +5,18 @@ import 'package:mobile_app/ui/views/ib/components/ib_pop_quiz.dart';
+ import 'package:mobile_app/viewmodels/ib/ib_page_viewmodel.dart';
+ 
+ class IbPopQuizBuilder extends MarkdownElementBuilder {
++  // Registers the tag as a block element, without which flutter_markdown
++  // treats it as inline and crashes on the null root block tag.
++  @override
++  bool isBlockElement() => true;
++
++  // The element's own text is metadata (an id), not content to render.
++  // Returning a widget rather than null keeps flutter_markdown from
++  // leaving an empty inline behind, which trips its end-of-build assert.
++  @override
++  Widget visitText(md.Text text, TextStyle? preferredStyle) =>
++      const SizedBox.shrink();
++
+   IbPopQuizBuilder({required this.context, required this.model});
+ 
+   final BuildContext context;
+diff --git a/lib/ui/views/ib/builders/ib_webview_builder.dart b/lib/ui/views/ib/builders/ib_webview_builder.dart
+index bd83ba2..5c7d8bd 100644
+--- a/lib/ui/views/ib/builders/ib_webview_builder.dart
++++ b/lib/ui/views/ib/builders/ib_webview_builder.dart
+@@ -5,6 +5,18 @@ import 'package:webview_flutter/webview_flutter.dart';
+ import 'package:markdown/markdown.dart' as md;
+ 
+ class IbWebViewBuilder extends MarkdownElementBuilder {
++  // Registers the tag as a block element, without which flutter_markdown
++  // treats it as inline and crashes on the null root block tag.
++  @override
++  bool isBlockElement() => true;
++
++  // The element's own text is metadata (an id), not content to render.
++  // Returning a widget rather than null keeps flutter_markdown from
++  // leaving an empty inline behind, which trips its end-of-build assert.
++  @override
++  Widget visitText(md.Text text, TextStyle? preferredStyle) =>
++      const SizedBox.shrink();
++
+   IbWebViewBuilder();
+ 
+   @override
+diff --git a/lib/ui/views/ib/syntaxes/ib_md_tag_syntax.dart b/lib/ui/views/ib/syntaxes/ib_md_tag_syntax.dart
+index d32346b..658327a 100644
+--- a/lib/ui/views/ib/syntaxes/ib_md_tag_syntax.dart
++++ b/lib/ui/views/ib/syntaxes/ib_md_tag_syntax.dart
+@@ -30,7 +30,9 @@ class IbMdTagSyntax extends md.BlockSyntax {
+ 
+       // Eat all quiz content
+       do {
+-        quizContent += '\n${parser.current}';
++        // `current` is a Line, not a String — interpolating it directly
++        // yields "Instance of 'Line'" and the quiz parses as empty.
++        quizContent += '\n${parser.current.content}';
+         parser.advance();
+       } while (parser.next != null || !parser.isDone);
+ 
