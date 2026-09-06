@@ -225,8 +225,8 @@ For the demo, I used a small hierarchical **2-bit ripple-carry adder with three 
 | [#1194](https://github.com/CircuitVerse/cv-frontend-vue/pull/1194) | Original Editor's Picks round-trip PR from my fork | Superseded by #1221 |
 | [#1221](https://github.com/CircuitVerse/cv-frontend-vue/pull/1221) | Complete real-world round trips and 12 Editor's Picks tests | **Merged** |
 | [#1222](https://github.com/CircuitVerse/cv-frontend-vue/pull/1222) | ELK.js Auto Layout for layout-less canonical projects | **Merged** |
-| [#1236](https://github.com/CircuitVerse/cv-frontend-vue/pull/1236) | Canonical v1 JSON Schema | **In Review** |
-| [#1242](https://github.com/CircuitVerse/cv-frontend-vue/pull/1242) | Ajv + cross-reference runtime validation | **In Review** |
+| [#1236](https://github.com/CircuitVerse/cv-frontend-vue/pull/1236) | Canonical v1 JSON Schema | **Merged** |
+| [#1242](https://github.com/CircuitVerse/cv-frontend-vue/pull/1242) | Ajv + cross-reference runtime validation | **Merged** |
 
 ---
 
