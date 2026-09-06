@@ -64,7 +64,7 @@ Then came the interview. I was extremely nervous going into it and had prepared 
 
 When the results were announced, I had been selected for **Project 5: Flutter App**, with **Yashvant Singh** and **Hardik Sachdeva** as my mentors. Yashvant had been in exactly my position a year earlier, as the GSoC 2025 contributor on the [Flutter Upgrade project](https://blog.circuitverse.org/posts/yashvant-gsoc-2025-final-report/), so he knew both the codebase and the contributor experience extremely well. Hardik brought a wider understanding of the CircuitVerse platform and community. Between them, our regular discussions became the backbone of my GSoC journey.
 
-![A weekly sync with my mentor Yashvant Singh](/images/santam/mentor-sync.jpg)
+![A weekly sync with my mentors, Yashvant Singh and Hardik Sachdeva](/images/santam/mentor.jpeg)
 
 Community bonding began with introductions, a conversation about expectations, and planning the roadmap. Then came the glamorous first task of every ambitious software project: **fix the build**. I spent the beginning of the coding period upgrading dependencies and getting the project onto a stable, modern Flutter toolchain. It was not the flashiest way to start GSoC, but everything I built afterwards depended on it.
 
