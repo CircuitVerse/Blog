@@ -370,6 +370,14 @@ The build output isn't committed, and `pubspec.yaml` bundles it directly. I veri
 
 The home screen was carrying buttons that led nowhere useful and missing the things a newcomer actually wants. Removed the Teachers and Contributors buttons and Explore Circuits; added a Tutorials and Contests row, a **Growing Community** section with live statistics (circuits, users, universities, countries), and reworked the features section with a testbench card.
 
+### A fuller redesign, still in review
+
+The shipped changes were deliberately incremental, but the home screen is not the only screen that has aged. Alongside the code I put together a complete UI redesign in Figma, covering the navbars, home, explore, contests, about, profile and settings screens. The goal was to keep CircuitVerse's existing colour theme and design language so that the new screens would read as a natural extension of the app rather than a different product.
+
+![The Figma redesign of the CircuitVerse mobile app](/images/santam/figma-redesign.png)
+
+A change of this size needs sign-off before it turns into code, and that review is still in progress, so the redesign has not landed. It is queued as future work, and it is the starting point for the UI item further down this post. I wrote about how these designs came together, and why getting design approval up front saves rework later, in [Week 3 of my weekly logs](https://medium.com/@santamdev404/gsoc-week-3-from-planning-to-designing-the-solution-66a5328c3bbe).
+
 ---
 
 ## Part 6: CI/CD, and Stopping the Bleeding
@@ -467,7 +475,7 @@ The proposal and community-bonding months were spent learning the codebase by co
 Being straightforward about the state of things, since that's more useful than a victory lap:
 
 1. **Finish the Play Store deployment path.** Wire Fastlane into CI so a release is one reproducible pipeline rather than a sequence of manual steps, and confirm the `versionCode` scheme against the Play Console before the next upload, because Play permanently rejects a code lower than one already published. At `1.2.3` the new scheme yields `1002003`.
-2. **Improve the UI.** #641 reworked the home screen and the Interactive Book was designed from scratch, but the older screens (projects, groups, assignments, notifications) still carry the app's original look. Bringing them up to the same standard is the most visible improvement left.
+2. **Improve the UI.** #641 reworked the home screen and the Interactive Book was designed from scratch, but the older screens (projects, groups, assignments, notifications) still carry the app's original look. Bringing them up to the same standard is the most visible improvement left, and the Figma redesign above is ready to build from once it clears review.
 3. **Localise the drawer's Interactive Book label**: it's currently a hardcoded string rather than an `AppLocalizations` key.
 4. **Begin the feature-first migration**, one feature at a time, starting from the pattern the Interactive Book already establishes.
 
