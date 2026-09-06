@@ -249,7 +249,7 @@ Now that Canonical v1 is in place, there are a few areas that can be improved or
 - **Public, versioned Canonical schema**: Host the Canonical v1 JSON Schema at a stable URL so external tools can validate CircuitVerse projects without depending on the source repository.
 - **RFC 8785 canonicalisation**: Enforce the RFC 8785 JSON Canonicalization Scheme so the same circuit always produces byte-for-byte identical Canonical JSON.
 - **Legacy migration tool**: Build a migration tool that converts existing legacy JSON projects into the new Canonical JSON format.
-- **Canonical to Verilog Convertor**: A tool to convert Canonical JSON to Verilog Code.
+- **Canonical to Verilog Converter**: A tool to convert Canonical JSON to Verilog Code.
 - **Circuit diff tooling**: Use deterministic component or net IDs and structural hashes to show meaningful logical differences between two versions of a circuit.
 - **Incremental canonicalisation and hash caching**: Reuse hashes for unchanged circuits to avoid unnecessary recomputation and improve performance.
 
