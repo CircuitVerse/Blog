@@ -106,7 +106,7 @@ The import flow also keeps a backup of the current project so a failed import do
 
 ## Real-World Round-Trip Verification
 
-The final pipeline is also tested against all **12 CircuitVerse Editor's Picks projects** using local fixtures.
+The final pipeline is also tested against all [**12 CircuitVerse Editor's Picks projects**](https://circuitverse.org/explore?section=picks#picks) using local fixtures.
 
 ### Verification Flow
 
@@ -222,7 +222,6 @@ For the demo, I used a small hierarchical **2-bit ripple-carry adder with three 
 | [#1131](https://github.com/CircuitVerse/cv-frontend-vue/pull/1131) | Canonical import pipeline and round-trip verification | **Merged** |
 | [#1132](https://github.com/CircuitVerse/cv-frontend-vue/pull/1132) | Export/import UI integration and rollback flow | **Merged** |
 | [#1173](https://github.com/CircuitVerse/cv-frontend-vue/pull/1173) | Strict canonical types and pipeline refactor | **Merged** |
-| [#1194](https://github.com/CircuitVerse/cv-frontend-vue/pull/1194) | Original Editor's Picks round-trip PR from my fork | Superseded by #1221 |
 | [#1221](https://github.com/CircuitVerse/cv-frontend-vue/pull/1221) | Complete real-world round trips and 12 Editor's Picks tests | **Merged** |
 | [#1222](https://github.com/CircuitVerse/cv-frontend-vue/pull/1222) | ELK.js Auto Layout for layout-less canonical projects | **Merged** |
 | [#1236](https://github.com/CircuitVerse/cv-frontend-vue/pull/1236) | Canonical v1 JSON Schema | **Merged** |
