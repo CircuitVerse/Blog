@@ -2,7 +2,7 @@
 title: "GSoC 2026 Mid-Term Report: CircuitVerse Mobile"
 date: 2026-07-06T01:30:32+05:30
 draft: false
-author: "Santam"
+author: "Santam Roy Choudhury"
 image: "/images/santam/Mid Term Thumbnail.png"
 tags: ["GSoC 2026", "CircuitVerse", "Flutter", "Mobile App"]
 type: post
