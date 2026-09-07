@@ -7,6 +7,8 @@ tags: ["GSoC 2026", "CircuitVerse", "VueSim", "Authentication", "OAuth", "Tauri"
 type: post
 ---
 
+![gsoc26_phase_2](/images/supreeth_gsoc26/gsoc26.png)
+
 **Hey everyone,**
 
 Welcome to the final report for **"Vue Simulator Integration"**, our project for **Google Summer of Code 2026** with **CircuitVerse**. I'm [Supreeth C](https://www.linkedin.com/in/supreeth-c-shinichi/), online as [ShinichiShi](https://github.com/ShinichiShi).
@@ -17,15 +19,13 @@ Welcome to the final report for **"Vue Simulator Integration"**, our project fo
 
 ## About the Vue Simulator
 
-CircuitVerse's legacy simulator has served the platform for years, powering everything from single logic gates to full CPUs, mostly for educational use. **VueSim** is a ground-up rewrite of that simulator in Vue 3 with TypeScript, replacing years of jQuery-driven DOM manipulation with a modern, maintainable frontend. It's the same simulation model users already trust, rebuilt on infrastructure that's actually sustainable to develop on going forward. Our job this summer wasn't to add flashy new features to it, it was to make sure there are no bugs anywhere in the browser, and in the native Tauri desktop app.
+CircuitVerse's legacy simulator has served the platform for years, powering everything from single logic gates to full CPUs, mostly for educational use. **VueSim** is a ground-up rewrite of that simulator in Vue 3 with TypeScript, replacing years of jQuery-driven DOM manipulation with a modern, maintainable frontend. It's the same simulation model users already trust, rebuilt on infrastructure that's actually sustainable to develop on going forward. Our job this summer was to make sure there are no bugs anywhere in the browser, and in the native Tauri desktop app.
 
 ## Fixes & Enhancements Made
 
 Here's what changes for end users as VueSim moves toward replacing the legacy simulator:
 
 - **One consistent login everywhere.** Login on the main site and inside VueSim now goes through the same Rails Devise flow, so Google and GitHub sign-in work identically and reliably in both places, no more custom modals breaking OAuth's redirect requirements.
-- **A platform-wide OAuth 2.0 / OpenID Connect foundation.** CircuitVerse will run its own OAuth/OIDC provider via Doorkeeper, complete with a consent screen and scope-aware authorization. This isn't scoped to VueSim, it's the foundation the web app, desktop app, and mobile app will be build on.
-- **A native desktop app you can actually sign into.** The Tauri-based desktop client now has a real, secure Authorization Code + PKCE login flow, so you're not limited to the browser to run CircuitVerse circuits.
 - **Verified against real, large-scale circuits.** VueSim has been tested against genuinely massive community circuits: a 32,000-component self-modifying CPU, a 16-bit computer that runs games, multi-floor elevator controllers, and more, not just toy examples.
 - **A steady stream of parity and bug fixes**, many surfaced by the community itself: circuit preview rendering, `.cv` file saving, profile pictures in the menu bar, locale dropdown consistency, dead routes cleaned up, missing translations restored, custom shortcut keys that now actually persist, and an expired third-party API key that was silently breaking image uploads.
 
@@ -45,14 +45,16 @@ Phase 1 kicked off with a community **Mergathon**, clearing out stale PRs and i
 
 **Week 12 - Still chasing it.** We ruled out several strong leads on the STRING32000 keyboard bug one by one, and fixed a real (if secondary) issue along the way where the simulator was needlessly resetting its entire internal state every clock tick. The core bug is still open as the coding period wraps up. In parallel, we verified VueSim against several other large, unrelated circuits (an elevator controller, a 16-bit computer, a CPU microprocessor, static RAM), all of which passed cleanly, which helps narrow down where the remaining issue actually lives.
 
+**Week 13-14** Finally the delay issue was figured out. The root cause for this was in the `load.js` file, the `data.propagationDelay` is the delay value the circuit's author saved for that element and this line : `obj.propagationDelay = data.propagationDelay || obj.propagationDelay` makes 0 as false in JS. Therefore an element deliberately saved with propagationDelay: 0 was silently promoted to the class default (10) on every load. Legacy sim's loader file already guarded against this by adding the condition but this fix was not migrated to vuesim too. This was identified and PR has been raised for it. 
+
 ## Future Work
 
-GSoC's coding period is wrapping up, but VueSim isn't fully done, and we're not stopping here:
+Additional work which needs to be covered post GSoC period:
 
-- **Close out the STRING32000 investigation** until VueSim handles it exactly like the legacy simulator does.
-- **Continue hardening VueSim** against any remaining edge cases surfaced post-release.
-- **A dedicated embedded build of VueSim**, kept lightweight for seamless integration into external pages and applications.
 - **Complete the flow for Tauri Desktop App authentication**: Once the OIDC framework up, we will use the doorkeeper gem and have PKCE based authentication system for the desktop application
+- **A dedicated embedded build of VueSim**, kept lightweight for seamless integration into external pages and applications.
+- **Further bug-fixes in vuesim**: Most of the critical bugs were fixed during this GSoC period, if there are any bugs then they need to be fixed.
+
 
 ## Pull Requests
 
@@ -83,12 +85,13 @@ GSoC's coding period is wrapping up, but VueSim isn't fully done, and we're not 
 | [#1164](https://github.com/CircuitVerse/cv-frontend-vue/pull/1164) | Fix: bug in user custom shortcuts                                  |
 | [#1181](https://github.com/CircuitVerse/cv-frontend-vue/pull/1181) | Tauri desktop app authentication using Doorkeeper                  |
 | [#1188](https://github.com/CircuitVerse/cv-frontend-vue/pull/1188) | Add a dropdown to the tabs bar for open circuits                   |
+| [#1260](https://github.com/CircuitVerse/cv-frontend-vue/pull/1260) | Add conditional check for propagationDelay when its set for 0      |
 
-Phase 2 shipped as a larger stack of PRs across the CircuitVerse Rails backend (Doorkeeper/OIDC, Tauri OAuth, the PKCE fix), the [cv-frontend-vue](https://github.com/CircuitVerse/cv-frontend-vue) simulator repo (community bug fixes, the STRING32000 investigation), and the Tauri desktop client. **For the full, up-to-date list, see [all our merged PRs across CircuitVerse repos](https://github.com/search?q=org%3ACircuitVerse+author%3AShinichiShi+is%3Apr&type=pullrequests).**
 
 ## Video
 
 This video shows the fixes made during Phase 1 of this project: {{< youtube _3TTF6MOmTY >}}
+This video shows the fixes made during Phase 2 of this project: {{< youtube BvY7DSJTs1E >}}
 
 ## Blogs
 
@@ -107,7 +110,7 @@ This video shows the fixes made during Phase 1 of this project: {{< youtube _3TT
 | Week 11           | [Link](https://medium.com/@supreeth2020/gsoc-coding-period-week-11-the-keys-that-went-nowhere-6b9e634b51e9)                      |
 | Week 12           | [Link](https://medium.com/@supreeth2020/week-12-of-gsoc-coding-period-the-case-of-the-keyboard-that-wouldnt-listen-d7bfaf57d04f) |
 
-**Daily sync sheet:** [View](https://docs.google.com/spreadsheets/d/15isoTt4GjDJS4VUWBRDfAzqDGEtjNWUvaENrn5GZFDg/edit?gid=0#gid=0)
+
 
 ## Acknowledgements
 
