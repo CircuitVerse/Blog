@@ -109,7 +109,7 @@ This video shows the fixes made during Phase 2 of this project: {{< youtube BvY7
 | Week 10           | [Link](https://medium.com/@supreeth2020/week-10-of-gsoc-coding-period-the-doorkeeper-that-wasnt-locking-43e62f6c247b)            |
 | Week 11           | [Link](https://medium.com/@supreeth2020/gsoc-coding-period-week-11-the-keys-that-went-nowhere-6b9e634b51e9)                      |
 | Week 12           | [Link](https://medium.com/@supreeth2020/week-12-of-gsoc-coding-period-the-case-of-the-keyboard-that-wouldnt-listen-d7bfaf57d04f) |
-
+| Week 13-14          | [Link](https://medium.com/@supreeth2020/week-13-14-of-gsoc-coding-period-when-zero-means-something-2883b62d6e37) |
 
 
 ## Acknowledgements
