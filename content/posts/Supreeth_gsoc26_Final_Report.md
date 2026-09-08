@@ -47,14 +47,13 @@ Phase 1 kicked off with a community **Mergathon**, clearing out stale PRs and i
 
 **Week 13-14** Finally the delay issue was figured out. The root cause for this was in the `load.js` file, the `data.propagationDelay` is the delay value the circuit's author saved for that element and this line : `obj.propagationDelay = data.propagationDelay || obj.propagationDelay` makes 0 as false in JavaScript. Therefore an element deliberately saved with propagationDelay: 0 was silently promoted to the class default (10) on every load. Legacy sim's loader file already guarded against this by adding the condition but this fix was not migrated to Vue simulator too. This was identified and PR has been raised for it. 
 
-## Future Work
+## Future Enhancements
 
-Additional work which needs to be covered post GSoC period:
+Now that the Vue simulator is in production, there can be further enhancements which can be made: 
 
-- **Finish and merge the Tauri Desktop App authentication flow**: The Doorkeeper-based OAuth/OIDC provider work and the PKCE fix are done, and the desktop authentication PR is open but not yet merged. What remains post-GSoC is getting that PR reviewed and merged, then completing and hardening the end-to-end Authorization Code + PKCE login flow inside the Tauri desktop app.
+- **Finish and merge the Tauri Desktop App authentication flow**: The Doorkeeper-based OAuth/OIDC provider work and the PKCE foundation is present, and the desktop authentication PR is open but not yet merged. What remains post-GSoC is getting that PR reviewed and merged, then completing and hardening the end-to-end Authorization Code + PKCE login flow inside the Tauri desktop app.
+- **Further bug-fixes in Vue simulator(if any)**: Most of the critical bugs were fixed during this GSoC period, if there are any fixes made in legacy simulator but not reflected in the vue simulator then it needs to be addressed.
 - **A dedicated embedded build of Vue simulator**, kept lightweight for seamless integration into external pages and applications.
-- **Further bug-fixes in Vue simulator**: Most of the critical bugs were fixed during this GSoC period, if there are any bugs then they need to be fixed.
-
 
 ## Pull Requests
 
