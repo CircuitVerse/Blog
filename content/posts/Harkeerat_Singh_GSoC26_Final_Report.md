@@ -120,7 +120,7 @@ The pipeline is connected to the V1 simulator UI. Canonical projects can be:
 - downloaded as `.cv` files
 - imported back into CircuitVerse
 
-In [`ExportProject.vue`](https://github.com/CircuitVerse/cv-frontend-vue/blob/main/v1/src/components/DialogBox/ExportProject.vue), `generateExport()` calls `canonicaliseProject()` and formats the result as JSON. `onCopy()` copies that text, and `onDownload()` saves it with a `.cv` extension.
+In [`ExportProject.vue`](https://github.com/CircuitVerse/cv-frontend-vue/blob/main/v1/src/components/DialogBox/ExportProject.vue), `generateExport()` calls `canonicaliseProject()` and formats the result as JSON. `onCopy()` attempts to copy that text, and `onDownload()` saves it with a `.cv` extension.
 
 In [`ImportProject.vue`](https://github.com/CircuitVerse/cv-frontend-vue/blob/main/v1/src/components/DialogBox/ImportProject.vue), `importDataFromFile()` starts file selection or reading, and `receivedText()` parses the JSON and calls `importCanonical()`. Before importing, it takes a Canonical snapshot of the current project. If the importer returns a failure, the UI attempts to restore that snapshot and reports any restoration failure. This recovery belongs to the UI wrapper; schema and dependency checks inside [`importCanonical()`](https://github.com/CircuitVerse/cv-frontend-vue/blob/main/v1/src/simulator/src/data/importCanonical.ts) happen before the existing scopes are reset.
 
@@ -183,7 +183,7 @@ When layout is missing, the Auto Layout adapter follows a small pipeline of its 
 3. **Handle branching connections.** `buildElkEdges()` represents fan-out with a temporary zero-size junction, giving ELK simple edges to route around one shared branching point.
 4. **Calculate placement and routes.** `generateElkLayout()` calls `getElk().layout(graph)`. The worker runs a layered layout from left to right with orthogonal routing, meaning horizontal and vertical wire segments.
 5. **Translate the result back.** `buildIntermediateNodes()` converts bend and junction points into CircuitVerse routing. `getOrAddNode()` and `addConnection()` avoid duplicates, while `snap()` aligns generated coordinates with the simulator grid.
-6. **Continue reconstruction.** The adapter returns a `CanonicalLayout`; `applyComponentLayout()` and `restoreIntermediateNodes()` consume it through the normal import flow.
+6. **The ELK adapter in `autoLayout.ts` builds the graph, runs ELK, and converts the result to a `CanonicalLayout`. `importCanonical.ts` constructs components, applies the layout, and restores intermediate nodes through the normal import flow.**
 
 These layout helpers are implemented in [`autoLayout.ts`](https://github.com/CircuitVerse/cv-frontend-vue/blob/main/v1/src/simulator/src/data/autoLayout.ts).
 
