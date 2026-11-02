@@ -16,11 +16,36 @@ Hello everyone, I'm [Harkeerat Singh](https://www.linkedin.com/in/harkeerat-sing
 
 ## Project Overview
 
-The project started with a simple problem: **two logically identical circuits could produce different saved data depending on the order in which they were built or stored.**
+In CircuitVerse, a user places components such as inputs, logic gates and outputs on a canvas, connects them with wires, and runs the circuit. Saving a project must capture enough information to open it again.
+
+The project started with a simple problem, **circuits with the same components and connections could produce different saved data depending on the order in which they were built or stored.**
 
 That makes saved circuit data difficult to compare, hash, validate, migrate, or safely use as a stable format for future tools.
 
 The goal was to introduce a structured canonical representation where the circuit's logical structure has a deterministic identity, while still preserving the information needed to reconstruct the complete CircuitVerse project.
+
+### A Few Terms Used in This Report
+
+| Term | Meaning in CircuitVerse |
+|------|------------------------|
+| **Project** | The complete saved work, which can contain several circuit tabs. |
+| **Scope** | The simulator's internal object for one circuit tab, including its components, wires and settings. |
+| **SubCircuit** | A component that uses another circuit in the project as a reusable building block. |
+| **Port** | A connection point on a component, such as a gate's input or output. |
+| **Net** | A net groups ports that are electrically connected. |
+| **Netlist** | A netlist records the components and those connections. |
+| **Layout and routing** | Where components are placed and how wires travel between them, including bends and branching points. |
+| **Canonical representation / hash** | A representation arranged by defined rules, and a SHA-256 fingerprint calculated from selected structural data for comparison. |
+
+Here, **“same structure”** means the same components, relevant properties and connections with the same input/output interface order.
+
+### Legacy Data, Simulator Versions and Canonical v1
+
+**Legacy data** in this report means the existing JSON save structure used by CircuitVerse's earlier save/load path. It stores a project's circuits in a `scopes` array, with component data and node connections tied to the simulator's internal objects. The existing `generateSaveData()` and `saveScope()` functions write that representation; `load()` and `loadScope()` rebuild it.
+
+The frontend repository also has separate simulator implementations. This work is integrated into the **V1 simulator**, whose code lives under `v1/`. That simulator version is separate from **Canonical v1**, which names the first version of the new data format and is identified by `formatVersion: "v1"` inside the JSON.
+
+A **`.cv` file** is a CircuitVerse project file. In this export flow, it contains Canonical JSON as text.
 
 ### Final Canonical v1 Scope
 
@@ -39,7 +64,7 @@ Canonical v1 now forms an end-to-end pipeline around:
 
 ## Deterministic Canonical Export
 
-The export pipeline turns a live CircuitVerse project into a stable Canonical v1 representation step by step:
+The export pipeline turns the simulator's in-memory objects into Canonical data. Its main entry points are `canonicaliseProject()` for a whole project and `canonicaliseScope()` for one circuit.
 
 ### Export Flow
 
@@ -50,6 +75,7 @@ The export pipeline turns a live CircuitVerse project into a stable Canonical v1
    - `discoverNets()` uses **Union-Find** to group electrically connected nodes into nets.
    - `buildComponentDrafts()` reads component ports, properties and default state.
    - `buildStructuralComponentData()` prepares the structure used for hashing and sorting.
+   - `wlFingerprint()` performs **1-WL structural refinement**: it repeatedly describes each component using its own properties and its connected neighbours.
    - `canonicalSort()` uses **1-WL structural fingerprints** to sort non-interface components while preserving the Input/Output interface order.
    - `assignComponentIds()` assigns stable component IDs.
    - `attachComponentPorts()` and `buildCanonicalNets()` attach component ports and assign stable net IDs.
@@ -94,7 +120,9 @@ The pipeline is connected to the V1 simulator UI. Canonical projects can be:
 - downloaded as `.cv` files
 - imported back into CircuitVerse
 
-The import flow also keeps a backup of the current project so a failed import does not destroy the user's existing canvas.
+In [`ExportProject.vue`](https://github.com/CircuitVerse/cv-frontend-vue/blob/main/v1/src/components/DialogBox/ExportProject.vue), `generateExport()` calls `canonicaliseProject()` and formats the result as JSON. `onCopy()` attempts to copy that text, and `onDownload()` saves it with a `.cv` extension.
+
+In [`ImportProject.vue`](https://github.com/CircuitVerse/cv-frontend-vue/blob/main/v1/src/components/DialogBox/ImportProject.vue), `importDataFromFile()` starts file selection or reading, and `receivedText()` parses the JSON and calls `importCanonical()`. Before importing, it takes a Canonical snapshot of the current project. If the importer returns a failure, the UI attempts to restore that snapshot and reports any restoration failure. This recovery belongs to the UI wrapper; schema and dependency checks inside [`importCanonical()`](https://github.com/CircuitVerse/cv-frontend-vue/blob/main/v1/src/simulator/src/data/importCanonical.ts) happen before the existing scopes are reset.
 
 ![Canonical export/import UI](/images/Harkeerat_Singh/week7_export_import_ui.png)
 
@@ -106,7 +134,9 @@ The import flow also keeps a backup of the current project so a failed import do
 
 ## Real-World Round-Trip Verification
 
-The final pipeline is also tested against all [**12 CircuitVerse Editor's Picks projects**](https://circuitverse.org/explore?section=picks#picks) using local fixtures.
+CircuitVerse's [**Editor's Picks**](https://circuitverse.org/explore?section=picks#picks) is a curated collection of community projects. I used **12 saved projects from that collection**, including CPUs, a memory circuit and a tic-tac-toe simulator, to exercise the pipeline with more complex wiring and nested circuits than small hand-built examples.
+
+The project files are checked into the repository as **fixtures**, meaning fixed test inputs. This keeps the tests repeatable without relying on a live website request or later changes to the featured projects.
 
 ### Verification Flow
 
@@ -118,12 +148,12 @@ For every fixture, the same complete path is tested:
 
 The real-project fixtures verify that Canonical v1 preserves:
 
-- dangling and standalone wires
-- fan-out and multi-port net topology
-- intermediate routing nodes and component port positions
-- project-level **name, clock settings, focused circuit and tab order**
-- annotations and canvas state
-- subcircuit display metadata
+- **Dangling and standalone wires:** wires with an unconnected end, including wires not attached to any component.
+- **Fan-out:** a single signal branching to several component ports.
+- **Routing details:** intermediate nodes that record wire bends, junctions and component port positions.
+- **Project state:** the project name, clock settings, focused circuit and tab order.
+- **Editor metadata:** annotations and canvas state.
+- **Subcircuit metadata:** display-related information for subcircuit components.
 
 The saved representation preserves the complete project data while keeping the structural hash focused on canonical identity. Routing is represented through unified connections that can point to either a component port or an intermediate routing node.
 
@@ -148,12 +178,14 @@ The layout rule is:
 
 When layout is missing, the Auto Layout adapter follows a small pipeline of its own:
 
-1. **Build the real component instances** so the adapter can read their actual dimensions, directions and port positions.
-2. **Build an ELK graph** from the components and nets. Input components are constrained toward the first layer, Outputs toward the last, and the real port positions are kept fixed.
-3. **Represent fan-out nets with a temporary zero-size junction** so ELK can route one source to multiple targets without changing the Canonical v1 format.
-4. **Run ELK's layered layout in a worker** using left-to-right placement and orthogonal edge routing.
-5. **Convert the ELK result back to CircuitVerse routing**, turn bend/junction points into intermediate nodes, remove duplicates and snap the generated coordinates to the simulator grid.
-6. The generated layout is then passed back into the **normal import flow**, just like a saved layout would be.
+1. **Read real component geometry.** `importSingleScope()` first calls `buildComponents()`, then passes the instances to `generateElkLayout()`. This gives the adapter actual component dimensions and port positions.
+2. **Build the graph.** `buildElkGraph()` uses `buildElkNodes()` and `buildElkEdges()` to translate components and nets. Inputs are placed toward the first layer and Outputs toward the last, with ports fixed relative to their component.
+3. **Handle branching connections.** `buildElkEdges()` represents fan-out with a temporary zero-size junction, giving ELK simple edges to route around one shared branching point.
+4. **Calculate placement and routes.** `generateElkLayout()` calls `getElk().layout(graph)`. The worker runs a layered layout from left to right with orthogonal routing, meaning horizontal and vertical wire segments.
+5. **Translate the result back.** `buildIntermediateNodes()` converts bend and junction points into CircuitVerse routing. `getOrAddNode()` and `addConnection()` avoid duplicates, while `snap()` aligns generated coordinates with the simulator grid.
+6. **The ELK adapter in `autoLayout.ts` builds the graph, runs ELK, and converts the result to a `CanonicalLayout`. `importCanonical.ts` constructs components, applies the layout, and restores intermediate nodes through the normal import flow.**
+
+These layout helpers are implemented in [`autoLayout.ts`](https://github.com/CircuitVerse/cv-frontend-vue/blob/main/v1/src/simulator/src/data/autoLayout.ts).
 
 ![ELK.js Auto Layout layout-resolution flow](/images/Harkeerat_Singh/final_elk_architecture.svg)
 
@@ -189,8 +221,8 @@ The schema follows **JSON Schema Draft 2020-12** and uses reusable `$ref` defini
 
 ### Cross-Reference Validation
 
-1. **Ajv schema validation** checks the structure and safely narrows incoming `unknown` data to `CanonicalProject`.
-2. **Cross-reference validation** checks the relationships inside the project: circuits, subcircuits, components, nets, layouts, routing nodes and routing endpoints must all point to valid data.
+1. **`validateSchema()`**, compiled by Ajv, checks the structure. `formatSchemaError()` turns failures into readable errors with paths to the relevant fields.
+2. **`validateProjectReferences()`** checks the relationships inside the project: circuits, subcircuits, components, nets, layouts, routing nodes and routing endpoints must all point to valid data.
 
 Validation happens **before `importCanonical()` modifies project state**, and errors include useful JSON paths so invalid data is easier to locate.
 
@@ -200,7 +232,7 @@ Validation happens **before `importCanonical()` modifies project state**, and er
 
 ## LLM-Generated Circuit Demo
 
-One useful result of Canonical v1 is that a circuit can be described through its **components and nets without depending on canvas coordinates**. Components describe what exists in the circuit, while nets describe which ports are electrically connected.
+One useful result of Canonical v1 is that a circuit can be described through its **components and nets without depending on canvas coordinates**. This makes it a useful target for a **large language model (LLM)** generating circuit descriptions.
 
 The same representation gives LLMs a much cleaner target. Instead of asking a model to generate both circuit logic and exact canvas coordinates, it can generate the **Canonical v1 components, nets and SubCircuit relationships** and leave `layout` out. CircuitVerse can validate that JSON, rebuild the logical circuits in dependency order, and let ELK.js place and route them automatically.
 
