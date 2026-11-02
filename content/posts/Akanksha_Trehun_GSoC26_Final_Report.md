@@ -3,7 +3,7 @@ title: "CircuitVerse Assignment Enhancement Suite | GSoC 2026 | Final Report"
 date: 2026-10-29T21:47:42+05:30
 draft: false
 author: "Akanksha Trehun"
-image: "/images/akanksha-gsoc26/01-the-subgroups-section-before-any-team-exists.jpg"
+image: "/images/akanksha-gsoc26/03-the-subgroups-section-on-a-group-page.jpg"
 tags: ["GSoC 2026", "CircuitVerse", "LTI 1.3", "Autograding", "Final Report"]
 type: post
 ---
@@ -30,7 +30,6 @@ Watched beginner Rails tutorials and read through the CircuitVerse developer doc
 
 Started small—fixing broken documentation, updating outdated specs, and tackling minor issue scopes.
 
-
 Balancing proposal writing at 5:45 AM before morning lectures wasn't easy, but seeing everything come together made every early alarm worth it.
 
 ## The Project
@@ -52,7 +51,6 @@ The main goal was to solve key operational bottlenecks for educators using Circu
 My early contributions started with foundational bug fixes—like scoping AssignmentsController queries to policy scopes and refining invitation rules—which helped me understand CircuitVerse's internal data model inside out.
 
 By March, I drafted a comprehensive proposal complete with an end-to-end proof-of-concept branch demonstrating how LTI 1.3, subgroups, and autograding tied together. After clearing two technical interview rounds including one scheduled right before my compiler design lab exam. I was thrilled to join the 2026 cohort
-
 
 This post is about what that means for you, whether you teach, study or run a CircuitVerse install, and what you should expect to see and when.
 
@@ -93,46 +91,11 @@ What this means for you: your students click the assignment in the course and la
 
 We identify people by the LMS's stable `sub` identifier, scoped to the platform, and never by email. An email in a launch is whatever the LMS has on file, and users can often edit it themselves, so matching on it would let someone sign in as somebody else.
 
-```ruby
-User.find_or_create_by!(provider: "lti", uid: "#{deployment.id}:#{payload['sub']}")
-```
-
-The token validator is built to refuse the known tricks:
-
-```ruby
-Lti::JwtValidator.validate!(token, deployment:, nonce:)
-encoded_token.verify_signature!(algorithm: "RS256", key: key)
-```
-
 ### Grades reach the gradebook, and never disagree with CircuitVerse
 
 This one is **live today** for LTI 1.1. Before, CircuitVerse pushed the score to LMS first and saved it second. If the local save failed, the LMS showed a grade that CircuitVerse had never recorded. Now the grade is saved first ([#7647](https://github.com/CircuitVerse/CircuitVerse/pull/7647)). The review also found that a forged request could wipe a teacher's grading session before it was rejected, so stale context is now cleared only after a launch is verified.
 
-*`app/controllers/grades_controller.rb`:*
-
-```ruby
-unless @grade.save
-  render json: { error: "Grade is invalid" }, status: :bad_request
-  return
-end
-return unless Flipper.enabled?(:lms_integration, current_user) && session[:is_lti]
-
-submit_grade_to_lms(project, assignment, grade)
-```
-
 For 1.3, the score push ([#8029](https://github.com/CircuitVerse/CircuitVerse/pull/8029)) sends autograded scores through the LMS's line item. It logs a failure instead of hiding it, and it uses a separate identity per LMS platform, so a student who uses two LMSs never has a score sent to the wrong one.
-
-*`Autograder::AgsPush`:*
-
-```ruby
-sub = link && project.author&.lti_sub_for(link.lti_deployment)
-
-Lti::Score.publish(link.lineitem_url, token, user_id: sub, score_given: given, score_maximum: 100)
-true
-rescue Lti::AccessToken::Error, Lti::Score::Error => e
-  Rails.logger.error("Autograder::AgsPush failed for project #{project.id}: #{e.message}")
-  false
-```
 
 ### Pick CircuitVerse content from your course page
 
@@ -142,18 +105,6 @@ Deep linking ([#7772](https://github.com/CircuitVerse/CircuitVerse/pull/7772), [
 
 Today a roster enters CircuitVerse once, at launch. A student who drops the course stays in the group. The new **Sync Roster** button ([#8043](https://github.com/CircuitVerse/CircuitVerse/pull/8043)) fetches the current roster, adds who joined, removes who left and records when it last worked. Only people who came from the LMS are removed. A student you added directly stays. I chose a button over an automatic sync so a flaky LMS shows up as a visible last synced time, not a silent failure.
 
-*`GroupsController#sync_roster`:*
-
-```ruby
-token = Lti::AccessToken.fetch(link.lti_deployment, [Lti::Membership::SCOPE], signing_key: Lti::KeyManager.private_key)
-members = Lti::Membership.fetch(link.context_memberships_url, token)
-ActiveRecord::Base.transaction do
-  Lti::RosterImport.call(@group, members, link.lti_deployment)
-  Lti::RosterDrop.call(@group, members, link.lti_deployment)
-  @group.update!(last_synced_at: Time.current)
-end
-```
-
 ### Write tests and let CircuitVerse grade submissions
 
 You write a test suite in an editor on the assignment page ([#7907](https://github.com/CircuitVerse/CircuitVerse/pull/7907)). Each test case is a named set of input values and expected outputs, and you can mark it **hidden**. When a student submits, a background job runs the circuit and stores a result ([#7942](https://github.com/CircuitVerse/CircuitVerse/pull/7942)). Three settings give you control ([#7926](https://github.com/CircuitVerse/CircuitVerse/pull/7926)):
@@ -162,53 +113,7 @@ You write a test suite in an editor on the assignment page ([#7907](https://gith
 - **Maximum attempts:** how many graded runs a student gets
 - **Reveal test cases before submission:** whether students see the cases up front
 
-*`AutogradeJob`:*
-
-```ruby
-def perform(project_id)
-  project = Project.find_by(id: project_id)
-  assignment = project&.assignment
-  testbench = assignment&.testbench
-  return unless testbench
-
-  max = assignment.max_attempts
-  return if max && GradingResult.where(project: project).count >= max
-
-  begin
-    result = Autograder::Runner.call(project: project, testbench: testbench)
-    breakdown = result.groups
-    score = (result.score * 100).round(2)
-  rescue Autograder::Runner::RunnerError
-    breakdown = []
-    score = nil
-  end
-
-  GradingResult.create!(project: project, suite_snapshot: testbench.data,
-                        breakdown: breakdown, score: score)
-end
-```
-
 The score is turned into the scale your assignment uses (percent or letter), and an LMS-linked assignment is always a percentage, because that is what the gradebook expects ([#7944](https://github.com/CircuitVerse/CircuitVerse/pull/7944)).
-
-*`GradeScaleMapper`:*
-
-```ruby
-LETTER_THRESHOLDS = [[90, "A"], [80, "B"], [70, "C"], [60, "D"], [50, "E"]].freeze
-
-def self.call(assignment, fraction)
-  return unless mappable?(assignment)
-
-  percent = (fraction * 100).round.clamp(0, 100)
-  case scale_for(assignment)
-  when "letter" then LETTER_THRESHOLDS.find { |min, _| percent >= min }&.last || "F"
-  else percent.to_s
-  end
-end
-
-def self.scale_for(assignment)
-  assignment.lti_integrated? ? "percent" : assignment.grading_scale
-end
-```
 
 Every result stores a copy of the suite it ran against. If you edit your tests later, grades already given still show the tests they were earned against, so you never see a grade next to a test it was not run on.
 
@@ -218,37 +123,9 @@ Instructors asked for teams, so a group page gets a **Subgroups** section ([#805
 
 A subgroup is just a group with a parent, so everything that already works on groups (assignments, grades, mentors) works on a team. Creating a team does not send the "new group" email, so sorting a class into ten teams does not send ten emails. Teams do not show up in "my groups" next to your real classes.
 
-*`Group`:*
-
-```ruby
-scope :top_level, -> { where(parent_group_id: nil) }
-validates :name, uniqueness: { scope: :parent_group_id, case_sensitive: false }, if: :subgroup?
-```
-
-*Sharing the team project reuses `Collaboration`:*
-
-```ruby
-belongs_to :team_project, class_name: "Project", optional: true
-validate :team_project_author_must_be_member, if: :team_project_id?
-
-def share_team_project
-  group_members.where.not(user_id: team_project.author_id).pluck(:user_id).each do |user_id|
-    Collaboration.find_or_create_by!(project_id: team_project_id, user_id: user_id)
-  end
-end
-```
-
-![The subgroups section before any team exists](/images/akanksha-gsoc26/01-the-subgroups-section-before-any-team-exists.jpg)
-
 ![Creating a subgroup from the group page](/images/akanksha-gsoc26/02-creating-a-subgroup-from-the-group-page.jpg)
 
 ![The subgroups section on a group page](/images/akanksha-gsoc26/03-the-subgroups-section-on-a-group-page.jpg)
-
-![Managing a subgroup's members](/images/akanksha-gsoc26/04-managing-a-subgroup-s-members.jpg)
-
-![Confirming the deletion of a subgroup](/images/akanksha-gsoc26/05-confirming-the-deletion-of-a-subgroup.jpg)
-
-![A subgroup page with a breadcrumb back to the parent group](/images/akanksha-gsoc26/06-a-subgroup-page-with-a-breadcrumb-back-to-the-pare.jpg)
 
 ### Give every student the same starting circuit
 
@@ -262,40 +139,15 @@ Templates are circuits you can save, share and use as the base of an assignment 
 
 ![A circuit saved as a template](/images/akanksha-gsoc26/07-a-circuit-saved-as-a-template.jpg)
 
-![Saving an assignment project as a template is refused](/images/akanksha-gsoc26/08-saving-an-assignment-project-as-a-template-is-refu.jpg)
-
 ![The template gallery](/images/akanksha-gsoc26/09-the-template-gallery.jpg)
-
-![The gallery filtered by a tag](/images/akanksha-gsoc26/10-the-gallery-filtered-by-a-tag.jpg)
 
 ![The template options on the assignment form](/images/akanksha-gsoc26/11-the-template-options-on-the-assignment-form.jpg)
 
-![Choosing a base template when creating an assignment](/images/akanksha-gsoc26/12-choosing-a-base-template-when-creating-an-assignme.jpg)
-
 ![The fork button on a template page](/images/akanksha-gsoc26/13-the-fork-button-on-a-template-page.jpg)
-
-![The forked copy as a normal project](/images/akanksha-gsoc26/14-the-forked-copy-as-a-normal-project.jpg)
-
-![Usage counts in the gallery](/images/akanksha-gsoc26/15-usage-counts-in-the-gallery.jpg)
-
-![Usage count on the template page](/images/akanksha-gsoc26/16-usage-count-on-the-template-page.jpg)
 
 A template can also carry its own test suite, and an assignment that uses it gets a copy of the tests, unless you have already written your own ([#8092](https://github.com/CircuitVerse/CircuitVerse/pull/8092)).
 
-Visibility is enforced in one place, so what the gallery lists, what the picker offers and what the server accepts are always the same list. A template you cannot see returns a 404 if you guess its URL:
-
-```ruby
-scope :templates_for, lambda { |user|
-  return where(is_template: true).template_public if user.nil?
-
-  groups = Group.where(id: GroupMember.where(user_id: user.id).select(:group_id))
-                .or(Group.where(primary_mentor_id: user.id)).select(:id)
-  peers = GroupMember.where(group_id: groups).select(:user_id)
-  mentors = Group.where(id: groups).select(:primary_mentor_id)
-  shared = template_group.where(author_id: peers).or(template_group.where(author_id: mentors))
-  where(is_template: true).and(template_public.or(by(user.id)).or(shared))
-}
-```
+Visibility is enforced in one place, so what the gallery lists, what the picker offers and what the server accepts are always the same list. A template you cannot see returns a 404 if you guess its URL.
 
 * * *
 
@@ -307,33 +159,9 @@ scope :templates_for, lambda { |user|
 - **Only people who should see your result can.** The page uses the same access rule as the project itself, which for an assignment means you, your instructor and your collaborators.
 - **Teams share one circuit.** If your group is split into teams, everyone in your team collaborates on the team project.
 
-This is how the results page decides what to print. It reads only the saved copy of the suite, so rows always line up with their verdicts:
+The results page decides what to print by reading only the saved copy of the suite, so rows always line up with their verdicts.
 
-```ruby
-def visible_test_groups(result, reveal_hidden)
-  snapshot = result.suite_snapshot["groups"] || []
-  result.breakdown.each_with_index.flat_map do |group, i|
-    hidden = snapshot.dig(i, "hidden") && !reveal_hidden
-    Array(group["cases"]).each_with_index.map do |c, j|
-      { "label"   => case_label(group["label"], j),
-        "passed"  => c["passed"], "hidden" => hidden,
-        "inputs"  => hidden ? nil : pin_values(snapshot.dig(i, "inputs"), j),
-        "outputs" => hidden ? nil : pin_values(snapshot.dig(i, "outputs"), j) }
-    end
-  end
-end
-```
-
-And this is the check that runs when a template is copied into your project:
-
-```ruby
-def template_circuit_data
-  return unless circuit_template
-  return if circuit_template.project_access_type == "Private" && !template_author_mentors_group?
-
-  circuit_template.project_datum&.data
-end
-```
+The same access check runs again when a template is copied into your project.
 
 * * *
 
@@ -343,17 +171,6 @@ end
 - **LTI 1.1 keeps working.** The 1.3 code is built on `ruby-jwt` next to it, and the `ims-lti` dependency stays for the old path.
 - **You register CircuitVerse the standard way.** There is a platform registration model (`LtiDeployment`), a JWKS endpoint and a tool configuration document, all merged. The configuration includes Canvas placements, so instructors can find the tool.
 - **Autograding needs a simulator service.** The app calls a separate service to run a circuit, because the simulator lives in the browser and Rails cannot run it. You set `SIMULATOR_RUNNER_URL` and `SIMULATOR_RUNNER_TOKEN`. There are no defaults on purpose: a missing URL fails loudly instead of sending student circuits to localhost. **That service is not in this repository yet**, so autograding will not work until it exists.
-
-```bash
-SIMULATOR_RUNNER_URL=
-SIMULATOR_RUNNER_TOKEN=
-```
-
-```ruby
-HTTP.timeout(**TIMEOUTS)
-    .auth("Bearer #{ENV.fetch('SIMULATOR_RUNNER_TOKEN')}")
-    .post(endpoint, json: { circuit: circuit, testbench: testbench.data })
-```
 
 * * *
 
