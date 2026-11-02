@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto block shadow mb-5">
+        <h2>{{ .Title | markdownify }}</h2>
+        <div class="mb-3 post-meta">
+          <a href="{{ `author/` | relLangURL }}{{ .Params.Author | urlize | lower }}/">{{ .Params.Author | title }}</a>,
+          {{ .PublishDate.Format "Jan 2, 2006" }}, {{ range .Params.Categories }}
+          <a href="{{ `categories/` | relLangURL }}{{ . | urlize | lower }}/">{{ . | title }}</a>
+          {{ end }}
+        </div>
+        {{ if .Params.Image }}
+        <img src="{{ .Params.Image | relURL }}" class="img-fluid w-100 mb-4" alt="{{ .Title | markdownify }}">
+        {{ end }}
+        <div class="content mb-5">
+          {{ .Content }}
+        </div>
+        <div class="mb-3 post-meta">
+          {{range .Params.Tags }} <a href="{{ `tags/` | relLangURL}}{{ . | urlize | lower }}/">#{{ . | title }}</a>,  {{ end }}
+        </div>
+      </div>
+      <div class="col-lg-8 mx-auto block shadow">
+        {{ $related := .Site.RegularPages.Related . | first 5 }}
+        {{ with $related }}
+        <h3>See Also</h3>
+        <ul>
+          {{ range . }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </div>
+      {{ if site.Config.Services.Disqus.Shortname}}
+      <div class="col-lg-8 mx-auto block shadow">
+        <!-- comments -->
+        {{ template "_internal/disqus.html" . }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}
